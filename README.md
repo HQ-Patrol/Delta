@@ -12,8 +12,6 @@ This is the **updated codebase**. Any code that was created is considered *depre
 
 This recode is not finished! Many bugs are to be expected.
 
-Trello link is [here!](https://trello.com/invite/b/wb2Kvgn7/6413ee269f715195989687752044437e/recode)
-
 ### Development
 
 [pnpm](https://pnpm.io) is advised to be used for this project.<br />
