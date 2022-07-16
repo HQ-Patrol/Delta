@@ -1,15 +1,15 @@
 const allFiles = require("../utilities/allFiles");
 
 const events = (client) => new Promise((resolve) => {
-  allFiles("./components/events")
+  allFiles("./src/components/events")
     .filter((file) => file.endsWith(".js"))
     .forEach((file, i, a) => {
       try {
-        file = file.replace(/\\/g, "/");
-        const event = require(`./${file}`);
+        file = file.replace(/\\/g, "/").replace("src/", "");
+        const event = require(`../${file}`);
         client.events.set(event.name, event);
-        client.on(event.event, (...args) => event.handle(client, ...args));
-        delete require.cache[require.resolve(`./${file}`)];
+        client.on(event.name, (...args) => event.handle(client, ...args));
+        delete require.cache[require.resolve(`../${file}`)];
         if (i === a.length - 1) resolve(true);
         client.statistics.events += 1;
       } catch (e) {
@@ -19,19 +19,19 @@ const events = (client) => new Promise((resolve) => {
 });
 
 const commands = (client) => new Promise((resolve) => {
-  allFiles("./components/commands")
+  allFiles("./src/components/commands")
     .filter((file) => file.endsWith(".js"))
     .forEach((file, i, a) => {
       try {
-        file = file.replace(/\\/g, "/");
+        file = file.replace(/\\/g, "/").replace("src/", "");
         if (file.split("/")[2].startsWith("@")) return;
-        const command = require(`./${file}`);
+        const command = require(`../${file}`);
         if (!command?.name) return;
         client.commands.set(
           command.name.toLowerCase(),
           command,
         );
-        delete require.cache[require.resolve(`./${file}`)];
+        delete require.cache[require.resolve(`../${file}`)];
         if (i === a.length - 1) resolve(true);
         client.statistics.commands += 1;
       } catch (e) {
@@ -40,4 +40,7 @@ const commands = (client) => new Promise((resolve) => {
     });
 });
 
-module.exports = (client) => Promise.allSettled([events(client), commands(client)]);
+module.exports = async (client) => {
+  events(client);
+  commands(client);
+};

@@ -47,6 +47,10 @@ sharder.extend(
 // Bind sharder events
 sharder.on("clusterCreate", (cluster) => {
   log("SHARDER", `I have launched shard ID ${cluster.id}.`, "magentaBright");
+
+  cluster.on("message", (message) => {
+    if (message?.ready) log(`SHARDER (${message.instance.id})`, "This cluster is ready.", "green");
+  });
 });
 
 // Spawn
