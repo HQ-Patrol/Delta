@@ -24,6 +24,7 @@
 		"dotenv": "^16.0.1",
 		"erlpack": "github:discord/erlpack",
 		"moment": "^2.29.4",
+		"mongoose": "^6.4.4",
 		"utf-8-validate": "^5.0.9"
 	}
 }

@@ -35,6 +35,11 @@ client.statistics = {
 // Run handlers
 require("./handers")(client);
 
+// Check if mongodb url is provided
+if(!process.env.MONGODB_URL || process.env.MONGODB_URL.length === 0) error("You have not provided a MongoDB Connection URL in your .env!");
+// Connect to mongodb
+require("./database")(client);
+
 // Log in
 if (!process.env.TOKEN || process.env.TOKEN.length === 0) error("You have not provided a token in your .env!");
 client.login(process.env.TOKEN);

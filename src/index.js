@@ -49,7 +49,8 @@ sharder.on("clusterCreate", (cluster) => {
   log("SHARDER", `I have launched shard ID ${cluster.id}.`, "magentaBright");
 
   cluster.on("message", (message) => {
-    if (message?.ready) log(`SHARDER (${message.instance.id})`, "This cluster is ready.", "green");
+    if (message?.ready) log(`SHARDER (${message.instance.id})`, "This shard is ready.", "green");
+    if (message?.database) log(`SHARDER (${message.instance.id})`, "This shard has connected to it's database.", "blue");
   });
 });
 
