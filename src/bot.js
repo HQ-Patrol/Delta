@@ -26,11 +26,15 @@ client.cluster = new Cluster.Client(client);
 client.commands = new Discord.Collection();
 client.events = new Discord.Collection();
 
+// Bot statistics
+client.statistics = {
+  events: 0,
+  commands: 0,
+};
+
 // Run handlers
 require("./handers")(client);
 
 // Log in
-if(!process.env.TOKEN || process.env.TOKEN.length === 0) return error("You have not provided a token in your .env!");
+if (!process.env.TOKEN || process.env.TOKEN.length === 0) error("You have not provided a token in your .env!");
 client.login(process.env.TOKEN);
-
-

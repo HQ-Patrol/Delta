@@ -10,23 +10,23 @@
 /* Startup */
 require("dotenv").config();
 
-const { log, info } = require("./utilities/logger");
 const Cluster = require("discord-hybrid-sharding");
 const chalk = require("chalk");
 const path = require("path");
+const { log, info } = require("./utilities/logger");
 
 const PACKAGE_INFO = require("../package.json");
 
-log("STARTUP", "Starting Patrol Bot Delta v" + chalk.bold(PACKAGE_INFO.version ?? "None"));
+log("STARTUP", `Starting Patrol Bot Delta v${chalk.bold(PACKAGE_INFO.version ?? "None")}`);
 
 const shardingOptions = {
-  totalShards: 5, 
+  totalShards: 5,
   shardsPerClusters: 2,
-  mode: "process", 
+  mode: "process",
 };
 
 // Read developer mode
-if(process.env?.DEV === "TRUE") {
+if (process.env?.DEV === "TRUE") {
   info("Launching Patrol Bot in developer mode.");
   shardingOptions.totalShards = 1;
   shardingOptions.shardsPerClusters = 1;
@@ -41,7 +41,7 @@ sharder.extend(
   new Cluster.HeartbeatManager({
     interval: 2000,
     maxMissedHeartbeats: 5,
-  })
+  }),
 );
 
 // Bind sharder events
@@ -51,7 +51,3 @@ sharder.on("clusterCreate", (cluster) => {
 
 // Spawn
 sharder.spawn({ timeout: -1 });
-
-
-
-
