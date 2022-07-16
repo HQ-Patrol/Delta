@@ -3,7 +3,10 @@
 	"version": "0.0.1",
 	"description": "Delta version of Patrol Bot",
 	"main": "index.js",
-	"scripts": {},
+	"scripts": {
+		"start": "node ./src/index.js",
+		"lint": "eslint ./src/**"
+	},
 	"keywords": [],
 	"author": "Leo",
 	"license": "MIT",
