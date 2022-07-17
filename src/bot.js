@@ -36,7 +36,7 @@ client.statistics = {
 require("./handers")(client);
 
 // Check if mongodb url is provided
-if(!process.env.MONGODB_URL || process.env.MONGODB_URL.length === 0) error("You have not provided a MongoDB Connection URL in your .env!");
+if (!process.env.MONGODB_URL || process.env.MONGODB_URL.length === 0) error("You have not provided a MongoDB Connection URL in your .env!");
 // Connect to mongodb
 require("./database")(client);
 
