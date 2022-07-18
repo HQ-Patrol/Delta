@@ -50,7 +50,7 @@ sharder.on("clusterCreate", (cluster) => {
 
   cluster.on("message", (message) => {
     if (message?.ready) log(`SHARDER (${message.instance.id})`, "This shard is ready.", "green");
-    if (message?.database) log(`SHARDER (${message.instance.id})`, "This shard has connected to it's database.", "blue");
+    if (message?.database) log(`SHARDER (${message.instance.id})`, "This shard has connected to its database.", "blue");
   });
 });
 
