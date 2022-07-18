@@ -1,0 +1,533 @@
+{
+    "pets": [
+        {
+            "name": "Sparky",
+            "sprite": "<a:SparkyGIF:927190439235289088>",
+            "UID": 1,
+            "id": 1,
+            "species": "DOG",
+            "rarity": "COMMON",
+            "shadowSprite": "<a:SparkyGIFShadow:928016038262628362>",
+            "fours": [
+                "<a:Sparky_4:936226586586402856>",
+                "<a:Sparky_3:936226586187931658>",
+                "<a:Sparky_2:936226586250862633>",
+                "<a:Sparky_1:936226586250866768>"
+            ],
+            "shadowFours": [
+                "<a:Sparky_s_4:936226586276020244>",
+                "<a:Sparky_s_3:936226586313777162>",
+                "<a:Sparky_s_2:936226586313773116>",
+                "<a:Sparky_s_1:936226586338938880>"
+            ],
+            "reversedFours": [
+                "<a:Sparky_r_4:936226586309574666>",
+                "<a:Sparky_r_3:936226586259230741>",
+                "<a:Sparky_r_2:936226586355728414>",
+                "<a:Sparky_r_1:936226586255061002>"
+            ],
+            "shadowReversedFours": [
+                "<a:Sparky_r_s_4:936226586372497408>",
+                "<a:Sparky_r_s_3:936226586284417064>",
+                "<a:Sparky_r_s_2:936226586271838208>",
+                "<a:Sparky_r_s_1:936226586578010122>"
+            ]
+        },
+        {
+            "name": "Blazehound",
+            "sprite": "<a:BlazehoundGIF:927190439793143828>",
+            "UID": 2,
+            "id": 2,
+            "species": "DOG",
+            "rarity": "COMMON",
+            "shadowSprite": "<a:BlazehoundGIFShadow:928016038547845200>",
+            "fours": [
+                "<a:Blazehound_4:937169397343215616>",
+                "<a:Blazehound_3:937169397355798538>",
+                "<a:Blazehound_2:937169397712322612>",
+                "<a:Blazehound_1:937169397741662240>"
+            ],
+            "shadowFours": [
+                "<a:Blazehound_s_4:936225526966779944>",
+                "<a:Blazehound_s_3:936225526916464683>",
+                "<a:Blazehound_s_2:936225527189078036>",
+                "<a:Blazehound_s_1:936225526778052620>"
+            ],
+            "reversedFours": [
+                "<a:Blazehound_r_4:937170792574226462>",
+                "<a:Blazehound_r_3:937170792293212212>",
+                "<a:Blazehound_r_2:937170792800739348>",
+                "<a:Blazehound_r_1:937170792469368872>"
+            ],
+            "shadowReversedFours": [
+                "<a:Blazehound_r_s_4:937171709071597568>",
+                "<a:Blazehound_r_s_3:937171709025452069>",
+                "<a:Blazehound_r_s_2:937171709038034964>",
+                "<a:Blazehound_r_s_1:937171708887052319>"
+            ]
+        },
+        {
+            "name": "Firestorm",
+            "sprite": "<a:FirestormGIF:927190438757142609>",
+            "UID": 3,
+            "id": 3,
+            "species": "DOG",
+            "rarity": "COMMON",
+            "shadowSprite": "<a:FirestormGIFShadow:928016039076306965>",
+            "fours": [
+                "<a:Firestorm_4:936225527906336790>",
+                "<a:Firestorm_3:936225528367706132>",
+                "<a:Firestorm_2:936225528443199488>",
+                "<a:Firestorm_1:936225528086679592>"
+            ],
+            "shadowFours": [
+                "<a:Firestorm_s_4:936226045282091079>",
+                "<a:Firestorm_s_3:936226045667971082>",
+                "<a:Firestorm_s_2:936226045705719818>",
+                "<a:Firestorm_s_1:936226045248557137>"
+            ],
+            "reversedFours": [
+                "<a:Firestorm_r_4:936225528334151720>",
+                "<a:Firestorm_r_3:936225528137003048>",
+                "<a:Firestorm_r_2:936225528191516692>",
+                "<a:Firestorm_r_1:936225528401248276>"
+            ],
+            "shadowReversedFours": [
+                "<a:Firestorm_r_s_4:936225526706733137>",
+                "<a:Firestorm_r_s_3:936225528321572964>",
+                "<a:Firestorm_r_s_2:936225528246075392>",
+                "<a:Firestorm_r_s_1:936225528283799572>"
+            ]
+        },
+        {
+            "name": "Quaggi",
+            "sprite": "<a:QuaggiGIF:927190477118263296>",
+            "UID": 4,
+            "id": 1,
+            "species": "DUCK",
+            "rarity": "UNCOMMON",
+            "shadowSprite": "<a:QuaggiGIFShadow:928015856502439937>",
+            "fours": [
+                "<a:Quaggi_4:936226424879218688>",
+                "<a:Quaggi_3:936226424862421043>",
+                "<a:Quaggi_2:936226424518504490>",
+                "<a:Quaggi_1:936226424858222622>"
+            ],
+            "shadowFours": [
+                "<a:Quaggi_s_4:936226586624151593>",
+                "<a:Quaggi_s_3:936226586506698762>",
+                "<a:Quaggi_s_2:936226586309591071>",
+                "<a:Quaggi_s_1:936226586401841182>"
+            ],
+            "reversedFours": [
+                "<a:Quaggi_r_4:936226424031944724>",
+                "<a:Quaggi_r_3:936226423688028201>",
+                "<a:Quaggi_r_2:936226423893528607>",
+                "<a:Quaggi_r_1:936226424564633631>"
+            ],
+            "shadowReversedFours": [
+                "<a:Quaggi_r_s_4:936226423969021982>",
+                "<a:Quaggi_r_s_3:936226423948050432>",
+                "<a:Quaggi_r_s_2:936226424010989639>",
+                "<a:Quaggi_r_s_1:936226423667064844>"
+            ]
+        },
+        {
+            "name": "Billiance",
+            "sprite": "<a:BillanceGIF:927190477210529852>",
+            "UID": 5,
+            "id": 2,
+            "species": "DUCK",
+            "rarity": "UNCOMMON",
+            "shadowSprite": "<a:BillanceGIFShadow:928015857018347600>",
+            "fours": [
+                "<a:Billance_4:936225090327154738>",
+                "<a:Billance_3:936225090297810954>",
+                "<a:Billance_2:936225090427813888>",
+                "<a:Billance_1:936225090331349023>"
+            ],
+            "shadowFours": [
+                "<a:Billance_s_4:936225089739960400>",
+                "<a:Billance_s_3:936225089517678622>",
+                "<a:Billance_s_2:936225089505083452>",
+                "<a:Billance_s_1:936225089505099807>"
+            ],
+            "reversedFours": [
+                "<a:Billance_r_4:936225089526038528>",
+                "<a:Billance_r_3:936225089517658142>",
+                "<a:Billance_r_2:936225090352336986>",
+                "<a:Billance_r_1:936225090029379615>"
+            ],
+            "shadowReversedFours": [
+                "<a:Billance_r_s_4:936225089563820052>",
+                "<a:Billance_r_s_3:936225089526059048>",
+                "<a:Billance_r_s_2:936225089463148544>",
+                "<a:Billance_r_s_1:936225089463128074>"
+            ]
+        },
+        {
+            "name": "Alexanduck",
+            "sprite": "<a:AlexanduckGIF:927190477936160818>",
+            "UID": 6,
+            "id": 3,
+            "species": "DUCK",
+            "rarity": "UNCOMMON",
+            "shadowSprite": "<a:AlexanduckGIFShadow:928015857534238800>",
+            "fours": [
+                "<a:Alexanduck_4:936225089320517653>",
+                "<a:Alexanduck_3:936225089626701854>",
+                "<a:Alexanduck_2:936225089832243200>",
+                "<a:Alexanduck_1:936225089614135306>"
+            ],
+            "shadowFours": [
+                "<a:Alexanduck_s_4:936225089597353995>",
+                "<a:Alexanduck_s_3:936225089916112916>",
+                "<a:Alexanduck_s_2:936225089807056957>",
+                "<a:Alexanduck_s_1:936225089865805845>"
+            ],
+            "reversedFours": [
+                "<a:Alexanduck_r_4:936225089953857566>",
+                "<a:Alexanduck_r_3:936225089991610398>",
+                "<a:Alexanduck_r_2:936225089735786547>",
+                "<a:Alexanduck_r_1:936225089324736594>"
+            ],
+            "shadowReversedFours": [
+                "<a:Alexanduck_r_s_4:936225090092269578>",
+                "<a:Alexanduck_r_s_3:936225089886781441>",
+                "<a:Alexanduck_r_s_2:936225089534431263>",
+                "<a:Alexanduck_r_s_1:936225089446363157>"
+            ]
+        },
+        {
+            "name": "Chimpmunk",
+            "sprite": "<a:ChimpmunkGIF:927190571859206195>",
+            "UID": 7,
+            "id": 1,
+            "species": "MONKEY",
+            "rarity": "RARE",
+            "shadowSprite": "<a:ChimpmunkGIFShadow:928015936726904842>",
+            "fours": [
+                "<a:Chimpmunk_4:936225527222640690>",
+                "<a:Chimpmunk_3:936225527335907339>",
+                "<a:Chimpmunk_2:936225526719332363>",
+                "<a:Chimpmunk_1:936225527155552298>"
+            ],
+            "shadowFours": [
+                "<a:Chimpmunk_s_4:936225527704993792>",
+                "<a:Chimpmunk_s_3:936225527696588850>",
+                "<a:Chimpmunk_s_2:936225527587561512>",
+                "<a:Chimpmunk_s_1:936225527348486175>"
+            ],
+            "reversedFours": [
+                "<a:Chimpmunk_r_4:936225527436562452>",
+                "<a:Chimpmunk_r_3:936225527474307172>",
+                "<a:Chimpmunk_r_2:936225527126163558>",
+                "<a:Chimpmunk_r_1:936225527382016040>"
+            ],
+            "shadowReversedFours": [
+                "<a:Chimpmunk_r_s_4:936225527503667260>",
+                "<a:Chimpmunk_r_s_3:936225527579152384>",
+                "<a:Chimpmunk_r_s_2:936225527646281778>",
+                "<a:Chimpmunk_r_s_1:936225527533011005>"
+            ]
+        },
+        {
+            "name": "Moncquiao",
+            "sprite": "<a:MoncquiaoGIF:927190571930513451>",
+            "UID": 8,
+            "id": 2,
+            "species": "MONKEY",
+            "rarity": "RARE",
+            "shadowSprite": "<a:MoncquiaoGIFShadow:928015937175715841>",
+            "fours": [
+                "<a:Moncquiao_4:936226424547860541>",
+                "<a:Moncquiao_3:936226424417812480>",
+                "<a:Moncquiao_2:936226424245866526>",
+                "<a:Moncquiao_1:936226424426229760>"
+            ],
+            "shadowFours": [
+                "<a:Moncquiao_s_4:936226424568815646>",
+                "<a:Moncquiao_s_3:936226424631734292>",
+                "<a:Moncquiao_s_2:936226424577228841>",
+                "<a:Moncquiao_s_1:936226424522694696>"
+            ],
+            "reversedFours": [
+                "<a:Moncquiao_r_4:936226424824688640>",
+                "<a:Moncquiao_r_3:936226424757579868>",
+                "<a:Moncquiao_r_2:936226424560427048>",
+                "<a:Moncquiao_r_1:936226424484945940>"
+            ],
+            "shadowReversedFours": [
+                "<a:Moncquiao_r_s_4:936226424656896090>",
+                "<a:Moncquiao_r_s_3:936226424602382376>",
+                "<a:Moncquiao_r_s_2:936226424522678293>",
+                "<a:Moncquiao_r_s_1:936226424522694666>"
+            ]
+        },
+        {
+            "name": "Gorryson",
+            "sprite": "<a:GorrysonGIF:927190572274446346>",
+            "UID": 9,
+            "id": 3,
+            "species": "MONKEY",
+            "rarity": "RARE",
+            "shadowSprite": "<a:GorrysonGIFShadow:928015937079230495>",
+            "fours": [
+                "<a:Gorryson_4:936226047475732531>",
+                "<a:Gorryson_3:936226047278579733>",
+                "<a:Gorryson_2:936226047270223945>",
+                "<a:Gorryson_1:936226047895142420>"
+            ],
+            "shadowFours": [
+                "<a:Gorryson_s_4:936226424073879552>",
+                "<a:Gorryson_s_3:936226423994220624>",
+                "<a:Gorryson_s_2:936226423658676256>",
+                "<a:Gorryson_s_1:936226423931293708>"
+            ],
+            "reversedFours": [
+                "<a:Gorryson_r_4:936226047752540190>",
+                "<a:Gorryson_r_3:936226047458963567>",
+                "<a:Gorryson_r_2:936226047718985738>",
+                "<a:Gorryson_r_1:936226047706427442>"
+            ],
+            "shadowReversedFours": [
+                "<a:Gorryson_r_s_4:936226045353414676>",
+                "<a:Gorryson_r_s_3:936226047001759764>",
+                "<a:Gorryson_r_s_2:936226047651901441>",
+                "<a:Gorryson_r_s_1:936226047823847474>"
+            ]
+        },
+        {
+            "name": "Furrloin",
+            "sprite": "<a:FurrloinGIF:927190546211020810>",
+            "UID": 10,
+            "id": 1,
+            "species": "LION",
+            "rarity": "EPIC",
+            "shadowSprite": "<a:FurrloinGIFShadow:928015911162621962>",
+            "fours": [
+                "<a:Furrloin_4:936226045705744434>",
+                "<a:Furrloin_3:936226045827375104>",
+                "<a:Furrloin_2:936226045756076052>",
+                "<a:Furrloin_1:936226045793808435>"
+            ],
+            "shadowFours": [
+                "<a:Furrloin_s_4:936226045974155285>",
+                "<a:Furrloin_s_3:936226045886095380>",
+                "<a:Furrloin_s_2:936226045592489985>",
+                "<a:Furrloin_s_1:936226045751857153>"
+            ],
+            "reversedFours": [
+                "<a:Furrloin_r_4:936226045877690378>",
+                "<a:Furrloin_r_3:936226045739282442>",
+                "<a:Furrloin_r_2:936226045756059648>",
+                "<a:Furrloin_r_1:936226045647028224>"
+            ],
+            "shadowReversedFours": [
+                "<a:Furrloin_r_s_4:936226045978361906>",
+                "<a:Furrloin_r_s_3:936226046095790111>",
+                "<a:Furrloin_r_s_2:936226045831557150>",
+                "<a:Furrloin_r_s_1:936226045974183966>"
+            ]
+        },
+        {
+            "name": "Pawloth",
+            "sprite": "<a:PawlothGIF:927190546097795132>",
+            "UID": 11,
+            "id": 2,
+            "species": "LION",
+            "rarity": "EPIC",
+            "shadowSprite": "<a:PawlothGIFShadow:928015911632384050>",
+            "fours": [
+                "<a:Pawloth_4:936226424589799435>",
+                "<a:Pawloth_3:936226424686264371>",
+                "<a:Pawloth_2:936226424338124811>",
+                "<a:Pawloth_1:936226424761778206>"
+            ],
+            "shadowFours": [
+                "<a:Pawloth_s_4:936226424870805585>",
+                "<a:Pawloth_s_3:936226424946319370>",
+                "<a:Pawloth_s_2:936226424426225715>",
+                "<a:Pawloth_s_1:936226424774352926>"
+            ],
+            "reversedFours": [
+                "<a:Pawloth_r_4:936226424803688508>",
+                "<a:Pawloth_r_3:936226424744968232>",
+                "<a:Pawloth_r_2:936226424493318195>",
+                "<a:Pawloth_r_1:936226424761774131>"
+            ],
+            "shadowReversedFours": [
+                "<a:Pawloth_r_s_4:936226424749174875>",
+                "<a:Pawloth_r_s_3:936226424753356810>",
+                "<a:Pawloth_r_s_2:936226424354926664>",
+                "<a:Pawloth_r_s_1:936226424820473886>"
+            ]
+        },
+        {
+            "name": "Roawrath",
+            "sprite": "<a:RoawrathGIF:927190546391392266>",
+            "UID": 12,
+            "id": 3,
+            "species": "LION",
+            "rarity": "EPIC",
+            "shadowSprite": "<a:RoawrathGIFShadow:928015911393316894>",
+            "fours": [
+                "<a:Roawrath_4:936226585844023327>",
+                "<a:Roawrath_3:936226586041139211>",
+                "<a:Roawrath_2:936226585722376264>",
+                "<a:Roawrath_1:936226586380881980>"
+            ],
+            "shadowFours": [
+                "<a:Roawrath_s_4:936226586011770881>",
+                "<a:Roawrath_s_3:936226586401853490>",
+                "<a:Roawrath_s_2:936226586129231872>",
+                "<a:Roawrath_s_1:936226585734938665>"
+            ],
+            "reversedFours": [
+                "<a:Roawrath_r_4:936226585651060767>",
+                "<a:Roawrath_r_3:936226586049536020>",
+                "<a:Roawrath_r_2:936226586187948062>",
+                "<a:Roawrath_r_1:936226586045333504>"
+            ],
+            "shadowReversedFours": [
+                "<a:Roawrath_r_s_4:936226585747542027>",
+                "<a:Roawrath_r_s_3:936226586074705920>",
+                "<a:Roawrath_r_s_2:936226586125029446>",
+                "<a:Roawrath_r_s_1:936226586036936714>"
+            ]
+        },
+        {
+            "name": "Doyle",
+            "sprite": "<a:DoyleGIF:927190517043855451>",
+            "UID": 13,
+            "id": 1,
+            "species": "GARGOYLE",
+            "rarity": "LEGENDARY",
+            "shadowSprite": "<a:DoyleGIFShadow:928015887871655936>",
+            "fours": [
+                "<a:Doyle_4:936225527734358016>",
+                "<a:Doyle_3:936225528380264458>",
+                "<a:Doyle_2:936225527843409991>",
+                "<a:Doyle_1:936225527637889064>"
+            ],
+            "shadowFours": [
+                "<a:Doyle_s_4:936225527856001036>",
+                "<a:Doyle_s_3:936225527675617312>",
+                "<a:Doyle_s_2:936225528191524864>",
+                "<a:Doyle_s_1:936225527948279828>"
+            ],
+            "reversedFours": [
+                "<a:Doyle_r_4:936225527801458698>",
+                "<a:Doyle_r_3:936225528325750815>",
+                "<a:Doyle_r_2:936225527914708992>",
+                "<a:Doyle_r_1:936225527742738482>"
+            ],
+            "shadowReversedFours": [
+                "<a:Doyle_r_s_4:936225527998591026>",
+                "<a:Doyle_r_s_3:936225528078303312>",
+                "<a:Doyle_r_s_2:936225527872774164>",
+                "<a:Doyle_r_s_1:936225527893729330>"
+            ]
+        },
+        {
+            "name": "Axeon",
+            "sprite": "<a:AxeonGIF:927190517010300958>",
+            "UID": 14,
+            "id": 2,
+            "species": "GARGOYLE",
+            "rarity": "LEGENDARY",
+            "fours": [
+                "<a:Axeon_4:936225090058715186>",
+                "<a:Axeon_3:936225090016796683>",
+                "<a:Axeon_2:936225089970667562>",
+                "<a:Axeon_1:936225089878392882>"
+            ],
+            "shadowFours": [
+                "<a:Axeon_s_4:936225090134229003>",
+                "<a:Axeon_s_3:936225090411036732>",
+                "<a:Axeon_s_2:936225090176184330>",
+                "<a:Axeon_s_1:936225090645950554>"
+            ],
+            "reversedFours": [
+                "<a:Axeon_r_4:936225091388334110>",
+                "<a:Axeon_r_3:936225089538650113>",
+                "<a:Axeon_r_2:936225090373292052>",
+                "<a:Axeon_r_1:936225089953861662>"
+            ],
+            "shadowReversedFours": [
+                "<a:Axeon_r_s_4:936225090872434708>",
+                "<a:Axeon_r_s_3:936225090092290118>",
+                "<a:Axeon_r_s_2:936225090096476250>",
+                "<a:Axeon_r_s_1:936225090306203688>"
+            ]
+        },
+        {
+            "name": "Gartesque",
+            "sprite": "<a:GartesqueGIF:927191694988935218>",
+            "UID": 15,
+            "id": 3,
+            "species": "GARGOYLE",
+            "rarity": "LEGENDARY",
+            "shadowSprite": "<a:GartesqueGIFShadow:928015887443820604>",
+            "fours": [
+                "<a:Gartesque_4:936226047916146718>",
+                "<a:Gartesque_3:936226047865782302>",
+                "<a:Gartesque_2:936226046800441345>",
+                "<a:Gartesque_1:936226048083906580>"
+            ],
+            "shadowFours": [
+                "<a:Gartesque_s_4:936226047450546177>",
+                "<a:Gartesque_s_3:936226047727394827>",
+                "<a:Gartesque_s_2:936226047286988821>",
+                "<a:Gartesque_s_1:936226046443946024>"
+            ],
+            "reversedFours": [
+                "<a:Gartesque_r_4:936226048020983818>",
+                "<a:Gartesque_r_3:936226047832240138>",
+                "<a:Gartesque_r_2:936226046385217586>",
+                "<a:Gartesque_r_1:936226047140180040>"
+            ],
+            "shadowReversedFours": [
+                "<a:Gartesque_r_s_4:936226047630905345>",
+                "<a:Gartesque_r_s_3:936226046422945822>",
+                "<a:Gartesque_r_s_2:936226045923819521>",
+                "<a:Gartesque_r_s_1:936226046347456542>"
+            ]
+        },
+        {
+            "name": "Sherrin",
+            "petMenuDescription": "*The successor of the Eternal Dragon, Shenron.*",
+            "petMenuColor": "YELLOW",
+            "sprite": ":x:",
+            "UID": 16,
+            "id": 3,
+            "species": "DRAGON",
+            "rarity": "LEGENDARY",
+            "shadowSprite": ":x:",
+            "fours": [
+                ":x:",
+                ":x:",
+                ":x:",
+                ":x:"
+            ],
+            "shadowFours": [
+                ":x:",
+                ":x:",
+                ":x:",
+                ":x:"
+            ],
+            "reversedFours": [
+                ":x:",
+                ":x:",
+                ":x:",
+                ":x:"
+            ],
+            "shadowReversedFours": [
+                ":x:",
+                ":x:",
+                ":x:",
+                ":x:"
+            ]
+        }
+    ]
+}

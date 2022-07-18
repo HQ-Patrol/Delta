@@ -1,0 +1,159 @@
+{
+    "badges": [
+        {
+            "name": "Million Dollar Baby",
+            "badge":"<:MillionDollarBaby:777105225596141578>",
+            "description": "Have net worth of 1 Million coins or more! "
+        },
+        {
+            "name": "Virgin",
+            "badge":"👶",
+            "description": "Reach level 10"
+        },
+        {
+            "name": "Hackerman",
+            "badge":"🕵️‍♂️",
+            "description": "Reach level 25"
+        },
+        {
+            "name": "Shadow Spotter",
+            "badge":"<:ShadowSpotter:947232980756201492>",
+            "description": "Hatch a Shadow Pet"
+        },
+        {
+            "name": "Hatched Em' All",
+            "badge":"<:HatchedEmAll:947232410804826132>",
+            "description": "Hatch every single Breed of pets"
+        },
+        {
+            "name": "Pimp",
+            "badge":"<:EricaEvilPlotting:897841584647847986>",
+            "description": "Reach level 50"
+        },
+        {
+            "name": "Money Machine",
+            "badge":"<:GlobalCoinsLBTopper:777107563056594944>",
+            "description": "Be the richest person ever and #1 on the global coins leaderboard"
+        },
+        {
+            "name": "Champion",
+            "badge":"<:GlobalXPLBTopper:777107563371036672>",
+            "description": "Be the highest level person ever and #1 on the xp (levels) leaderboard"
+        },
+        {
+            "name": "Claimer",
+            "badge":"😋",
+            "description": "Claim your daily rewards for 25 days in a row"
+        },
+        {
+            "name": "Claim Guru",
+            "badge":"<:ClaimGuru:776849785869041687>",
+            "description": "Claim your daily rewards for 50 days in a row"
+        },
+        {
+            "name": "Candy Hunter 2020",
+            "badge":"<:CandyHunter2020:777105227307810817>",
+            "description": "Perform extra-ordinarily in Halloween Event of 2020"
+        },
+        {
+            "name": "Candy Hunter 2021",
+            "badge":"<:CandyHunter2021:896032392903524372>",
+            "description": "Perform extra-ordinarily in Halloween Event of 2021 by Snapping atleast once!"
+        },
+        {
+            "name": "Global Best Mod",
+            "badge":"<:GlobalModLB:794659633191977021>",
+            "description": "Top the Global Mod Votes Leaderboard"
+        },
+        {
+            "name": "Global Simp King",
+            "badge":"<:GlobalSimpLB:794908075077271593>",
+            "description": "Top the Global Simp Votes Leaderboard"
+        },
+        {
+            "name": "Global Reps Boss",
+            "badge":"<a:GlobalRepLBTopper:857216661068972042>",
+            "description": "Have the highest amount of Reps on Discord"
+        },
+        {
+            "name": "Billion Dollar Baby",
+            "badge":"🥵",
+            "description": "Have 1 Billion Dollar in Wallet"
+        },
+        {
+            "name": "Christmas Event 2021",
+            "badge":"<a:ChristmasEvent2021:923603728802672670>",
+            "description": "For participating in Christmas Event 2021"
+        },
+        {
+            "name": "The Gambler",
+            "badge":"<:TheGambler:912430064719761469>",
+            "description": "Have combined WINNINGS of more than a Billion coins while Gambling, recorded on your Gambling Club Card"
+        },
+        {
+            "name": "Big Baller",
+            "badge":"<a:BigBaller:910155478477185074>",
+            "description": "Spend a million in shop at a time"
+        },
+        {
+            "name": "We get it, you're rich",
+            "badge":"<a:WavingSomeCash:822490680031051807>",
+            "description": "Spend more than 10 Million at a time in shop"
+        },
+        {
+            "name": "Non-Functioning Tecticles (NFT)",
+            "badge":"<:NFT:982239642852134942>",
+            "description": "Impress Gray V with your NFT idea"
+        },
+        {
+            "name": "Brawl Master",
+            "badge":"<:BrawlMaster:983699816330719273>",
+            "description": "Beat Gary in a Brawl"
+        },
+        {
+            "name": "Meet Shenron",
+            "badge":"🐲",
+            "description": "Summon Shenron once"
+        },
+        {
+            "name": "Admirable",
+            "badge":"🎖",
+            "description": "Have 250+ Social Credits/Reps"
+        },
+        {
+            "name": "Xi's Assitant",
+            "badge":"<:Xis_Assistant:964486791757455380>",
+            "description": "Have 1000+ Social Credits/Reps"
+        },
+        {
+            "name": "Representative (Communist Party of China)",
+            "badge":"<:CCP_Official:964487476985086022>",
+            "description": "Have 5000+ Social Credits/Reps"
+        },
+        {
+            "name": "Flippin' Cool",
+            "badge":"<a:CoinFlip:902869508916658187>",
+            "description": "Flip 5 mil in Coinflip and Win"
+        },
+        {
+            "name": "Hero of Soviet Union",
+            "badge":"<:HeroOfSovietUnion:855502842063749130>",
+            "description": "Get the highest medal of honor of the Cold-war era"
+        },
+        {
+            "name": "Monke King",
+            "badge":"<:MonkeKing:860586005500526622>",
+            "description": "Buy 696969 bananas from shop"
+        },
+        {
+            "name": "Different Tax Bracket",
+            "badge":"<a:DifferentTaxBracket:912319999761350656>",
+            "description": "Spend Big bucks on Patrol Bot Store [Join discord.gg/HQ to learn more]"
+        },
+        {
+            "name": "Bot Developer",
+            "badge":"🛠️",
+            "description": "All the Geniuses who've worked on making Patrol Bot what it is 😎"
+        }
+    ]
+}

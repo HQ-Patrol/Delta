@@ -1,0 +1,851 @@
+{
+	"items": [
+		{
+			"name": "Coin Bag",
+			"name2": "coinbag",
+			"alias": "cb",
+			"icon": "<:CoinBag:855518520905695293>",
+			"price": 500,
+			"sellPrice": 200,
+			"collateralPrice": 200,
+			"description": "A Bag full of coins",
+			"usage": "Using this item gives you a random amount of coins",
+			"type": "USABLE",
+			"data": {
+				"canBeSold": false,
+				"canBeBought": true,
+				"canBeUsed": true,
+				"canBeTraded": false
+			}
+		},
+		{
+			"name": "Coin Bag X",
+			"name2": "coinbagx",
+			"alias": "cbx",
+			"icon": "<:CoinBagX:855517933543620648>",
+			"price": 2500,
+			"sellPrice": 1200,
+			"collateralPrice": 1200,
+			"description": "A bag full of more coins than usual",
+			"usage": "Using this item gives you a large amount of coins",
+			"type": "USABLE",
+			"data": {
+				"canBeSold": true,
+				"canBeBought": false,
+				"canBeUsed": true,
+				"canBeTraded": true
+			}
+		},
+		{
+			"name": "Coin Bag XXX",
+			"name2": "coinbagxxx",
+			"alias": "cbx",
+			"icon": "<:CoinBagXXX:875440909439893504>",
+			"price": null,
+			"sellPrice": null,
+			"collateralPrice": 100000,
+			"description": "The coin bag for kings.",
+			"usage": "Using this item gives you an unfathomable amount of coins. Lots...",
+			"type": "USABLE",
+			"data": {
+				"canBeSold": false,
+				"canBeBought": false,
+				"canBeUsed": true,
+				"canBeTraded": true
+			}
+		},
+		{
+			"name": "Handcuffs",
+			"name2": "Handcuff",
+			"alias": "han",
+			"icon": "<:Handcuffs:855521328748953610>",
+			"price": 5000,
+			"sellPrice": 3000,
+			"collateralPrice": 3000,
+			"description": "Will look fancy on a thief 🙈",
+			"usage": "Using this item on someone will restricts them from robbing you for 6 hours",
+			"type": "ROB",
+			"data": {
+				"canBeSold": true,
+				"canBeBought": true,
+				"canBeUsed": true,
+				"canBeTraded": true
+			}
+		},
+		{
+			"name": "Snitch",
+			"name2": "snitch",
+			"alias": "sni",
+			"icon": "<:Snitch:856582087049740348>",
+			"price": 2500,
+			"sellPrice": 1000,
+			"collateralPrice": 1000,
+			"description": "Your ONLY true friend",
+			"usage": "Use this item & the next person who tries robbing you gets their whole wallet and 10% of bank confiscated 😬",
+			"type": "ROB",
+			"data": {
+				"canBeSold": true,
+				"canBeBought": true,
+				"canBeUsed": true,
+				"canBeTraded": false
+			}
+		},
+		{
+			"name": "Snitch Demon",
+			"name2": "snitchdemon",
+			"alias": "sd",
+			"icon": "<:SnitchDemon:856615583922389003>",
+			"price": 25000,
+			"sellPrice": null,
+			"collateralPrice": 10000,
+			"description": "Your ONLY true friend but he looks Satanic, what's up with that?",
+			"usage": "Use this item & the next person who tries robbing you gets their whole wallet and 50% of bank confiscated 😬",
+			"type": "ROB",
+			"data": {
+				"canBeSold": false,
+				"canBeBought": false,
+				"canBeUsed": true,
+				"canBeTraded": true
+			}
+		},
+		{
+			"name": "Iron Lock",
+			"name2": "ironlock",
+			"alias": "il",
+			"icon": "<:ironlock:855517931823300619>",
+			"price": 3000,
+			"sellPrice": 500,
+			"collateralPrice": 500,
+			"description": "Protects your wallet",
+			"usage": "Using this item will save you from getting robbed upto 3 times!",
+			"type": "ROB",
+			"data": {
+				"canBeSold": true,
+				"canBeBought": true,
+				"canBeUsed": true,
+				"canBeTraded": true
+			}
+		},
+		{
+			"name": "Gold Lock",
+			"name2": "goldlock",
+			"alias": "gl",
+			"icon": "<:goldlock:855517932665962518>",
+			"price": 22000,
+			"sellPrice": 5000,
+			"collateralPrice": 5000,
+			"description": "Protects your wallet pretty hard ngl",
+			"usage": "Using this item will save you from getting robbed upto 25 times",
+			"type": "ROB",
+			"data": {
+				"canBeSold": true,
+				"canBeBought": true,
+				"canBeUsed": true,
+				"canBeTraded": true
+			}
+		},
+		{
+			"name": "Titanium Lock",
+			"name2": "titaniumlock",
+			"alias": "tl",
+			"icon": "<:titaniumlock:855517933484507136>",
+			"price": null,
+			"sellPrice": null,
+			"collateralPrice": 12500,
+			"description": "50 protections from rob seems a bit of an overkill, come on now <a:CoughCough:776772198660702238>",
+			"usage": "Using this item will save you from getting robbed upto 50 mother-effing times. Crazy world we live in!",
+			"type": "ROB",
+			"data": {
+				"canBeSold": false,
+				"canBeBought": false,
+				"canBeUsed": true,
+				"canBeTraded": true
+			}
+		},
+		{
+			"name": "Iron Key",
+			"name2": "ironkey",
+			"alias": "ik",
+			"icon": "<:IronKey:887021841644924948>",
+			"price": 5000,
+			"sellPrice": 800,
+			"collateralPrice": 800,
+			"description": "Open Wallet Locks",
+			"usage": "Using this item will help you in robbing someone by REDUCING their Wallet lock protection by 5",
+			"type": "ROB",
+			"data": {
+				"canBeSold": true,
+				"canBeBought": true,
+				"canBeUsed": true,
+				"canBeTraded": true
+			}
+		},
+		{
+			"name": "Gold Key",
+			"name2": "goldkey",
+			"alias": "gk",
+			"icon": "<:GoldKey:887021842475409458>",
+			"price": 12500,
+			"sellPrice": 5000,
+			"collateralPrice": 5000,
+			"description": "Opens Wallet Locks pretty nicely",
+			"usage": "Using this item will help you in robbing someone by REDUCING their Wallet lock protection upto 15",
+			"type": "ROB",
+			"data": {
+				"canBeSold": true,
+				"canBeBought": true,
+				"canBeUsed": true,
+				"canBeTraded": true
+			}
+		},
+		{
+			"name": "Titanium Key",
+			"name2": "titaniumkey",
+			"alias": "tk",
+			"icon": "<:TitaniumKey:887021840940290089>",
+			"price": null,
+			"sellPrice": null,
+			"collateralPrice": 15000,
+			"description": "Don't you hate those Damn Locks, yeah It can help for sure 😏",
+			"usage": "Using this item will help you in robbing someone by REDUCING their Wallet lock protection by 25 darn times. That's OP",
+			"type": "ROB",
+			"data": {
+				"canBeSold": false,
+				"canBeBought": false,
+				"canBeUsed": true,
+				"canBeTraded": true
+			}
+		},
+		{
+			"name": "Weekly Skip",
+			"name2": "weeklyskip",
+			"alias": "ws",
+			"icon": "<:WeeklySkips:892403153566302258>",
+			"price": null,
+			"sellPrice": 5000,
+			"collateralPrice": 5000,
+			"description": "Helps you skip any weekly mission",
+			"usage": "Using this item will let you skip any weekly mission Whilst providing it's full reward :)",
+			"type": "SPECIAL",
+			"data": {
+				"canBeSold": true,
+				"canBeBought": false,
+				"canBeUsed": true,
+				"canBeTraded": true
+			}
+		},
+		{
+			"name": "Monthly Skip",
+			"name2": "monthlyskip",
+			"alias": "ms",
+			"icon": "<:MonthlySkips:892403155290181662>",
+			"price": null,
+			"sellPrice": 10000,
+			"collateralPrice": 12500,
+			"description": "Helps you skip any monthly mission",
+			"usage": "Using this item will let you skip any monthly mission Whilst providing it's full reward :)",
+			"type": "SPECIAL",
+			"data": {
+				"canBeSold": true,
+				"canBeBought": false,
+				"canBeUsed": true,
+				"canBeTraded": true
+			}
+		},
+		{
+			"name": "Hero of Soviet Union",
+			"name2": "heroofsovietunion",
+			"alias": "hosu",
+			"icon": "<:HeroOfSovietUnion:855502842063749130>",
+			"price": 555555,
+			"sellPrice": 150000,
+			"collateralPrice": 150000,
+			"description": "Awarded for Heroic feats in service to the Soviet State and Society 🙌",
+			"usage": "Use this item to obtain the beautiful badge showing your true dedication and admiration for Soviet Union! <a:communism:787741952480116747>",
+			"type": "BADGE",
+			"data": {
+				"canBeSold": true,
+				"canBeBought": true,
+				"canBeUsed": true,
+				"canBeTraded": false
+			}
+		},
+		{
+			"name": "Cum Chalice",
+			"name2": "cumchalice",
+			"alias": "cc",
+			"icon": "<:CumChalice:855517936025337907>",
+			"price": 1000000,
+			"sellPrice": 250000,
+			"collateralPrice": 250000,
+			"description": "Only the legends have ever been able to hold one of these...",
+			"usage": "Can it even be used ⁉",
+			"type": "COLLECTIBLE",
+			"data": {
+				"canBeSold": true,
+				"canBeBought": true,
+				"canBeUsed": true,
+				"canBeTraded": false
+			}
+		},
+		{
+			"name": "Dragon Ball 1",
+			"name2": "dragonball1",
+			"alias": "db1",
+			"icon": "<:DB1:855517931730501653>",
+			"price": null,
+			"sellPrice": null,
+			"collateralPrice": 100000,
+			"description": "So shiny!",
+			"usage": "Find all the 7 Dragon Balls to get one of your greatest wish granted! 🐉",
+			"type": "SPECIAL",
+			"data": {
+				"canBeSold": false,
+				"canBeBought": false,
+				"canBeUsed": true,
+				"canBeTraded": true
+			}
+		},
+		{
+			"name": "Dragon Ball 2",
+			"name2": "dragonball2",
+			"alias": "db2",
+			"icon": "<:DB2:855517933166002226>",
+			"price": null,
+			"sellPrice": null,
+			"collateralPrice": 100000,
+			"description": "So shiny!",
+			"usage": "Find all the 7 Dragon Balls to get one of your greatest wish granted! 🐉",
+			"type": "SPECIAL",
+			"data": {
+				"canBeSold": false,
+				"canBeBought": false,
+				"canBeUsed": true,
+				"canBeTraded": true
+			}
+		},
+		{
+			"name": "Dragon Ball 3",
+			"name2": "dragonball3",
+			"alias": "db3",
+			"icon": "<:DB3:855517932854181918>",
+			"price": null,
+			"sellPrice": null,
+			"collateralPrice": 125000,
+			"description": "So shiny!",
+			"usage": "Find all the 7 Dragon Balls to get one of your greatest wish granted! 🐉",
+			"type": "SPECIAL",
+			"data": {
+				"canBeSold": false,
+				"canBeBought": false,
+				"canBeUsed": true,
+				"canBeTraded": true
+			}
+		},
+		{
+			"name": "Dragon Ball 4",
+			"name2": "dragonball4",
+			"alias": "db4",
+			"icon": "<:DB4:855517932000116746>",
+			"price": null,
+			"sellPrice": null,
+			"collateralPrice": 200000,
+			"description": "So shiny!",
+			"usage": "Find all the 7 Dragon Balls to get one of your greatest wish granted! 🐉",
+			"type": "SPECIAL",
+			"data": {
+				"canBeSold": false,
+				"canBeBought": false,
+				"canBeUsed": true,
+				"canBeTraded": true
+			}
+		},
+		{
+			"name": "Dragon Ball 5",
+			"name2": "dragonball5",
+			"alias": "db5",
+			"icon": "<:DB5:855517932209438730>",
+			"price": null,
+			"sellPrice": null,
+			"collateralPrice": 250000,
+			"description": "So shiny!",
+			"usage": "Find all the 7 Dragon Balls to get one of your greatest wish granted! 🐉",
+			"type": "SPECIAL",
+			"data": {
+				"canBeSold": false,
+				"canBeBought": false,
+				"canBeUsed": true,
+				"canBeTraded": true
+			}
+		},
+		{
+			"name": "Dragon Ball 6",
+			"name2": "dragonball6",
+			"alias": "db6",
+			"icon": "<:DB6:855517932880396289>",
+			"price": null,
+			"sellPrice": null,
+			"collateralPrice": 500000,
+			"description": "So shiny!",
+			"usage": "Find all the 7 Dragon Balls to get one of your greatest wish granted! 🐉",
+			"type": "SPECIAL",
+			"data": {
+				"canBeSold": false,
+				"canBeBought": false,
+				"canBeUsed": true,
+				"canBeTraded": true
+			}
+		},
+		{
+			"name": "Dragon Ball 7",
+			"name2": "dragonball7",
+			"alias": "db7",
+			"icon": "<:DB7:855517933618331667>",
+			"price": null,
+			"sellPrice": null,
+			"collateralPrice": 2500000,
+			"description": "So shiny!",
+			"usage": "Find all the 7 Dragon Balls to get one of your greatest wish granted! 🐉",
+			"type": "SPECIAL",
+			"data": {
+				"canBeSold": false,
+				"canBeBought": false,
+				"canBeUsed": true,
+				"canBeTraded": true
+			}
+		},
+		{
+			"name": "Premium 7D",
+			"name2": "premium7d",
+			"alias": "p7d",
+			"icon": "<a:Premium7D:855560515857154059>",
+			"price": 100000,
+			"sellPrice": null,
+			"collateralPrice": 25000,
+			"description": "Oh you wanna know about Premium perks?",
+			"usage": "Using this will give you premium Patrol bot for 7 days which means ALL it's amazing bonus & perks. Holy guacamole 🦙",
+			"type": "SPECIAL",
+			"data": {
+				"canBeSold": false,
+				"canBeBought": true,
+				"canBeUsed": true,
+				"canBeTraded": false
+			}
+		},
+		{
+			"name": "Premium 1M",
+			"name2": "premium1m",
+			"alias": "p1m",
+			"icon": "<a:Premium1M:875427336898625586>",
+			"price": null,
+			"sellPrice": null,
+			"collateralPrice": 75000,
+			"description": "Oh you wanna know about Premium perks?",
+			"usage": "Using this will give you premium Patrol bot for 30 days which means ALL it's amazing bonus & perks. Unreal!",
+			"type": "SPECIAL",
+			"data": {
+				"canBeSold": false,
+				"canBeBought": false,
+				"canBeUsed": true,
+				"canBeTraded": true
+			}
+		},
+		{
+			"name": "Premium Lifetime",
+			"name2": "premiuml",
+			"alias": "pl",
+			"icon": "<a:PremiumLifetime:948255948143755286>",
+			"price": null,
+			"sellPrice": 1000000,
+			"collateralPrice": 1000000,
+			"description": "Oh you wanna know about Premium perks?",
+			"usage": "Using this will give you premium Patrol bot for LIFE! How about that huh 🍽️",
+			"type": "SPECIAL",
+			"data": {
+				"canBeSold": true,
+				"canBeBought": false,
+				"canBeUsed": true,
+				"canBeTraded": true
+			}
+		},
+		{
+			"name": "Soft Boiled Egg",
+			"name2": "softboiledegg",
+			"alias": "sbe",
+			"icon": "<:SoftBoiledEgg:922055207192506408>",
+			"price": null,
+			"sellPrice": null,
+			"collateralPrice": 1000,
+			"description": "This might just break in your hand if you hold it too long",
+			"usage": "This egg can spawns you a cool pet or give you some XPs for trying!\n__**Common**__: <a:SparkyGIF:927190439235289088> <a:SparkyGIFShadow:928016038262628362> [𝙎]\n__**Uncommon**__: <a:QuaggiGIF:927190477118263296> <a:QuaggiGIFShadow:928015856502439937> [𝙎]\n__**Rare**__: <a:ChimpmunkGIF:927190571859206195> <a:ChimpmunkGIFShadow:928015936726904842> [𝙎]\n__**Epic**__: <a:FurrloinGIF:927190546211020810> <a:FurrloinGIFShadow:928015911162621962> [𝙎]\n__**LEGENDARY**__: <a:DoyleGIF:927190517043855451> <a:DoyleGIFShadow:928015887871655936> [𝙎]",
+			"type": "PETS",
+			"data": {
+				"canBeSold": false,
+				"canBeBought": false,
+				"canBeUsed": true,
+				"canBeTraded": true
+			}
+		},
+		{
+			"name": "Medium Boiled Egg",
+			"name2": "mediumboiledegg",
+			"alias": "mbe",
+			"icon": "<:MediumBoiledEgg:922055217950887956>",
+			"price": null,
+			"sellPrice": null,
+			"collateralPrice": 10000,
+			"description": "Just from the looks of it, this doesn't seem Edible",
+			"usage": "This egg has a good chance of hatching rare pets. Even on hatch fail, you're guaranteed a growth Vial!\n__**Common**__: <a:SparkyGIF:927190439235289088> <a:SparkyGIFShadow:928016038262628362> [𝙎]\n__**Uncommon**__: <a:QuaggiGIF:927190477118263296> <a:QuaggiGIFShadow:928015856502439937> [𝙎]\n__**Rare**__: <a:ChimpmunkGIF:927190571859206195> <a:ChimpmunkGIFShadow:928015936726904842> [𝙎]\n__**Epic**__: <a:FurrloinGIF:927190546211020810> <a:FurrloinGIFShadow:928015911162621962> [𝙎]\n__**LEGENDARY**__: <a:DoyleGIF:927190517043855451> <a:DoyleGIFShadow:928015887871655936> [𝙎]",
+			"type": "PETS",
+			"data": {
+				"canBeSold": false,
+				"canBeBought": false,
+				"canBeUsed": true,
+				"canBeTraded": true
+			}
+		},
+		{
+			"name": "Hard Boiled Egg",
+			"name2": "hardboiledegg",
+			"alias": "hbe",
+			"icon": "<:HardBoiledEgg:922055217539854337>",
+			"price": null,
+			"sellPrice": null,
+			"collateralPrice": 25000,
+			"description": "Tons have tried to break it over the centuries but only few succeeded...",
+			"usage": "This egg has the best chance of hatching pets with highest rarity, or can give upto 3 Growth Vials!\n__**Common**__: <a:SparkyGIF:927190439235289088> <a:SparkyGIFShadow:928016038262628362> [𝙎]\n__**Uncommon**__: <a:QuaggiGIF:927190477118263296> <a:QuaggiGIFShadow:928015856502439937> [𝙎]\n__**Rare**__: <a:ChimpmunkGIF:927190571859206195> <a:ChimpmunkGIFShadow:928015936726904842> [𝙎]\n__**Epic**__: <a:FurrloinGIF:927190546211020810> <a:FurrloinGIFShadow:928015911162621962> [𝙎]\n__**LEGENDARY**__: <a:DoyleGIF:927190517043855451> <a:DoyleGIFShadow:928015887871655936> [𝙎]",
+			"type": "PETS",
+			"data": {
+				"canBeSold": false,
+				"canBeBought": false,
+				"canBeUsed": true,
+				"canBeTraded": true
+			}
+		},
+		{
+			"name": "Shenron's Egg",
+			"name2": "shenronsegg",
+			"alias": "segg",
+			"icon": ":x:",
+			"price": null,
+			"sellPrice": null,
+			"collateralPrice": 100000,
+			"description": "This egg shall only be granted to the worthy.. the rumors said that this egg was dropped from the sky every century",
+			"usage": "Using this egg shall give you Shenron's successor as a pet, but it requires some sacrifices first. Try using it!",
+			"type": "PETS",
+			"data": {
+				"canBeSold": false,
+				"canBeBought": false,
+				"canBeUsed": true,
+				"canBeTraded": true
+			}
+		},
+		{
+			"name": "Growth Vial",
+			"name2": "growthvial",
+			"alias": "gv",
+			"icon": "<:GrowthVial:941010304119238666>",
+			"price": null,
+			"sellPrice": null,
+			"collateralPrice": 10000,
+			"description": "Small amount of a purple Liquid which smells pungent",
+			"usage": "After collecting 25 of these Vials, you can use them to Create a Growth Serum which will facilitate your Pets Evolution to a higher form.",
+			"type": "PETS",
+			"data": {
+				"canBeSold": false,
+				"canBeBought": false,
+				"canBeUsed": true,
+				"canBeTraded": true
+			}
+		},
+		{
+			"name": "Growth Serum",
+			"name2": "growthserum",
+			"alias": "gs",
+			"icon": "<a:GrowthSerum:941010305943736351>",
+			"price": null,
+			"sellPrice": 500000,
+			"collateralPrice": 500000,
+			"description": "This was made after years of extensive research by Scientists whose best intentions are still not known to this day",
+			"usage": "Helps in evolving your beloved Pet to their subsequent form & giving them Levels and Stat Points during the process! `[Can only be used from Pet Command Menu]`",
+			"type": "PETS",
+			"data": {
+				"canBeSold": true,
+				"canBeBought": false,
+				"canBeUsed": false,
+				"canBeTraded": true
+			}
+		},
+		{
+			"name": "Love Potion",
+			"name2": "lovepotion",
+			"alias": "lp",
+			"icon": "<:LovePotion:946475204090134590>",
+			"price": 10000,
+			"sellPrice": 7500,
+			"collateralPrice": 7500,
+			"description": "Straight out of your favorite Witchraft movie, assuming you have one.",
+			"usage": "Turns your Pet's Love attribute to 100",
+			"type": "PETS",
+			"data": {
+				"canBeSold": true,
+				"canBeBought": true,
+				"canBeUsed": true,
+				"canBeTraded": false
+			}
+		},
+		{
+			"name": "Pet Food",
+			"name2": "petfood",
+			"alias": "pf",
+			"icon": "<:PetFood:942459125332340767>",
+			"price": 10000,
+			"sellPrice": 7500,
+			"collateralPrice": 7500,
+			"description": "An Overall healthy treat for your pets of all shapes & sizes!",
+			"usage": "Turns your Pet's Hunger & Energy attribute to 100",
+			"type": "PETS",
+			"data": {
+				"canBeSold": true,
+				"canBeBought": true,
+				"canBeUsed": true,
+				"canBeTraded": false
+			}
+		},
+		{
+			"name": "Mystery Box 1",
+			"name2": "mysterybox1",
+			"alias": "mb1",
+			"icon": "<:MysteryBox1:855561382896468021>",
+			"price": null,
+			"sellPrice": null,
+			"collateralPrice": 1000,
+			"description": "Looks kinda mysterious innit? Wonder what it holds ☕ ",
+			"usage": "Using this Mystery Box will give you a good chance at winning one of these prizes:\n__**Common**__: <:Banana:855517934339620894> <a:Cookie:855495687520256010> <:Snowball:855521772869910599>\n__**Uncommon**__: <:CoinBag:855518520905695293> \n__**Rare**__: <:ironlock:855517931823300619> <:IronKey:887021841644924948>\n__**Very Rare**__: <a:XPBlast:860610399484903464>`[XP Blast]`\n__**Epic**__: <a:Premium1D:855560814513487884> \n__**Impossible**__: <:1StarDragonBall:855517931730501653> <:2StarDragonBall:855517933166002226> <:3StarDragonBall:855517932854181918> <:4StarDragonBall:855517932000116746> <:5StarDragonBall:855517932209438730> <:6StarDragonBall:855517932880396289> <:7StarDragonBall:855517933618331667>",
+			"type": "USABLE",
+			"data": {
+				"canBeSold": false,
+				"canBeBought": false,
+				"canBeUsed": true,
+				"canBeTraded": true
+			}
+		},
+		{
+			"name": "Mystery Box 2",
+			"name2": "mysterybox2",
+			"alias": "mb2",
+			"icon": "<:MysteryBox2:855561378790506508>",
+			"price": null,
+			"sellPrice": null,
+			"collateralPrice": 3500,
+			"description": "Oh f*ck, this is even more mysterious... ",
+			"usage": " Using this Mystery Box will give you a good chance at winning one of these prizes:\n__**Common**__: <:Snowball:855521772869910599> <:Snitch:856582087049740348> <:ironlock:855517931823300619> <:IronKey:887021841644924948> <:CoinBag:855518520905695293>\n__**Uncommon**__: <:CoinBagX:855517933543620648> <:PrayerRug:855847171140091984> <:Handcuffs:855521328748953610> \n__**Rare**__: <:goldlock:855517932665962518> <:GoldKey:887021842475409458>\n__**Very Rare**__: <a:XPBlast:860610399484903464>`[XP Blast]`\n__**Epic**__: <:GrowthVial:941010304119238666> <:1StarDragonBall:855517931730501653> <:2StarDragonBall:855517933166002226> <:3StarDragonBall:855517932854181918> <:4StarDragonBall:855517932000116746> <:5StarDragonBall:855517932209438730> \n__**Impossible**__: <a:Premium1M:875427336898625586> <:6StarDragonBall:855517932880396289> <:7StarDragonBall:855517933618331667>",
+			"type": "USABLE",
+			"data": {
+				"canBeSold": false,
+				"canBeBought": false,
+				"canBeUsed": true,
+				"canBeTraded": true
+			}
+		},
+		{
+			"name": "Mystery Box 3", 
+			"name2": "mysterybox3",
+			"alias": "mb3",
+			"icon": "<:MysteryBox3:857352381918347304>",
+			"price": null,
+			"sellPrice": null,
+			"collateralPrice": 15000,
+			"description": "Okay so you're saying this is the peak of all Boxes? Right...?",
+			"usage": "Using this Mystery Box will give you a good chance at winning one of these prizes:\n__**Common**__: <:PrayerRug:855847171140091984> <:Handcuffs:855521328748953610> <:CoinBagX:855517933543620648> <:SoftBoiledEgg:922055207192506408> <:IronKey:887021841644924948>\n__**Uncommon**__: <:SoftBoiledEgg:922055207192506408> <:goldlock:855517932665962518> <:GoldKey:887021842475409458> <:SnitchDemon:856615583922389003> <:LovePotion:946475204090134590> <:PetFood:942459125332340767>\n__**Rare**__: <:CrystalMethShards:856618799712829482> <:titaniumlock:855517933484507136> <:TitaniumKey:887021840940290089> <a:Premium7D:855560515857154059> <:WeeklySkips:892403153566302258> <:GrowthVial:941010304119238666>\n__**Very Rare**__: <a:XPBlast:860610399484903464>`[XP Blast+]`\n__**Epic**__: <:1StarDragonBall:855517931730501653> <:2StarDragonBall:855517933166002226> <:3StarDragonBall:855517932854181918> <:4StarDragonBall:855517932000116746> <:5StarDragonBall:855517932209438730>\n__**Impossible**__: <a:NitroFlying:807707296356368384> <:6StarDragonBall:855517932880396289> <:7StarDragonBall:855517933618331667>",
+			"type": "USABLE",
+			"data": {
+				"canBeSold": false,
+				"canBeBought": false,
+				"canBeUsed": true,
+				"canBeTraded": true
+			}
+		},
+		{
+			"name": "Mystery Box XXX",
+			"name2": "mysteryboxxxx",
+			"alias": "mbxxx",
+			"icon": "<:MysteryBoxXXX:855561382795149322>",
+			"price": null,
+			"sellPrice": null,
+			"collateralPrice": 50000,
+			"description": "Where the F-CK this Mystery box come from now⁉",
+			"usage": "The Craziest rewards in this Box! Using this Mystery Box will give you a good chance at winning one of these prizes:\n__**Common**__: <:CrystalMethShards:856618799712829482> <:titaniumlock:855517933484507136> <:TitaniumKey:887021840940290089> <:MonthlySkips:892403155290181662> <:GrowthVial:941010304119238666>\n__**Uncommon**__: <:HeroOfSovietUnion:855502842063749130> <a:Premium1M:875427336898625586> <:CoinBagXXX:875440909439893504> <:SnitchDemon:856615583922389003> <:MediumBoiledEgg:922055217950887956>\n__**Rare**__: <a:XPBlast:860610399484903464>`[XP Blast+]` <:GamblingClubCard:902918527806226522>\n__**Epic**__: <:CumChalice:855517936025337907> <:HardBoiledEgg:922055217539854337> <a:NitroFlying:807707296356368384>\n__**Legendary**__: <:1StarDragonBall:855517931730501653> <:2StarDragonBall:855517933166002226> <:3StarDragonBall:855517932854181918> <:4StarDragonBall:855517932000116746> <:5StarDragonBall:855517932209438730> <:6StarDragonBall:855517932880396289> <:7StarDragonBall:855517933618331667>",
+			"type": "USABLE",
+			"data": {
+				"canBeSold": false,
+				"canBeBought": false,
+				"canBeUsed": true,
+				"canBeTraded": true
+			}
+		},
+		{
+			"name": "Mystery Box XL",
+			"name2": "mysteryboxxl",
+			"alias": "mbxxl",
+			"icon": "<:MysteryBoxXXL:909034974630522880>",
+			"price": null,
+			"sellPrice": null,
+			"collateralPrice": 100000,
+			"description": "XL ???? Box XXX but for Larger people??? I smell fatophobia",
+			"usage": "We truly believe all sizes are beautiful but this might be the most! Using this Mystery Box will give you a Guaranteed chance at winning a Rare/Epic Item + 2 more of these prizes:\n__**Common**__: <:CrystalMethShards:856618799712829482> <:titaniumlock:855517933484507136> <:TitaniumKey:887021840940290089> <:CoinBagXXX:875440909439893504> <:GrowthVial:941010304119238666> <:MonthlySkips:892403155290181662>\n__**Uncommon**__: <:HeroOfSovietUnion:855502842063749130> <a:Premium1M:875427336898625586> <:CoinBagXXX:875440909439893504> <:MysteryBoxXXX:855561382795149322> <:HardBoiledEgg:922055217539854337>\n__**Rare**__: <a:XPBlast:860610399484903464>`[XP Blast+]` <:GamblingClubCard:902918527806226522> <:HardBoiledEgg:922055217539854337> \n__**Epic**__: <:CumChalice:855517936025337907> <a:NitroFlying:807707296356368384>\n__**Legendary**__: <:1StarDragonBall:855517931730501653> <:2StarDragonBall:855517933166002226> <:3StarDragonBall:855517932854181918> <:4StarDragonBall:855517932000116746> <:5StarDragonBall:855517932209438730> <:6StarDragonBall:855517932880396289> <:7StarDragonBall:855517933618331667>",
+			"type": "USABLE",
+			"data": {
+				"canBeSold": false,
+				"canBeBought": false,
+				"canBeUsed": true,
+				"canBeTraded": true
+			}
+		},
+		{
+			"name": "Cookie",
+			"name2": "cookies",
+			"alias": "coo",
+			"icon": "<a:Cookie:855495687520256010>",
+			"price": 50,
+			"sellPrice": 10,
+			"collateralPrice": 10,
+			"description": "Fresh outta oven!",
+			"usage": "Use it by consuming or sharing these. Cookies = Happiness or something like that idk",
+			"type": "USABLE",
+			"data": {
+				"canBeSold": true,
+				"canBeBought": true,
+				"canBeUsed": true,
+				"canBeTraded": true
+			}
+		},
+		{
+			"name": "Banana",
+			"name2": "bana",
+			"alias": "ban",
+			"icon": "<:Banana:855517934339620894>",
+			"price": 69,
+			"sellPrice": 50,
+			"collateralPrice": 50,
+			"description": "Banana.",
+			"usage": "Exactly what a banana do",
+			"type": "COLLECTIBLE",
+			"data": {
+				"canBeSold": true,
+				"canBeBought": true,
+				"canBeUsed": true,
+				"canBeTraded": true
+			}
+		},
+		{
+			"name": "Snowball",
+			"name2": "snowballs",
+			"alias": "sb",
+			"icon": "<:Snowball:855521772869910599>",
+			"price": 100,
+			"sellPrice": null,
+			"collateralPrice": 50,
+			"description": "Snowball fight equipment",
+			"usage": "Use it by Throwing it at anyone. consensually ofc ‼🤓",
+			"type": "USABLE",
+			"data": {
+				"canBeSold": false,
+				"canBeBought": true,
+				"canBeUsed": true,
+				"canBeTraded": true
+			}
+		},
+		{
+			"name": "Prayer Rug",
+			"name2": "prayerrug",
+			"alias": "pr",
+			"icon": "<:PrayerRug:855847171140091984>",
+			"price": 12500,
+			"sellPrice": 3500,
+			"collateralPrice": 3500,
+			"description": "Praying on this seems worth it, don't you think?",
+			"usage": "Using this item gives you extra coins when using pray command for a total of 1 hour!",
+			"type": "USABLE",
+			"data": {
+				"canBeSold": true,
+				"canBeBought": true,
+				"canBeUsed": true,
+				"canBeTraded": false
+			}
+		},
+		{
+			"name": "Crystal Meth",
+			"name2": "crystalmeth",
+			"alias": "cm",
+			"icon": "<:CrystalMeth:856577643632394290>",
+			"price": 100000,
+			"sellPrice": 35000,
+			"collateralPrice": 35000,
+			"description": "Seems pretty fragile and definitely not a drug",
+			"usage": "Using this item will give you 10 Crystal Meth Shards which may or may not help you in robbing other people 👀",
+			"type": "ROB",
+			"data": {
+				"canBeSold": true,
+				"canBeBought": true,
+				"canBeUsed": true,
+				"canBeTraded": true
+			}
+		},
+		{
+			"name": "Shards",
+			"name2": "shards",
+			"alias": "sha",
+			"icon": "<:CrystalMethShards:856618799712829482>",
+			"price": 1,
+			"sellPrice": null,
+			"collateralPrice": 2500,
+			"description": "Doesn't seems like something you should use 🥶",
+			"usage": "Using this item will let your rob anyone with any type of rob protection on without any cooldown and a 100% ROB success rate ✅",
+			"type": "ROB",
+			"data": {
+				"canBeSold": false,
+				"canBeBought": false,
+				"canBeUsed": true,
+				"canBeTraded": false
+			}
+		},
+		{
+			"name": "Discord Nitro",
+			"name2": "discordnitro",
+			"alias": "nitro",
+			"icon": "<a:NitroFlying:807707296356368384>",
+			"price": 500000,
+			"sellPrice": 100000,
+			"collateralPrice": 100000,
+			"stock": 3,
+			"description": "Discord Nitro subcription for 1 Month",
+			"usage": "Using this item will help you recieve a Discord Nitro in your DMs within 24h as a reward for being an awesome user of Patrol Bot!",
+			"type": "SPECIAL",
+			"data": {
+				"canBeSold": true,
+				"canBeBought": true,
+				"canBeUsed": true,
+				"canBeTraded": false
+			}
+		},
+		{
+			"name": "Gambling Club Card",
+			"name2": "gamblingclubcard",
+			"alias": "gcc",
+			"icon": "<:GamblingClubCard:902918527806226522>",
+			"price": 250000,
+			"sellPrice": 100000,
+			"collateralPrice": 100000,
+			"description": "Keep a track of all your Gambling History and Transactions",
+			"usage": "Using this item will let you view the history of Win-Loss of all your gambling adventures since buying this item",
+			"type": "SPECIAL",
+			"data": {
+				"canBeSold": true,
+				"canBeBought": true,
+				"canBeUsed": true,
+				"canBeTraded": false
+			}
+		}
+	]
+}
