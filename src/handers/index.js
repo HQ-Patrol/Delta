@@ -24,7 +24,7 @@ const commands = (client) => new Promise((resolve) => {
     .forEach((file, i, a) => {
       try {
         file = file.replace(/\\/g, "/").replace("src/", "");
-        if (file.split("/")[2].startsWith("@")) return;
+        if (file.split("/").at(-1).startsWith("@")) return;
         const command = require(`../${file}`);
         if (!command?.name) return;
         client.commands.set(
