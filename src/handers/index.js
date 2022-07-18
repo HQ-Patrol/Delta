@@ -7,8 +7,8 @@ const events = (client) => new Promise((resolve) => {
       try {
         file = file.replace(/\\/g, "/").replace("src/", "");
         const event = require(`../${file}`);
-        client.events.set(event.name, event);
-        client.on(event.name, (...args) => event.handle(client, ...args));
+        client.events.set(event.event, event);
+        client.on(event.event, (...args) => event.handle(client, ...args));
         delete require.cache[require.resolve(`../${file}`)];
         if (i === a.length - 1) resolve(true);
         client.statistics.events += 1;
