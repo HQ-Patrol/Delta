@@ -1,9 +1,16 @@
 const $ = require("chalk");
 const moment = require("moment");
 
-function log(prefix, message, color = "blueBright") {
+const PREFIX_WIDTH = 7;
+
+function implMaxPrefix(prefix) {
+  return prefix.length <= PREFIX_WIDTH ? prefix + " ".repeat(PREFIX_WIDTH - prefix.length) : prefix.slice(0, PREFIX_WIDTH);
+}
+
+function log(prefix, message, color = "blueBright", symbol = null) {
   return console.log(
-    $[color].bold(prefix),
+    $.bgGray(` ${symbol ?? "*"} `),
+    $[color].bold(implMaxPrefix(prefix)),
     $[color](`[${moment().format("LTS")}]`),
     $[color](message),
   );
@@ -11,7 +18,8 @@ function log(prefix, message, color = "blueBright") {
 
 function error(message) {
   return console.log(
-    $.redBright.bold("ERROR"),
+    $.bgRedBright(" ! "),
+    $.redBright.bold(implMaxPrefix("ERROR")),
     $.redBright(`[${moment().format("LTS")}]`),
     $.redBright(message),
   );
@@ -19,7 +27,8 @@ function error(message) {
 
 function info(message) {
   return console.log(
-    $.yellow.bold("INFO"),
+    $.bgYellowBright(" i "),
+    $.yellow.bold(implMaxPrefix("INFO")),
     $.yellow(`[${moment().format("LTS")}]`),
     $.yellow(message),
   );
