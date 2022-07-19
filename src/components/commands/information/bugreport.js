@@ -14,7 +14,7 @@ module.exports = {
       );
     }
 
-    const embed = new Discord.MessageEmbed()
+    const embed = new Discord.EmbedBuilder()
       .setTitle("New Bug 🐛")
       .setDescription(`${message.author.tag} ID: ${message.author.id}\n${bug}`)
       .setTimestamp()

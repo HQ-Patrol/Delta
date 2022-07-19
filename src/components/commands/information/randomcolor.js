@@ -13,7 +13,7 @@ module.exports = {
   example: "https://i.imgur.com/czMOcAY.gif",
   run: async (_client, message, _args) => {
     const hex = generate();
-    const embed = new Discord.MessageEmbed()
+    const embed = new Discord.EmbedBuilder()
       .setTitle(hex)
       .setColor(hex)
       .setThumbnail(`https://singlecolorimage.com/get/${hex.substring(1)}/150x150`);

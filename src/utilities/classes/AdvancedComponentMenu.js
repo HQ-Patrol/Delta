@@ -113,15 +113,15 @@ class AdvancedComponentMenu {
 
   /**
    * Sets the default embed of the menu. Mandatory.
-   * @param {Discord.MessageEmbed} embed
+   * @param {Discord.EmbedBuilder} embed
    * @returns {AdvancedComponentMenu}
    */
   setDefaultEmbed(
     embed = AdvancedComponentMenu.mandatory("embed", "setDefaultEmbed"),
   ) {
-    if (!(embed instanceof Discord.MessageEmbed)) {
+    if (!(embed instanceof Discord.EmbedBuilder)) {
       throw new Error(
-        "Embed provided is not a valid MessageEmbed in setDefaultEmbed.",
+        "Embed provided is not a valid EmbedBuilder in setDefaultEmbed.",
       );
     }
     this.embed = embed;
@@ -132,9 +132,9 @@ class AdvancedComponentMenu {
    * Sends the menu. Requires the default embed, handler and components to be set.
    */
   async send() {
-    if (!this.embed || !(this.embed instanceof Discord.MessageEmbed)) {
+    if (!this.embed || !(this.embed instanceof Discord.EmbedBuilder)) {
       throw new Error(
-        "Embed was not provided or is not a valid MessageEmbed while sending.",
+        "Embed was not provided or is not a valid EmbedBuilder while sending.",
       );
     }
     if (!this.handler) {

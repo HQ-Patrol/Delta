@@ -11,7 +11,7 @@ module.exports = {
   run: async (client, message, args) => {
     const guild = await Guild.findOne({ _id: message.guild.id }).lean();
 
-    const Embed = new Discord.MessageEmbed()
+    const Embed = new Discord.EmbedBuilder()
       .setAuthor({ name: "Patrol Bot Premium Perks:", iconURL: "https://i.imgur.com/ceVxXxK.gif" })
       .setDescription("Visit https://patrolbot.xyz/store or [**Click here**](https://patrolbot.xyz) to purchase Premium!\n\n"
             + `➽ **${guild.prefix}weekly**: Get Special Weekly Prize of: Mystery Box and Medium Boiled Egg exclusive to only Premium! <a:Cheers:738820410681851915>\n`

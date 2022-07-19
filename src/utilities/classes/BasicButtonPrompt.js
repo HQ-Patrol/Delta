@@ -34,7 +34,7 @@ class BasicButtonPrompt {
 
   /**
    * Sets the embed
-   * @param {MessageEmbed} embed embed
+   * @param {EmbedBuilder} embed embed
    * @returns {BasicButtonPrompt}
    */
   setEmbed(embed) {

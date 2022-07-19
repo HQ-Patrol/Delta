@@ -13,7 +13,7 @@ module.exports = {
     // .setThumbnail("https://i.imgur.com/gwBwAoj.gif") // Veronica
       .setThumbnail("https://i.imgur.com/BMJpQiX.gif") // Erica
       .setTitle("🤖 Bot Stats 🤖")
-      .setColor("BLUE")
+      .setColor("Blue")
       .addFields(
         {
           name: "🌐 Servers",

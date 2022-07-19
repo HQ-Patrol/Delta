@@ -64,7 +64,7 @@ module.exports = {
         selectedMenu = found[0];
       }
 
-      const embed = new Discord.MessageEmbed();
+      const embed = new Discord.EmbedBuilder();
       if (foundEmbed?.title) embed.setTitle(foundEmbed.title);
       if (foundEmbed?.description) embed.setDescription(foundEmbed.description.replace(/\\/g, "`").replace(/{prefix}/g, prefix));
       if (foundEmbed?.color) embed.setColor(foundEmbed.color);
@@ -120,7 +120,7 @@ module.exports = {
     const mainMenuEmbed = cachedGuide.mainMenu.menus.mainMenu.embed;
     menu = new AdvancedComponentMenu(message)
       .setDefaultEmbed(
-        new Discord.MessageEmbed()
+        new Discord.EmbedBuilder()
           .setTitle(mainMenuEmbed.title)
           .setDescription(mainMenuEmbed.description.replace(/\\`/g, "`").replace(/{prefix}/g, prefix))
           .setColor(mainMenuEmbed.color),
