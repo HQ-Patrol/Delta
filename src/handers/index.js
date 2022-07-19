@@ -40,7 +40,24 @@ const commands = (client) => new Promise((resolve) => {
     });
 });
 
+const extenders = () => new Promise((resolve) => {
+  allFiles("./src/components/extenders")
+    .filter((file) => file.endsWith(".js"))
+    .forEach((file, i, a) => {
+      try {
+        file = file.replace(/\\/g, "/").replace("src/", "");
+        if (file.split("/").at(-1).startsWith("@")) return;
+        require(`../${file}`);
+        delete require.cache[require.resolve(`../${file}`)];
+        if (i === a.length - 1) resolve(true);
+      } catch (e) {
+        console.warn(e);
+      }
+    });
+});
+
 module.exports = async (client) => {
   events(client);
   commands(client);
+  extenders();
 };
