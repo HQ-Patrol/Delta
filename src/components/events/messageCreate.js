@@ -15,7 +15,13 @@ module.exports = {
   name: "Command Handler",
   handle: async (client, message) => {
     if (message.author.bot) return;
-    if (!["GUILD_TEXT", "GUILD_NEWS", "GUILD_VOICE"].includes(message.channel.type)) return;
+    if (
+      ![
+        Discord.ChannelType.GuildText,
+        Discord.ChannelType.GuildNews,
+        Discord.ChannelType.GuildVoice,
+      ].includes(message.channel.type)
+    ) return;
 
     // Guild information
     const guildData = await findOneLeanOrCreate(
@@ -28,12 +34,10 @@ module.exports = {
         chibi: false,
       },
       Guild,
-      false,
     );
 
     // set message prefix for lower query rates
     message.prefix = guildData.prefix;
-
     if (new RegExp(`<@!?${client.user.id}>`).test(message.content)) {
       message.channel.send(
         `The bot prefix is: ${`\`${guildData.prefix}\``}`,
@@ -65,7 +69,7 @@ module.exports = {
         disabled: false,
       };
       guildData.commands.push(commandData);
-      await guildData.save();
+      await Guild.updateOne({ _id: message.guild.id }, { commands: guildData.commands });
     }
 
     // New Cooldown-----
@@ -76,14 +80,13 @@ module.exports = {
     const now = Date.now();
     const timestamps = cooldowns.get(cmd.name);
     const cooldownAmount = (cmd.cooldown || 1) * 1000;
-
     if (timestamps.has(message.author.id)) {
       const expirationTime = timestamps.get(message.author.id) + cooldownAmount;
 
       if (now < expirationTime) {
         const timeLeft = (expirationTime - now) / 1000;
         message.channel.send({
-          embeds: [new Discord.MessageEmbed()
+          embeds: [new Discord.EmbedBuilder()
             .setTitle("Command Cooldown")
             .setColor("RED")
             .setDescription(`<a:exclamation:741988026296696872> Please wait **${timeLeft.toFixed(1)}** more second(s) before reusing the \`${cmd.name}\` command <a:exclamation:741988026296696872>`)],
