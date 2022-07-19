@@ -60,8 +60,8 @@ class AdvancedComponentMenu {
   }
 
   /**
-   * Sets the components, should be an array of MessageActionRow.
-   * @param {Array<Discord.MessageActionRow>} array
+   * Sets the components, should be an array of ActionRowBuilder.
+   * @param {Array<Discord.ActionRowBuilder>} array
    * @returns {AdvancedComponentMenu}
    */
   setComponents(
@@ -73,23 +73,23 @@ class AdvancedComponentMenu {
 
   /**
    * Adds the component row to the existing array
-   * @param {MessageActionRow | Array<Discord.MessageActionRow>} array
+   * @param {ActionRowBuilder | Array<Discord.ActionRowBuilder>} array
    * @returns {AdvancedComponentMenu}
    */
   addComponentRow(
     load = AdvancedComponentMenu.mandatory("load", "setComponents"),
   ) {
     if (Array.isArray(load)) {
-      if (load.every((a) => a instanceof Discord.MessageActionRow)) {
+      if (load.every((a) => a instanceof Discord.ActionRowBuilder)) {
         this.components = this.components.concat(load);
       } else {
-        throw new Error("Attempt to add an array with a non MessageActionRow.");
+        throw new Error("Attempt to add an array with a non ActionRowBuilder.");
       }
-    } else if (load instanceof Discord.MessageActionRow) {
+    } else if (load instanceof Discord.ActionRowBuilder) {
       this.components.push(load);
     } else {
       throw new Error(
-        "Attempt to add something neither an array nor MessageActionRow",
+        "Attempt to add something neither an array nor ActionRowBuilder",
       );
     }
 

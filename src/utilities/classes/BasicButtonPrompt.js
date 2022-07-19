@@ -2,7 +2,7 @@
  * This file contains a class which helps creating prompts with buttons.
 */
 
-const { MessageActionRow } = require("discord.js");
+const { ActionRowBuilder } = require("discord.js");
 
 /** @class */
 class BasicButtonPrompt {
@@ -24,7 +24,7 @@ class BasicButtonPrompt {
 
   /**
    * Sets the components row
-   * @param {MessageActionRow} row row of components
+   * @param {ActionRowBuilder} row row of components
    * @returns {BasicButtonPrompt}
    */
   setComponentRow(row) {
