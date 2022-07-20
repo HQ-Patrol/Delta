@@ -41,9 +41,9 @@ module.exports = {
           default: (selectedOption === key),
         });
       }
-      return new Discord.MessageActionRow()
+      return new Discord.ActionRowBuilder()
         .addComponents(
-          new Discord.MessageSelectMenu()
+          new Discord.SelectMenuBuilder()
             .setCustomId("select")
             .setPlaceholder("Learn more about Patrol Bot!")
             .addOptions(selectMenuOptions),
@@ -67,27 +67,27 @@ module.exports = {
       const embed = new Discord.EmbedBuilder();
       if (foundEmbed?.title) embed.setTitle(foundEmbed.title);
       if (foundEmbed?.description) embed.setDescription(foundEmbed.description.replace(/\\/g, "`").replace(/{prefix}/g, prefix));
-      if (foundEmbed?.color) embed.setColor(foundEmbed.color);
+      if (foundEmbed?.color) embed.setColor(`${foundEmbed.color[0].toUpperCase()}${foundEmbed.color.toLowerCase().slice(1)}`);
 
       menu.embed = embed;
 
       // Update buttons
-      const buttonRow = new Discord.MessageActionRow();
+      const buttonRow = new Discord.ActionRowBuilder();
       // Buttons
       // eslint-disable-next-line no-restricted-syntax
       for (const [key, value] of menus) {
         if (value.component.link) {
           buttonRow.addComponents(
-            new Discord.MessageButton()
+            new Discord.ButtonBuilder()
               .setLabel(value.component.label)
-              .setStyle("LINK")
+              .setStyle("Link")
               .setURL(value.component.url),
           );
         } else {
           buttonRow.addComponents(
-            new Discord.MessageButton()
+            new Discord.ButtonBuilder()
               .setLabel(value.component.label)
-              .setStyle(value.component.style)
+              .setStyle(`${value.component.style[0].toUpperCase()}${value.component.style.toLowerCase().slice(1)}`)
               .setCustomId(key)
               .setDisabled(selectedMenu === key),
           );

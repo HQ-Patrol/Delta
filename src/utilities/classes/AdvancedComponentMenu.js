@@ -180,13 +180,7 @@ class AdvancedComponentMenu {
    */
   listen() {
     const filter = (interaction) => {
-      if (
-        this.components
-          .map((a) => a.components.map((b) => b.customId))
-          .flat()
-          .includes(interaction.customId)
-        && interaction.user.id === this.member.id
-      ) {
+      if (interaction.user.id === this.member.id) {
         return true;
       }
 
