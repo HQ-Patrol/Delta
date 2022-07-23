@@ -5,7 +5,12 @@ module.exports = async (query, createObject, Model, lean = true) => {
 
   if (!find || find === null) {
     await new Model(createObject).save();
+
+    // mark created object as a new one
+    createObject.new = true;
+
     return createObject;
   }
+
   return find;
 };
