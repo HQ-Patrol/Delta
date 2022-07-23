@@ -11,13 +11,17 @@
 require("dotenv").config();
 
 const Cluster = require("discord-hybrid-sharding");
-const chalk = require("chalk");
+const $ = require("chalk");
 const path = require("path");
+const ms = require("ms");
 const { log, info } = require("./utilities/logger");
 
 const PACKAGE_INFO = require("../package.json");
 
-log("STARTUP", `Starting Patrol Bot Delta v${chalk.bold(PACKAGE_INFO.version ?? "None")}`);
+const TIME = Date.now();
+let allReady = false;
+
+log("STARTUP", `Starting Patrol Bot Delta v${$.bold(PACKAGE_INFO.version ?? "None")}`);
 
 const shardingOptions = {
   totalShards: 5,
@@ -49,8 +53,15 @@ sharder.on("clusterCreate", (cluster) => {
   log("SHARDER", `I have launched shard ID ${cluster.id}.`, "magentaBright");
 
   cluster.on("message", (message) => {
-    if (message?.ready) log("SHARDER", "This shard is ready.", "green", message.instance.id);
-    if (message?.database) log("SHARDER", "This shard has connected to its database.", "blue", message.instance.id);
+    const TIMESTAMP = $.bold(`(${ms(Date.now() - TIME)})`);
+    if (message?.ready) log("SHARDER", `This shard is ready. ${TIMESTAMP}`, "blue", message.instance.id);
+    if (message?.database) log("SHARDER", `This shard has connected to its database. ${TIMESTAMP}`, "blue", message.instance.id);
+
+    if (message?.database && message.instance.id === shardingOptions.totalShards - 1 && !allReady) {
+      // Last shard completed, log
+      allReady = true;
+      log("SHARDER", `All shards launched and ready. ${TIMESTAMP}`, "green");
+    }
   });
 });
 
