@@ -5,7 +5,7 @@ const Discord = require("discord.js");
 const User = require("../../database/models/UserModel");
 const Guild = require("../../database/models/GuildModel");
 
-const findOneLeanOrCreate = require("../../database/functions/findOneLeanOrCreate");
+const findOneOrCreate = require("../../database/functions/findOneOrCreate");
 const { log, error } = require("../../utilities/logger");
 
 const cooldowns = new Discord.Collection();
@@ -24,7 +24,7 @@ module.exports = {
     ) return;
 
     // Guild information
-    const guildData = await findOneLeanOrCreate(
+    const guildData = await findOneOrCreate(
       { _id: message.guild.id },
       {
         _id: message.guild.id,
@@ -113,7 +113,7 @@ module.exports = {
         if (!commandData || commandData.disabled) return;
 
         // User Data
-        const userData = await findOneLeanOrCreate(
+        const userData = await findOneOrCreate(
           { _id: message.author.id },
           { _id: message.author.id, premium: false, blacklisted: false },
           User,
