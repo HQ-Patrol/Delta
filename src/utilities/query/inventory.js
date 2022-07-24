@@ -163,5 +163,5 @@ async function addItemsToUser(id, object) {
 
 module.exports = {
   addItemToUser,
-  addItemsToUser
+  addItemsToUser,
 };
