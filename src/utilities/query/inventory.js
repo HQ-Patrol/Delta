@@ -97,6 +97,71 @@ async function addItemToUser(id, itemName, quantity = 1) {
   return true;
 }
 
+/**
+ * Adds item in bulk, reading from an object
+ * @param {string} id id of user
+ * @param {Object<string, number>} object object of items
+ */
+async function addItemsToUser(id, object) {
+  if (typeof itemName !== "string") return;
+
+  const itemsArray = Object.keys(object).map((a) => {
+    const f = items.find((x) => x.name === a);
+    return {
+      name: f.name,
+      count: object[a],
+      type: f.type,
+      data: f.data,
+      icon: f.icon,
+    };
+  });
+
+  const user = await findOneOrCreate(
+    { id },
+    {
+      id,
+      lastUse: Date.now(),
+      coins: 50,
+      bank: 0,
+      xp: 0,
+      level: 1,
+      items: itemsArray,
+      bracket: 1,
+    },
+    EconomyModel,
+  );
+
+  if (user?.new) return true;
+
+  if (!Array.isArray(user.items)) {
+    await EconomyModel.updateOne(
+      { id },
+      {
+        items: itemsArray,
+      },
+    );
+
+    return true;
+  }
+
+  // User must have inventory, loop over and add & increment accordingly
+  itemsArray.forEach((e) => {
+    const invFind = user.items.find((i) => i.name.toLowerCase() === e.name.toLowerCase());
+    if (invFind) {
+      invFind.count += e.count;
+      return;
+    }
+    // Just push into array
+    user.items.push(e);
+  });
+
+  // Update
+  await EconomyModel.updateOne({ id }, { items: user.items });
+
+  return true;
+}
+
 module.exports = {
   addItemToUser,
+  addItemsToUser
 };
