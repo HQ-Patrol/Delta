@@ -31,6 +31,10 @@ client.statistics = {
   commands: 0,
 };
 
+// Client constants
+client.e = require("./constants/emoji");
+client.utils = require("./utilities/global")
+
 // Run handlers
 require("./handers")(client);
 
