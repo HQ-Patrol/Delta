@@ -106,7 +106,7 @@ async function addItemsToUser(id, object) {
   if (typeof itemName !== "string") return;
 
   const itemsArray = Object.keys(object).map((a) => {
-    const f = items.find((x) => x.name === a);
+    const f = items.find((x) => x.name.toLowerCase() === a.name.toLowerCase());
     return {
       name: f.name,
       count: object[a],
