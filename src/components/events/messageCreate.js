@@ -120,6 +120,9 @@ module.exports = {
         );
 
         if (userData.blacklisted && userData.blacklisted === true) return;
+
+        message.userData = userData;
+
         await cmd.run(client, message, args);
 
         // TODO: Implement MB1, MB2, XP-COIN Addition
