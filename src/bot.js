@@ -33,7 +33,7 @@ client.statistics = {
 
 // Client constants
 client.e = require("./constants/emoji");
-client.utils = require("./utilities/global")
+client.utils = require("./utilities/global");
 
 // Run handlers
 require("./handers")(client);
