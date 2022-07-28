@@ -1,7 +1,7 @@
 /**
  * Calculates the maximum bank compacity of a user
  * @param {Object} user user model
- * @returns {Number}
+ * @returns {number}
  */
 const getMaximumCompacity = (user) => {
   let capacity = 0;
@@ -38,6 +38,49 @@ const getMaximumCompacity = (user) => {
   return capacity;
 };
 
+/**
+ * Expands a string in abbreviated form e.g ending with k
+ * Don't use this directly! Use parseInt instead
+ * @param {string} string number in abbreviated form
+ * @returns {number}
+ */
+function expandNumber(string) {
+  const d = {
+    h: 100,
+    k: 1000,
+    m: 1000000,
+  };
+
+  if (Object.keys(d).includes(string.at(-1))) {
+    return parseInt(string.slice(0, string.length - 1), 10) * d[string.at(-1)];
+  }
+
+  return parseInt(string, 10);
+}
+
+/**
+ * Parses a string into a number, but with different filters.
+ * @param {string} string
+ * @param {number} all
+ * @param {string} argument
+ * @returns {number}
+ */
+function parse(string, all, argument) {
+  // Parse arguments
+  if (argument === "all" || argument === "max") {
+    return all;
+  } if (argument === "half") {
+    return Math.floor(all / 2);
+  }
+
+  // Expand
+  const num = expandNumber(string);
+  if (Number.isNaN(num)) return -1;
+
+  return num;
+}
+
 module.exports = {
   getMaximumCompacity,
+  parse,
 };
