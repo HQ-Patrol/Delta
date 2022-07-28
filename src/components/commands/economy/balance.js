@@ -27,7 +27,7 @@ module.exports = {
       {
         id: user.id,
         lastUse: Date.now(),
-        coins: 250,
+        coins: 50,
         bank: 0,
         xp: 0,
         level: 1,
