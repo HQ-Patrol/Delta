@@ -40,7 +40,7 @@ module.exports = {
     }
 
     if (toDep <= 0) {
-      return message.sendError("Bruh... Cannot withdraw 0 or less coins 😐");
+      return message.sendError("Bruh... Cannot deposit 0 or less coins 😐");
     }
 
     if (toDep > myself.coins) {
