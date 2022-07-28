@@ -129,8 +129,7 @@ module.exports = {
       } catch (err) {
         error(`An error occured while running the ${$.bold(command)} command:`);
 
-        if (err instanceof mongoose.Error) console.error(err.errors);
-        else console.error(err);
+        console.error(err);
       }
     }
   },
