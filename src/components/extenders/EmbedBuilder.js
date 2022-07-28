@@ -6,6 +6,6 @@ EmbedBuilder.prototype.addField = function addField(name, value, inline) {
 };
 
 EmbedBuilder.prototype.addDescription = function addDescription(append) {
-  this.description = `${this.description ? "" : this.description}\n${append}`;
+  this.data.description = `${this.data.description ? this.data.description : ""}\n${append}`;
   return this;
 };
