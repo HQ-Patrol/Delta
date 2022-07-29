@@ -13,7 +13,7 @@ const EconomyModel = require("../../database/models/EconomyModel");
  * @returns {Promise<boolean>}
  */
 async function addItemToUser(id, itemName, quantity = 1) {
-  if (typeof itemName !== "string") return;
+  if (typeof itemName !== "string") return false;
 
   // TODO: Make option to allow fuzzy
   const item = items.find((i) => i.name === itemName.toLowerCase());
