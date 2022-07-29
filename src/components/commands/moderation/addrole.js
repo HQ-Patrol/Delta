@@ -25,11 +25,9 @@ module.exports = {
 
     const [, name, color] = matched;
 
-    console.log(name, color);
-
     const embed = new EmbedBuilder()
       .setTitle("New role created!")
-      .setDescription(`${message.author.username} has created the role \`${name}\`\nHex: \`${color}\`\nID: {0}`)
+      .setDescription(`${message.author.username} has created the role {0}\nHex: \`${color}\`\nID: {1}`, `\`${name}\``)
       .setColor(color);
 
     const msgSend = message.channel.send({ embeds: [embed] });
@@ -37,7 +35,7 @@ module.exports = {
 
     msgSend.then(safe(async (msg) => {
       const role = await roleCreate;
-      msg.edit({ embeds: [embed.setDescriptionFinished(`\`${role.id}\``)] });
+      msg.edit({ embeds: [embed.setDescriptionFinished(role.toString(), `\`${role.id}\``)] });
     }));
 
     return true;
