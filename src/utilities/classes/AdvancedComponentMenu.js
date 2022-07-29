@@ -4,15 +4,17 @@
  * @author Leo
  */
 
-const Discord = require("discord.js");
+const {
+  ActionRowBuilder, Message, GuildMember, Interaction, EmbedBuilder,
+} = require("discord.js");
 
 /** @class Main class that includes the menu. */
 class AdvancedComponentMenu {
   /**
    * Constructs a new AdvancedComponentMenu.
    * @constructor
-   * @param {Discord.Message} message
-   * @param {Discord.GuildMember} member
+   * @param {Message} message
+   * @param {GuildMember} member
    */
   constructor(message, member) {
     this.setup(message, member);
@@ -20,8 +22,8 @@ class AdvancedComponentMenu {
 
   /**
    * Initializes the values of the menu.
-   * @param {Discord.Message} message
-   * @param {Discord.GuildMember} member
+   * @param {Message} message
+   * @param {GuildMember} member
    */
   setup(message, member) {
     this.message = message;
@@ -61,7 +63,7 @@ class AdvancedComponentMenu {
 
   /**
    * Sets the components, should be an array of ActionRowBuilder.
-   * @param {Array<Discord.ActionRowBuilder>} array
+   * @param {ActionRowBuilder[]} array
    * @returns {AdvancedComponentMenu}
    */
   setComponents(
@@ -73,19 +75,19 @@ class AdvancedComponentMenu {
 
   /**
    * Adds the component row to the existing array
-   * @param {ActionRowBuilder | Array<Discord.ActionRowBuilder>} array
+   * @param {ActionRowBuilder | ActionRowBuilder[]} array
    * @returns {AdvancedComponentMenu}
    */
   addComponentRow(
     load = AdvancedComponentMenu.mandatory("load", "setComponents"),
   ) {
     if (Array.isArray(load)) {
-      if (load.every((a) => a instanceof Discord.ActionRowBuilder)) {
+      if (load.every((a) => a instanceof ActionRowBuilder)) {
         this.components = this.components.concat(load);
       } else {
         throw new Error("Attempt to add an array with a non ActionRowBuilder.");
       }
-    } else if (load instanceof Discord.ActionRowBuilder) {
+    } else if (load instanceof ActionRowBuilder) {
       this.components.push(load);
     } else {
       throw new Error(
@@ -113,13 +115,13 @@ class AdvancedComponentMenu {
 
   /**
    * Sets the default embed of the menu. Mandatory.
-   * @param {Discord.EmbedBuilder} embed
+   * @param {EmbedBuilder} embed
    * @returns {AdvancedComponentMenu}
    */
   setDefaultEmbed(
     embed = AdvancedComponentMenu.mandatory("embed", "setDefaultEmbed"),
   ) {
-    if (!(embed instanceof Discord.EmbedBuilder)) {
+    if (!(embed instanceof EmbedBuilder)) {
       throw new Error(
         "Embed provided is not a valid EmbedBuilder in setDefaultEmbed.",
       );
@@ -132,7 +134,7 @@ class AdvancedComponentMenu {
    * Sends the menu. Requires the default embed, handler and components to be set.
    */
   async send() {
-    if (!this.embed || !(this.embed instanceof Discord.EmbedBuilder)) {
+    if (!this.embed || !(this.embed instanceof EmbedBuilder)) {
       throw new Error(
         "Embed was not provided or is not a valid EmbedBuilder while sending.",
       );
@@ -209,7 +211,7 @@ class AdvancedComponentMenu {
 
   /**
    * Function called by the collector to handle interactions.
-   * @param {Discord.Interaction} interaction Interaction provided
+   * @param {Interaction} interaction Interaction provided
    * @returns {Promise<void>}
    */
   async handle(interaction) {
@@ -219,7 +221,7 @@ class AdvancedComponentMenu {
 
   /**
    * Checks if the user can execute the interaction, to prevent spamming.
-   * @param {Discord.Interaction} interaction Interaction provided.
+   * @param {Interaction} interaction Interaction provided.
    * @returns {Boolean} True if allowed, false if not allowed.
    */
   checkThrottle(interaction) {
