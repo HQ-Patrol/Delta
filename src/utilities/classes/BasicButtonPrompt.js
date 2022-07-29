@@ -2,7 +2,7 @@
  * This file contains a class which helps creating prompts with buttons.
 */
 
-const { ActionRowBuilder } = require("discord.js");
+const { ActionRowBuilder, EmbedBuilder } = require("discord.js");
 
 /** @class */
 class BasicButtonPrompt {

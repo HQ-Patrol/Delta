@@ -8,7 +8,7 @@ module.exports = {
   usage: "premium",
   category: "information",
   aliases: ["donate"],
-  run: async (client, message, args) => {
+  run: async (client, message, _args) => {
     const guild = await Guild.findOne({ _id: message.guild.id }).lean();
 
     const Embed = new Discord.EmbedBuilder()

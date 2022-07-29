@@ -6,7 +6,7 @@ module.exports = {
   aliases: ["rule"],
   cooldown: 60,
   description: "Shows information about Patrol bot fair-use rules!",
-  run: async (client, message, args) => {
+  run: async (client, message, _args) => {
     const embed = new Discord.EmbedBuilder()
       .setTitle("🚨 Patrol Bot Fair-use Rules and Guidelines 📜")
       .setDescription(
