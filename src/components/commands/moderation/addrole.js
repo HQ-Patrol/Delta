@@ -25,9 +25,11 @@ module.exports = {
 
     const [, name, color] = matched;
 
+    console.log(name, color);
+
     const embed = new EmbedBuilder()
       .setTitle("New role created!")
-      .setDescription(`${message.author.username} has created the role ${name}\nHex: ${color}\nID: {0}`)
+      .setDescription(`${message.author.username} has created the role \`${name}\`\nHex: \`${color}\`\nID: {0}`)
       .setColor(color);
 
     const msgSend = message.channel.send({ embeds: [embed] });
