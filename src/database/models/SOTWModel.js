@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const SOTWSchema = mongoose.Schema({
+const SOTWSchema = new mongoose.Schema({
   userID: String,
   servers: [
     {

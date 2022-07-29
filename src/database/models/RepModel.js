@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const REPSchema = mongoose.Schema({
+const REPSchema = new mongoose.Schema({
   userID: String,
   username: String,
   repper: Array,

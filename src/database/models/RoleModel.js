@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const RoleSchema = mongoose.Schema({
+const RoleSchema = new mongoose.Schema({
   id: String,
   fight: Array,
   snap: Array,

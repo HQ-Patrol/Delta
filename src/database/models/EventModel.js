@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const EventSchema = mongoose.Schema({
+const EventSchema = new mongoose.Schema({
   X1: {
     type: Number,
     default: 0,

@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const PVCSchema = mongoose.Schema({
+const PVCSchema = new mongoose.Schema({
   id: String,
   bosses: [
     {

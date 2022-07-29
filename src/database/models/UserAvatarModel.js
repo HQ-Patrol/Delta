@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const AVATARSchema = mongoose.Schema({
+const AVATARSchema = new mongoose.Schema({
   userID: String,
   username: String,
   av: String,
