@@ -13,11 +13,12 @@ module.exports = {
   category: "information",
   aliases: ["how-to", "howto", "guide"],
   usage: "guide",
-  run: async (_client, message, _args) => {
+  run: async (client, message, _args) => {
     // TODO: Incorperate args into default selectedOption
 
     if (!cachedGuide) {
-      const data = await fs.readFile(path.join(__dirname, "..", "..", "..", "data", "json", "guide.hjson"), "utf-8");
+      let data = await fs.readFile(path.join(__dirname, "..", "..", "..", "data", "json", "guide.hjson"), "utf-8");
+      data = data.replace(/{emoji.(\w+)}/g, (_, name) => client.e[name] || "");
       cachedGuide = await Hjson.parse(data);
     }
 
