@@ -89,7 +89,7 @@ module.exports = {
           embeds: [new Discord.EmbedBuilder()
             .setTitle("Command Cooldown")
             .setColor("Red")
-            .setDescription(`<a:exclamation:741988026296696872> Please wait **${timeLeft.toFixed(1)}** more second(s) before reusing the \`${cmd.name}\` command <a:exclamation:741988026296696872>`)],
+            .setDescription(`${client.e.exclamation} Please wait **${timeLeft.toFixed(1)}** more second(s) before reusing the \`${cmd.name}\` command ${client.e.exclamation}`)],
         }).then((m) => setTimeout(() => m.delete(), 5000));
         return;
       }

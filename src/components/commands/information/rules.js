@@ -10,7 +10,7 @@ module.exports = {
     const embed = new Discord.EmbedBuilder()
       .setTitle("🚨 Patrol Bot Fair-use Rules and Guidelines 📜")
       .setDescription(
-        "<a:Right:763251259896758282> Everyone is required to follow all Server rules along with Bot rules at all time!",
+        `${client.e.right} Everyone is required to follow all Server rules along with Bot rules at all time!`,
       )
       .addFields(
         {
@@ -75,7 +75,7 @@ module.exports = {
         "⚖ Please Check your DMs for the list of all Bot Rules! 📜",
       ))
       .catch(() => message.channel.send(
-        "`Unlucky! You have DM's closed` <:sus:715633189871419554> Please turn them on 🎇",
+        `\`Unlucky! You have DM's closed\` ${client.e.sus} Please turn them on 🎇`,
       ));
   },
 };

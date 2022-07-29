@@ -46,17 +46,17 @@ module.exports = {
           inline: true,
         },
         {
-          name: "<a:CleanWoman:728219543658561606> Invite this Bot",
+          name: `${client.e.cleanWoman} Invite this Bot`,
           value: "[Click Here](https://discord.com/api/oauth2/authorize?client_id=763506280421392466&permissions=8&scope=bot)",
           inline: true,
         },
         {
-          name: "<a:PatrolBot:736282237225533571> Website",
+          name: `${client.e.patrolBotThug} Website`,
           value: "[Click here to Visit](https://patrolbot.xyz)",
           inline: true,
         },
       )
-      .addFields("<:DiscordLogo:730154954492477482> Discord", "[Join Server](https://discord.gg/HQ)", true)
+      .addFields(`${client.e.discordLogo} Discord`, "[Join Server](https://discord.gg/HQ)", true)
       .setFooter({ text: "ID: 711628700747300864 • PFP by: ？？？#0013", iconURL: "https://i.imgur.com/YTMhQOx.gif" })
       .setTimestamp();
 

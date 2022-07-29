@@ -77,7 +77,7 @@ module.exports = {
             .setColor("#00FF00")
             .setTitle("Bank Limit Hit‼")
             .setDescription(
-              `Deposited **${toDep} coins** to your bank <a:Coins:775714101564276756>\n⤳ \`ɪɴᴄʀᴇᴀꜱᴇ ʏᴏᴜʀ ʟɪᴍɪᴛ ʙʏ ʟᴇᴠᴇʟɪɴɢ ᴜᴘ!\`📈`,
+              `Deposited **${toDep} coins** to your bank ${client.e.coins}\n⤳ \`ɪɴᴄʀᴇᴀꜱᴇ ʏᴏᴜʀ ʟɪᴍɪᴛ ʙʏ ʟᴇᴠᴇʟɪɴɢ ᴜᴘ!\`📈`,
             )
             .setFooter({
               text: `${message.author.username}'s Bank: ${

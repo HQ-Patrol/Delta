@@ -12,7 +12,7 @@ module.exports = {
   category: "economy",
   cooldown: 1,
   aliases: ["bal", "wallet"],
-  run: async (_client, message, args) => {
+  run: async (client, message, args) => {
     let user = message.author;
     const mention = message.mentions.users.first()
       || message.guild.members.cache.get(args[0])?.user;
@@ -44,8 +44,8 @@ module.exports = {
         embeds: [
           new Discord.EmbedBuilder()
             .setColor("Random")
-            .addFields("<:Wallet:775651665553915904> Wallet:", "<:GUNSHOT:745729904334733392> <a:Coins:775714101564276756>", true)
-            .addFields("🏧 Bank:", "<:GUNSHOT:745729904334733392> <a:Coins:775714101564276756>", true)
+            .addFields(`${client.e.wallet} Wallet:`, `${client.e.gunshot} ${client.e.coins}`, true)
+            .addFields("🏧 Bank:", `${client.e.gunshot} ${client.e.coins}`, true)
             .setAuthor({ name: `${user.username}'s Balance 💰`, iconURL: user.displayAvatarURL({ dynamic: true }) })
             .setThumbnail("https://i.imgur.com/fYOtU81.gif")
             .setFooter({ text: "Mind your own Bread..." }),
@@ -57,8 +57,8 @@ module.exports = {
       embeds: [
         new Discord.EmbedBuilder()
           .setColor("Random")
-          .addFields("<:Wallet:775651665553915904> Wallet:", `${person.coins} <a:Coins:775714101564276756>`, true)
-          .addFields("🏧 Bank:", `${person.bank}/**${capacity}** <a:Coins:775714101564276756>`, true)
+          .addFields(`${client.e.wallet} Wallet:`, `${person.coins} ${client.e.coins}`, true)
+          .addFields("🏧 Bank:", `${person.bank}/**${capacity}** ${client.e.coins}`, true)
           .setAuthor({ name: `${user.username}'s Balance 💰`, iconURL: user.displayAvatarURL({ dynamic: true }) })
           .setThumbnail("https://i.imgur.com/fYOtU81.gif")
           .setFooter({ text: "➤ ᴘᴀᴛʀᴏʟʙᴏᴛ.xʏᴢ/ꜱᴛᴏʀᴇ 🥶" })

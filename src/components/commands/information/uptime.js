@@ -5,6 +5,7 @@ module.exports = {
   category: "information",
   description: "Displays bot's current uptime!",
   run: async (client, message, args) => {
-    message.channel.send(`My uptime is \`${ms(client.uptime, { long: true })}\` <a:Loading:727148666837663765>`);
+    const uptime = ms(client.uptime, { long: true });
+    message.channel.send(`My uptime is \`${uptime}\` ${client.e.loading}`);
   },
 };
