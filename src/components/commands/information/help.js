@@ -122,7 +122,7 @@ module.exports = {
       .setDefaultEmbed(
         new Discord.EmbedBuilder()
           .setTitle(mainMenuEmbed.title)
-          .setDescription(mainMenuEmbed.description.replace(/\\`/g, "`").replace(/{prefix}/g, prefix))
+          .setDescription(mainMenuEmbed.description.replace(/{prefix}/g, prefix))
           .setColor(mainMenuEmbed.color),
       )
       .setHandler(handler);

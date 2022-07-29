@@ -1,7 +1,7 @@
 {
-	// Main menu 
+	// Main menu
 	// This one is for Eric. In this json file, there is optionID : option key-value pair.
-	// For example, mainMenu is the option ID, while everything inside is just the option itself. 
+	// For example, mainMenu is the option ID, while everything inside is just the option itself.
 	// When you add another "option", you have to include the "selectMenuLabel" and "description"
 	mainMenu: {
 		selectMenuLabel: "Main Menu" // Must have!
@@ -17,16 +17,16 @@
 				}
 				embed: {
 					title: "Welcome!" // Embed. Currently only supports title, description and color.
-					description: 
+					description:
 						'''
 						Hey, thanks for using Patrol bot! PB is a Multi-purpose Bot which contains Mini-Games, Economy, Moderation, Leveling & lots of Fun stuff!
-						
+
 						<a:Right:763251259896758282> __𝙆𝙚𝙮 𝙁𝙚𝙖𝙩𝙪𝙧𝙚𝙨__ <:DiscordLogo:730154954492477482>
 						• **Global Economy**: The Most realistic and Robust Economy System on this app with daily Taxations so that Rich don't keep getting Richer! Earn Coins with our Fun commands and use them to buy interesting Items which can be used on any Server using Patrol Bot <a:Coins:775714101564276756>
 						• **Seasonal Events**: Be part of our amazing user-base and partake in Seasonal events which will help you win loads of Prizes 🎁
-					
+
 						<a:rainbownitro:760519785485828116> **Discord Nitro**: THE only bot on this App which constantly Rewards their dedicated users with Monthly/Yearly Discord Nitros which is easily obtainable in `Shop` 🛒 and `Mystery Boxes` <:MysteryBoxXXX:855561382795149322>
-					
+
 						🔽`Click on the Dropdown Menu below to know more`🔽
 						'''
 					color: "BLUE"
@@ -52,7 +52,7 @@
 					title: "Setting up your server"
 					description:
 						'''
-						<a:Right:763251259896758282> \`You can add Patrol bot to your Server by \`[\`CLICKING HERE\`](https://discord.com/oauth2/authorize?client_id=763506280421392466&permissions=8&scope=bot)
+						<a:Right:763251259896758282> `You can add Patrol bot to your Server by `[`CLICKING HERE`](https://discord.com/oauth2/authorize?client_id=763506280421392466&permissions=8&scope=bot)
 						*After you've added the bot, make sure to Move the Patrol Bot's Role to the top of your Server's Roles List to avoid having any difficulties whilst using Moderation Commands.*
 
 						▶ __**Important Settings**__
@@ -86,7 +86,7 @@
 				}
 				embed: {
 					title: "Need help with the riches?"
-					description: 
+					description:
 						'''
 						<a:Right:763251259896758282> __**Coins: Patrol Bot Currency**__ <a:Coins:775714101564276756>
 						*Patrol Bot has undoubtedly one of the most COMPLEX & REWARDING Economy on Discord. With Daily Taxes, different Tax Brackets, Variety of uses of Coins, Different Coin Leaderboards, it's a challenge to be at the top.*
@@ -97,15 +97,15 @@
 						➼ [`{prefix}crime`](https://patrolbot.xyz) *(Can be done every 2 mins)*
 						➼ [`{prefix}work`](https://patrolbot.xyz/premium) *~(Depends on your Level)*
 						➼ [`{prefix}rob @User`](https://patrolbot.xyz) *(Rob your friends if they have money)*
-						
+
 						• These Base commands can help you start making coins in an Instant and move your way up.
-						
+
 						• Try to make sure all your coins are deposited to your bank at all times or else they can be robbed by other users.
 						-> Deposit coins to bank by: `{prefix}deposit <Amount>` **OR** `{prefix}dep <Amount>`
 						-> Withdraw coins from bank by: `{prefix}withdraw <Amount>` **OR** `{prefix}with <Amount>`
-						
+
 						• *You can also Transfer coins to another user by typing: `{prefix}transfer @User <Amount>`*
-						
+
 						➦ You can learn more about Each Command by typing: `{prefix}command <CommandName>`
 						'''
 					color: "YELLOW"
@@ -118,7 +118,7 @@
 				}
 				embed: {
 					title: "Rewards"
-					description: 
+					description:
 						'''
 						▶ __**Reward Commands:**__
 						• There's multiple Commands on Patrol Bot which can give you Free Coins or Free items
@@ -169,7 +169,7 @@
 				}
 				embed: {
 					title: "Profile"
-					description: 
+					description:
 						'''
 						<a:Right:763251259896758282> User Profile and Information 👥
 
@@ -192,7 +192,7 @@
 				}
 				embed: {
 					title: "Levels!"
-					description: 
+					description:
 						'''
 						<a:Right:763251259896758282> __**Levels**__
 						*For every Patrol bot command, you get XPs which inturn increases your Levels. Level up becomes increasingly difficult as you go up the ladder.*
@@ -201,12 +201,12 @@
 						➼ User with the Highest Level on Patrol Bot gets rewarded with a Special Badge <:GlobalXPLBTopper:777107563371036672>
 
 						▶ ***There's multiple ways to Increase your Levels:***
-						• \`Gambling/Minigames\`
-						• \`Opening Mystery Boxes\` ([\`Store 🛒\`](https://patrolbot.xyz/store))
-						• \`Boss Brawls (Pets System)\`
-						• \`Finishing Tasks (Tasks System)\`
-						• \`Failed Egg Hatch\`
-						• \`And many more...\`
+						• `Gambling/Minigames`
+						• `Opening Mystery Boxes` ([`Store 🛒`](https://patrolbot.xyz/store))
+						• `Boss Brawls (Pets System)`
+						• `Finishing Tasks (Tasks System)`
+						• `Failed Egg Hatch`
+						• `And many more...`
 						'''
 					color: "BLURPLE"
 				}
@@ -218,7 +218,7 @@
 				}
 				embed: {
 					title: "Badges"
-					description: 
+					description:
 						'''
 						▶ __**Badges**__
 						*Badges are Achievements or Milestones that you can unlock as you progress with using Patrol bot. They will always show on your profile in order you obtained them.
@@ -253,7 +253,7 @@
 				}
 				embed: {
 					title: "Nitro"
-					description: 
+					description:
 						'''
 						<a:Right:763251259896758282> 𝙁𝙤𝙧 𝙩𝙝𝙚 𝙛𝙞𝙧𝙨𝙩 𝙩𝙞𝙢𝙚 𝙤𝙣 𝘿𝙞𝙨𝙘𝙤𝙧𝙙, 𝙩𝙝𝙚𝙧𝙚'𝙨 𝙖 𝘽𝙤𝙩 𝙬𝙝𝙞𝙘𝙝 𝙧𝙚𝙬𝙖𝙧𝙙𝙨 𝙮𝙤𝙪 𝙬𝙞𝙩𝙝 __𝙍𝙀𝘼𝙇 𝘿𝙞𝙨𝙘𝙤𝙧𝙙 𝙉𝙞𝙩𝙧𝙤𝙨 𝙛𝙤𝙧 𝙁𝙍𝙀𝙀__ <a:NitroFlying:807707296356368384>
 
@@ -264,7 +264,7 @@
 						• `Allows 4K HD Streaming & more...`
 
 						🤜 [__***How to get the Free Discord Nitro through Patrol Bot?***__](https://patrolbot.xyz) <a:Erica:762951571754450944>
-						➼ ***Discord Nitro is an item available to be OBTAINED from Bot [`{prefix}shop`](https://patrolbot.xyz/item)*** <:EricaEvilPlotting:897841584647847986> 
+						➼ ***Discord Nitro is an item available to be OBTAINED from Bot [`{prefix}shop`](https://patrolbot.xyz/item)*** <:EricaEvilPlotting:897841584647847986>
 						➼ ***Cost: 500,000 <a:Coins:775714101564276756> | Daily Re-Stocks ✅***
 						➼ ***Coins are Free in-game currency which can easily be obtained with our Economy System*** `[Learn more from: {prefix}how-to about Coins]`
 						➼ *`Redeeming 2 at one time constitutes as a Boosted Discord Nitro `* <a:NitroBoost:918973890619904001>
@@ -293,9 +293,9 @@
 					description:
 						'''
 						Patrol bot also has tons of in-game items which greatly enhance your playing experience by providing different uses and fulfilling needs 💼
-						Items are available in Variety of types: 
-						• `USABLE` - Used to fulfill a certain job or need 
-						• `COLLECTIBLE` - Cannot be used, only observed in your Inventory 
+						Items are available in Variety of types:
+						• `USABLE` - Used to fulfill a certain job or need
+						• `COLLECTIBLE` - Cannot be used, only observed in your Inventory
 						• `ROB` - Compliments in/against robbing
 						• `PETS` - Used for improving Pets Stats or Hatching
 						• `BADGE` - Provides with a Badge on Profile (Once)
@@ -322,10 +322,10 @@
 				}
 				embed: {
 					title: "What are Mystery Boxes?"
-					description: 
+					description:
 						'''
 						Mystery Boxes are Gift Boxes which contain different type of items depending on the Rarity of the Boxes. Along with a Special Item, all Mystery Boxes also give Coins & XPs. Higher Tier mystery boxes tend to give Special Items which aren't obtainable in other ways like <:1StarDragonBall:855517931730501653> Dragon Balls, etc.
-						
+
 						▶ __**Type of Mystery Boxes**__
 						➦ There's 5 type of Mystery Boxes with increasing Rarity:
 						• <:MysteryBox1:855561382896468021>[**Mystery Box 1**](https://patrolbot.xyz/store)
@@ -354,7 +354,7 @@
 			// }
 		}
 	}
-	
+
 	// Pets (my proudest creation)
 	pets: {
 		selectMenuLabel: "Pets"
@@ -369,9 +369,9 @@
 				}
 				embed: {
 					title: "Pets"
-					description: 
+					description:
 						'''
-						<a:Right:763251259896758282> __**About Pets System**__ <:HatchedEmAll:947232410804826132> 
+						<a:Right:763251259896758282> __**About Pets System**__ <:HatchedEmAll:947232410804826132>
 						Pets are your personal Monsters who don't only look cute but can do a LOT of different things for you including making you money, helping you evade taxes, generating mystery boxes, robbing, etc. In return they need your care and love. You can also do other stuff like Play, Train, etc which helps it grow & get stronger.
 
 						▶ __**How to Obtain Pets?**__
@@ -390,7 +390,7 @@
 				}
 				embed: {
 					title: "What are eggs?"
-					description: 
+					description:
 						'''
 						▶ __**Type of Eggs**__
 						➦ There's 3 type of Eggs in Patrol Bot:
@@ -417,17 +417,17 @@
 					title: "Pet Attributes"
 					description:
 						'''
-						<a:Right:763251259896758282> *Everytime you Hatch a Pet, it'll have Certain Attributes which determine how your Pet will perform in a Brawl. Each Attributes determines different trait your pet will perform better at. Each Pet has 6 Attributes:*  
+						<a:Right:763251259896758282> *Everytime you Hatch a Pet, it'll have Certain Attributes which determine how your Pet will perform in a Brawl. Each Attributes determines different trait your pet will perform better at. Each Pet has 6 Attributes:*
 
 						➜ **`3 Primary Attributes`** `(PERMANENT)[https://patrolbot.xyz "Directly affect Brawls"]`
-						• __**Intelligence**__: Improves your chances of Critical Hits & Accuracy <a:LetsFight:771073637376852030> 
-						• __**Speed**__: Avoids getting hit by your opponent <a:CrocoRun:784495707893530714> 
-						• __**Attack**__: Increases the damage your hits provide <a:MuscleFlex:944954214193451098> 
+						• __**Intelligence**__: Improves your chances of Critical Hits & Accuracy <a:LetsFight:771073637376852030>
+						• __**Speed**__: Avoids getting hit by your opponent <a:CrocoRun:784495707893530714>
+						• __**Attack**__: Increases the damage your hits provide <a:MuscleFlex:944954214193451098>
 						➼ For every level up, your Pet gets 5 Stat Points to add into whichever Attribute you like.
 
 						➜ **`3 Secondary Attributes`** `(TEMPORARY)[https://patrolbot.xyz "Doesn't affect Brawls but are Pivotal in everything else"]`
-						• __**Hunger & Energy**__: Needed for almost every Activity your pet does. Also, Hunger reduces with time so make sure you keep feeding your pet <a:AlarmGoBrrrrr:806180753167220806> If not fed, your Pet goes into Deep Sleep and is unable to do anything till they're revived by using 5000 <a:Coins:775714101564276756> 
-						• __**Love**__: It is something everyone needs and that includes your beloved pet. Without it, they stop following your orders and might even leave you permanently! <a:NibbaShook4:763807099427487775> 
+						• __**Hunger & Energy**__: Needed for almost every Activity your pet does. Also, Hunger reduces with time so make sure you keep feeding your pet <a:AlarmGoBrrrrr:806180753167220806> If not fed, your Pet goes into Deep Sleep and is unable to do anything till they're revived by using 5000 <a:Coins:775714101564276756>
+						• __**Love**__: It is something everyone needs and that includes your beloved pet. Without it, they stop following your orders and might even leave you permanently! <a:NibbaShook4:763807099427487775>
 						➼ Pet Food <:PetFood:942459125332340767> - Raises your Pet's Hunger and Energy to 100
 						➼ Love Potion <:LovePotion:946475204090134590> - Raises your Pet's Love attribute to 100
 						'''
@@ -441,14 +441,14 @@
 				}
 				embed: {
 					title: "Skills & Evolution"
-					description: 
+					description:
 						'''
 						<a:Right:763251259896758282> __**Skills**__
 						➼ Each pet also has their own unique **Skills**, which can help you from being completely Rob-proof <a:BONK:744937421610942596>, to helping you avoid taxes <:EricaEvilPlotting:897841584647847986>, to giving you double XPs <a:Sparklez:944978738628661268> So make sure you've chosen the right pet to accompany you!
 						`To know more about which Pets have which skills, type:` [`{prefix}info pet`](https://patrolbot.xyz/pets)
 
 						<a:Right:763251259896758282> __**Evolutions**__
-						➼ You can also **Evolve** your Pet into a more stronger monster <a:Furrloin:945421624365162566>---><a:Roawrath:947784535809081394> Each evolution gives you 1 Level and 20 Stat Points along with improved Skills and a broader Moveset <a:punch:763252262680002560> 
+						➼ You can also **Evolve** your Pet into a more stronger monster <a:Furrloin:945421624365162566>---><a:Roawrath:947784535809081394> Each evolution gives you 1 Level and 20 Stat Points along with improved Skills and a broader Moveset <a:punch:763252262680002560>
 						➼ To Evolve your Pet, you'll need a **Growth Serum** <a:GrowthSerum:941010305943736351> which can ONLY be obtained by adding `x25` **Growth Vials** <:GrowthVial:941010304119238666> together. Growth Vials can be obtained from Failed Egg Hatch, Mystery Boxes and by Disowning your pets <a:VialFormation:945012487579897886>
 
 						▶ __**How to get Growth Vials**__ <:GrowthVial:941010304119238666>
@@ -473,14 +473,14 @@
 						➜ Each pet has their unique **Moveset**, which keeps improving each evolution so you always have multiple tactics to win, whatever be the situation.
 						➜ Defence :shield: is a in-fight attribute which works exactly as you'd expect, reduces the damage taken from opponents hits.
 
-						▶ __***Player vs Computer***__ 
-						• [**`{prefix}Brawl`**](https://patrolbot.xyz/pets): Brawl with one of the Bosses and Beat them to rise to the Top of the Charts while winning Amazing Rewards: Coins & XPs. 
-						• Beating the Final Boss gives you with a Special Badge & a Growth Serum 
+						▶ __***Player vs Computer***__
+						• [**`{prefix}Brawl`**](https://patrolbot.xyz/pets): Brawl with one of the Bosses and Beat them to rise to the Top of the Charts while winning Amazing Rewards: Coins & XPs.
+						• Beating the Final Boss gives you with a Special Badge & a Growth Serum
 
-						▶ __***Player vs Player***__ 
+						▶ __***Player vs Player***__
 						• [**`{prefix}Brawl @User`**](https://patrolbot.xyz/pets): Brawl with other User's Pets in your Conquest to be the best there ever was!
 						• Bet against other Players and Winners gets all the Coins 🤑
-						
+
 						'''
 					color: "GREEN"
 				}
@@ -495,12 +495,12 @@
 					description:
 						'''
 						<a:Right:763251259896758282> __**Miscellaneous**__
-						➜ **Leaderboard** shows who's excelling in which field including Most Wins, Highest Level, among others. Soon person topping Leaderboard would get a Special Gladiator Badge :crossed_swords: 
+						➜ **Leaderboard** shows who's excelling in which field including Most Wins, Highest Level, among others. Soon person topping Leaderboard would get a Special Gladiator Badge :crossed_swords:
 						➜ **Favorited Pets** allows you to have your loved Pet(s) show up on First page of Full Pets list 💟
 
 						➜ Over the Centuries, Pets had a deformity in their Genes which ultimately led to a 1 in a million chance of being a **Shadow** Variant. After extensive research, Shadow types were found to be stronger, agile and better than a Regular pet in every field. Keep an eye out and maybe you might hatch one!
 
-						➜ There's 4 Badges associated with Pets: 
+						➜ There's 4 Badges associated with Pets:
 						• `Shadow Spotter` <:ShadowSpotter:947232980756201492> You receive this after hatching your first Shadow Variant Pet
 						• `Hatched Em' All` <:HatchedEmAll:947232410804826132> You receive this after hatching all available breeds of Pets
 						• `Non-Functioning testicles (NFT)` <:NFT:982239642852134942> You receive this after suggesting the Fresh new NFT Idea to Gray V
@@ -512,7 +512,7 @@
 		}
 	}
 
-	// Premium! best category 
+	// Premium! best category
 	premium: {
 		selectMenuLabel: "Premium"
 		description: "Want to support Patrol Bot and get perks? Amazing choice."
@@ -551,23 +551,23 @@
 				}
 				embed: {
 					title: "Patrol Bot Premium Perks:"
-					description: 
+					description:
 						'''
 						➽ **{prefix}weekly**: Get Special Weekly Prize of: Mystery Box and Medium Boiled Egg exclusive to only Premium! <a:Cheers:738820410681851915>
-						➽ **Pets Limit**: Increase your Total Pets Capacity from Maximum of `10` to **`20` <a:QuaggiGIF:927190477118263296>**  
-            			➽ **Voting Commands**: All Voting cooldowns (Simpvote, Social-credit, Mod-vote, etc) gets their cooldown reduced by `50%` <a:GoVote:787376884731478046> 
-						➽ **Exclusive Tasks**: Be able to complete all Premium-only Weekly and Monthly tasks for FREE Rare Mystery Boxes <a:FindingNukes:728258193565810778> 
-						➽ **{prefix}work**: Get upto 5 extra high paying jobs <:EricaEvilPlotting:897841584647847986> 
-						➽ **{prefix}fight ON/OFF**: Turn off fight-mode at your own will and never lose/get muted <a:LetsFight:771073637376852030> 
-						➽ **{prefix}vote**: Get `x2` the reward a normal users get per vote! <:Topgg:850043780702797854> 
-						➽ **Item Usage**: Increase from `3` at a time to **`25`** <:GotThat:842141052752363543> 
-						➽ **Special Item - Snitch Demon**: If activated and someone tries robbing you, empties robber's wallet and Bank upto `50%` <a:robbery:775808009825157178> 
-						➽ **Wallet Locks Limit**: Increase from `50` at a time to `150` <a:Lock:744641130792222730> 
-						➽ **{prefix}cookie bag**: Know how many cookies you've distributed in a server and who's your fav person to give cookies to! <a:PandaEat:796098914758426675> 
-						➽ **{prefix}AFK**: Let's you add Links in your AFK Message <a:Notes:752905873357013094> 
-						➽ **{prefix}createnotes | {prefix}setcaption | {prefix}setdescription** ~ Double your word limit and Links get by-passed! <a:NoteTaking:752914759992475779> 
-						➽ **{prefix}marry prenup**: Sign a prenuptial with your partner while getting married to avoid losing any money if a divorce strikes <a:HamsterJigga:731172699639906397> 
-						➽ **{prefix}reps/modvotes/simpvotes info**: Let's you see more information about your Votes History <a:BarryTheNerd:916028055099678780> 
+						➽ **Pets Limit**: Increase your Total Pets Capacity from Maximum of `10` to **`20` <a:QuaggiGIF:927190477118263296>**
+            			➽ **Voting Commands**: All Voting cooldowns (Simpvote, Social-credit, Mod-vote, etc) gets their cooldown reduced by `50%` <a:GoVote:787376884731478046>
+						➽ **Exclusive Tasks**: Be able to complete all Premium-only Weekly and Monthly tasks for FREE Rare Mystery Boxes <a:FindingNukes:728258193565810778>
+						➽ **{prefix}work**: Get upto 5 extra high paying jobs <:EricaEvilPlotting:897841584647847986>
+						➽ **{prefix}fight ON/OFF**: Turn off fight-mode at your own will and never lose/get muted <a:LetsFight:771073637376852030>
+						➽ **{prefix}vote**: Get `x2` the reward a normal users get per vote! <:Topgg:850043780702797854>
+						➽ **Item Usage**: Increase from `3` at a time to **`25`** <:GotThat:842141052752363543>
+						➽ **Special Item - Snitch Demon**: If activated and someone tries robbing you, empties robber's wallet and Bank upto `50%` <a:robbery:775808009825157178>
+						➽ **Wallet Locks Limit**: Increase from `50` at a time to `150` <a:Lock:744641130792222730>
+						➽ **{prefix}cookie bag**: Know how many cookies you've distributed in a server and who's your fav person to give cookies to! <a:PandaEat:796098914758426675>
+						➽ **{prefix}AFK**: Let's you add Links in your AFK Message <a:Notes:752905873357013094>
+						➽ **{prefix}createnotes | {prefix}setcaption | {prefix}setdescription** ~ Double your word limit and Links get by-passed! <a:NoteTaking:752914759992475779>
+						➽ **{prefix}marry prenup**: Sign a prenuptial with your partner while getting married to avoid losing any money if a divorce strikes <a:HamsterJigga:731172699639906397>
+						➽ **{prefix}reps/modvotes/simpvotes info**: Let's you see more information about your Votes History <a:BarryTheNerd:916028055099678780>
 						➽ **Premium-Only Giveaways**: Be allowed to Participate in the Exclusive Premium users-Only Giveaways in [__Patrol Bot HQ/Support__](https://discord.gg/HQ) <a:Tada:760515869603790928>
 						🌟 Lots of Premium features in works for future updates!🤓
 
@@ -586,7 +586,7 @@
 		}
 	}
 
-	//Taxes  
+	//Taxes
 	taxes: {
 		selectMenuLabel: "Taxes"
 		description: "How do taxes work on Patrol Bot?"
@@ -617,7 +617,7 @@
 		}
 	}
 
-	//Tasks  
+	//Tasks
 	tasks: {
 		selectMenuLabel: "Tasks"
 		description: "What are Weekly/Monthly Tasks?"
@@ -634,8 +634,8 @@
 					title: "Patrol Bot: Task System"
 					description:
 						'''
-						Tasks are a set of Challenges every user can receive each week or month and get rewarded with variety of Mystery Boxes according to the severity of them.						
-						
+						Tasks are a set of Challenges every user can receive each week or month and get rewarded with variety of Mystery Boxes according to the severity of them.
+
 						➤ Tasks are of 2 types -
 						• __**Weekly Tasks**__: Collection of **7 Challenges** out of which 5 are available for EVERYONE and 2-ONLY for our <a:Premium1M:875427336898625586> **Premium** Users.
 						`These get reset-ed every Sunday 00:00 PST` ⏰
@@ -644,9 +644,9 @@
 						`These get reset-ed on every 1st of Month 00:00 PST` ⏰
 
 						➦ *Each user's tasks are randomly generated by using the command: `{prefix}task generate`. Once tasks are generated, you can check the list by `{prefix}task list`* <:EricaNotes:901107977006776370>
-						
+
 						➦ All tasks have a Code, which is used to either learn more information about it (`{prefix}task info <CODE>`), Check its progress (`{prefix}task progress <CODE>`) or Claim it's reward (`{prefix}task claim <CODE>`) <:EricaHmmm:899744430372814918>
-						
+
 						➦ You can Also skip a Task by Using Items: **Weekly Skip** <:WeeklySkips:892403153566302258> or **Monthly Skip** <:MonthlySkips:892403155290181662> & then using command: `{prefix}task skip <CODE>` <:EricaEvilPlotting:897841584647847986>
 						'''
 					color: "GREEN"
@@ -655,7 +655,7 @@
 		}
 	}
 
-	//Votings  
+	//Votings
 	// voting: {
 	// 	selectMenuLabel: "Voting"
 	// 	description: "What's about all the Voting and Social Creds?!"
