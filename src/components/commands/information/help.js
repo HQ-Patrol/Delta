@@ -50,7 +50,7 @@ module.exports = {
         );
     };
 
-    const updateComponents = async (returnComponents = false) => {
+    const updateComponents = async () => {
       const menus = Object.entries(cachedGuide[selectedOption].menus);
 
       // Update Embed
@@ -94,9 +94,6 @@ module.exports = {
         }
       }
 
-      if (returnComponents) {
-        return [buttonRow, selectMenu()];
-      }
       menu.components = [buttonRow, selectMenu()];
 
       // update!
@@ -127,7 +124,7 @@ module.exports = {
       )
       .setHandler(handler);
 
-    menu.components = await updateComponents(true);
+    await updateComponents();
     await menu.send();
   },
 };
