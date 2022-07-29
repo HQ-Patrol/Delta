@@ -1,5 +1,5 @@
 const $ = require("chalk");
-const mongoose = require("mongoose");
+require("mongoose");
 const Discord = require("discord.js");
 
 const User = require("../../database/models/UserModel");
@@ -40,7 +40,7 @@ module.exports = {
     message.prefix = guildData.prefix;
     if (new RegExp(`<@!?${client.user.id}>`).test(message.content)) {
       message.channel.send(
-        `The bot prefix is: ${`\`${guildData.prefix}\``}`,
+        `The bot prefix is: \`${guildData.prefix}\``,
       );
       return;
     }
