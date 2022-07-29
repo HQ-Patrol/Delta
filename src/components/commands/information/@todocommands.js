@@ -66,7 +66,7 @@ module.exports = {
           const entries = Object.entries(cattocommands)[j];
           // console.log(entries)
           if (!entries || entries[0] === "" || entries[1] === "") continue;
-          embed.addField(entries[0], entries[1]);
+          embed.addFields(entries[0], entries[1]);
         }
         embedarray.push(embed);
       }

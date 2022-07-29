@@ -44,8 +44,8 @@ module.exports = {
         embeds: [
           new Discord.EmbedBuilder()
             .setColor("Random")
-            .addField("<:Wallet:775651665553915904> Wallet:", "<:GUNSHOT:745729904334733392> <a:Coins:775714101564276756>", true)
-            .addField("🏧 Bank:", "<:GUNSHOT:745729904334733392> <a:Coins:775714101564276756>", true)
+            .addFields("<:Wallet:775651665553915904> Wallet:", "<:GUNSHOT:745729904334733392> <a:Coins:775714101564276756>", true)
+            .addFields("🏧 Bank:", "<:GUNSHOT:745729904334733392> <a:Coins:775714101564276756>", true)
             .setAuthor({ name: `${user.username}'s Balance 💰`, iconURL: user.displayAvatarURL({ dynamic: true }) })
             .setThumbnail("https://i.imgur.com/fYOtU81.gif")
             .setFooter({ text: "Mind your own Bread..." }),
@@ -57,8 +57,8 @@ module.exports = {
       embeds: [
         new Discord.EmbedBuilder()
           .setColor("Random")
-          .addField("<:Wallet:775651665553915904> Wallet:", `${person.coins} <a:Coins:775714101564276756>`, true)
-          .addField("🏧 Bank:", `${person.bank}/**${capacity}** <a:Coins:775714101564276756>`, true)
+          .addFields("<:Wallet:775651665553915904> Wallet:", `${person.coins} <a:Coins:775714101564276756>`, true)
+          .addFields("🏧 Bank:", `${person.bank}/**${capacity}** <a:Coins:775714101564276756>`, true)
           .setAuthor({ name: `${user.username}'s Balance 💰`, iconURL: user.displayAvatarURL({ dynamic: true }) })
           .setThumbnail("https://i.imgur.com/fYOtU81.gif")
           .setFooter({ text: "➤ ᴘᴀᴛʀᴏʟʙᴏᴛ.xʏᴢ/ꜱᴛᴏʀᴇ 🥶" })

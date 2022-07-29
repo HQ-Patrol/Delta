@@ -218,9 +218,9 @@ module.exports = {
           .setColor(petUtils.getColorByRarity(specificPet.rarity))
           .setThumbnail(`https://cdn.discordapp.com/emojis/${specificPet.sprite.split(":")[2].replace(">", "")}.gif`)
           .setDescription(`${petInfo}`)
-          .addField("🡆 __Moveset__ 👊", movesetField, true)
-          .addField("🡆 __Skills__ 🪄", skillsField, true)
-          .addField("🡆 __Evolutions__:", otherEvolutionsValue);
+          .addFields("🡆 __Moveset__ 👊", movesetField, true)
+          .addFields("🡆 __Skills__ 🪄", skillsField, true)
+          .addFields("🡆 __Evolutions__:", otherEvolutionsValue);
 
         message.channel.send({ embeds: [specificPetEmbed] });
       } else {

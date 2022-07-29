@@ -56,7 +56,7 @@ module.exports = {
           inline: true,
         },
       )
-      .addField("<:DiscordLogo:730154954492477482> Discord", "[Join Server](https://discord.gg/HQ)", true)
+      .addFields("<:DiscordLogo:730154954492477482> Discord", "[Join Server](https://discord.gg/HQ)", true)
       .setFooter({ text: "ID: 711628700747300864 • PFP by: ？？？#0013", iconURL: "https://i.imgur.com/YTMhQOx.gif" })
       .setTimestamp();
 

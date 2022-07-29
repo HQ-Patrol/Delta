@@ -136,9 +136,9 @@ module.exports = {
         .setTitle("Thanks for Voting! ✅🌟")
         .setColor("RANDOM")
         .setDescription(`You voted for Patrol bot! Here's your reward:\n➥ \`x${q}\` **\`${item.name}\`** ${item.icon} + \`1000\` <a:Coins:775714101564276756>`)
-        .addField("<a:CleanWoman:728219543658561606> Invite this Bot", "[Click Here](https://discord.com/api/oauth2/authorize?client_id=763506280421392466&permissions=8&scope=bot)", true)
-        .addField("<:DiscordLogo:730154954492477482> Support Server", "[Click here to Join](https://discord.gg/HQ)", true)
-        .addField("<a:PatrolBot:736282237225533571> Website", "[Click here to Visit](https://patrolbot.xyz)", true)
+        .addFields("<a:CleanWoman:728219543658561606> Invite this Bot", "[Click Here](https://discord.com/api/oauth2/authorize?client_id=763506280421392466&permissions=8&scope=bot)", true)
+        .addFields("<:DiscordLogo:730154954492477482> Support Server", "[Click here to Join](https://discord.gg/HQ)", true)
+        .addFields("<a:PatrolBot:736282237225533571> Website", "[Click here to Visit](https://patrolbot.xyz)", true)
         .setFooter({ text: "➤ You can VOTE and CLAIM your reward every 12 hours ⏰" })],
     });
 
