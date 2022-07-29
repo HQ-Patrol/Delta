@@ -3,6 +3,7 @@ const Hjson = require("hjson");
 const fs = require("node:fs").promises;
 const path = require("path");
 const AdvancedComponentMenu = require("../../../utilities/classes/AdvancedComponentMenu");
+const emojis = require("../../../constants/emoji");
 
 let cachedGuide;
 
@@ -17,7 +18,8 @@ module.exports = {
     // TODO: Incorperate args into default selectedOption
 
     if (!cachedGuide) {
-      const data = await fs.readFile(path.join(__dirname, "..", "..", "..", "data", "json", "guide.hjson"), "utf-8");
+      let data = await fs.readFile(path.join(__dirname, "..", "..", "..", "data", "json", "guide.hjson"), "utf-8");
+      data = data.replace(/{emoji.(\w+)}/g, (_, name) => emojis[name] || "");
       cachedGuide = await Hjson.parse(data);
     }
 
