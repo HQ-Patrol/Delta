@@ -1,3 +1,4 @@
+/* eslint-disable */
 /* eslint-disable guard-for-in */
 /* eslint-disable no-restricted-syntax */
 const Discord = require("discord.js");

@@ -1,3 +1,4 @@
+/* eslint-disable */
 const { MessageEmbed, Message } = require("discord.js");
 const { stripIndents } = require("common-tags");
 const bc = require("../../botconfig.json");

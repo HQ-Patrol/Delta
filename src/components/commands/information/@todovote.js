@@ -1,3 +1,4 @@
+/* eslint-disable */
 const Discord = require("discord.js");
 const Topgg = require("@top-gg/sdk");
 
