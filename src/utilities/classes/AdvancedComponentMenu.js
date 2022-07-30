@@ -36,6 +36,7 @@ class AdvancedComponentMenu {
     this.idle = 40_000;
     this.ended = false;
     this.throttleEnabled = true;
+    this.throttleTime = 1000;
     this.menuEndedMessage = true;
   }
 
@@ -227,7 +228,7 @@ class AdvancedComponentMenu {
   checkThrottle(interaction) {
     if (
       this.throttle[interaction.customId]
-      && Date.now() - this.throttle[interaction.customId] < 1000
+      && Date.now() - this.throttle[interaction.customId] < this.throttleTime
     ) {
       return false;
     }
