@@ -4,6 +4,7 @@ specifiers:
   '@commitlint/config-conventional': ^17.0.3
   bufferutil: ^4.0.6
   chalk: '4'
+  discord-api-types: ^0.37.0
   discord-hybrid-sharding: ^1.6.6
   discord.js: ^14.0.1
   dotenv: ^16.0.1
@@ -22,6 +23,7 @@ specifiers:
 dependencies:
   bufferutil: 4.0.6
   chalk: 4.1.2
+  discord-api-types: 0.37.0
   discord-hybrid-sharding: 1.6.6
   discord.js: 14.0.1_22kvxa7zeyivx4jp72v2w3pkvy
   dotenv: 16.0.1
@@ -376,6 +378,10 @@ packages:
 
   /discord-api-types/0.36.2:
     resolution: {integrity: sha512-TunPAvzwneK/m5fr4hxH3bMsrtI22nr9yjfHyo5NBGMjpsAauGNiGCmwoFf0oO3jSd2mZiKUvZwCKDaB166u2Q==}
+    dev: false
+
+  /discord-api-types/0.37.0:
+    resolution: {integrity: sha512-6LlL0xceiZs/kQ5PeKe5inkcjR73vagt3oACsP/C5IWKjXfzLGKrXn6yRYgiHIeJyFZ1xVPRJYE4W/u8UTT4ig==}
     dev: false
 
   /discord-hybrid-sharding/1.6.6:
