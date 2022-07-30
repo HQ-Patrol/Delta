@@ -1,5 +1,4 @@
 const $ = require("chalk");
-require("mongoose");
 const Discord = require("discord.js");
 
 const User = require("../../database/models/UserModel");
