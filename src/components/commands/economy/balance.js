@@ -44,8 +44,15 @@ module.exports = {
         embeds: [
           new Discord.EmbedBuilder()
             .setColor("Random")
-            .addFields(`${client.e.wallet} Wallet:`, `${client.e.gunshot} ${client.e.coins}`, true)
-            .addFields("🏧 Bank:", `${client.e.gunshot} ${client.e.coins}`, true)
+            .addFields({
+              name: `${client.e.wallet} Wallet:`,
+              value: `${client.e.gunshot} ${client.e.coins}`,
+              inline: true,
+            }, {
+              name: "🏧 Bank:",
+              value: `${client.e.gunshot} ${client.e.coins}`,
+              inline: true,
+            })
             .setAuthor({ name: `${user.username}'s Balance 💰`, iconURL: user.displayAvatarURL({ dynamic: true }) })
             .setThumbnail("https://i.imgur.com/fYOtU81.gif")
             .setFooter({ text: "Mind your own Bread..." }),
@@ -57,8 +64,15 @@ module.exports = {
       embeds: [
         new Discord.EmbedBuilder()
           .setColor("Random")
-          .addFields(`${client.e.wallet} Wallet:`, `${person.coins} ${client.e.coins}`, true)
-          .addFields("🏧 Bank:", `${person.bank}/**${capacity}** ${client.e.coins}`, true)
+          .addFields({
+            name: `${client.e.wallet} Wallet:`,
+            value: `${person.coins} ${client.e.coins}`,
+            inline: true,
+          }, {
+            name: "🏧 Bank:",
+            value: `${person.bank}/**${capacity}** ${client.e.coins}`,
+            inline: true,
+          })
           .setAuthor({ name: `${user.username}'s Balance 💰`, iconURL: user.displayAvatarURL({ dynamic: true }) })
           .setThumbnail("https://i.imgur.com/fYOtU81.gif")
           .setFooter({ text: "➤ ᴘᴀᴛʀᴏʟʙᴏᴛ.xʏᴢ/ꜱᴛᴏʀᴇ 🥶" })

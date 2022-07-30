@@ -8,6 +8,7 @@ const CooldownsModel = require("../../../database/models/CooldownsModel");
 const findOneOrCreate = require("../../../database/functions/findOneOrCreate");
 
 const { addItemsToUser } = require("../../../utilities/query/inventory");
+const { safe } = require("../../../utilities/messagePromiseSafe");
 
 const { items } = require("../../../data/json/items.json");
 
@@ -91,23 +92,19 @@ module.exports = {
       });
     }
 
-    // Can daily!
     let COINS = 1000 + (Daily.vote.days * 375);
     let newStreak = (Daily.vote.days ?? 0) + 1;
 
     let messageContent = "";
 
-    // Check if user is premium
     if (message.userData.premium) {
       messageContent = "**DOUBLE COINS!** Thank you for supporting us and having Patrol Bot Premium.";
       // coins x2
       COINS *= 2;
     }
 
-    // Check if lost streak
     if (Date.now() > lastVoted + STREAK_EXPIRE && lastVoted !== -1 && Daily.vote.days > 10) {
       // Lost
-      // |-------|--^
       messageContent = `You lost your **${Daily.vote.days}** daily streak.. :cry:`;
       newStreak = 1;
     }
@@ -123,7 +120,6 @@ module.exports = {
       .setColor("Random");
 
     let rew;
-    // Check rewards
     if (newStreak >= 10) {
       // eligible, find range
       Object.keys(rewards).forEach((e, i, a) => {
@@ -134,33 +130,33 @@ module.exports = {
     }
 
     if (rew) {
-      // Add onto embed
       embed.addDescription(`\n**REWARDS** *(Streak ${newStreak})*:`);
       // eslint-disable-next-line no-restricted-syntax, guard-for-in
       for (const r in rew) {
         embed.addDescription(`x${rew[r]} **${r}** ${(items.find((a) => a.name === r))?.icon || ""}`);
       }
-
-      await addItemsToUser(message.author.id, rew);
     }
 
-    // add coins
-    await EconomyModel.updateOne({ id: message.author.id }, { $inc: { coins: COINS } });
-    // add streak
-    await CooldownsModel.updateOne(
-      { id: message.author.id },
-      {
-        vote: {
-          days: newStreak,
-          last: Date.now(),
-        },
-      },
-    );
-
-    // send embed
-    return message.reply({
+    const reply = message.reply({
       embeds: [embed],
       content: messageContent,
     });
+
+    return reply.then(safe(async (msg) => {
+      // add items
+      if (rew) await addItemsToUser(msg.author.id, rew);
+      // add coins
+      await EconomyModel.updateOne({ id: msg.author.id }, { $inc: { coins: COINS } });
+      // add streak
+      await CooldownsModel.updateOne(
+        { id: msg.author.id },
+        {
+          vote: {
+            days: newStreak,
+            last: Date.now(),
+          },
+        },
+      );
+    }));
   },
 };
