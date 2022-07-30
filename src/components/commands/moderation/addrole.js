@@ -15,7 +15,7 @@ module.exports = {
   async run(client, message, args) {
     if (!message.member.permissions.has(PermissionFlagsBits.ManageMessages)
       || !message.member.permissions.has(PermissionFlagsBits.Administrator)) {
-      return message.channel.send(`You do not have perms, ${message.user.toString()}`);
+      return message.sendError(`You do not have perms, ${message.user.toString()}`);
     }
 
     const matched = args.join(" ").match(parseRegex);
