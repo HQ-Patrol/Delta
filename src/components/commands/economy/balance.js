@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 
-const Economy = require("../../../database/models/EconomyModel");
+const EconomyModel = require("../../../database/models/EconomyModel");
 const findOneOrCreate = require("../../../database/functions/findOneOrCreate");
 
 const { getMaximumCompacity } = require("../../../utilities/query/economy");
@@ -34,7 +34,7 @@ module.exports = {
         items: [],
         bracket: 1,
       },
-      Economy,
+      EconomyModel,
     );
 
     const capacity = getMaximumCompacity(person);
