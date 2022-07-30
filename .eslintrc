@@ -30,6 +30,6 @@
 		"global-require": "off",
 		"no-param-reassign": "off",
 		"no-console": "off",
-		"max-depth": "off"
+		"max-len": "off"
  	}
 }
