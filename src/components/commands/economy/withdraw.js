@@ -48,7 +48,7 @@ module.exports = {
     }
 
     if (toWithdraw > myself.bank) {
-      return message.sendError("Cannot withdraw more coins than you have!", "Cannot withdraw more than you have!");
+      return message.sendError("You cannot withdraw more coins than you have!", "Cannot withdraw more than you have!");
     }
 
     await EconomyModel.updateOne(

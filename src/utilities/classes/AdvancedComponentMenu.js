@@ -5,7 +5,7 @@
  */
 
 const {
-  ActionRowBuilder, Message, GuildMember, Interaction, EmbedBuilder,
+  ActionRowBuilder, Message, GuildMember, Interaction, EmbedBuilder, ButtonBuilder,
 } = require("discord.js");
 
 /** @class Main class that includes the menu. */
@@ -146,13 +146,20 @@ class AdvancedComponentMenu {
     if (!this.components || this.components.length === 0) {
       throw new Error("Components was not provided while sending.");
     }
-    if (this.menuMessage) throw new Error("This Button Menu is already sent!");
 
-    // Send message.
-    this.menuMessage = await this.message.reply({
-      embeds: [this.embed],
-      components: this.components,
-    });
+    // Send message
+    if (this.menuMessage) {
+      await this.menuMessage.edit({
+        content: "",
+        embeds: [this.embed],
+        components: this.components,
+      });
+    } else {
+      this.menuMessage = await this.message.reply({
+        embeds: [this.embed],
+        components: this.components,
+      });
+    }
 
     // Create listener.
     return this.listen();
@@ -203,7 +210,8 @@ class AdvancedComponentMenu {
     this.collector.on("collect", (interaction) => this.handle(interaction));
     this.collector.on("end", async (_, r) => {
       // Disable buttons
-      this.components.forEach((a) => a.components.forEach((b) => b.setDisabled(true)));
+      // patch for v14
+      this.components.forEach((a) => a.components.map((b) => ButtonBuilder.from(b).setDisabled(true)));
       this.ended = true;
       await this.update();
       if (this.end) await this.end(r);

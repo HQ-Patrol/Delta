@@ -71,6 +71,7 @@ module.exports = {
   topgg: "<:Topgg:850043780702797854>",
   vialFormation: "<a:VialFormation:945012487579897886>",
   wavingSomeCash: "<a:WavingSomeCash:822490680031051807>",
+  wavyDash: "<:WavyDash:760469258093723689>",
   weeklySkips: "<:WeeklySkips:892403153566302258>",
   wallet: "<:Wallet:775651665553915904>",
 
