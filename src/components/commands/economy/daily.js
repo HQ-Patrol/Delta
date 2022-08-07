@@ -67,13 +67,7 @@ module.exports = {
   run: async (client, message, args) => {
     const Daily = await findOneOrCreate(
       { id: message.author.id },
-      {
-        id: message.author.id,
-        vote: {
-          days: 0,
-          last: 0,
-        },
-      },
+      { id: message.author.id },
       CooldownsModel,
     );
 
