@@ -119,6 +119,10 @@ module.exports = {
         );
 
         if (userData.blacklisted && userData.blacklisted === true) return;
+        if (userData.premium === false && cmd?.premiumOnly === true) {
+          message.sendError("<a:StarShining:775718236829908992> This command is exclusive to Patrol Bot Premium Members!");
+          return;
+        }
 
         message.userData = userData;
 
