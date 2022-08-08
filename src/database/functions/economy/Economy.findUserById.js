@@ -22,7 +22,7 @@ const UserModel = require("../../models/UserModel");
 async function findByUserId(id, create=true)  {
     let user;
     if (!create) {
-         user = await UserModel.findById(id).select("id")
+         user = await UserModel.findById(id)
     } else {
          user = await UserModel.findOneAndUpdate(
             //Query
