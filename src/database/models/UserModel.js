@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const UserSchema = new mongoose.Schema({
-  _id: String,
+  _id: {type: String, index: true },
   blacklisted: { type: Boolean, default: false },
   premium: { type: Boolean, default: false },
   bonk: {
@@ -14,8 +14,8 @@ const UserSchema = new mongoose.Schema({
       endCooldown: Number,
     },
   ],
-  verified: { type: Boolean, default: false },
-  certified: { type: Boolean, default: false },
+  verified: { type: Boolean, default: false, index: true },
+  certified: { type: Boolean, default: false, index: true },
   DMs: { type: Boolean, default: true },
   premLeft: String,
   hatched: {
