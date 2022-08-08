@@ -1,8 +1,9 @@
 const mongoose = require("mongoose");
+const {Schema} = mongoose;
 
 const econ = new mongoose.Schema({
-  id: String,
-  lastUse: String,
+  id: {type: String, ref: "User", index: true},
+  lastUse: {type: Schema.Types.Date, default: Date.now()},
   coins: { type: Number, index: -1 },
   bank: { type: Number, index: -1 },
   xp: { type: Number, index: -1 },
