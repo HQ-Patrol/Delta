@@ -6,7 +6,7 @@ const AFKSchema = new mongoose.Schema({
     {
       id: {
         type: String,
-        // unique: true,
+        ref: "User"
       },
       reason: String,
     },
