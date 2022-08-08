@@ -1,7 +1,11 @@
 const mongoose = require("mongoose");
 
 const PetSchema = new mongoose.Schema({
-  id: String, // Owner
+
+  id: {
+    type: String,
+    ref: "User"
+  }, // Owner
 
   // Pet
   species: { type: String, required: true },
