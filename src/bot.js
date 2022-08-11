@@ -36,7 +36,7 @@ client.e = require("./constants/emoji");
 client.utils = require("./utilities/global");
 
 // Run handlers
-require("./handers")(client);
+require("./handlers")(client);
 
 // Check if mongodb url is provided
 if (!process.env.MONGODB_URL || process.env.MONGODB_URL.length === 0) error("You have not provided a MongoDB Connection URL in your .env!");
