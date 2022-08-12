@@ -1,4 +1,5 @@
 const allFiles = require("../utilities/allFiles");
+const { error } = require("../utilities/logger");
 
 const events = (client) => new Promise((resolve) => {
   allFiles("./src/components/events")
@@ -15,7 +16,9 @@ const events = (client) => new Promise((resolve) => {
 
         delete require.cache[require.resolve(`../${file}`)];
       } catch (e) {
-        console.warn(e);
+        // Basic error logging during production
+        if (!process.env.DEV) error(e.message);
+        else console.error(e);
       }
     });
 });
@@ -38,7 +41,9 @@ const commands = (client) => new Promise((resolve) => {
 
         delete require.cache[require.resolve(`../${file}`)];
       } catch (e) {
-        console.warn(e);
+        // Basic error logging during production
+        if (!process.env.DEV) error(e.message);
+        else console.error(e);
       }
     });
 });
@@ -55,6 +60,7 @@ const extenders = () => new Promise((resolve) => {
 
         delete require.cache[require.resolve(`../${file}`)];
       } catch (e) {
+        // This really shouldn't happen
         console.warn(e);
       }
     });
