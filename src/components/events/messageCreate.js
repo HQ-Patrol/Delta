@@ -84,56 +84,42 @@ module.exports = {
 
       if (now < expirationTime) {
         const timeLeft = (expirationTime - now) / 1000;
-        message.channel.send({
-          embeds: [new Discord.EmbedBuilder()
-            .setTitle("Command Cooldown")
-            .setColor("Red")
-            .setDescription(`${client.e.exclamation} Please wait **${timeLeft.toFixed(1)}** more second(s) before reusing the \`${cmd.name}\` command ${client.e.exclamation}`)],
-        }).then((m) => setTimeout(() => m.delete(), 5000));
+        message.sendError(`Please wait **${timeLeft.toFixed(1)}** more second(s) before reusing the \`${cmd.name}\` command ${client.e.exclamation}`, "Command Cooldown", 5000);
         return;
       }
     } else {
       timestamps.set(message.author.id, now);
       setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
     }
-    // New Cooldown-------------------------------------
 
-    // Run the command
-    if (cmd) {
-      // if(amt1 === amt2) {
-      // eslint-disable-next-line max-len
-      //   if(message.guild.id !== "762930246596427816") { message.channel.send(`⚠️ __**Regular commands are being REPLACED with Slash Commands starting 1st April**__ ⚠️\n*\`Regular commands will no longer work and the bot will only respond to Slash commands, Type: ${guildData.prefix}support and Join Server to know more!\`* <:EricaThumbsUp:898319470882349067>`) }
-      // }
+    if (!cmd) return;
+    log("CMD", `${$.bold(message.author.tag)} [${message.author.id}] used ${$.bold(command)} in ${message.guild.name} [${message.guild.id}]`, "white", client.cluster.id);
 
-      // Log
-      log("CMD", `${$.bold(message.author.tag)} [${message.author.id}] used ${$.bold(command)} in ${message.guild.name} [${message.guild.id}]`, "white", client.cluster.id);
+    try {
+      if (!commandData || commandData.disabled) return;
 
-      try {
-        if (!commandData || commandData.disabled) return;
+      // User Data
+      const userData = await findOneOrCreate(
+        { _id: message.author.id },
+        { _id: message.author.id, premium: false, blacklisted: false },
+        User,
+      );
 
-        // User Data
-        const userData = await findOneOrCreate(
-          { _id: message.author.id },
-          { _id: message.author.id, premium: false, blacklisted: false },
-          User,
-        );
-
-        if (userData.blacklisted && userData.blacklisted === true) return;
-        if (userData.premium === false && cmd?.premiumOnly === true) {
-          message.sendError("<a:StarShining:775718236829908992> This command is exclusive to Patrol Bot Premium Members!");
-          return;
-        }
-
-        message.userData = userData;
-
-        await cmd.run(client, message, args);
-
-        // TODO: Implement MB1, MB2, XP-COIN Addition
-      } catch (err) {
-        error(`An error occured while running the ${$.bold(command)} command:`);
-
-        console.error(err);
+      if (userData.blacklisted && userData.blacklisted === true) return;
+      if (userData.premium === false && cmd?.premiumOnly === true) {
+        message.sendError("<a:StarShining:775718236829908992> This command is exclusive to Patrol Bot Premium Members!");
+        return;
       }
+
+      message.userData = userData;
+
+      await cmd.run(client, message, args);
+
+      // TODO: Implement MB1, MB2, XP-COIN Addition
+    } catch (err) {
+      error(`An error occured while running the ${$.bold(command)} command:`);
+
+      console.error(err);
     }
   },
 };

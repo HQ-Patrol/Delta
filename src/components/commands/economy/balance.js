@@ -18,7 +18,7 @@ module.exports = {
       || message.guild.members.cache.get(args[0])?.user;
     if (mention?.id) user = mention;
 
-    if (user.bot) return message.reply("Bots are way too rich!");
+    if (user.bot) return message.sendError("Bots are way too rich!");
 
     const person = await findOneOrCreate(
       {
