@@ -1,9 +1,9 @@
 const Discord = require("discord.js");
 
-const findOneOrCreate = require("../../../database/functions/findOneOrCreate");
-const EconomyModel = require("../../../database/models/EconomyModel");
-
 const utils = require("../../../utilities/query/inventory");
+const { items } = require("../../../data/json/items.json");
+
+const EconomyModel = require("../../../database/models/EconomyModel");
 
 module.exports = {
   name: "give",
@@ -44,6 +44,82 @@ module.exports = {
         new Discord.EmbedBuilder()
           .setAuthor({ name: `${message.author.username} → ${target.username}` })
           .setDescription(`You have successfully given ${target} \`x${quantity}\` ${item.icon} **${item.name}**.`)
+          .setColor("Green")
+          .setTimestamp(),
+      ],
+    });
+  },
+};
+
+module.exports.slash = {
+  data: new Discord.SlashCommandBuilder()
+    .setName("give")
+    .setDescription(
+      "Give items to each other! Use the transfer command to transfer coins",
+    )
+    .addUserOption((option) => option
+      .setName("target")
+      .setDescription("Who do you want to give your item(s) to?")
+      .setRequired(true))
+    .addIntegerOption((option) => option
+      .setName("quantity")
+      .setDescription(
+        "How much of this item do you want to give to this user?",
+      )
+      .setRequired(true))
+    .addStringOption((option) => option
+      .setName("item")
+      .setDescription(
+        "Item name (case insensitive), supports aliases (e.g mb1 for Mystery Box 1)",
+      )
+      .setRequired(true)),
+  async handler(client, interaction) {
+    const target = interaction.options.getUser("target");
+    if (target.bot) return interaction.sendError("You can't send items to a robot...");
+    if (target.id === interaction.user.id) {
+      return interaction.sendError(
+        "Sending items to yourself? We don't do that here.",
+      );
+    }
+
+    const quantity = interaction.options.getInteger("quantity");
+    const itemArg = interaction.options.getString("item").toLowerCase();
+    const item = items.find((i) => i.name.toLowerCase() === itemArg || i.name2.toLowerCase() === itemArg || i.alias.toLowerCase() === itemArg);
+
+    if (quantity <= 0) return interaction.sendError("Please provide a quantity more than 0!");
+    if (!item) return interaction.sendError("Please provide a valid item name or alias!");
+
+    if (item?.data?.canBeTraded === false) return interaction.sendError("This item cannot be traded.");
+
+    const user = await EconomyModel.findOne({ id: interaction.user.id }).lean();
+    const find = user.items.find((i) => i.name === item.name);
+    if (find == null || find?.count < quantity) {
+      return interaction.sendError(
+        `You do not have enough ${item.icon} **${item.name}**! You need **${
+          quantity - (find?.count || 0)
+        }** more.`,
+      );
+    }
+
+    // remove from user
+    await utils.removeItemFromUser(
+      interaction.user.id,
+      item.name,
+      quantity,
+      user,
+    );
+    // give item
+    await utils.addItemToUser(target.id, item.name, quantity, user);
+
+    return interaction.reply({
+      embeds: [
+        new Discord.EmbedBuilder()
+          .setAuthor({
+            name: `${interaction.user.username} → ${target.username}`,
+          })
+          .setDescription(
+            `You have successfully given ${target} \`x${quantity}\` ${item.icon} **${item.name}**.`,
+          )
           .setColor("Green")
           .setTimestamp(),
       ],
