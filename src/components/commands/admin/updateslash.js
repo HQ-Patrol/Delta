@@ -3,7 +3,6 @@ const {
   SlashCommandBuilder,
   PermissionsBitField,
   Routes,
-  SlashCommandBooleanOption,
 } = require("discord.js");
 
 const SlashCommand = new SlashCommandBuilder()
@@ -31,7 +30,8 @@ module.exports = {
       await interaction.deferReply({ ephemeral: true });
 
       const commands = [];
-      for (const cmd of client.commands) {
+      for (const [name, cmd] of client.commands) {
+        console.log(cmd.name);
         if (!cmd.slash?.data) continue;
         commands.push(cmd.slash.data.toJSON());
       }
@@ -48,7 +48,7 @@ module.exports = {
     },
   },
   name: "updateslash",
-  description: "",
+  description: "Developer Only - Allows the /updateslash slash command.",
   usage: "",
   category: "admin",
   cooldown: 1,
