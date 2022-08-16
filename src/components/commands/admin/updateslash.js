@@ -31,7 +31,6 @@ module.exports = {
 
       const commands = [];
       for (const [name, cmd] of client.commands) {
-        console.log(cmd.name);
         if (!cmd.slash?.data) continue;
         commands.push(cmd.slash.data.toJSON());
       }
