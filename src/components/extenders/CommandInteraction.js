@@ -1,7 +1,7 @@
-const { Message, EmbedBuilder } = require("discord.js");
+const { CommandInteraction, EmbedBuilder } = require("discord.js");
 const emojis = require("../../constants/emoji");
 
-Message.prototype.sendError = function sendError(errorMessage, errorTitle, deletion = null) {
+CommandInteraction.prototype.sendError = function sendError(errorMessage, errorTitle, ephemeral = true) {
   const embed = new EmbedBuilder()
     .setColor("Red")
     .setDescription(`${emojis.exclamation} ${errorMessage}`);
@@ -10,7 +10,6 @@ Message.prototype.sendError = function sendError(errorMessage, errorTitle, delet
 
   return this.reply({
     embeds: [embed],
-  }).then((msg) => {
-    if (deletion) setTimeout(() => msg.delete(), deletion);
+    ephemeral,
   });
 };

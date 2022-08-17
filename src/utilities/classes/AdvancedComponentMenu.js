@@ -5,7 +5,7 @@
  */
 
 const {
-  ActionRowBuilder, Message, GuildMember, Interaction, EmbedBuilder, ButtonBuilder,
+  ActionRowBuilder, Message, GuildMember, CommandInteraction, EmbedBuilder, ButtonBuilder,
 } = require("discord.js");
 
 /** @class Main class that includes the menu. */
@@ -13,21 +13,21 @@ class AdvancedComponentMenu {
   /**
    * Constructs a new AdvancedComponentMenu.
    * @constructor
-   * @param {Message} message
+   * @param {Message|CommandInteraction} root
    * @param {GuildMember} member
    */
-  constructor(message, member) {
-    this.setup(message, member);
+  constructor(root, member) {
+    this.setup(root, member);
   }
 
   /**
    * Initializes the values of the menu.
-   * @param {Message} message
+   * @param {Message|CommandInteraction} root
    * @param {GuildMember} member
    */
-  setup(message, member) {
-    this.message = message;
-    this.member = member ?? message.member;
+  setup(root, member) {
+    this.root = root;
+    this.member = member ?? root.member;
     this.throttle = {};
     this.handler = null;
     this.embed = null;
@@ -154,8 +154,14 @@ class AdvancedComponentMenu {
         embeds: [this.embed],
         components: this.components,
       });
+    } else if (this.root instanceof CommandInteraction) {
+      this.menuMessage = await this.root.reply({
+        embeds: [this.embed],
+        components: this.components,
+        fetchReply: true,
+      });
     } else {
-      this.menuMessage = await this.message.reply({
+      this.menuMessage = await this.root.reply({
         embeds: [this.embed],
         components: this.components,
       });

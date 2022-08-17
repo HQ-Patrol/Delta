@@ -16,12 +16,12 @@ function log(prefix, message, color = "blueBright", symbol = null) {
   );
 }
 
-function error(message) {
+function error(message, ...hints) {
   return console.log(
     $.bgRedBright(" ! "),
     $.redBright.bold(implMaxPrefix("ERROR")),
     $.redBright(`[${moment().format("LTS")}]`),
-    $.redBright(message),
+    $.redBright(hints.map((h) => `(${h}) `).join("") + message),
   );
 }
 
