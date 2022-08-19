@@ -2,7 +2,7 @@
 	"name": "patrol-bot-delta",
 	"version": "0.0.1",
 	"description": "Delta version of Patrol Bot",
-	"main": "index.js",
+	"main": "./dist/src/index.js",
 	"scripts": {
 		"start": "node ./src/index.js",
 		"lint": "eslint ./src/**",
@@ -13,6 +13,7 @@
 	"license": "MIT",
 	"devDependencies": {
 		"@commitlint/config-conventional": "^17.0.3",
+		"@types/ms": "^0.7.31",
 		"@typescript-eslint/eslint-plugin": "^5.33.1",
 		"@typescript-eslint/parser": "^5.33.1",
 		"eslint": "^8.19.0",
@@ -22,11 +23,15 @@
 	},
 	"dependencies": {
 		"@discordjs/rest": "^1.0.1",
+		"@sapphire/decorators": "^4.3.8",
+		"@sapphire/discord.js-utilities": "^4.12.0",
+		"@sapphire/framework": "3.0.0-next.7dd13af.0",
+		"@sapphire/utilities": "^3.9.1",
 		"bufferutil": "^4.0.6",
 		"chalk": "4",
 		"discord-api-types": "^0.37.0",
 		"discord-hybrid-sharding": "^1.6.6",
-		"discord.js": "^14.0.1",
+		"discord.js": "13.10.2",
 		"dotenv": "^16.0.1",
 		"erlpack": "github:discord/erlpack",
 		"hjson": "^3.2.2",
