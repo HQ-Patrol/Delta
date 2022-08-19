@@ -68,6 +68,7 @@ module.exports = {
   sus: "<:sus:715633189871419554>",
   tada: "<a:Tada:760515869603790928>",
   thinkcat: "<:thinkcat:763270060310921237>",
+  tick: "<:tick:1009368250188046368>",
   topgg: "<:Topgg:850043780702797854>",
   vialFormation: "<a:VialFormation:945012487579897886>",
   wavingSomeCash: "<a:WavingSomeCash:822490680031051807>",
