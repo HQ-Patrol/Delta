@@ -1,37 +1,40 @@
 {
-	"env": {
-		"commonjs": true,
-		"es2021": true,
-		"node": true
-	},
-	"extends": "airbnb-base",
-	"parserOptions": {
-		"ecmaVersion": "latest"
-	},
-	"rules": {
-		"import/no-dynamic-require": "off",
-		"indent": ["error", 2],
-		"linebreak-style": ["error", "windows"],
-		"quotes": ["error", "double"],
-		"semi": ["error", "always"],
-		"key-spacing": [
-			"error",
-			{
-				"beforeColon": false,
-				"afterColon": true
-			}
-		],
-		"object-curly-spacing": ["error", "always"],
-		"no-const-assign": "error",
-		"prefer-const": "error",
-		"no-unused-vars": ["off"],
-		"no-async-promise-executor": ["off"],
-		"comma-spacing": ["error", { "before": false, "after": true }],
-		"global-require": "off",
-		"no-param-reassign": "off",
-		"no-console": "off",
-		"max-len": "off",
-		"no-restricted-syntax": "off",
-		"no-continue": "off"
- 	}
+  "env": {
+    "commonjs": true,
+    "es2021": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "airbnb-base"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
+  "rules": {
+    "import/no-dynamic-require": "off",
+    "indent": ["error", 2],
+    "linebreak-style": ["error", "windows"],
+    "quotes": ["error", "double"],
+    "semi": ["error", "always"],
+    "key-spacing": [
+      "error",
+      {
+        "beforeColon": false,
+        "afterColon": true
+      }
+    ],
+    "object-curly-spacing": ["error", "always"],
+    "no-const-assign": "error",
+    "prefer-const": "error",
+    "no-unused-vars": ["off"],
+    "no-async-promise-executor": ["off"],
+    "comma-spacing": ["error", { "before": false, "after": true }],
+    "global-require": "off",
+    "no-param-reassign": "off",
+    "no-console": "off",
+    "max-len": "off",
+    "no-restricted-syntax": "off",
+    "no-continue": "off"
+  }
 }
