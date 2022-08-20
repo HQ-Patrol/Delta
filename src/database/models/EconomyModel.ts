@@ -3,7 +3,7 @@ import { Schema, model } from "mongoose";
 const econ = new Schema({
   id: { type: String, ref: "User", index: true },
   lastUse: { type: Schema.Types.Date, default: Date.now() },
-  coins: { type: Number, index: -1, default: 0 },
+  coins: { type: Number, index: -1, default: 50 },
   bank: { type: Number, index: -1, default: 0 },
   xp: { type: Number, index: -1, default: 0 },
   level: { type: Number, default: 0 },
