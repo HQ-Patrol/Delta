@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
+import { Schema, model } from "mongoose";
 
-const UserWeeklyMissionSchema = new mongoose.Schema({
+const UserWeeklyMissionSchema = new Schema({
   id: String,
   work_Plumber: {
     value: Number,
@@ -284,4 +284,4 @@ const UserWeeklyMissionSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("userwm", UserWeeklyMissionSchema);
+export default model("userwm", UserWeeklyMissionSchema);

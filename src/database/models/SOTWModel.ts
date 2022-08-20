@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
+import { Schema, model } from "mongoose";
 
-const SOTWSchema = new mongoose.Schema({
+const SOTWSchema = new Schema({
   userID: String,
   servers: [
     {
@@ -13,4 +13,4 @@ const SOTWSchema = new mongoose.Schema({
   sotw: { type: Number, index: -1 },
 });
 
-module.exports = mongoose.model("SOTW", SOTWSchema);
+export default model("SOTW", SOTWSchema);

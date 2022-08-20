@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
+import { Schema, model } from "mongoose";
 
-const MOTWSchema = new mongoose.Schema({
+const MOTWSchema = new Schema({
   userID: String,
   servers: [
     {
@@ -13,4 +13,4 @@ const MOTWSchema = new mongoose.Schema({
   motw: { type: Number, index: -1 },
 });
 
-module.exports = mongoose.model("MOTW", MOTWSchema);
+export default model("MOTW", MOTWSchema);

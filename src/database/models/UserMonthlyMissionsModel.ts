@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
+import { Schema, model } from "mongoose";
 
-const UserMonthlyMissionSchema = new mongoose.Schema({
+const UserMonthlyMissionSchema = new Schema({
   id: String,
   work_Plumber: {
     value: Number,
@@ -321,4 +321,4 @@ const UserMonthlyMissionSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("usermm", UserMonthlyMissionSchema);
+export default model("usermm", UserMonthlyMissionSchema);

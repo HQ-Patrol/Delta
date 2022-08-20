@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
+import { Schema, model } from "mongoose";
 
-const PastaSchema = new mongoose.Schema({
+const PastaSchema = new Schema({
   User: {
     id: String,
     name: String,
@@ -14,4 +14,4 @@ const PastaSchema = new mongoose.Schema({
   Time: String,
 });
 
-module.exports = mongoose.model("Pasta", PastaSchema, "pasta");
+export default model("Pasta", PastaSchema, "pasta");

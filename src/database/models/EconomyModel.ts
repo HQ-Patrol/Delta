@@ -1,8 +1,6 @@
-const mongoose = require("mongoose");
+import { Schema, model } from "mongoose";
 
-const { Schema } = mongoose;
-
-const econ = new mongoose.Schema({
+const econ = new Schema({
   id: { type: String, ref: "User", index: true },
   lastUse: { type: Schema.Types.Date, default: Date.now() },
   coins: { type: Number, index: -1, default: 0 },
@@ -13,4 +11,4 @@ const econ = new mongoose.Schema({
   bracket: { type: Number, default: 0 },
 });
 
-module.exports = mongoose.model("stats", econ);
+export default model("stats", econ);

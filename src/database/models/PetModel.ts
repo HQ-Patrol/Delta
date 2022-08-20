@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
+import { Schema, model } from "mongoose";
 
-const PetSchema = new mongoose.Schema({
+const PetSchema = new Schema({
 
   id: {
     type: String,
@@ -51,4 +51,4 @@ const PetSchema = new mongoose.Schema({
   activeSkillCooldowns: { type: Array, default: [] },
 });
 
-module.exports = mongoose.model("pets", PetSchema);
+export default model("pets", PetSchema);

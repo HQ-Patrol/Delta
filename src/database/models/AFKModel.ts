@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
+import { Schema, model } from "mongoose";
 
-const AFKSchema = new mongoose.Schema({
+const AFKSchema = new Schema({
   _id: String,
   afkMembers: [
     {
@@ -13,4 +13,4 @@ const AFKSchema = new mongoose.Schema({
   ],
 });
 
-module.exports = mongoose.model("AFK", AFKSchema);
+export default model("AFK", AFKSchema);

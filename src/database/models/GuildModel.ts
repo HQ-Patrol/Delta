@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
+import { Schema, model } from "mongoose";
 
-const GuildSchema = new mongoose.Schema({
+const GuildSchema = new Schema({
   _id: String,
   name: String,
   ownerId: String,
@@ -23,4 +23,4 @@ const GuildSchema = new mongoose.Schema({
   crucify: Number,
 });
 
-module.exports = mongoose.model("Guild", GuildSchema);
+export default model("Guild", GuildSchema);

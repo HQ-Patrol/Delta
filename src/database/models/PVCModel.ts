@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
+import { Schema, model } from "mongoose";
 
-const PVCSchema = new mongoose.Schema({
+const PVCSchema = new Schema({
   id: String,
   bosses: [
     {
@@ -13,4 +13,4 @@ const PVCSchema = new mongoose.Schema({
   ],
 });
 
-module.exports = mongoose.model("pvc", PVCSchema);
+export default model("pvc", PVCSchema);

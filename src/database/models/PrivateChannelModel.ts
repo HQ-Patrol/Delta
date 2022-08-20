@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
+import { Schema, model } from "mongoose";
 
-const PrivateChannelSchema = new mongoose.Schema({
+const PrivateChannelSchema = new Schema({
   _id: String,
   channels: [
     {
@@ -17,7 +17,7 @@ const PrivateChannelSchema = new mongoose.Schema({
   categoryId: String,
 });
 
-module.exports = mongoose.model(
+export default model(
   "PrivateChannel",
   PrivateChannelSchema,
 );

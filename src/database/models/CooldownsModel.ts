@@ -1,6 +1,6 @@
-const Mongoose = require("mongoose");
+import { Schema, model } from "mongoose";
 
-const daily = new Mongoose.Schema({
+const daily = new Schema({
   id: String,
   vote: {
     days: { type: Number, default: 0 },
@@ -9,4 +9,4 @@ const daily = new Mongoose.Schema({
   nextWeekly: { type: Number, default: -1 },
 });
 
-module.exports = Mongoose.model("cooldowns", daily);
+export default model("cooldowns", daily);

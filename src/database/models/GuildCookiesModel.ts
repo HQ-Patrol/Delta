@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
+import { Schema, model } from "mongoose";
 
-const GuildCookieSchema = new mongoose.Schema({
+const GuildCookieSchema = new Schema({
   serverID: String,
   users: [
     {
@@ -15,4 +15,4 @@ const GuildCookieSchema = new mongoose.Schema({
   Weekly: { type: Boolean, default: false },
 });
 
-module.exports = mongoose.model("guildCookies", GuildCookieSchema);
+export default model("guildCookies", GuildCookieSchema);

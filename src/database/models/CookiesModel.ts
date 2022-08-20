@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
+import { Schema, model } from "mongoose";
 
-const CookieSchema = new mongoose.Schema({
+const CookieSchema = new Schema({
   userID: String,
   cookies: { type: Number, index: -1 },
   totalgiven: Number,
@@ -13,4 +13,4 @@ const CookieSchema = new mongoose.Schema({
   Blacklist: Boolean,
 });
 
-module.exports = mongoose.model("cookies", CookieSchema);
+export default model("cookies", CookieSchema);

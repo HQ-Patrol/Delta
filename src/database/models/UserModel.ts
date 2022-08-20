@@ -1,7 +1,7 @@
-const mongoose = require("mongoose");
+import { Schema, model } from "mongoose";
 
-const UserSchema = new mongoose.Schema({
-  _id: { type: String},
+const UserSchema = new Schema({
+  _id: { type: String },
   blacklisted: { type: Boolean, default: false },
   premium: { type: Boolean, default: false },
   bonk: {
@@ -33,4 +33,4 @@ const UserSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("User", UserSchema);
+export default model("User", UserSchema);

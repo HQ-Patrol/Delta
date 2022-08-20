@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
+import { Schema, model } from "mongoose";
 
-const SeenSchema = new mongoose.Schema({
+const SeenSchema = new Schema({
   _id: {
     type: String,
   },
@@ -15,4 +15,4 @@ const SeenSchema = new mongoose.Schema({
   ],
 });
 
-module.exports = mongoose.model("Seen", SeenSchema);
+export default model("Seen", SeenSchema);
