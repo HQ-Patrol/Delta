@@ -1,5 +1,5 @@
 import { SapphireClient } from "@sapphire/framework";
-import { ClientOptions, Collection } from "discord.js";
+import { ClientOptions } from "discord.js";
 import { Client } from "discord-hybrid-sharding";
 
 import * as emojis from "../../constants/emoji";
@@ -9,8 +9,6 @@ import { error } from "../logger";
 import { connect } from "../../database/index";
 
 export default class DeltaClient extends SapphireClient {
-  public commands: Collection<string, unknown>;
-  public events: Collection<string, unknown>;
   public cluster: Client;
 
   public e: typeof emojis;
@@ -19,10 +17,7 @@ export default class DeltaClient extends SapphireClient {
   constructor(options: ClientOptions) {
     super(options);
 
-    this.commands = new Collection();
-    this.events = new Collection();
     this.cluster = new Client(this);
-
     this.e = emojis;
     this.utils = utils;
 
