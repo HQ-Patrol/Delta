@@ -4,9 +4,9 @@
 	"description": "Delta version of Patrol Bot",
 	"main": "./dist/src/index.js",
 	"scripts": {
-		"start": "node ./src/index.js",
-		"lint": "eslint ./src/**",
-		"tsc": "tsc"
+		"start": "node ./dist/src/index.js",
+		"dev": "tsc -w",
+		"build": "tsc"
 	},
 	"keywords": [],
 	"author": "Leo",
