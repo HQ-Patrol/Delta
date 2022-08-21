@@ -1,15 +1,28 @@
 import { Schema, model } from "mongoose";
 
-const GuildSchema = new Schema({
+export interface IGuild {
+  _id: string,
+  name: string,
+  ownerId: string,
+  ownerTag: string,
+  prefix: string,
+  serverCooldown: number,
+  premium: boolean,
+  commands: Array<object>,
+  invite: string,
+  chibi: boolean,
+  nsfw: boolean,
+  crucify: number,
+}
+
+const GuildSchema = new Schema<IGuild>({
   _id: String,
   name: String,
   ownerId: String,
   ownerTag: String,
-
   prefix: { type: String, default: process.env.DEFAULT_PREFIX },
   serverCooldown: { type: Number, default: 0 },
   premium: { type: Boolean, default: false },
-
   commands: [
     {
       name: String,
@@ -23,4 +36,4 @@ const GuildSchema = new Schema({
   crucify: Number,
 });
 
-export default model("Guild", GuildSchema);
+export const GuildModel = model<IGuild>("Guild", GuildSchema);

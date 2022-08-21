@@ -1,6 +1,11 @@
 import { Schema, model } from "mongoose";
 
-const AFKSchema = new Schema({
+export interface IAfk {
+  _id: string,
+  afkMembers: Array<object>
+}
+
+const AFKSchema = new Schema<IAfk>({
   _id: String,
   afkMembers: [
     {
@@ -13,4 +18,6 @@ const AFKSchema = new Schema({
   ],
 });
 
-export default model("AFK", AFKSchema);
+export const AFKModel = model<IAfk>("AFK", AFKSchema);
+
+

@@ -1,12 +1,21 @@
 import { Schema, model } from "mongoose";
 
-const REPSchema = new Schema({
+interface IRep {
+  userID: string;
+  username: string;
+  repper: Array<unknown>;
+  Derepper: Array<unknown>;
+  rep: number;
+  repW: number;
+}
+
+const RepSchema = new Schema<IRep>({
   userID: String,
   username: String,
-  repper: Array,
-  Derepper: Array,
+  repper: Array<unknown>,
+  Derepper: Array<unknown>,
   rep: Number,
   repW: Number,
 });
 
-export default model("REP", REPSchema);
+export const RepModel = model<IRep>("REP", RepSchema);

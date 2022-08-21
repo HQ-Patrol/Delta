@@ -1,10 +1,46 @@
 import { Schema, model } from "mongoose";
 
-const PetSchema = new Schema({
+export interface IPet {
+  id: string;
+  species: string;
+  UID: number;
+  name: string;
+  sprite: string;
+  level: number;
+  experience: number;
+  statPoints: number;
+  evolution: number;
+  current: boolean;
+  favorite: boolean;
+  brawlMaster: boolean;
+  attributes: {
+    attack: number;
+    intelligence: number;
+    speed: number;
+    energy: number;
+    hunger: number;
+    love: number;
+  };
+  interactive: {
+    asleep: boolean;
+    asleepHours: number;
+  };
+  petType: string;
+  fightsWon: number;
+  states: {
+    play: Date;
+    pat: Date;
+    hug: Date;
 
+    train: Date;
+  };
+  activeSkillCooldowns: Array<unknown>;
+}
+
+const PetSchema = new Schema<IPet>({
   id: {
     type: String,
-    ref: "User"
+    ref: "User",
   }, // Owner
 
   // Pet
@@ -48,7 +84,7 @@ const PetSchema = new Schema({
 
     train: { type: Date, default: null },
   },
-  activeSkillCooldowns: { type: Array, default: [] },
+  activeSkillCooldowns: { type: Array<unknown>, default: [] },
 });
 
-export default model("pets", PetSchema);
+export const PetModel = model<IPet>("pets", PetSchema);

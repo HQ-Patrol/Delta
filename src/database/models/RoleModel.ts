@@ -1,13 +1,23 @@
 import { Schema, model } from "mongoose";
 
-const RoleSchema = new Schema({
+export interface IRole {
+  id: string;
+  fight: Array<unknown>;
+  snap: Array<unknown>;
+  crucify: Array<unknown>;
+  rr: Array<unknown>;
+  fart: Array<unknown>;
+  tts: Array<unknown>;
+}
+
+const RoleSchema = new Schema<IRole>({
   id: String,
-  fight: Array,
-  snap: Array,
-  crucify: Array,
-  rr: Array,
-  fart: Array,
-  tts: Array,
+  fight: Array<unknown>,
+  snap: Array<unknown>,
+  crucify: Array<unknown>,
+  rr: Array<unknown>,
+  fart: Array<unknown>,
+  tts: Array<unknown>,
 });
 
-export default model("roles", RoleSchema);
+export const RoleModel = model<IRole>("roles", RoleSchema);

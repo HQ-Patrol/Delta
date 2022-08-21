@@ -1,11 +1,34 @@
 import { Schema, model } from "mongoose";
 
-const UserSchema = new Schema({
+export interface IUser {
+  _id: string;
+  blacklisted: boolean;
+  premium: boolean;
+  bonk: {
+    bonkedBy: Array<string>;
+    lastBonk: number;
+  };
+  Biggercooldown: Array<object>;
+  verified: boolean;
+  certified: boolean;
+  DMs: boolean;
+  premLeft: string;
+  hatched: {
+    SHADOW: boolean;
+    DOG: boolean;
+    DUCK: boolean;
+    MONKEY: boolean;
+    LION: boolean;
+    GARGOYLE: boolean;
+  };
+}
+
+const UserSchema = new Schema<IUser>({
   _id: { type: String },
   blacklisted: { type: Boolean, default: false },
   premium: { type: Boolean, default: false },
   bonk: {
-    bonkedBy: [String],
+    bonkedBy: Array<string>,
     lastBonk: Number,
   },
   Biggercooldown: [
@@ -26,11 +49,6 @@ const UserSchema = new Schema({
     LION: Boolean,
     GARGOYLE: Boolean,
   },
-  voting: {
-    streak: Number,
-    lastVoted: Date,
-    total: Number,
-  },
 });
 
-export default model("User", UserSchema);
+export const UserModel = model<IUser>("User", UserSchema);

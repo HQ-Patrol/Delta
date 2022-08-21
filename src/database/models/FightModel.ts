@@ -1,6 +1,17 @@
 import { Schema, model } from "mongoose";
 
-const FightSchema = new Schema({
+export interface IFight {
+  _id: string,
+  fight: {
+    total: number,
+    success: number,
+    fails: number,
+    wl: number,
+  },
+  allow: boolean,
+}
+
+const FightSchema = new Schema<IFight>({
   _id: String,
   fight: {
     total: Number,
@@ -11,4 +22,4 @@ const FightSchema = new Schema({
   allow: Boolean,
 });
 
-export default model("fight", FightSchema);
+export const FightModel = model<IFight>("fight", FightSchema);

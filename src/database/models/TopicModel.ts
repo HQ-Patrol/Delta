@@ -1,10 +1,17 @@
 import { Schema, model } from "mongoose";
 
-const TopicSchema = new Schema({
+export interface ITopic {
+  UserID: string,
+  topicNo: number,
+  topic: string,
+  count: number,
+}
+
+const TopicSchema = new Schema<ITopic>({
   UserID: String,
   topicNo: Number,
   topic: String,
   count: Number,
 });
 
-export default model("topic", TopicSchema);
+export const TopicModel = model<ITopic>("topic", TopicSchema);

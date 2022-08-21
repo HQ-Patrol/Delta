@@ -1,6 +1,11 @@
 import { Schema, model } from "mongoose";
 
-const PVCSchema = new Schema({
+export interface IPVC {
+  id: string;
+  bosses: Array<object>;
+}
+
+const PVCSchema = new Schema<IPVC>({
   id: String,
   bosses: [
     {
@@ -13,4 +18,4 @@ const PVCSchema = new Schema({
   ],
 });
 
-export default model("pvc", PVCSchema);
+export const PVCModel = model<IPVC>("pvc", PVCSchema);

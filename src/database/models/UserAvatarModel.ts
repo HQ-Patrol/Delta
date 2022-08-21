@@ -1,6 +1,15 @@
 import { Schema, model } from "mongoose";
 
-const AVATARSchema = new Schema({
+export interface IAvatar {
+  userID: string;
+  username: string;
+  av: string;
+  caption: string;
+  bday: string;
+  description: string;
+}
+
+const AvatarSchema = new Schema<IAvatar>({
   userID: String,
   username: String,
   av: String,
@@ -9,4 +18,4 @@ const AVATARSchema = new Schema({
   description: String,
 });
 
-export default model("AVATAR", AVATARSchema);
+export const AvatarModel = model<IAvatar>("AVATAR", AvatarSchema);

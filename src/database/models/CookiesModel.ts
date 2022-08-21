@@ -1,6 +1,14 @@
 import { Schema, model } from "mongoose";
 
-const CookieSchema = new Schema({
+export interface ICookie {
+  userID: string,
+  cookies: number,
+  totalgiven: number,
+  given: Array<object>,
+  Blacklist: boolean
+}
+
+const CookieSchema = new Schema<ICookie>({
   userID: String,
   cookies: { type: Number, index: -1 },
   totalgiven: Number,
@@ -13,4 +21,4 @@ const CookieSchema = new Schema({
   Blacklist: Boolean,
 });
 
-export default model("cookies", CookieSchema);
+export const CookieModel = model<ICookie>("cookies", CookieSchema);

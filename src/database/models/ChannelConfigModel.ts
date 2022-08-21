@@ -1,6 +1,14 @@
 import { Schema, model } from "mongoose";
 
-const ChannelSchema = new Schema({
+export interface IChannel {
+  _id: string,
+  report: string,
+  confessions: string,
+  mod: string,
+  simp: string,
+}
+
+const ChannelSchema = new Schema<IChannel>({
   _id: String,
   report: String,
   confessions: String,
@@ -8,4 +16,4 @@ const ChannelSchema = new Schema({
   simp: String,
 });
 
-export default model("channel", ChannelSchema);
+export const ChannelModel = model<IChannel>("channel", ChannelSchema);

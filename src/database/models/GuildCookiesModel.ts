@@ -1,6 +1,21 @@
 import { Schema, model } from "mongoose";
 
-const GuildCookieSchema = new Schema({
+export interface IGuildCookie {
+  serverID: string,
+  users: [
+    {
+      userID: string,
+      cookieGot: number,
+      cookieSent: number,
+      cookieWeekly: number,
+    },
+  ],
+  AllowedRoles: string,
+  BannedUsers: string,
+  Weekly: boolean,
+}
+
+const GuildCookieSchema = new Schema<IGuildCookie>({
   serverID: String,
   users: [
     {
@@ -15,4 +30,4 @@ const GuildCookieSchema = new Schema({
   Weekly: { type: Boolean, default: false },
 });
 
-export default model("guildCookies", GuildCookieSchema);
+export const GuildCookieModel = model<IGuildCookie>("guildCookies", GuildCookieSchema);

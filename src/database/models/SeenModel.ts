@@ -1,6 +1,11 @@
 import { Schema, model } from "mongoose";
 
-const SeenSchema = new Schema({
+export interface ISeen {
+  _id: string;
+  lastSeens: Array<object>;
+}
+
+const SeenSchema = new Schema<ISeen>({
   _id: {
     type: String,
   },
@@ -15,4 +20,4 @@ const SeenSchema = new Schema({
   ],
 });
 
-export default model("Seen", SeenSchema);
+export const SeenModel = model<ISeen>("Seen", SeenSchema);

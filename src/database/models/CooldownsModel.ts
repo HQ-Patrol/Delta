@@ -1,6 +1,15 @@
 import { Schema, model } from "mongoose";
 
-const daily = new Schema({
+export interface ICooldowns {
+  id: string,
+  vote: {
+    days: number,
+    last: number,
+  },
+  nextWeekly: number,
+}
+
+const CooldownSchema = new Schema<ICooldowns>({
   id: String,
   vote: {
     days: { type: Number, default: 0 },
@@ -9,4 +18,4 @@ const daily = new Schema({
   nextWeekly: { type: Number, default: -1 },
 });
 
-export default model("cooldowns", daily);
+export const CooldownsModel = model<ICooldowns>("cooldowns", CooldownSchema);

@@ -1,6 +1,11 @@
 import { Schema, model } from "mongoose";
 
-const CustomRoleSchema = new Schema({
+interface ICustomRole {
+  _id: string,
+  roles: Array<object>
+}
+
+const CustomRoleSchema = new Schema<ICustomRole>({
   _id: String,
   roles: [
     {
@@ -10,4 +15,4 @@ const CustomRoleSchema = new Schema({
   ],
 });
 
-export default model("CustomRole", CustomRoleSchema);
+export const CustomRoleModel = model<ICustomRole>("CustomRole", CustomRoleSchema);

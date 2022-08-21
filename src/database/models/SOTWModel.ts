@@ -1,6 +1,19 @@
 import { Schema, model } from "mongoose";
 
-const SOTWSchema = new Schema({
+export interface ISotw {
+  userID: string;
+  servers: [
+    {
+      serverID: string;
+      SVs: number;
+      SOTWs: number;
+    }
+  ];
+  simpV: number;
+  sotw: number;
+}
+
+const SOTWSchema = new Schema<ISotw>({
   userID: String,
   servers: [
     {
@@ -13,4 +26,4 @@ const SOTWSchema = new Schema({
   sotw: { type: Number, index: -1 },
 });
 
-export default model("SOTW", SOTWSchema);
+export const SOTWModel = model<ISotw>("SOTW", SOTWSchema);

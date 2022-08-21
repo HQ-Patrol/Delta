@@ -1,6 +1,13 @@
 import { Schema, model } from "mongoose";
 
-const PrivateChannelSchema = new Schema({
+export interface IPrivateChannel {
+  _id: string;
+  channels: Array<object>;
+  allowedRoles: Array<object>;
+  categoryId: string;
+}
+
+const PrivateChannelSchema = new Schema<IPrivateChannel>({
   _id: String,
   channels: [
     {
@@ -17,7 +24,4 @@ const PrivateChannelSchema = new Schema({
   categoryId: String,
 });
 
-export default model(
-  "PrivateChannel",
-  PrivateChannelSchema,
-);
+export const PrivateChannelModel = model<IPrivateChannel>("PrivateChannel", PrivateChannelSchema);

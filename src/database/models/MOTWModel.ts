@@ -1,6 +1,13 @@
 import { Schema, model } from "mongoose";
 
-const MOTWSchema = new Schema({
+export interface IMotw {
+  userID: string,
+  servers: Array<object>,
+  modV: number,
+  motw: number,
+}
+
+const MOTWSchema = new Schema<IMotw>({
   userID: String,
   servers: [
     {
@@ -13,4 +20,4 @@ const MOTWSchema = new Schema({
   motw: { type: Number, index: -1 },
 });
 
-export default model("MOTW", MOTWSchema);
+export const MOTWModel = model<IMotw>("MOTW", MOTWSchema);
