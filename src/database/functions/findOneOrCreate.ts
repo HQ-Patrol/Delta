@@ -1,4 +1,4 @@
-import EconomyModel from "../models/EconomyModel";
+import { EconomyModel } from "../models/EconomyModel";
 
 export default async function (query: object, createObject: object, Model: typeof EconomyModel, lean = true) {
   let find;
