@@ -1,6 +1,23 @@
 import { model, Schema } from "mongoose";
 
-const GuildSchema = new Schema({
+interface IGuild {
+  _id: string,
+  name: string,
+  ownerId: string,
+  ownerTag: string,
+
+  prefix: string,
+  serverCooldown: number,
+  premium: boolean,
+
+  commands: string,
+  invite: string,
+  chibi: boolean,
+  nsfw: boolean,
+  crucify: number
+}
+
+const GuildSchema = new Schema<IGuild>({
   _id: String,
   name: String,
   ownerId: String,
