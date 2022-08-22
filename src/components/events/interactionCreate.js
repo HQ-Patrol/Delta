@@ -3,7 +3,7 @@ const $ = require("chalk");
 const findOneOrCreate = require("../../database/functions/findOneOrCreate");
 const { log, error } = require("../../utilities/logger");
 
-const User = require("../../database/models/UserModel");
+const User = require("../../database/models/UserModel").default;
 
 module.exports = {
   event: "interactionCreate",

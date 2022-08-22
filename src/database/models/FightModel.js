@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
+import { Schema, model } from "mongoose";
 
-const FightSchema = new mongoose.Schema({
+const FightSchema = new Schema({
   _id: String,
   fight: {
     total: Number,
@@ -11,4 +11,4 @@ const FightSchema = new mongoose.Schema({
   allow: Boolean,
 });
 
-module.exports = mongoose.model("fight", FightSchema);
+export default model("fight", FightSchema);

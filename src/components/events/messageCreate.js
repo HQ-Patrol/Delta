@@ -1,7 +1,7 @@
 const $ = require("chalk");
 const Discord = require("discord.js");
 
-const User = require("../../database/models/UserModel");
+const User = require("../../database/models/UserModel").default;
 const Guild = require("../../database/models/GuildModel");
 
 const findOneOrCreate = require("../../database/functions/findOneOrCreate");

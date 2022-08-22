@@ -1,4 +1,6 @@
-import UserModel from "../../models/UserModel";
+/* eslint-disable import/no-unresolved */
+/* eslint-disable import/extensions */
+import Economy from "../../models/EconomyModel";
 
 /** *
  * returns an Economy Stats Document by the User Id
@@ -12,36 +14,19 @@ import UserModel from "../../models/UserModel";
  * @author Samuel "TheMorrigan" Echols
  *
  * @param {String} id -  id of the desired user.
- * @param {boolean} create - [default value is true] if this is true, then a new document will be created
  * @return {<<Query>>} Document
  * @usage findByUserId(user.id)
  * @usage findByUserId(user.id, false)
  */
 
-async function findByUserId(id: String, create: Boolean = true) {
-  let user: any;
-  if (!create) {
-    user = await UserModel.findById(id);
-  } else {
-    user = await UserModel.findOneAndUpdate(
-      // Query
+async function findByUserId(id: string) {
+  let user = await Economy.findById(id);
+  if (user === null) {
+    user = new Economy({
       id,
-      // Update
-      // Sets the id field to the users id provided by the <id> parameter
-      {
-        $setOnInsert: {
-          id: user.id,
-        },
-      },
-      // Options
-      {
-        // If no document is found, one will be inserted
-        upsert: true,
-        setDefaultsOnInsert: true,
-      },
-    );
+    });
   }
   return user;
 }
 
-module.exports = findByUserId;
+export default findByUserId;
