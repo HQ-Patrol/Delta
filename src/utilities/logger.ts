@@ -7,7 +7,7 @@ function implMaxPrefix(prefix: string) {
   return prefix.length <= PREFIX_WIDTH ? prefix + " ".repeat(PREFIX_WIDTH - prefix.length) : prefix.slice(0, PREFIX_WIDTH);
 }
 
-function log(prefix: string, message: string, color: Color = "blueBright", symbol: string | null = null) {
+function log(prefix: string, message: string, color: typeof Color = "blueBright", symbol: string | null = null) {
   return console.log(
     $.bgGray(` ${symbol ?? "*"} `),
     $.keyword(color).bold(implMaxPrefix(prefix)),

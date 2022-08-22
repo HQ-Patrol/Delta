@@ -1,5 +1,3 @@
-/* eslint-disable import/no-unresolved */
-/* eslint-disable import/extensions */
 import Economy from "../../models/EconomyModel";
 
 /** *
