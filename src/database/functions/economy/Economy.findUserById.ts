@@ -1,4 +1,4 @@
-const UserModel = require("../../models/UserModel");
+import UserModel from "../../models/UserModel";
 
 /** *
  * returns an Economy Stats Document by the User Id
@@ -18,8 +18,8 @@ const UserModel = require("../../models/UserModel");
  * @usage findByUserId(user.id, false)
  */
 
-async function findByUserId(id, create = true) {
-  let user;
+async function findByUserId(id: String, create: Boolean = true) {
+  let user: any;
   if (!create) {
     user = await UserModel.findById(id);
   } else {
@@ -44,4 +44,4 @@ async function findByUserId(id, create = true) {
   return user;
 }
 
-module.exports = findByUserId();
+module.exports = findByUserId;
