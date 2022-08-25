@@ -22,6 +22,7 @@
 	},
 	"dependencies": {
 		"@discordjs/rest": "^1.0.1",
+		"@types/ms": "^0.7.31",
 		"bufferutil": "^4.0.6",
 		"chalk": "4",
 		"discord-api-types": "^0.37.0",
