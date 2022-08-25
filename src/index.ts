@@ -8,22 +8,24 @@
 // It handles sharding and basic startup.
 
 /* Startup */
-require("dotenv").config();
+import dotenv from "dotenv";
 
-const Cluster = require("discord-hybrid-sharding");
-const $ = require("chalk");
-const path = require("path");
-const ms = require("ms");
-const { log, info } = require("./utilities/logger");
+import Cluster, { ManagerOptions } from "discord-hybrid-sharding";
+import $ from "chalk";
+import path from "path";
+import ms from "ms";
+import { info, log } from "./utilities/logger";
 
-const PACKAGE_INFO = require("../package.json");
+import PACKAGE_INFO from "../package.json";
+
+dotenv.config();
 
 const TIME = Date.now();
 let allReady = false;
 
 log("STARTUP", `Starting Patrol Bot Delta v${$.bold(PACKAGE_INFO.version ?? "None")}`);
 
-const shardingOptions = {
+const shardingOptions: ManagerOptions = {
   totalShards: 5,
   shardsPerClusters: 2,
   mode: "process",
@@ -34,8 +36,9 @@ if (process.env?.DEV === "TRUE") {
   info("Launching Patrol Bot in developer mode.");
   shardingOptions.totalShards = 1;
   shardingOptions.shardsPerClusters = 1;
-  global.developerMode = true;
 }
+
+export default { DEVELOPER_MODE: process.env?.DEV === "TRUE" };
 
 // Create shards
 const sharder = new Cluster.Manager(path.join(__dirname, "bot.js"), shardingOptions);
@@ -57,7 +60,7 @@ sharder.on("clusterCreate", (cluster) => {
     if (message?.ready) log("SHARDER", `This shard is ready. ${TIMESTAMP}`, "blue", message.instance.id);
     if (message?.database) log("SHARDER", `This shard has connected to its database. ${TIMESTAMP}`, "blue", message.instance.id);
 
-    if (message?.database && message.instance.id === shardingOptions.totalShards - 1 && !allReady) {
+    if (message?.database && message.instance.id === (shardingOptions.totalShards as number) - 1 && !allReady) {
       // Last shard completed, log
       allReady = true;
       log("SHARDER", `All shards launched and ready. ${TIMESTAMP}`, "green");
