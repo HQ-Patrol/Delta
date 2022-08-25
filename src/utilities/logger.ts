@@ -7,7 +7,7 @@ function implMaxPrefix(prefix: string) {
   return prefix.length <= PREFIX_WIDTH ? prefix + " ".repeat(PREFIX_WIDTH - prefix.length) : prefix.slice(0, PREFIX_WIDTH);
 }
 
-function log(prefix: string, message: string, color: typeof Color = "blueBright", symbol: string | null = null) {
+export function log(prefix: string, message: string, color: typeof Color = "blueBright", symbol: string | null = null) {
   return console.log(
     $.bgGray(` ${symbol ?? "*"} `),
     $.keyword(color).bold(implMaxPrefix(prefix)),
@@ -16,7 +16,7 @@ function log(prefix: string, message: string, color: typeof Color = "blueBright"
   );
 }
 
-function error(message: string, ...hints: string[]) {
+export function error(message: string, ...hints: string[]) {
   return console.log(
     $.bgRedBright(" ! "),
     $.redBright.bold(implMaxPrefix("ERROR")),
@@ -25,7 +25,7 @@ function error(message: string, ...hints: string[]) {
   );
 }
 
-function info(message: string) {
+export function info(message: string) {
   return console.log(
     $.bgYellowBright(" i "),
     $.yellow.bold(implMaxPrefix("INFO")),
@@ -33,9 +33,3 @@ function info(message: string) {
     $.yellow(message),
   );
 }
-
-export default {
-  log,
-  error,
-  info,
-};
