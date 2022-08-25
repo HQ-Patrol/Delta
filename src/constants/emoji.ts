@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   "1StarDragonBall": "<:1StarDragonBall:855517931730501653>",
   HGIIcon: "<a:HGIcon:774666165262745641>",
   alarmGoBrrrrr: "<a:AlarmGoBrrrrr:806180753167220806>",
@@ -75,7 +75,6 @@ module.exports = {
   wavyDash: "<:WavyDash:760469258093723689>",
   weeklySkips: "<:WeeklySkips:892403153566302258>",
   wallet: "<:Wallet:775651665553915904>",
-
   leftArrow: "<:left:905304590893846548>",
   mostleftArrow: "<:mostleft:905304590709309440>",
   rightArrow: "<:right:905304590667382824>",
