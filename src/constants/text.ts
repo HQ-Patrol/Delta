@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   footer: [
     "!ᴠᴏᴛᴇ ꜰᴏʀ 🎁",
     "ꜱᴜʙᴍɪᴛ ʏᴏᴜʀ ᴏᴡɴ !ᴛᴏᴘɪᴄꜱ",
