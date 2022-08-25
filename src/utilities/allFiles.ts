@@ -1,9 +1,8 @@
-const fs = require("fs");
-const path = require("path");
+import fs from "fs";
+import path from "path";
 
-const allFiles = (dirPath, arrayOfFiles = []) => {
+const allFiles = (dirPath: string, arrayOfFiles: string[] = []) => {
   const files = fs.readdirSync(dirPath);
-  arrayOfFiles = arrayOfFiles || [];
   files.forEach((file) => {
     if (file.startsWith("@")) return;
     if (fs.statSync(`${dirPath}/${file}`).isDirectory()) arrayOfFiles = allFiles(`${dirPath}/${file}`, arrayOfFiles);
@@ -12,4 +11,4 @@ const allFiles = (dirPath, arrayOfFiles = []) => {
   return arrayOfFiles;
 };
 
-module.exports = allFiles;
+export default allFiles;
