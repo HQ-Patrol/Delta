@@ -1,6 +1,12 @@
-const Discord = require("discord.js");
-const Cluster = require("discord-hybrid-sharding");
-const { error } = require("./utilities/logger");
+import Discord from "discord.js";
+import Cluster from "discord-hybrid-sharding";
+import { error } from "./utilities/logger";
+
+import emojis from "./constants/emoji";
+
+import handlers from "./handlers";
+
+import database from "./database";
 
 // Create client instance
 const client = new Discord.Client({
@@ -32,16 +38,16 @@ client.statistics = {
 };
 
 // Client constants
-client.e = require("./constants/emoji");
-client.utils = require("./utilities/global");
+client.e = emojis;
 
 // Run handlers
-require("./handlers")(client);
+handlers(client);
 
 // Check if mongodb url is provided
 if (!process.env.MONGODB_URL || process.env.MONGODB_URL.length === 0) error("You have not provided a MongoDB Connection URL in your .env!");
+
 // Connect to mongodb
-require("./database")(client);
+database(client);
 
 // Log in
 if (!process.env.TOKEN || process.env.TOKEN.length === 0) error("You have not provided a token in your .env!");
