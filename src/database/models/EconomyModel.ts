@@ -1,26 +1,28 @@
-import { Schema, model } from "mongoose";
+import { Schema, model, Types, InferSchemaType } from "mongoose";
+import IItem from "../../types/Item";
 
-export interface IEconomy {
-  id: string,
-  lastUse: Date,
-  coins: number,
-  bank: number,
-  xp: number,
-  level: number,
-  // TODO: create IItem
-  items: Array<unknown>,
-  bracket: number,
-}
+// export interface IEconomy {
+//   id: string,
+//   lastUse: Date,
+//   coins: number,
+//   bank: number,
+//   xp: number,
+//   level: number,
+//   items: Types.Array<IItem>,
+//   bracket: number,
+// }
 
-const EconomySchema = new Schema<IEconomy>({
+export type IEconomy = InferSchemaType<typeof EconomySchema>;
+
+const EconomySchema = new Schema({
   id: { type: String, ref: "User", index: true },
   lastUse: { type: Schema.Types.Date, default: Date.now() },
   coins: { type: Number, index: -1, default: 50 },
   bank: { type: Number, index: -1, default: 0 },
   xp: { type: Number, index: -1, default: 0 },
   level: { type: Number, default: 0 },
-  items: { type: Array<unknown>, default: [] },
+  items: { type: Types.Array<IItem> },
   bracket: { type: Number, default: 0 },
 });
 
-export const EconomyModel = model<IEconomy>("stats", EconomySchema);
+export const EconomyModel = model("stats", EconomySchema);
