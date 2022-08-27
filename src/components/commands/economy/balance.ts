@@ -1,3 +1,4 @@
+import { MessageEmbed } from "discord.js";
 import { ChatInputCommand, Command } from "@sapphire/framework";
 import { ApplyOptions } from "@sapphire/decorators";
 
@@ -8,7 +9,6 @@ import { getMaximumCompacity } from "../../../utilities/query/economy";
 import sendError from "../../../utilities/sendError";
 
 import emojis from "../../../constants/emoji";
-import { MessageEmbed } from "discord.js";
 
 @ApplyOptions<Command.Options>({
   name: "balance",
