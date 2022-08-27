@@ -83,7 +83,7 @@ export default class ComponentMenu {
     if(this.menuMessage) {
       // Replace with current menu
       await this.menuMessage.edit({
-        content: "",
+        content: null,
         embeds: [this.embed],
         components: this.components
       });
