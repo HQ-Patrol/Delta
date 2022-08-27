@@ -32,5 +32,6 @@ export interface IUserItem {
     name: string;
     count: number;
     icon: string;
+    type: string;
     data: IItemData;
 }

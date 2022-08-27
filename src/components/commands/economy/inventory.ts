@@ -1,18 +1,22 @@
-import { MessageEmbed } from "discord.js";
+import { ButtonInteraction, MessageActionRow, MessageButton, MessageEmbed } from "discord.js";
 import { ChatInputCommand, Command } from "@sapphire/framework";
 import { ApplyOptions } from "@sapphire/decorators";
 
 import findOneOrCreate from "../../../database/functions/findOneOrCreate";
 import { EconomyModel, IEconomy } from "../../../database/models/EconomyModel";
+import { IUserItem } from "../../../types/Item";
 
 import { chunk, footer } from "../../../utilities/global";
 import sendError from "../../../utilities/sendError";
+import ComponentMenu from "../../../utilities/classes/ComponentMenu";
+
+import emoji from "../../../constants/emoji";
 
 @ApplyOptions<Command.Options>({
-  name: "balance",
-  description: "View your balance or somebody elses balance.",
+  name: "inventory",
+  description: "View yours or someone elses inventory",
 })
-export class PingCommand extends Command {
+export class BalanceCommand extends Command {
   public override registerApplicationCommands(
     registry: ChatInputCommand.Registry
   ) {
@@ -78,42 +82,43 @@ export class PingCommand extends Command {
       .setAuthor({ name: `${target.username}'s Inventory 🎒`, iconURL: target.displayAvatarURL() })
       .setFooter({ text: `➤ Page [${page}/${totalPages}] - ${tip}` })
       // eslint-disable-next-line arrow-body-style
-      .setDescription(chunks[page - 1].map((item) => {
+      .setDescription(chunks[page - 1].map((value: IUserItem) => {
         // maybe add special effects to special items
-        return `➜ ${item.icon} **${item.name}** ─ **${item.count}**
-        \`𝘐𝘵𝘦𝘮 𝘛𝘺𝘱𝘦: ${item.type}\`
+        return `➜ ${value.icon} **${value.name}** ─ **${value.count}**
+        \`𝘐𝘵𝘦𝘮 𝘛𝘺𝘱𝘦: ${value.type}\`
         `;
       }).join(""));
 
-    const components = () => [new Discord.ActionRowBuilder()
+    const components = () => [new MessageActionRow()
       .addComponents(
-        new Discord.ButtonBuilder()
-          .setEmoji(client.e.mostleftArrow)
+        new MessageButton()
+          .setEmoji(emoji.mostleftArrow)
           .setStyle(1)
           .setDisabled(page === 1)
           .setCustomId("mostleft"),
-        new Discord.ButtonBuilder()
-          .setEmoji(client.e.leftArrow)
+        new MessageButton()
+          .setEmoji(emoji.leftArrow)
           .setStyle(1)
           .setDisabled(page === 1)
           .setCustomId("left"),
-        new Discord.ButtonBuilder()
-          .setEmoji(client.e.rightArrow)
+        new MessageButton()
+          .setEmoji(emoji.rightArrow)
           .setStyle(1)
           .setDisabled(page === totalPages)
           .setCustomId("right"),
-        new Discord.ButtonBuilder()
-          .setEmoji(client.e.mostrightArrow)
+        new MessageButton()
+          .setEmoji(emoji.mostrightArrow)
           .setStyle(1)
           .setDisabled(page === totalPages)
           .setCustomId("mostright"),
       )];
 
     // Create new menu
-    const menu = new AdvancedComponentMenu(interaction, interaction.member)
-      .setDefaultEmbed(embed())
+    const menu = new ComponentMenu(interaction)
+      .whitelist(interaction.user.id)
+      .setEmbed(embed())
       .setComponents(components())
-      .setHandler((int) => {
+      .listen((int: ButtonInteraction) => {
         int.deferUpdate();
         switch (int.customId) {
         case "mostleft":
@@ -136,7 +141,7 @@ export class PingCommand extends Command {
         menu.update();
       });
 
-    menu.throttleTime = 500;
+    menu.options.throttle = 500;
     return menu.send();
   }
 }

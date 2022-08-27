@@ -1,4 +1,4 @@
-import { Schema, model, Types } from "mongoose";
+import { Schema, model } from "mongoose";
 import { IUserItem } from "../../types/Item";
 
 export interface IEconomy {
@@ -19,7 +19,7 @@ const EconomySchema = new Schema({
   bank: { type: Number, index: -1, default: 0 },
   xp: { type: Number, index: -1, default: 0 },
   level: { type: Number, default: 0 },
-  items: { type: Types.Array<IUserItem>, default: [] },
+  items: { type: Array<IUserItem>, default: [] },
   bracket: { type: Number, default: 0 },
 });
 
