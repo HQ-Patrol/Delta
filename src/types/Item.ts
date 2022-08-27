@@ -11,9 +11,10 @@ export interface IItemData {
     canBeSold: boolean;
     canBeBought: boolean;
     canBeTraded: boolean;
+    canBeUsed: boolean;
 }
 
-export default interface IItem {
+export interface IItem {
     name: string;
     name2: string;
     alias: string;
@@ -24,5 +25,12 @@ export default interface IItem {
     description: string;
     usage: string;
     type: ItemType;
+    data: IItemData;
+}
+
+export interface IUserItem {
+    name: string;
+    count: number;
+    icon: string;
     data: IItemData;
 }

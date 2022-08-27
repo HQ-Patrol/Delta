@@ -1,18 +1,16 @@
-import { Schema, model, Types, InferSchemaType } from "mongoose";
-import IItem from "../../types/Item";
+import { Schema, model, Types } from "mongoose";
+import { IUserItem } from "../../types/Item";
 
-// export interface IEconomy {
-//   id: string,
-//   lastUse: Date,
-//   coins: number,
-//   bank: number,
-//   xp: number,
-//   level: number,
-//   items: Types.Array<IItem>,
-//   bracket: number,
-// }
-
-export type IEconomy = InferSchemaType<typeof EconomySchema>;
+export interface IEconomy {
+  id: string,
+  lastUse: Date,
+  coins: number,
+  bank: number,
+  xp: number,
+  level: number,
+  items: Array<IUserItem>,
+  bracket: number,
+}
 
 const EconomySchema = new Schema({
   id: { type: String, ref: "User", index: true },
@@ -21,7 +19,7 @@ const EconomySchema = new Schema({
   bank: { type: Number, index: -1, default: 0 },
   xp: { type: Number, index: -1, default: 0 },
   level: { type: Number, default: 0 },
-  items: { type: Types.Array<IItem> },
+  items: { type: Types.Array<IUserItem>, default: [] },
   bracket: { type: Number, default: 0 },
 });
 
