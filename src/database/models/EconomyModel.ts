@@ -23,4 +23,4 @@ const EconomySchema = new Schema({
   bracket: { type: Number, default: 0 },
 });
 
-export const EconomyModel = model<IEconomy>("stats", EconomySchema);
+export const Economy = model<IEconomy>("stats", EconomySchema);
