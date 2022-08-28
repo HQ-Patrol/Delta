@@ -2,8 +2,8 @@ import { ButtonInteraction, MessageActionRow, MessageButton, MessageEmbed } from
 import { ChatInputCommand, Command } from "@sapphire/framework";
 import { ApplyOptions } from "@sapphire/decorators";
 
-import findOneOrCreate from "../../../database/functions/findOneOrCreate";
-import { EconomyModel, IEconomy } from "../../../database/models/EconomyModel";
+import findByUserId from "../../../database/functions/economy/findUserById";
+import { Economy } from "../../../database/models/EconomyModel";
 import { IUserItem } from "../../../types/Item";
 
 import { chunk, footer } from "../../../utilities/global";
@@ -37,27 +37,12 @@ export class BalanceCommand extends Command {
 
     if (target.bot) return sendError(interaction, "You didn't possibly just tag a bot 😐");
 
-    const person = await findOneOrCreate(
-      {
-        id: target.id,
-      },
-      {
-        id: target.id,
-        lastUse: Date.now(),
-        coins: 50,
-        bank: 0,
-        xp: 0,
-        level: 1,
-        items: [],
-        bracket: 1,
-      },
-      EconomyModel,
-    ) as IEconomy;
+    const person = await findByUserId(target.id);
 
     if (!Array.isArray(person.items)) {
       // ! Some users may have this issue due to bad legacy practices
       person.items = [];
-      await EconomyModel.updateOne({ id: target.id }, { items: [] });
+      await Economy.updateOne({ id: target.id }, { items: [] });
     }
 
     // empty inventory
