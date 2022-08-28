@@ -2,7 +2,7 @@
 import { Economy } from "../../models/EconomyModel";
 
 /** *
- * returns an Economy Stats Document by the User Id
+ * returns an Economy Document by the User Id
  * or creates a new document with default balues
  * if one does not already exists.
  *
