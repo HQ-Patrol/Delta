@@ -1,5 +1,5 @@
 import { ChatInputCommand, Command } from "@sapphire/framework";
-import { ApplyOptions } from "@sapphire/decorators";
+import  { ApplyOptions } from "@sapphire/decorators";
 import { Message } from "discord.js";
 
 @ApplyOptions<Command.Options>({
