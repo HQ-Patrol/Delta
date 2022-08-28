@@ -2,8 +2,8 @@
 import { Economy } from "../../models/EconomyModel";
 
 /** *
- * returns an Economy Document by the User Id
- * or creates a new document with default balues
+ * returns an Economy Document by the User ID
+ * or creates a new document with default values
  * if one does not already exists.
  *
  * @async
