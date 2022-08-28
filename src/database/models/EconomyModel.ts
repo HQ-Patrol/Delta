@@ -1,6 +1,6 @@
 import { IUserItem } from "./../../types/Item";
 import { Schema, model } from "mongoose";
-interface IEconomy {
+export interface IEconomy {
   id: string;
   lastUse: Schema.Types.Date;
   coins: number;
