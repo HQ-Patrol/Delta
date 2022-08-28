@@ -1,6 +1,5 @@
+import { IUserItem } from "./../../types/Item";
 import { Schema, model } from "mongoose";
-import items from "../../data/interface/items";
-
 interface IEconomy {
   id: string;
   lastUse: Schema.Types.Date;
@@ -8,7 +7,7 @@ interface IEconomy {
   bank: number;
   xp: number;
   level: number;
-  items: Array<items>;
+  items: Array<IUserItem>;
   bracket: number;
 }
 
