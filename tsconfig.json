@@ -1,5 +1,5 @@
 {
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "src/database/functions/economy/.findUserById.ts"],
   "exclude": ["node_modules"],
   "compilerOptions": {
     /* Projects */

@@ -1,23 +1,18 @@
 import { Schema, model } from "mongoose";
 
-export interface IAfk {
+ interface IAfk {
   _id: string,
-  afkMembers: Array<object>
+  afkMembers: AfkDetails[]
+}
+
+interface AfkDetails {
+  _id: string;
+  reason: string
 }
 
 const AFKSchema = new Schema<IAfk>({
   _id: String,
-  afkMembers: [
-    {
-      id: {
-        type: String,
-        ref: "User",
-      },
-      reason: String,
-    },
-  ],
+  afkMembers: [],
 });
 
 export const AFKModel = model<IAfk>("AFK", AFKSchema);
-
-

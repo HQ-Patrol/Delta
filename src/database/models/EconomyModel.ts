@@ -1,26 +1,28 @@
 import { Schema, model } from "mongoose";
+import items from "../../data/interface/items";
 
-export interface IEconomy {
-  id: string,
-  lastUse: Date,
-  coins: number,
-  bank: number,
-  xp: number,
-  level: number,
-  // TODO: create IItem
-  items: Array<unknown>,
-  bracket: number,
+interface IEconomy {
+  id: string;
+  lastUse: Schema.Types.Date;
+  coins: number;
+  bank: number;
+  xp: number;
+  level: number;
+  items: Array<items>;
+  bracket: number;
 }
 
-const EconomySchema = new Schema<IEconomy>({
-  id: { type: String, ref: "User", index: true },
+const econ = new Schema({
+  id: { type: String },
   lastUse: { type: Schema.Types.Date, default: Date.now() },
-  coins: { type: Number, index: -1, default: 50 },
+  coins: { type: Number, index: -1, default: 0 },
   bank: { type: Number, index: -1, default: 0 },
   xp: { type: Number, index: -1, default: 0 },
   level: { type: Number, default: 0 },
-  items: { type: Array<unknown>, default: [] },
+  items: { type: Array, default: [] },
   bracket: { type: Number, default: 0 },
 });
 
-export const EconomyModel = model<IEconomy>("stats", EconomySchema);
+const Economy = model<IEconomy>("stats", econ);
+
+export default Economy;

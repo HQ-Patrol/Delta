@@ -1,21 +1,20 @@
 import { ChatInputCommand, Command } from "@sapphire/framework";
 import { ApplyOptions } from "@sapphire/decorators";
 
-import findOneOrCreate from "../../../database/functions/findOneOrCreate";
-import { EconomyModel, IEconomy } from "../../../database/models/EconomyModel";
+import findUserById from "../../../database/functions/economy/findUserById";
 
 import { getMaximumCompacity } from "../../../utilities/query/economy";
 import sendError from "../../../utilities/sendError";
 
 import emojis from "../../../constants/emoji";
-import { MessageEmbed } from "discord.js";
+import  MessageEmbed  from "discord.js";
 
 @ApplyOptions<Command.Options>({
   name: "balance",
   description: "View your balance or somebody elses balance.",
 })
 export class PingCommand extends Command {
-  public override registerApplicationCommands(
+  public registerApplicationCommands(
     registry: ChatInputCommand.Registry
   ) {
     registry.registerChatInputCommand((builder) =>
@@ -31,16 +30,12 @@ export class PingCommand extends Command {
         )
     );
   }
-
+  
   public async chatInputRun(interaction: Command.ChatInputInteraction) {
     const user = interaction.options.getUser("user") || interaction.user;
     if (user.bot) return sendError(interaction, "Bots are way too rich!");
 
-    const person = (await findOneOrCreate(
-      { id: user.id },
-      { id: user.id },
-      EconomyModel
-    ) as IEconomy);
+    const person = await findUserById(user.id);
 
     const capacity = getMaximumCompacity(person.level, person.bracket);
 

@@ -5,13 +5,16 @@ export interface IUser {
   blacklisted: boolean;
   premium: boolean;
   bonk: {
-    bonkedBy: Array<string>;
+    bonkedBy: string[];
     lastBonk: number;
-  };
-  Biggercooldown: Array<object>;
+  }
+  Biggercooldown: [ {
+    command: string;
+    endCooldown: number;
+  }]
+  DMs: boolean;
   verified: boolean;
   certified: boolean;
-  DMs: boolean;
   premLeft: string;
   hatched: {
     SHADOW: boolean;
@@ -20,7 +23,12 @@ export interface IUser {
     MONKEY: boolean;
     LION: boolean;
     GARGOYLE: boolean;
-  };
+  }
+  voting: {
+    streak: number;
+    lastVoted: Date;
+    total: number;
+  }
 }
 
 const UserSchema = new Schema<IUser>({
@@ -28,7 +36,7 @@ const UserSchema = new Schema<IUser>({
   blacklisted: { type: Boolean, default: false },
   premium: { type: Boolean, default: false },
   bonk: {
-    bonkedBy: Array<string>,
+    bonkedBy: [String],
     lastBonk: Number,
   },
   Biggercooldown: [
@@ -49,6 +57,12 @@ const UserSchema = new Schema<IUser>({
     LION: Boolean,
     GARGOYLE: Boolean,
   },
+  voting: {
+    streak: Number,
+    lastVoted: Date,
+    total: Number,
+  },
 });
 
-export const UserModel = model<IUser>("User", UserSchema);
+const User = model<IUser>("User", UserSchema);
+export default User;
