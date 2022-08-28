@@ -12,8 +12,8 @@ interface IEconomy {
   bracket: number;
 }
 
-const econ = new Schema({
-  id: { type: String },
+const EconomySchema = new Schema({
+  id: { type: String, ref: "User", index: true },
   lastUse: { type: Schema.Types.Date, default: Date.now() },
   coins: { type: Number, index: -1, default: 0 },
   bank: { type: Number, index: -1, default: 0 },
@@ -23,6 +23,4 @@ const econ = new Schema({
   bracket: { type: Number, default: 0 },
 });
 
-const Economy = model<IEconomy>("stats", econ);
-
-export default Economy;
+export const EconomyModel = model<IEconomy>("stats", EconomySchema);
