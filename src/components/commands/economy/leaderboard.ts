@@ -12,7 +12,7 @@ import {
 import { ChatInputCommand, Command } from "@sapphire/framework";
 import { ApplyOptions } from "@sapphire/decorators";
 
-import { EconomyModel, IEconomy } from "../../../database/models/EconomyModel";
+import { Economy, IEconomy } from "../../../database/models/EconomyModel";
 
 import emojis from "../../../constants/emoji";
 import DeltaClient from "../../../utilities/classes/DeltaClient";
@@ -158,7 +158,7 @@ export class LeaderboardCommand extends Command {
       fetchReply: true,
     });
 
-    const all = await EconomyModel.find().lean();
+    const all = await Economy.find().lean();
 
     // generation
     let menu: ComponentMenu;
