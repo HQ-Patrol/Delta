@@ -1,5 +1,5 @@
 
-import Economy from "../../models/EconomyModel";
+import { Economy } from "../../models/EconomyModel";
 
 /** *
  * returns an Economy Stats Document by the User Id
