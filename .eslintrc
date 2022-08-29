@@ -13,7 +13,6 @@
     "import/no-dynamic-require": "off",
     "indent": ["error", 2],
     "linebreak-style": ["error", "windows"],
-    "quotes": ["error", "double"],
     "key-spacing": [
       "error",
       {
@@ -32,6 +31,7 @@
     "no-console": "off",
     "max-len": "off",
     "no-restricted-syntax": "off",
-    "no-continue": "off"
+    "no-continue": "off",
+    "quotes": "off"
   }
 }
