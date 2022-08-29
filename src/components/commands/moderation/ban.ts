@@ -1,4 +1,7 @@
-import { Message } from 'discord.js';
+/* eslint-disable no-mixed-spaces-and-tabs */
+/* eslint-disable no-empty */
+import { User } from './../../../database/models/UserModel';
+import { ApplicationCommandType, Formatters, GuildMember, Message } from 'discord.js';
 import { ApplyOptions } from "@sapphire/decorators";
 import { Command, ChatInputCommand, Args } from "@sapphire/framework";
 
@@ -7,7 +10,7 @@ import { Command, ChatInputCommand, Args } from "@sapphire/framework";
 	{
 		name: "ban",
 		description: "Bans a user",
-		requiredUserPermissions: ['BAN_MEMBERS']
+		requiredUserPermissions: ['BanMembers']
 	}
 )
 export class BanCommand extends Command {
@@ -19,7 +22,25 @@ export class BanCommand extends Command {
 				.setDescription(this.description)
 				.setDMPermission(false)
 		)
+		registry.registerContextMenuCommand((builder) => {
+			builder
+				.setName(this.name)
+				.setType(ApplicationCommandType.User)
+		})
 	}
+
+	public override async contextMenuRun(interaction: Command.ContextMenuInteraction) {
+		if (interaction.isUserContextMenu() && interaction.targetMember instanceof GuildMember) {
+			await interaction.targetMember.ban();
+			const userToGreetMention = Formatters.userMention(interaction.targetMember.id);
+			return interaction.reply({
+			  content: `${userToGreetMention} has been successfully banned`,
+			  allowedMentions: {
+				users: [interaction.targetMember.id]
+			  }
+			});
+		  }
+		}
 	public async messageRun(message: Message, args: Args) {
 
 		const userToBan = await args.pick('member');
