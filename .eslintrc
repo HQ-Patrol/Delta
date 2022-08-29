@@ -11,7 +11,7 @@
   "plugins": ["@typescript-eslint"],
   "rules": {
     "import/no-dynamic-require": "off",
-    "indent": ["error", 2],
+    "indent": "off",
     "linebreak-style": ["error", "windows"],
     "key-spacing": [
       "error",
