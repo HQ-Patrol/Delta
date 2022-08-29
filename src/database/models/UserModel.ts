@@ -36,8 +36,14 @@ const UserSchema = new Schema<IUser>({
   blacklisted: { type: Boolean, default: false },
   premium: { type: Boolean, default: false },
   bonk: {
-    bonkedBy: [String],
-    lastBonk: Number,
+    bonkedBy: { 
+      type: Array<string>,
+      default: []
+    },
+    lastBonk: {
+      type: Number,
+      default: 0
+    },
   },
   Biggercooldown: [
     {
@@ -64,5 +70,5 @@ const UserSchema = new Schema<IUser>({
   },
 });
 
-const User = model<IUser>("User", UserSchema);
-export default User;
+export const User = model<IUser>("User", UserSchema);
+
