@@ -1,6 +1,5 @@
 /* eslint-disable no-mixed-spaces-and-tabs */
 /* eslint-disable no-empty */
-import { User } from './../../../database/models/UserModel';
 import { ApplicationCommandType, Formatters, GuildMember, Message } from 'discord.js';
 import { ApplyOptions } from "@sapphire/decorators";
 import { Command, ChatInputCommand, Args } from "@sapphire/framework";
