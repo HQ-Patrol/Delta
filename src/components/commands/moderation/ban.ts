@@ -1,15 +1,17 @@
 /* eslint-disable no-mixed-spaces-and-tabs */
 /* eslint-disable no-empty */
-import { ApplicationCommandType, Formatters, GuildMember, Message } from 'discord.js';
+import { GuildMember } from "discord.js";
 import { ApplyOptions } from "@sapphire/decorators";
-import { Command, ChatInputCommand, Args } from "@sapphire/framework";
+import { ChatInputCommand, Command } from "@sapphire/framework";
+import { ApplicationCommandType } from "discord-api-types/v10";
 
 @ApplyOptions<Command.Options>
 (
 	{
 		name: "ban",
 		description: "Bans a user",
-		requiredUserPermissions: ['BanMembers']
+		requiredUserPermissions: "BAN_MEMBERS",
+		requiredClientPermissions: "BAN_MEMBERS"
 	}
 )
 export class BanCommand extends Command {
@@ -20,6 +22,15 @@ export class BanCommand extends Command {
 				.setName(this.name)
 				.setDescription(this.description)
 				.setDMPermission(false)
+				.addUserOption(o => o
+					.setName("user")
+					.setDescription("User to be banned.")
+					.setRequired(true)
+				)
+				.addStringOption(o => o
+					.setName("reason")
+					.setDescription("Reason for the ban.")
+					.setRequired(false))
 		)
 		registry.registerContextMenuCommand((builder) => {
 			builder
@@ -31,26 +42,25 @@ export class BanCommand extends Command {
 	public override async contextMenuRun(interaction: Command.ContextMenuInteraction) {
 		if (interaction.isUserContextMenu() && interaction.targetMember instanceof GuildMember) {
 			await interaction.targetMember.ban();
-			const userToGreetMention = Formatters.userMention(interaction.targetMember.id);
 			return interaction.reply({
-			  content: `${userToGreetMention} has been successfully banned`,
+			  content: `${interaction.targetMember} has been successfully banned!`,
 			  allowedMentions: {
 				users: [interaction.targetMember.id]
 			  }
 			});
 		  }
 		}
-	public async messageRun(message: Message, args: Args) {
 
-		const userToBan = await args.pick('member');
-		const reason = await args.pick('string').catch(() => "None");
+	public async chatInputRun(interaction: Command.ChatInputInteraction){
+		const banned = interaction.options.getMember("user") as GuildMember;
+		const reason = interaction.options.getString("reason") || "Not provided."
 
-		if (!userToBan.bannable || !userToBan.kickable) {
-        return message.reply("You cannot ban this user!")
-
+		if (!banned.bannable){
+			return interaction.reply({ content: "You cannot ban this user!", ephemeral: true })
 		} else {
-			userToBan.ban({ reason: reason });
-			return message.reply(`Successfully banned ${userToBan} with Reason: ${reason}`)
+			interaction.deferReply({ ephemeral: true });
+			await banned.ban({ reason });
+			interaction.editReply({ content: `${banned} has been successfully banned with reason of: \`${reason}\`!` })
 		}
 	}
 }
