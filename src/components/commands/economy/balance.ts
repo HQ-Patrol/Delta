@@ -14,9 +14,7 @@ import emojis from "../../../constants/emoji";
   description: "View your balance or somebody elses balance.",
 })
 export class PingCommand extends Command {
-  public registerApplicationCommands(
-    registry: ChatInputCommand.Registry
-  ) {
+  public registerApplicationCommands(registry: ChatInputCommand.Registry) {
     registry.registerChatInputCommand((builder) =>
       builder
         .setName("balance")
@@ -30,17 +28,19 @@ export class PingCommand extends Command {
         )
     );
   }
-  
+
   public async chatInputRun(interaction: Command.ChatInputInteraction) {
     const user = interaction.options.getUser("user") || interaction.user;
     if (user.bot) return sendError(interaction, "Bots are way too rich!");
+
+    interaction.deferReply();
 
     const person = await findUserById(user.id);
 
     const capacity = getMaximumCompacity(person.level, person.bracket);
 
     if (user.id === "735281000044691509") {
-      return interaction.reply({
+      return interaction.editReply({
         embeds: [
           new MessageEmbed()
             .setColor("RANDOM")
@@ -66,7 +66,7 @@ export class PingCommand extends Command {
       });
     }
 
-    return interaction.reply({
+    return interaction.editReply({
       embeds: [
         new MessageEmbed()
           .setColor("RANDOM")
