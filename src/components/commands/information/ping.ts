@@ -11,7 +11,9 @@ export class PingCommand extends Command {
     registry: ChatInputCommand.Registry
   ) {
     registry.registerChatInputCommand((builder) =>
-      builder.setName(this.name).setDescription("Am I alive?")
+      builder
+        .setName(this.name)
+        .setDescription("Am I alive?")
     );
   }
 
