@@ -19,8 +19,7 @@
     "eslint": "^8.19.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.26.0",
-    "typescript": "^4.7.4",
-    "@discordjs/builders": "^1.2.0"
+    "typescript": "^4.7.4"
   },
   "dependencies": {
     "@discordjs/rest": "^1.0.1",
