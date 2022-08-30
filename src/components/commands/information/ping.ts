@@ -1,5 +1,5 @@
 import { ChatInputCommand, Command } from "@sapphire/framework";
-import  { ApplyOptions } from "@sapphire/decorators";
+import { ApplyOptions } from "@sapphire/decorators";
 import { Message } from "discord.js";
 
 @ApplyOptions<Command.Options>({
@@ -11,7 +11,7 @@ export class PingCommand extends Command {
     registry: ChatInputCommand.Registry
   ) {
     registry.registerChatInputCommand((builder) =>
-      builder.setName("ping").setDescription("Am I alive?")
+      builder.setName(this.name).setDescription("Am I alive?")
     );
   }
 
