@@ -9,13 +9,13 @@
 
 /* Startup */
 import dotenv from "dotenv";
-import Cluster from "discord-hybrid-sharding";
+import Cluster, { ManagerOptions } from "discord-hybrid-sharding";
 import $ from "chalk";
 import * as path from "path";
 import * as PACKAGE_INFO from "../package.json";
 
 import ms from "ms";
-import { log, info } from "./utilities/logger";
+import { info, log } from "./utilities/logger";
 
 dotenv.config();
 
@@ -28,7 +28,7 @@ const shardingOptions = {
   totalShards: 5,
   shardsPerClusters: 2,
   mode: "process"
-};
+} as ManagerOptions;
 
 // Read developer mode
 if (process.env?.DEV === "TRUE") {
@@ -38,8 +38,6 @@ if (process.env?.DEV === "TRUE") {
 }
 
 // Create shards
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment 
-// @ts-ignore
 const sharder = new Cluster.Manager(path.join(__dirname, "..", "src", "bot.js"), shardingOptions);
 
 // Implement HeartbeatSystem
@@ -56,15 +54,18 @@ sharder.on("clusterCreate", (cluster) => {
 
   cluster.on("message", (message) => {
     const TIMESTAMP = $.bold(`(${ms(Date.now() - TIME)})`);
-    if (message?.ready) log("SHARDER", `This shard is ready. ${TIMESTAMP}`, "blue", message.instance.id);
     if (message?.database) log("SHARDER", `This shard has connected to its database. ${TIMESTAMP}`, "blue", message.instance.id);
 
-    if (message?.database && message.instance.id === shardingOptions.totalShards - 1 && !allReady) {
+    if (message?.database && cluster.id === (shardingOptions.totalShards as number) - 1 && !allReady) {
       // Last shard completed, log
       allReady = true;
       log("SHARDER", `All shards launched and ready. ${TIMESTAMP}`, "green");
     }
   });
+  cluster.on("ready", () => {
+    const TIMESTAMP = $.bold(`(${ms(Date.now() - TIME)})`);
+    log("SHARDER", `This shard is ready. ${TIMESTAMP}`, "blue", cluster.id.toString());
+  })
 });
 
 // Spawn
