@@ -1,6 +1,6 @@
 /* eslint-disable no-mixed-spaces-and-tabs */
 /* eslint-disable no-empty */
-import { GuildMember } from "discord.js";
+import { GuildMember, Permissions } from "discord.js";
 import { ApplyOptions } from "@sapphire/decorators";
 import { ChatInputCommand, Command } from "@sapphire/framework";
 import { ApplicationCommandType } from "discord-api-types/v10";
@@ -10,7 +10,6 @@ import { ApplicationCommandType } from "discord-api-types/v10";
 	{
 		name: "ban",
 		description: "Bans a user",
-		requiredUserPermissions: "BAN_MEMBERS",
 		requiredClientPermissions: "BAN_MEMBERS"
 	}
 )
@@ -22,6 +21,7 @@ export class BanCommand extends Command {
 				.setName(this.name)
 				.setDescription(this.description)
 				.setDMPermission(false)
+				.setDefaultMemberPermissions(Permissions.FLAGS.BAN_MEMBERS)
 				.addUserOption(o => o
 					.setName("user")
 					.setDescription("User to be banned.")
