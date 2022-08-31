@@ -1,15 +1,16 @@
 /* eslint-disable no-mixed-spaces-and-tabs */
 /* eslint-disable no-empty */
-import { ApplicationCommandType, Formatters, GuildMember, Message } from 'discord.js';
+import { Formatters, GuildMember, Message } from 'discord.js';
 import { ApplyOptions } from "@sapphire/decorators";
 import { Command, ChatInputCommand, Args } from "@sapphire/framework";
+import { ApplicationCommandType } from 'discord-api-types/v10';
 
 @ApplyOptions<Command.Options>
 (
 	{
 		name: "ban",
 		description: "Bans a user",
-		requiredUserPermissions: ['BanMembers']
+		requiredUserPermissions: ['BAN_MEMBERS']
 	}
 )
 export class BanCommand extends Command {

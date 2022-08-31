@@ -5,7 +5,7 @@ const NumberAbbrevs = {
 };
 
 function expandNumber(string: string) {
-  const last = string.at(-1);
+  const last = string.charAt(-1);
   if(!last) return null;
 
   if (["h", "k", "m"].includes(last)) {

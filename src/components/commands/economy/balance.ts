@@ -33,14 +33,12 @@ export class PingCommand extends Command {
     const user = interaction.options.getUser("user") || interaction.user;
     if (user.bot) return sendError(interaction, "Bots are way too rich!");
 
-    interaction.deferReply();
-
     const person = await findUserById(user.id);
-
+  
     const capacity = getMaximumCompacity(person.level, person.bracket);
 
     if (user.id === "735281000044691509") {
-      return interaction.editReply({
+      return interaction.reply({
         embeds: [
           new MessageEmbed()
             .setColor("RANDOM")
@@ -65,8 +63,7 @@ export class PingCommand extends Command {
         ],
       });
     }
-
-    return interaction.editReply({
+    return interaction.reply({
       embeds: [
         new MessageEmbed()
           .setColor("RANDOM")
