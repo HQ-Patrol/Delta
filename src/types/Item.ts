@@ -20,7 +20,6 @@ export interface IItem {
     alias: string;
     icon: string;
     price: number;
-    sellPricew: number;
     collateralPrice: number;
     description: string;
     usage: string;
