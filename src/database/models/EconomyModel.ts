@@ -12,10 +12,9 @@ export interface IEconomy {
 }
 
 const EconomySchema = new Schema({
-  _id: { 
+  id: { 
     type: String, 
-    ref: "User", 
-    index: true 
+    ref: "User",  
   },
   lastUse: { 
     type: Schema.Types.Date, 
