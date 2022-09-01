@@ -1,7 +1,7 @@
 import { IUserItem } from "./../../types/Item";
 import { Schema, model } from "mongoose";
 export interface IEconomy {
-  _id: string;
+  id: string;
   lastUse: Schema.Types.Date;
   coins: number;
   bank: number;

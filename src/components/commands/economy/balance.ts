@@ -13,7 +13,7 @@ import emojis from "../../../constants/emoji";
   name: "balance",
   description: "View your balance or somebody elses balance.",
 })
-export class PingCommand extends Command {
+export class BalanceCommand extends Command {
   public registerApplicationCommands(registry: ChatInputCommand.Registry) {
     registry.registerChatInputCommand((builder) =>
       builder

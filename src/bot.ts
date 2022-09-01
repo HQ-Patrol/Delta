@@ -17,8 +17,8 @@ const client = new DeltaClient({
     Intents.FLAGS.GUILDS,
   ],
   partials: ["CHANNEL"],
-  shards: Cluster.Client.getInfo.SHARD_LIST,
-  shardCount: Cluster.Client.getInfo.TOTAL_SHARDS,
+  shards: Cluster.Client.getInfo().SHARD_LIST,
+  shardCount: Cluster.Client.getInfo().TOTAL_SHARDS,
   baseUserDirectory: path.join(__dirname, "..", "src", "components")
 });
 

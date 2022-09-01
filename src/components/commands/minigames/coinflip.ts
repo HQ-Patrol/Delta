@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-constant-condition */
 import { Message } from 'discord.js';
 import { ApplyOptions } from "@sapphire/decorators";
@@ -23,6 +24,7 @@ export class CoinFlipCommand extends Command {
     }
     public async messageRun(message: Message, args: Args) {
         const person = findByUserId(message.author.id);
+        let balance = (await person).coins;
         const maxBet = 10000;
         const bet = await args.pick("number");
         const choice = await args.pick("string");
@@ -35,12 +37,10 @@ export class CoinFlipCommand extends Command {
            const chance =  Math.floor(Math.random() * (2 - 1 + 1)) + 1;
 
            if (chance == 1 ) {
-                person.
+                 balance = balance + (bet*2)
            } else {
            return message.reply("Sorry! Better luck next time!")
            }
-
         }
-
     }
 }

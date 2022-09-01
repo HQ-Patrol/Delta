@@ -16,7 +16,7 @@ import emoji from "../../../constants/emoji";
   name: "inventory",
   description: "Show off your backpack!",
 })
-export class BalanceCommand extends Command {
+export class InventoryCommand extends Command {
   public override registerApplicationCommands(
     registry: ChatInputCommand.Registry
   ) {
