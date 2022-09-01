@@ -22,7 +22,7 @@ export class BalanceCommand extends Command {
   ) {
     registry.registerChatInputCommand((builder) =>
       builder
-        .setName("inventory")
+        .setName(this.name)
         .setDescription("Show off your backpack!")
         .setDMPermission(false)
         .addUserOption((option) => option
