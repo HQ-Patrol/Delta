@@ -18,7 +18,7 @@ export class PingCommand extends Command {
     registry.registerChatInputCommand((builder) =>
       builder
         .setName(this.name)
-        .setDescription("View your balance or somebody elses balance.")
+        .setDescription(this.description)
         .setDMPermission(false)
         .addUserOption((option) =>
           option

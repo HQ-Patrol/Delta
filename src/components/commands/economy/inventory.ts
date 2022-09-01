@@ -14,7 +14,7 @@ import emoji from "../../../constants/emoji";
 
 @ApplyOptions<Command.Options>({
   name: "inventory",
-  description: "View yours or someone elses inventory",
+  description: "Show off your backpack!",
 })
 export class BalanceCommand extends Command {
   public override registerApplicationCommands(
@@ -23,7 +23,7 @@ export class BalanceCommand extends Command {
     registry.registerChatInputCommand((builder) =>
       builder
         .setName(this.name)
-        .setDescription("Show off your backpack!")
+        .setDescription(this.description)
         .setDMPermission(false)
         .addUserOption((option) => option
           .setName("target")
