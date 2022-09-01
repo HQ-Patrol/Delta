@@ -1,9 +1,5 @@
-/**
- * @deprecated Use the findById() function instead
- */
-import { Economy } from "../models/EconomyModel";
-
-export default async function (query: object, createObject: object, Model: typeof Economy, lean = true) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export default async function (query: object, createObject: object, Model: any, lean = true) {
   let find;
   if (lean) find = await Model.findOne(query).lean();
   else find = await Model.findOne(query);
