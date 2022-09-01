@@ -142,8 +142,8 @@ export class LeaderboardCommand extends Command {
   ) {
     registry.registerChatInputCommand((builder) =>
       builder
-        .setName("leaderboard")
-        .setDescription("Display whos the richest!")
+        .setName(this.name)
+        .setDescription(this.description)
         .setDMPermission(false)
     );
   }

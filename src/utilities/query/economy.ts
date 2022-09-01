@@ -5,10 +5,9 @@ const NumberAbbrevs = {
 };
 
 function expandNumber(string: string) {
-  const last = string.charAt(-1);
-  if(!last) return null;
+  const last = string.at(-1);
 
-  if (["h", "k", "m"].includes(last)) {
+  if (last && ["h", "k", "m"].includes(last)) {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     return parseInt(string.slice(0, string.length - 1), 10) * NumberAbbrevs[last];

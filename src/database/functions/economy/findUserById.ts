@@ -15,15 +15,14 @@ import { Economy } from "../../models/EconomyModel";
  * @param {String} id -  id of the desired user.
  * @return {<<Query>>} Document
  * @usage findByUserId(user.id)
- * @usage findByUserId(user.id, false)
  */
 
 async function findByUserId(id: string) {
   let user = await Economy.findById(id);
   if (user === null) {
-    user = new Economy({
-      id,
-    });
+    user = await new Economy({
+      _id: id,
+    }).save();
   }
   return user;
 }
