@@ -9,6 +9,20 @@ export interface IEconomy {
   level: number;
   items: Array<IUserItem>;
   bracket: number;
+  minigames: {
+    fight: {
+      total: number,
+      success: number,
+      fails: number,
+      wl: number,
+    },
+    coinflip: {
+      total: number,
+      wins: number,
+      losses: number,
+      wl: number
+    }
+  }
 }
 
 const EconomySchema = new Schema({
@@ -44,6 +58,44 @@ const EconomySchema = new Schema({
     type: Number, 
     default: 1
   },
+  minigames: {
+    fight: {
+      total: {
+          type: Number,
+          default: 0
+      },
+      wins: {
+          type: Number,
+          default: 0
+      },
+      losses: {
+          type: Number,
+          default: 0
+      },
+      wl: {
+          type: Number,
+          default: 0
+      }
+  },
+  coinflip: {
+      total: {
+          type: Number,
+          deault: 0
+      },
+      wins: {
+          type: Number,
+          default: 0
+      },
+      losses: {
+          type: Number,
+          default: 0
+      },
+      wl: {
+          type: Number,
+          default: 0
+      }
+    }
+  }
 });
 
 export const Economy = model<IEconomy>("stats", EconomySchema);
