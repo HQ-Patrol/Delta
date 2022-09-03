@@ -4,7 +4,7 @@ import { IItem } from "../../types/Item";
 import findByUserId from "../../database/functions/economy/findUserById";
 import { Economy, IEconomy } from "../../database/models/EconomyModel";
 
-export async function addItemToUser(id: string, itemName: string, quantity: number) {
+export async function addItemToUser(id: string, itemName: string, quantity: number, existingDocument: IEconomy) {
   if (typeof itemName !== "string") return false;
   if (!quantity) quantity = 1;
 
@@ -12,7 +12,7 @@ export async function addItemToUser(id: string, itemName: string, quantity: numb
   const item = items.find((i) => i.name.toLowerCase() === itemName.toLowerCase()) as IItem;
   if (!item) return false;
 
-  const user = await findByUserId(id);
+  const user = existingDocument ?? (await findByUserId(id));
 
   if (!Array.isArray(user.items)) {
     await Economy.updateOne(
@@ -67,7 +67,7 @@ export async function addItemToUser(id: string, itemName: string, quantity: numb
   return true;
 }
 
-export async function addItemsToUser(id: string, object: Record<string, number>) {
+export async function addItemsToUser(id: string, object: Record<string, number>, existingDocument: IEconomy) {
   const itemsArray = Object.keys(object).map((a) => {
     const f = items.find((x) => x.name.toLowerCase() === a.toLowerCase()) as IItem;
     return {
@@ -79,7 +79,7 @@ export async function addItemsToUser(id: string, object: Record<string, number>)
     };
   });
 
-  const user = await findByUserId(id);
+  const user = existingDocument ?? (await findByUserId(id));
 
   if (!Array.isArray(user.items)) {
     await Economy.updateOne(
