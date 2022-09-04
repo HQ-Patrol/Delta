@@ -19,6 +19,7 @@ import { Economy } from "../../models/EconomyModel";
 
 async function findByUserId(id: string) {
   let user = await Economy.findOne({ id });
+  if(!user)
     user = await new Economy({
       id: id
     }).save();
