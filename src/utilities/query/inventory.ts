@@ -4,7 +4,7 @@ import { IItem } from "../../types/Item";
 import findByUserId from "../../database/functions/economy/findUserById";
 import { Economy, IEconomy } from "../../database/models/EconomyModel";
 
-export async function addItemToUser(id: string, itemName: string, quantity: number, existingDocument: IEconomy) {
+export async function addItemToUser(id: string, itemName: string, quantity: number, existingDocument?: IEconomy) {
   if (typeof itemName !== "string") return false;
   if (!quantity) quantity = 1;
 
@@ -67,7 +67,7 @@ export async function addItemToUser(id: string, itemName: string, quantity: numb
   return true;
 }
 
-export async function addItemsToUser(id: string, object: Record<string, number>, existingDocument: IEconomy) {
+export async function addItemsToUser(id: string, object: Record<string, number>, existingDocument?: IEconomy) {
   const itemsArray = Object.keys(object).map((a) => {
     const f = items.find((x) => x.name.toLowerCase() === a.toLowerCase()) as IItem;
     return {
@@ -109,7 +109,7 @@ export async function addItemsToUser(id: string, object: Record<string, number>,
   return true;
 }
 
-export async function removeItemFromUser(id: string, item: string, quantity: number, existingDocument: IEconomy) {
+export async function removeItemFromUser(id: string, item: string, quantity: number, existingDocument?: IEconomy) {
   if (!quantity) quantity = 1;
   const user = existingDocument ?? (await findByUserId(id));
 
@@ -125,7 +125,7 @@ export async function removeItemFromUser(id: string, item: string, quantity: num
   return true;
 }
 
-export async function removeItemsFromUser(id: string, object: Record<string, number>, existingDocument: IEconomy) {
+export async function removeItemsFromUser(id: string, object: Record<string, number>, existingDocument?: IEconomy) {
   const user = existingDocument ?? (await findByUserId(id));
 
   // User must have inventory, loop over and decrease accordingly
