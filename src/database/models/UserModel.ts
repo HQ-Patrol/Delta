@@ -4,6 +4,7 @@ export interface IUser {
   id: string;
   blacklisted: boolean;
   premium: boolean;
+  muted: boolean;
   bonk: {
     bonkedBy: string[];
     lastBonk: number;
@@ -35,6 +36,7 @@ const UserSchema = new Schema<IUser>({
   id: { type: String },
   blacklisted: { type: Boolean, default: false },
   premium: { type: Boolean, default: false },
+  muted: { type: Boolean, default: false },
   bonk: {
     bonkedBy: { 
       type: Array<string>,
