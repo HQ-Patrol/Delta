@@ -46,7 +46,7 @@ export class InventoryCommand extends Command {
     }
 
     // empty inventory
-    if (person.items.length === 0) {
+    if (person.items.length === 0 || person.items.every((i) => i.count === 0)) {
       return interaction.reply({
         embeds: [
           new MessageEmbed()
