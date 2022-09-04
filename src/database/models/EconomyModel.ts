@@ -11,9 +11,10 @@ export interface IEconomy {
   bracket: number;
   minigames: {
     fight: {
+      enabled: boolean,
       total: number,
-      success: number,
-      fails: number,
+      wins: number,
+      losses: number,
       wl: number,
     },
     coinflip: {
@@ -60,6 +61,10 @@ const EconomySchema = new Schema({
   },
   minigames: {
     fight: {
+      enabled: {
+        type: Boolean,
+        default: false
+      },
       total: {
           type: Number,
           default: 0
