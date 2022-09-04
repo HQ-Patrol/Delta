@@ -103,7 +103,7 @@ export default class ComponentMenu {
         return true;
       }
 
-      if (interaction.isButton() || interaction.isContextMenu())
+      if (interaction.isButton() || interaction.isSelectMenu())
         interaction.reply({
           content: "This menu is not for you.",
           ephemeral: true,
