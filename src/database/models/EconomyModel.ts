@@ -63,7 +63,7 @@ const EconomySchema = new Schema({
     fight: {
       enabled: {
         type: Boolean,
-        default: false
+        default: true
       },
       total: {
           type: Number,
