@@ -32,8 +32,7 @@ export class WithdrawCommand extends Command {
   }
 
   public async chatInputRun(interaction: Command.ChatInputInteraction) {
-    const amount = interaction.options.getString("amount");
-    if(!amount) return;
+    const amount = interaction.options.getString("amount", true);
 
     const myself = await findUserById(interaction.user.id);
 
