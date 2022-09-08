@@ -4,9 +4,10 @@ import { GuildBasedChannel, Permissions } from "discord.js";
 
 @ApplyOptions<Command.Options>({
   name: "channeladd",
-  description: "Add any user/bot in any channel individually"
+  description: "Add any user/bot in any channel individually",
+  requiredClientPermissions: "MANAGE_CHANNELS"
 })
-export class PingCommand extends Command {
+export class ChannelAddCommand extends Command {
   public override registerApplicationCommands(
     registry: ChatInputCommand.Registry
   ) {
