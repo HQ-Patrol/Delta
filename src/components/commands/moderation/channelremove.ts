@@ -1,13 +1,13 @@
-import { ChatInputCommand, Command } from "@sapphire/framework";
 import { ApplyOptions } from "@sapphire/decorators";
+import { ChatInputCommand, Command } from "@sapphire/framework";
 import { GuildBasedChannel, Permissions } from "discord.js";
 
 @ApplyOptions<Command.Options>({
-  name: "channeladd",
-  description: "Add any user/bot in any channel individually",
+  name: "channelremove",
+  description: "Remove any user/bot from any channel individually",
   requiredClientPermissions: "MANAGE_CHANNELS"
 })
-export class ChannelAddCommand extends Command {
+export class ChannelRemoveCommand extends Command {
   public override registerApplicationCommands(
     registry: ChatInputCommand.Registry
   ) {
@@ -19,11 +19,11 @@ export class ChannelAddCommand extends Command {
         .setDMPermission(false)
         .addChannelOption(o => o
           .setName("channel")
-          .setDescription("The channel to add an user into")
+          .setDescription("The channel to remove an user from")
           .setRequired(true))
         .addUserOption(o => o
           .setName("user")
-          .setDescription("The user to add to the channel")
+          .setDescription("The user to remove from the channel")
           .setRequired(true))
     );
   }
@@ -36,23 +36,23 @@ export class ChannelAddCommand extends Command {
     }
     const user = interaction.options.getUser("user", true)
 
-    interaction.deferReply({ ephemeral: true })
+    interaction.deferReply({ ephemeral: true });
 
     await channel.permissionOverwrites.create(
       user,
       channel.isVoice() ? {
-        VIEW_CHANNEL: true,
-        CONNECT: true,
-        SPEAK: true,
+        VIEW_CHANNEL: false,
+        CONNECT: false,
+        SPEAK: false,
       } : {
-        VIEW_CHANNEL: true,
-        READ_MESSAGE_HISTORY: true,
-        SEND_MESSAGES: true,
-        EMBED_LINKS: true,
-        ATTACH_FILES: true,
+        VIEW_CHANNEL: false,
+        READ_MESSAGE_HISTORY: false,
+        SEND_MESSAGES: false,
+        EMBED_LINKS: false,
+        ATTACH_FILES: false,
       }
     )
 
-    interaction.editReply({ content: `${user} has been added to ${channel} successfully!` });
+    interaction.editReply({ content: `Removed ${user} from ${channel} successfully!` })
   }
 }
