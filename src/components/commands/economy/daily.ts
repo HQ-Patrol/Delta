@@ -88,8 +88,8 @@ export class DailyCommand extends Command {
       CooldownsModel
     )) as ICooldowns;
 
-    const lastVoted = Cooldowns.vote.last;
-    if (Date.now() - lastVoted < DAILY_COOLDOWN) {
+    const lastDaily = Cooldowns.daily.last;
+    if (Date.now() - lastDaily < DAILY_COOLDOWN) {
       // Cooldown
       return interaction.reply({
         embeds: [
@@ -99,7 +99,7 @@ export class DailyCommand extends Command {
               iconURL: interaction.user.displayAvatarURL(),
             })
             .setDescription(
-              `${emoji.exclamation}Your next daily reward is in:\n**${prettyMs(lastVoted + DAILY_COOLDOWN - Date.now(), { verbose: true })}**`
+              `${emoji.exclamation}Your next daily reward is in:\n**${prettyMs(lastDaily + DAILY_COOLDOWN - Date.now(), { verbose: true })}**`
             )
             .setTimestamp()
             .setColor("RANDOM"),
@@ -113,8 +113,8 @@ export class DailyCommand extends Command {
       User
     )) as IUser;
 
-    let COINS = 1000 + Cooldowns.vote.days * 375;
-    let newStreak = (Cooldowns.vote.days ?? 0) + 1;
+    let COINS = 1000 + Cooldowns.daily.days * 375;
+    let newStreak = (Cooldowns.daily.days ?? 0) + 1;
 
     let messageContent = "";
 
@@ -126,12 +126,12 @@ export class DailyCommand extends Command {
     }
 
     if (
-      Date.now() > lastVoted + STREAK_EXPIRE &&
-      lastVoted !== -1 &&
-      Cooldowns.vote.days > 10
+      Date.now() > lastDaily + STREAK_EXPIRE &&
+      lastDaily !== -1 &&
+      Cooldowns.daily.days > 10
     ) {
       // Lost
-      messageContent = `You lost your **${Cooldowns.vote.days}** daily streak.. :cry:`;
+      messageContent = `You lost your **${Cooldowns.daily.days}** daily streak.. :cry:`;
       newStreak = 1;
     }
 
@@ -174,7 +174,7 @@ export class DailyCommand extends Command {
       { id: interaction.user.id },
       {
         $set: {
-          vote: {
+          daily: {
             days: newStreak,
             last: Date.now(),
           },
