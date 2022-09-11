@@ -65,3 +65,28 @@ export function getMaximumCompacity(level: number, bracket: number) {
 
   return capacity;
 }
+
+export function symbol(bracket: number) {
+  let roman, tax;
+  switch(bracket) {
+    case 1: roman = "Ⅰ"; tax = "2% ᴅᴇᴅᴜᴄᴛɪᴏɴ"; break;
+    case 2: roman = "Ⅱ"; tax = "4% ᴅᴇᴅᴜᴄᴛɪᴏɴ"; break;
+    case 3: roman = "Ⅲ"; tax = "6% ᴅᴇᴅᴜᴄᴛɪᴏɴ"; break;
+    case 4: roman = "Ⅳ"; tax = "8% ᴅᴇᴅᴜᴄᴛɪᴏɴ"; break;
+    case 5: roman = "Ⅴ"; tax = "10% ᴅᴇᴅᴜᴄᴛɪᴏɴ"; break;
+  }
+  return [roman, tax];
+}
+
+export function nextExpRequirement(currentXP: number) {
+  let xp = 100;
+  for(let i = 0; i <= 100; i++) {
+    if (currentXP >= i * i * 100 + 100) {
+      xp = (i + 1) * (i + 1) * 100 + 100;
+    } else {
+      break;
+    }
+  }
+
+  return xp;
+}
