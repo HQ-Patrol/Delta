@@ -1,6 +1,6 @@
 import { Schema, model } from "mongoose";
 
-interface IRep {
+export interface IRep {
   userID: string;
   username: string;
   repper: Array<unknown>;
