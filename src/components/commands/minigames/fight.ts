@@ -22,12 +22,12 @@ export class FightCommand extends Command {
                 .setDescription(this.description)
                 .addUserOption((option) => 
                     option
-                        .setName('User')
+                        .setName('user')
                         .setDescription("User to fight")
                         .setRequired(true))
                 .addBooleanOption((option) =>
                     option
-                        .setName('Enabled')
+                        .setName('enabled')
                         .setDescription("Allows you to enable or disable fights")
                         .setRequired(false))
         );
