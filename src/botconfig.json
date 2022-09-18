@@ -1,0 +1,11 @@
+{
+  "orange":"ff8b00",
+  "blue":"#0000cd",
+  "giphyToken": "GpD1dSlDMx479Ka9KnXQ3qWEFFnYANl5",
+  "colors": {
+    "error": "#E61B05",
+    "warning": "#FFFF55",
+    "success": "#43b481",
+    "main": "#000000"
+  }
+}
