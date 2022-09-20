@@ -1,4 +1,6 @@
 export default {
+  "redTick": "<a:RedTick:736282199258824774>",
+  "notAmused": "<a:notamused:750080936191721512>",
   "1StarDragonBall": "<:1StarDragonBall:855517931730501653>",
   HGIIcon: "<a:HGIcon:774666165262745641>",
   alarmGoBrrrrr: "<a:AlarmGoBrrrrr:806180753167220806>",
