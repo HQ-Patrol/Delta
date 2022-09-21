@@ -42,10 +42,10 @@ export class DeleteRoleCommand extends Command {
 
       try {
         role?.delete(reason)
-        interaction.editReply(`Successfuly deleted ${role?.name}!`);
+        interaction.editReply({ content: `Successfuly deleted ${role?.name}!` });
       } catch (e) {
         if (e instanceof Error) {
-          interaction.editReply("Sorry, can't delete that role!");
+          interaction.editReply({ content: "Sorry, can't delete that role!" });
           error(e.message);
         }
       }
