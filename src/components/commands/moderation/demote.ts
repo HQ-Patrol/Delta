@@ -52,7 +52,7 @@ export class DemoteCommand extends Command {
       interaction.editReply({ embeds: [embed] });
     } catch (e) {
       if (e instanceof Error) {
-        interaction.editReply("Couldn't do it. Check your perms.")
+        interaction.editReply({ content: "Couldn't do it. Check your perms." })
         error(e.message);
       }
     }
