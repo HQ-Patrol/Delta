@@ -38,9 +38,9 @@ export class DmCommand extends Command {
 
     try {
       user.send({ content: msg })
-      interaction.editReply("Successfully DM'd user.")
+      interaction.editReply({ content: "Successfully DM'd user." })
     } catch {
-      interaction.editReply("Couldn't do it, probably closed DMs.")
+      interaction.editReply({ content: "Couldn't do it, probably closed DMs." })
     }
   }
 
