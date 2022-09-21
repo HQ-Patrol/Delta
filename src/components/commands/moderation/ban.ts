@@ -1,9 +1,9 @@
 /* eslint-disable no-mixed-spaces-and-tabs */
 /* eslint-disable no-empty */
-import { Formatters, GuildMember, Message } from 'discord.js';
+import { Formatters, GuildMember, Message } from "discord.js";
 import { ApplyOptions } from "@sapphire/decorators";
-import { Command, ChatInputCommand, Args } from "@sapphire/framework";
-import { ApplicationCommandType } from 'discord-api-types/v10';
+import { Args, ChatInputCommand, Command } from "@sapphire/framework";
+import { ApplicationCommandType } from "discord-api-types/v10";
 
 @ApplyOptions<Command.Options>
 (
@@ -47,11 +47,11 @@ export class BanCommand extends Command {
 		const reason = await args.pick('string').catch(() => "None");
 
 		if (!userToBan.bannable || !userToBan.kickable) {
-        return message.reply("You cannot ban this user!")
+        return message.reply({ content: "You cannot ban this user!" })
 
 		} else {
 			userToBan.ban({ reason: reason });
-			return message.reply(`Successfully banned ${userToBan} with Reason: ${reason}`)
+			return message.reply({ content: `Successfully banned ${userToBan} with Reason: ${reason}` })
 		}
 	}
 }
