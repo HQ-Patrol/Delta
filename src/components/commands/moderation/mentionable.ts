@@ -39,10 +39,10 @@ export class MentionableCommand extends Command {
 
     try {
       role?.setMentionable(state);
-      interaction.editReply(`${role} is now ${state ? "" : "not"} mentionable by everyone!`)
+      interaction.editReply({ content: `${role} is now ${state ? "" : "not"} mentionable by everyone!` })
     } catch (e) {
       if (e instanceof Error){
-        interaction.editReply("Failed to edit role!");
+        interaction.editReply({ content: "Failed to edit role!" });
         error(e.message)
       }
     }
