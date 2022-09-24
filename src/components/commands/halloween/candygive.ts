@@ -60,14 +60,14 @@ export class CandyGiveCommand extends Command {
       interaction.user.id !== "711590556228386917" &&
       interaction.user.id !== "179911663586246656"
     ) {
-      let memberz = interaction.options.getMember("member") as GuildMember;
+      const memberz = interaction.options.getMember("member") as GuildMember;
       if (!memberz) {
         if (!cooldown) {
           return interaction
             .reply("You didn't mention the user correctly!")
             .then((m: any) => m.delete({ timeout: 4000 }));
         } else {
-          let remaining = humanizeDuration(cooldown - Date.now(), {
+          const remaining = humanizeDuration(cooldown - Date.now(), {
             units: ["h", "m", "s"],
             round: true,
           });
@@ -94,7 +94,7 @@ export class CandyGiveCommand extends Command {
           )
           .catch(console.error);
       } else {
-        let argu = (interaction.options.getString("itemname") as string)
+        const argu = (interaction.options.getString("itemname") as string)
           .toLowerCase()
           .replace(/candy button/g, "candybutton")
           .replace(/candy stick/g, "candystick")
@@ -120,7 +120,7 @@ export class CandyGiveCommand extends Command {
             .then((m: any) => m.delete({ timeout: 2000 }));
         }
 
-        let candyArr = [
+        const candyArr = [
           "candy button",
           "candybutton",
           "candy stick",
@@ -191,7 +191,7 @@ export class CandyGiveCommand extends Command {
         );
       }
     } else {
-      let memberz = interaction.options.getMember("member") as GuildMember;
+      const memberz = interaction.options.getMember("member") as GuildMember;
       if (!memberz) {
         return interaction
           .reply("You didn't mention the user correctly!")
@@ -204,7 +204,7 @@ export class CandyGiveCommand extends Command {
         );
       }
 
-      let argu = (interaction.options.getString("itemname") as string)
+      const argu = (interaction.options.getString("itemname") as string)
         .toLowerCase()
         .replace(/candy button/g, "candybutton")
         .replace(/candy stick/g, "candystick")
@@ -224,7 +224,7 @@ export class CandyGiveCommand extends Command {
           "You didn't specify the candy to give! Check `/CandyList` to see your options :)"
         );
 
-      let candyArr = [
+      const candyArr = [
         "candy button",
         "candybutton",
         "candy stick",

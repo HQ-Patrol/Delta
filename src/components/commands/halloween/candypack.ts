@@ -33,14 +33,14 @@ export class CandyPackCommand extends Command {
   }
 
   public async chatInputRun(interaction: Command.ChatInputInteraction) {
-    let subCommand = interaction.options.getSubcommand();
+    const subCommand = interaction.options.getSubcommand();
 
     let player = await Candy.findOne({ id: interaction.user.id }).exec();
     if (!player)
       return interaction.reply(
         "You haven't started your Candy Pilgrimage yet! Type: `!trickortreat` to get started <:Skittles1:747102800835641435><:Skittles2:747102801221517452>"
       );
-    let allcandies = Object.entries(player.candy).filter(
+    const allcandies = Object.entries(player.candy).filter(
       (x) => !x[0].endsWith("stone") && !x[0].startsWith("$")
     );
     if (subCommand === "all") {
@@ -55,21 +55,21 @@ export class CandyPackCommand extends Command {
         );
       return pack(i);
     } else if (subCommand === "number") {
-      let packnum = interaction.options.getInteger("amount") || 1;
+      const packnum = interaction.options.getInteger("amount") || 1;
       return pack(packnum);
     }
     async function pack(packnum: number) {
       // @ts-ignore
       if (allcandies.some((x) => x[1] < packnum)) {
-        let missing = {};
+        const missing = {};
         for (let i = 0; i < allcandies.length; i++) {
-          let currcandy = allcandies[i];
+          const currcandy = allcandies[i];
           // @ts-ignore
           if (currcandy[1] >= packnum) continue;
           // @ts-ignore
           missing[currcandy[0]] = packnum - currcandy[1];
         }
-        let embed = new MessageEmbed()
+        const embed = new MessageEmbed()
           .setColor("RED")
           .setTitle("<a:RedTick:736282199258824774> MISSING CANDIES")
           .setDescription(
@@ -83,7 +83,7 @@ export class CandyPackCommand extends Command {
           );
         return interaction.reply({ embeds: [embed] });
       }
-      let newcandies = Object.fromEntries(
+      const newcandies = Object.fromEntries(
         // @ts-ignore
         allcandies.map((x) => [x[0], x[1] - packnum])
       );

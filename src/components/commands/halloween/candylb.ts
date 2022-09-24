@@ -42,18 +42,18 @@ export class CandyLbCommand extends Command {
   }
 
   public async chatInputRun(interaction: Command.ChatInputInteraction) {
-    let type = interaction.options.getString("type");
-    let msg = await interaction.deferReply();
+    const type = interaction.options.getString("type");
+    const msg = await interaction.deferReply();
 
-    let random = [
+    const random = [
       "https://i.imgur.com/f26xSQF.gif",
       "https://i.imgur.com/mvyOrzb.gif",
       "https://i.imgur.com/BuIV2p7.gif",
       "https://i.imgur.com/a4jOspD.gif",
     ];
-    let gif = random[Math.floor(Math.random() * random.length)];
+    const gif = random[Math.floor(Math.random() * random.length)];
 
-    let can = await Candy.find();
+    const can = await Candy.find();
     const embed1 = new MessageEmbed();
     if (!can) {
       embed1.setColor("RED");
@@ -67,25 +67,25 @@ export class CandyLbCommand extends Command {
       type === "candycount" ||
       type === "candy"
     ) {
-      let allplayers = await Candy.find();
-      let sortedplayers = allplayers.sort(
+      const allplayers = await Candy.find();
+      const sortedplayers = allplayers.sort(
         (player1: any, player2: any) => player2.CandyCount - player1.CandyCount
       );
-      let sortedids = sortedplayers.map((player: any) => player.id);
-      let embedarray = [];
+      const sortedids = sortedplayers.map((player: any) => player.id);
+      const embedarray = [];
       for (let i = 0; i < Math.ceil(sortedplayers.length / 5); i++) {
         let array = sortedplayers.slice(i * 5, i * 5 + 5);
-        let you = await Candy.findOne({ id: interaction.user.id });
+        const you = await Candy.findOne({ id: interaction.user.id });
         // @ts-ignore
         array = array.map((player: any) => {
-          let place = sortedids.indexOf(player.id) + 1;
+          const place = sortedids.indexOf(player.id) + 1;
           return `**#${place}** • <@${player.id}> [${
             player.id
           }] <:WavyDash:760469258093723689> **${player.CandyCount}** ${
             player.CandyCount === 1 ? `candy` : `candies`
           }`;
         });
-        let embed = new MessageEmbed()
+        const embed = new MessageEmbed()
           .setColor("RANDOM")
           .setTitle("🧁🍫 CANDY LEADERBOARD 🍬🍭")
           .setThumbnail(gif)
@@ -109,26 +109,26 @@ export class CandyLbCommand extends Command {
       type === "pack" ||
       type === "packs"
     ) {
-      let allplayers = await Candy.find();
-      let sortedplayers = allplayers.sort(
+      const allplayers = await Candy.find();
+      const sortedplayers = allplayers.sort(
         (player1: any, player2: any) => player2.Package - player1.Package
       );
-      let sortedids = sortedplayers.map((player: any) => player.id);
-      let embedarray = [];
+      const sortedids = sortedplayers.map((player: any) => player.id);
+      const embedarray = [];
       for (let i = 0; i < Math.ceil(sortedplayers.length / 5); i++) {
         let array = sortedplayers.slice(i * 5, i * 5 + 5);
-        let you = await Candy.findOne({ id: interaction.user.id });
+        const you = await Candy.findOne({ id: interaction.user.id });
         //if (you) array.push(you)
         // @ts-ignore
         array = array.map((player: any) => {
-          let place = sortedids.indexOf(player.id) + 1;
+          const place = sortedids.indexOf(player.id) + 1;
           return `**#${place}** • <@${player.id}> [${
             player.id
           }] <:WavyDash:760469258093723689> **${player.Package}** ${
             player.Package === 1 ? `package` : `packages`
           }`;
         });
-        let embed = new MessageEmbed()
+        const embed = new MessageEmbed()
           .setColor("RANDOM")
           .setTitle("🍬 PACKAGES LEADERBOARD 🎁")
           .setThumbnail(gif)
@@ -146,17 +146,17 @@ export class CandyLbCommand extends Command {
       return interaction.editReply({ embeds: embedarray });
       //new Paginator(message.channel, embedarray, 'Page').paginate()
     } else if (type === "snap" || type === "snaps") {
-      let allplayers = await Candy.find();
-      let sortedplayers = allplayers.sort(
+      const allplayers = await Candy.find();
+      const sortedplayers = allplayers.sort(
         (player1: any, player2: any) => player2.Snap - player1.Snap
       );
-      let embedarray = [];
+      const embedarray = [];
       for (let i = 0; i < Math.ceil(sortedplayers.length / 5); i++) {
         let array = sortedplayers.slice(i * 5, i * 5 + 5);
-        let you = await Candy.findOne({ id: interaction.user.id });
+        const you = await Candy.findOne({ id: interaction.user.id });
         // @ts-ignore
         array = array.map((player: any) => {
-          let place =
+          const place =
             sortedplayers.findIndex((x: any) => x.id === player.id) + 1;
           return `**#${place}** • <@${player.id}> [${
             player.id
@@ -164,7 +164,7 @@ export class CandyLbCommand extends Command {
             player.Snap === 1 ? `snap` : `snaps`
           }`;
         });
-        let embed = new MessageEmbed()
+        const embed = new MessageEmbed()
           .setColor("RANDOM")
           .setTitle("✊ SNAPS LEADERBOARD 💥")
           .setThumbnail(gif)
@@ -182,33 +182,33 @@ export class CandyLbCommand extends Command {
       return interaction.editReply({ embeds: embedarray });
       //new Paginator(message.channel, embedarray, 'Page').paginate()
     } else if (type === "stone" || type === "stones" || type === "infinity") {
-      let allplayers = await Candy.find();
-      let stonecount = (player: any) => {
+      const allplayers = await Candy.find();
+      const stonecount = (player: any) => {
         return Object.entries(player.candy)
           .filter((x) => x[0].endsWith("stone"))
           .map((x) => x[1])
           .reduce((acc: any, cur: any) => acc + cur);
       };
-      let sortedplayers = allplayers.sort(
+      const sortedplayers = allplayers.sort(
         (player1: any, player2: any) =>
           // @ts-ignore
           stonecount(player2) - stonecount(player1)
       );
-      let sortedids = sortedplayers.map((player: any) => player.id);
-      let embedarray = [];
+      const sortedids = sortedplayers.map((player: any) => player.id);
+      const embedarray = [];
       for (let i = 0; i < Math.ceil(sortedplayers.length / 5); i++) {
         let array = sortedplayers.slice(i * 5, i * 5 + 5);
-        let you = await Candy.findOne({ id: interaction.user.id });
+        const you = await Candy.findOne({ id: interaction.user.id });
         // @ts-ignore
         array = array.map((player: any) => {
-          let place = sortedids.indexOf(player.id) + 1;
+          const place = sortedids.indexOf(player.id) + 1;
           return `**#${place}** • <@${player.id}> [${
             player.id
           }] <:WavyDash:760469258093723689> **${stonecount(player)}** ${
             stonecount(player) === 1 ? `stone` : `stones`
           }`;
         });
-        let embed = new MessageEmbed()
+        const embed = new MessageEmbed()
           .setColor("RANDOM")
           .setTitle("✊ STONE LEADERBOARD 🍬")
           .setThumbnail(gif)

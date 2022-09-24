@@ -27,28 +27,28 @@ export class CandySnapCommand extends Command {
       return Math.floor(Math.random() * max);
     }
 
-    let player = await Candy.findOne({ id: interaction.user.id }).exec();
+    const player = await Candy.findOne({ id: interaction.user.id }).exec();
     if (!player)
       return interaction.reply(
         "You haven't started your Candy Pilgrimage yet! Type: `!trickortreat` to get started <:Skittles1:747102800835641435><:Skittles2:747102801221517452>"
       );
-    let allcandies = Object.entries(player.candy).filter((x) =>
+    const allcandies = Object.entries(player.candy).filter((x) =>
       x[0].endsWith("stone")
     );
     if (allcandies.some((x: any) => x[1] <= 0))
       return interaction.reply(
         "You need 1 of each Infinity Stone to snap your fingers! <a:RedTick:736282199258824774>"
       );
-    let newcandies = Object.fromEntries(
+    const newcandies = Object.fromEntries(
       allcandies.map((x: any) => [x[0], x[1] - 1])
     );
     await Candy.findOneAndUpdate(
       { id: interaction.user.id },
       { candy: Object.assign(player.candy, newcandies), Snap: player.Snap + 1 }
     );
-    let random = getRandomInt(11);
+    const random = getRandomInt(11);
     let prize;
-    let randomGif = getRandomInt(2);
+    const randomGif = getRandomInt(2);
 
     await (interaction.channel as TextChannel)?.bulkDelete(49, true);
     await new Promise((r) => setTimeout(r, 1000));
@@ -85,7 +85,7 @@ export class CandySnapCommand extends Command {
       prize = "2 Month Premium";
 
       let resS1 = "";
-      for (let d of ALL.GOD) {
+      for (const d of ALL.GOD) {
         if (String(d).startsWith("S1")) resS1 = `${d}`;
         if (resS1 !== "") break;
       }
@@ -105,7 +105,7 @@ export class CandySnapCommand extends Command {
       prize = "Weekly Skip";
 
       let resS2 = "";
-      for (let d of ALL.GOD) {
+      for (const d of ALL.GOD) {
         if (String(d).startsWith("S2")) resS2 = `${d}`;
         if (resS2 !== "") break;
       }
@@ -125,7 +125,7 @@ export class CandySnapCommand extends Command {
       prize = "Monthly Skip";
 
       let resS3 = "";
-      for (let d of ALL.GOD) {
+      for (const d of ALL.GOD) {
         if (String(d).startsWith("S3")) resS3 = `${d}`;
         if (resS3 !== "") break;
       }
@@ -145,7 +145,7 @@ export class CandySnapCommand extends Command {
       prize = "Mystery Box XXX";
 
       let resS4 = "";
-      for (let d of ALL.GOD) {
+      for (const d of ALL.GOD) {
         if (String(d).startsWith("S4")) resS4 = `${d}`;
         if (resS4 !== "") break;
       }
@@ -174,7 +174,7 @@ export class CandySnapCommand extends Command {
       prize = "2 Month Premium";
 
       let resS1 = "";
-      for (let d of ALL.GOD) {
+      for (const d of ALL.GOD) {
         if (String(d).startsWith("S1")) resS1 = `${d}`;
         if (resS1 !== "") break;
       }
@@ -194,7 +194,7 @@ export class CandySnapCommand extends Command {
       prize = "Weekly Skip";
 
       let resS2 = "";
-      for (let d of ALL.GOD) {
+      for (const d of ALL.GOD) {
         if (String(d).startsWith("S2")) resS2 = `${d}`;
         if (resS2 !== "") break;
       }
@@ -214,7 +214,7 @@ export class CandySnapCommand extends Command {
       prize = "Monthly Skip";
 
       let resS3 = "";
-      for (let d of ALL.GOD) {
+      for (const d of ALL.GOD) {
         if (String(d).startsWith("S3")) resS3 = `${d}`;
         if (resS3 !== "") break;
       }
@@ -234,7 +234,7 @@ export class CandySnapCommand extends Command {
       prize = "Mystery Box XXX";
 
       let resS4 = "";
-      for (let d of ALL.GOD) {
+      for (const d of ALL.GOD) {
         if (String(d).startsWith("S4")) resS4 = `${d}`;
         if (resS4 !== "") break;
       }
@@ -274,14 +274,14 @@ export class CandySnapCommand extends Command {
     );
 
     //Halloween Badge Addition=========================
-    var badge = Badges.badges.filter(
+    const badge = Badges.badges.filter(
       (b) => b.name.toLowerCase() === "candy hunter 2021"
     )[0];
 
-    var _badges = await BADGES.findOne({ id: interaction.user.id });
+    const _badges = await BADGES.findOne({ id: interaction.user.id });
 
     if (!_badges) {
-      var b = new BADGES({
+      const b = new BADGES({
         id: interaction.user.id,
         badges: [badge],
       });
@@ -299,7 +299,7 @@ export class CandySnapCommand extends Command {
       await b.save();
       return;
     } else {
-      var exists = await BADGES.findOne({
+      const exists = await BADGES.findOne({
         id: interaction.user.id,
         badges: { $in: [badge] },
       });

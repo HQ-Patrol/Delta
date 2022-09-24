@@ -49,22 +49,22 @@ export class CandyFlipCommand extends Command {
         )
         .catch(console.error);
     } else {
-      let player = await Candy.findOne({ id: interaction.user.id });
+      const player = await Candy.findOne({ id: interaction.user.id });
       if (!player)
         return interaction.reply(
           `You haven't started your journey to the Candy Land yet <a:exclamation:741988026296696872>`
         );
-      let torob = interaction.options.getUser("user");
+      const torob = interaction.options.getUser("user");
       if (!torob)
         return interaction.reply(
           "`Either you didn't mention a user to rob or they havent started thier journey to the Candy Land yet` <a:exclamation:741988026296696872>"
         );
-      let torobplayer = await Candy.findOne({ id: torob.id });
+      const torobplayer = await Candy.findOne({ id: torob.id });
       if (!torobplayer)
         return interaction.reply(
           "`Either you didn't mention a user to rob or they havent started thier journey to the Candy Land yet` <a:exclamation:741988026296696872>"
         );
-      let stakes = interaction.options.getInteger("number") || 5;
+      const stakes = interaction.options.getInteger("number") || 5;
       if (stakes < 5)
         return interaction.reply(
           `You can't rob less than **5** candies <a:exclamation:741988026296696872>`
@@ -84,9 +84,9 @@ export class CandyFlipCommand extends Command {
       if (torobplayer.shield > 0) {
         //interaction.reply(`**You tried robbing ${torob.toString()} but they had Candy shield activated!** 🛡️<:gun:745728816915284180>`)
         let candiestaken = 0;
-        let takenobj = {};
+        const takenobj = {};
         while (candiestaken < Math.floor(stakes / 5)) {
-          let randomcandy = Object.keys(player.candy).filter(
+          const randomcandy = Object.keys(player.candy).filter(
             (x) =>
               // @ts-ignore
               !player.candy[x] <= 0 &&
@@ -139,7 +139,7 @@ export class CandyFlipCommand extends Command {
           total = Object.values(takenobj).reduce(
             (arr: any, cur: any) => arr + cur
           );
-        let stolenmessage = Object.entries(takenobj)
+        const stolenmessage = Object.entries(takenobj)
           .map((x) => `\`${x[0].toUpperCase()}\`` + " - " + `\`${x[1]}\``)
           .join("\n");
 
@@ -163,14 +163,14 @@ export class CandyFlipCommand extends Command {
 if (player.Luck > 50) interaction.reply(`Your luck boost has been activated and your chances of succeeding are now ${player.Luck}%!`)
 if (player.Luck < 50) interaction.reply(`Your bad luck is wearing off, but your chances are succeeding are only ${player.Luck}%. 😭`)
 */
-      let random = Math.floor(Math.random() * 100);
+      const random = Math.floor(Math.random() * 100);
       if (random < 50) {
         // random < player.Luck
         // win
         let candiestaken = 0;
-        let takenobj = {};
+        const takenobj = {};
         while (candiestaken < stakes) {
-          let randomcandy = Object.keys(torobplayer.candy).filter(
+          const randomcandy = Object.keys(torobplayer.candy).filter(
             (x) =>
               // @ts-ignore
               !torobplayer.candy[x] <= 0 &&
@@ -218,7 +218,7 @@ if (player.Luck < 50) interaction.reply(`Your bad luck is wearing off, but your 
             (arr: any, cur: any) => arr + cur
           );
         //let stolenmessage = Object.entries(takenobj).map(x => x[0] + " : " + x[1]).join('\n')
-        let stolenmessage = Object.entries(takenobj)
+        const stolenmessage = Object.entries(takenobj)
           .map((x) => `\`${x[0].toUpperCase()}\`` + " - " + `\`${x[1]}\``)
           .join("\n");
 
@@ -237,9 +237,9 @@ if (player.Luck < 50) interaction.reply(`Your bad luck is wearing off, but your 
       } else {
         // lose
         let candiestaken = 0;
-        let takenobj = {};
+        const takenobj = {};
         while (candiestaken < stakes) {
-          let randomcandy = Object.keys(player.candy).filter(
+          const randomcandy = Object.keys(player.candy).filter(
             (x) =>
               // @ts-ignore
               !player.candy[x] <= 0 &&
@@ -287,7 +287,7 @@ if (player.Luck < 50) interaction.reply(`Your bad luck is wearing off, but your 
           total = Object.values(takenobj).reduce(
             (arr: any, cur: any) => arr + cur
           );
-        let stolenmessage = Object.entries(takenobj)
+        const stolenmessage = Object.entries(takenobj)
           .map((x) => `\`${x[0].toUpperCase()}\`` + " - " + `\`${x[1]}\``)
           .join("\n");
 

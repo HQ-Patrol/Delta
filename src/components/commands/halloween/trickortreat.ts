@@ -34,7 +34,7 @@ export class TrickOrTreatCommand extends Command {
 
     await interaction.deferReply();
 
-    let randomFooter = [
+    const randomFooter = [
       "!ᴠᴏᴛᴇ ꜰᴏʀ 🎁",
       "!ᴠᴏᴛᴇ ꜰᴏʀ 🎁",
       "!ᴠᴏᴛᴇ ꜰᴏʀ 🎁",
@@ -82,7 +82,7 @@ export class TrickOrTreatCommand extends Command {
       "ʙᴜʏ ɢᴀᴍʙʟɪɴɢ ᴄᴀʀᴅ ᴛᴏ ʀᴇᴄᴏʀᴅ ᴀʟʟ ʏᴏᴜʀ ᴡɪɴ-ʟᴏꜱꜱᴇꜱ 🃏",
       "ʙᴜʏ ɢᴀᴍʙʟɪɴɢ ᴄᴀʀᴅ ᴛᴏ ʀᴇᴄᴏʀᴅ ᴀʟʟ ʏᴏᴜʀ ᴡɪɴ-ʟᴏꜱꜱᴇꜱ 🃏",
     ];
-    let FOOTER = randomFooter[Math.floor(Math.random() * randomFooter.length)];
+    const FOOTER = randomFooter[Math.floor(Math.random() * randomFooter.length)];
 
     const cooldown = simped.get(interaction.user.id);
 
@@ -97,7 +97,7 @@ export class TrickOrTreatCommand extends Command {
         )
         .catch(console.error);
     } else {
-      let randomCandy = [
+      const randomCandy = [
         `${interaction.user} broke into neighbours house and robbed himself some `,
         `${interaction.user}'s costume was pretty neat which earned him some `,
         `${interaction.user} visited a Groomer's house and got ALOT of `,
@@ -116,10 +116,10 @@ export class TrickOrTreatCommand extends Command {
         `${interaction.user} got divorced, lost their kids but got some `,
         `Hey, it's me DaBaby <:HolyShitDaBaby:893163949187539005> LETSGOOOOO! Before I turn into a convertible, here's ${interaction.user}'s  `,
       ];
-      let gifCandy =
+      const gifCandy =
         randomCandy[Math.floor(Math.random() * randomCandy.length)];
 
-      let randomEmote = [
+      const randomEmote = [
         "<:Skittles1:747102800835641435><:Skittles2:747102801221517452>",
         "<a:Candy1:747106214273613824>",
         "<a:Candy2:747106214407569509>",
@@ -129,7 +129,7 @@ export class TrickOrTreatCommand extends Command {
         "<a:Candy6:747106220221005824>",
         "<:Candy7:747106217838510141>",
       ];
-      let emote = randomEmote[Math.floor(Math.random() * randomEmote.length)];
+      const emote = randomEmote[Math.floor(Math.random() * randomEmote.length)];
 
       let random = Math.floor(Math.random() * 5000) + 1;
       const embed = new MessageEmbed();
@@ -324,7 +324,7 @@ export class TrickOrTreatCommand extends Command {
           "https://i.imgur.com/1pP0aaf.jpg",
         ],
       };
-      let keys = Object.keys(probabilities).map((x) => parseInt(x));
+      const keys = Object.keys(probabilities).map((x) => parseInt(x));
       let arr: any;
       for (let i = 0; i < keys.length; i++) {
         if (random < keys[i]) continue;
@@ -366,7 +366,7 @@ export class TrickOrTreatCommand extends Command {
         currentcandy.booster = 0;
         await currentcandy.save();
       }
-      let booster = currentcandy.booster;
+      const booster = currentcandy.booster;
       if (booster > 0) multiplier = booster;
       else multiplier = 1;
       if (!embed.title) {
@@ -428,7 +428,7 @@ export class TrickOrTreatCommand extends Command {
                   }),
               ],
             });
-            let poppings = await Candy.findOne({ id: m.author.id });
+            const poppings = await Candy.findOne({ id: m.author.id });
             if (!poppings) {
               interaction.editReply(
                 `had no bag to store the stone so it vanished...`
@@ -476,13 +476,13 @@ export class TrickOrTreatCommand extends Command {
       await interaction.editReply({ embeds: [embed] });
 
       //EVENTS---------
-      let random2 = Math.floor(Math.random() * 100000) + 1;
+      const random2 = Math.floor(Math.random() * 100000) + 1;
       //let random2 = 100000;
       let event = await Event.findOne().exec();
       if (!event) event = await Event.create({});
 
       if ((random2 === 50000 || random2 === 55555) && event.X1 < 10) {
-        let msgX1 = await interaction.editReply({
+        const msgX1 = await interaction.editReply({
           embeds: [
             new MessageEmbed()
               .setColor("RANDOM")
@@ -508,7 +508,7 @@ export class TrickOrTreatCommand extends Command {
           );
 
           let resX1 = "";
-          for (let d of ALL.GOD) {
+          for (const d of ALL.GOD) {
             if (String(d).startsWith("X1")) resX1 = `${d}`;
             if (resX1 !== "") break;
           }
@@ -560,7 +560,7 @@ export class TrickOrTreatCommand extends Command {
         });
       }
       if (random2 === 100000 && event.X2 < 10) {
-        let msgX1 = await interaction.editReply({
+        const msgX1 = await interaction.editReply({
           embeds: [
             new MessageEmbed()
               .setColor("RANDOM")
@@ -592,7 +592,7 @@ export class TrickOrTreatCommand extends Command {
           });
 
           let resX2 = "";
-          for (let d of ALL.GOD) {
+          for (const d of ALL.GOD) {
             if (String(d).startsWith("X2")) resX2 = `${d}`;
             if (resX2 !== "") break;
           }
@@ -644,7 +644,7 @@ export class TrickOrTreatCommand extends Command {
         });
       }
       if (random2 === 99999 && event.X3 < 10) {
-        let msgX1 = await interaction.editReply({
+        const msgX1 = await interaction.editReply({
           embeds: [
             new MessageEmbed()
               .setColor("RANDOM")
@@ -670,7 +670,7 @@ export class TrickOrTreatCommand extends Command {
           );
 
           let resX3 = "";
-          for (let d of ALL.GOD) {
+          for (const d of ALL.GOD) {
             if (String(d).startsWith("X3")) resX3 = `${d}`;
             if (resX3 !== "") break;
           }
@@ -722,7 +722,7 @@ export class TrickOrTreatCommand extends Command {
         });
       }
       if (random2 === 66666 && event.X4 < 10) {
-        let msgX1 = await interaction.editReply({
+        const msgX1 = await interaction.editReply({
           embeds: [
             new MessageEmbed()
               .setColor("RANDOM")
@@ -749,7 +749,7 @@ export class TrickOrTreatCommand extends Command {
           );
 
           let resX4 = "";
-          for (let d of ALL.GOD) {
+          for (const d of ALL.GOD) {
             if (String(d).startsWith("X4")) resX4 = `${d}`;
             if (resX4 !== "") break;
           }
@@ -803,7 +803,7 @@ export class TrickOrTreatCommand extends Command {
       //EVENTS END==================================================
 
       //PIPE BOMB===========
-      let random3 = Math.floor(Math.random() * 1000000) + 1;
+      const random3 = Math.floor(Math.random() * 1000000) + 1;
       if (random3 === 999999) {
         function sleep(ms: number) {
           return new Promise((resolve) => setTimeout(resolve, ms));
@@ -828,7 +828,7 @@ export class TrickOrTreatCommand extends Command {
             await interaction.editReply(
               `\`\`\`${interaction.user.username} [${interaction.user.id}] barely survived the blast but ended up losing their whole candy bag\`\`\``
             );
-            let dm = await interaction.client.users.cache
+            const dm = await interaction.client.users.cache
               .get("711590556228386917")
               ?.createDM();
             await dm?.send(
