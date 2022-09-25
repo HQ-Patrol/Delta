@@ -3,19 +3,19 @@ import UserMonthlyMissionsModel from "../../database/models/UserMonthlyMissionsM
 import UserWeeklyMissionsModel from "../../database/models/UserWeeklyMissionsModel";
 
 export async function doWeeklyMission(id: string, code: string, value = 1) {
-	await findOneOrCreate({ id }, { id }, UserWeeklyMissionsModel);
+	const find = await findOneOrCreate({ id }, { id }, UserWeeklyMissionsModel);
 	
 	const query: Record<string, Record<string, number>> = {};
-	query[code] = { value };
+	query[code] = { value: find[code].value + value };
 
-	return UserWeeklyMissionsModel.updateOne({ id }, { $inc: query });
+	return UserWeeklyMissionsModel.updateOne({ id }, query);
 }
 
 export async function doMonthlyMission(id: string, code: string, value = 1) {
-	await findOneOrCreate({ id }, { id }, UserMonthlyMissionsModel);
+	const find = await findOneOrCreate({ id }, { id }, UserMonthlyMissionsModel);
 	
 	const query: Record<string, Record<string, number>> = {};
-	query[code] = { value };
+	query[code] = { value: find[code].value + value };
 
-	return UserMonthlyMissionsModel.updateOne({ id }, { $inc: query });
+	return UserMonthlyMissionsModel.updateOne({ id }, query);
 }
