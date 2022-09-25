@@ -8,6 +8,7 @@ specifiers:
   '@sapphire/framework': ^3.0.0
   '@sapphire/utilities': ^3.9.1
   '@types/common-tags': ^1.8.1
+  '@types/hjson': ^2.4.3
   '@types/humanize-duration': ^3.27.1
   '@types/ms': ^0.7.31
   '@typescript-eslint/eslint-plugin': ^5.33.1
@@ -40,8 +41,6 @@ dependencies:
   '@sapphire/discord.js-utilities': 4.12.0
   '@sapphire/framework': 3.1.0
   '@sapphire/utilities': 3.9.1
-  '@types/common-tags': 1.8.1
-  '@types/humanize-duration': 3.27.1
   bufferutil: 4.0.6
   chalk: 4.1.2
   common-tags: 1.8.2
@@ -62,6 +61,9 @@ dependencies:
 
 devDependencies:
   '@commitlint/config-conventional': 17.0.3
+  '@types/common-tags': 1.8.1
+  '@types/hjson': 2.4.3
+  '@types/humanize-duration': 3.27.1
   '@types/ms': 0.7.31
   '@typescript-eslint/eslint-plugin': 5.33.1_xvmm3ouh3ttkwfukqn4o7asoxy
   '@typescript-eslint/parser': 5.33.1_4x5o4skxv6sl53vpwefgt23khm
@@ -306,11 +308,15 @@ packages:
 
   /@types/common-tags/1.8.1:
     resolution: {integrity: sha512-20R/mDpKSPWdJs5TOpz3e7zqbeCNuMCPhV7Yndk9KU2Rbij2r5W4RzwDPkzC+2lzUqXYu9rFzTktCBnDjHuNQg==}
-    dev: false
+    dev: true
+
+  /@types/hjson/2.4.3:
+    resolution: {integrity: sha512-EDixutNn3FQwa5HdET+Tx0h7TirP2knJa9TB21ySqr8XVqT/VsvvOwnanTLHUOOpNofcUhkRKhOk0Wh4YD9RSA==}
+    dev: true
 
   /@types/humanize-duration/3.27.1:
     resolution: {integrity: sha512-K3e+NZlpCKd6Bd/EIdqjFJRFHbrq5TzPPLwREk5Iv/YoIjQrs6ljdAUCo+Lb2xFlGNOjGSE0dqsVD19cZL137w==}
-    dev: false
+    dev: true
 
   /@types/json-schema/7.0.11:
     resolution: {integrity: sha512-wOuvG1SN4Us4rez+tylwwwCV1psiNVOkJeM3AUWUNWg/jDQY2+HE/444y5gc+jBmRqASOm2Oeh5c1axHobwRKQ==}
