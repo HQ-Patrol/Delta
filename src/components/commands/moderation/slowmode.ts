@@ -6,7 +6,7 @@ import { error } from "../../../utilities/logger";
 @ApplyOptions<Command.Options>({
   name: "slowmode",
   description: "Set slowmode for the channel.",
-  requiredClientPermissions: ["MANAGE_MESSAGES"]
+  requiredClientPermissions: "MANAGE_MESSAGES"
 })
 export class SlowmodeCommand extends Command {
   public override registerApplicationCommands(
@@ -33,7 +33,7 @@ export class SlowmodeCommand extends Command {
     const channel = interaction.channel as TextChannel;
     const delay = interaction.options.getNumber("delay", true);
     const reason = interaction.options.getString("reason") || "";
-
+    
     if (delay > 21600){
       return interaction.reply({ content: "You cannot set slowmode to more than 6 hours (21600 seconds)!" })
     }
@@ -45,7 +45,7 @@ export class SlowmodeCommand extends Command {
       interaction.editReply({ content: `Successfully set slowmode of ${delay}s for ${channel}!` })
     } catch (e){
       if (e instanceof Error){
-        interaction.editReply({ content: "Failede to set slowmode!" })
+        interaction.editReply({ content: "Failed to set slowmode!" })
         error(e.message)
       }
     }

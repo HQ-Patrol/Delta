@@ -1,4 +1,9 @@
 export default {
+  greenTick: "<a:GreenTick:736282149094949096>",
+  ohShitLookAtTheTimeWatch: "<a:OhShitLookAtTheTimeWatch:751527814691553280>",
+  banHammer: "<a:BanHammer:723968926102585384>",
+  "redTick": "<a:RedTick:736282199258824774>",
+  "notAmused": "<a:notamused:750080936191721512>",
   "1StarDragonBall": "<:1StarDragonBall:855517931730501653>",
   HGIIcon: "<a:HGIcon:774666165262745641>",
   alarmGoBrrrrr: "<a:AlarmGoBrrrrr:806180753167220806>",
