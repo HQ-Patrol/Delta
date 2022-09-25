@@ -16,40 +16,8 @@ export class ActionsCommand extends Command{
             .setName(this.name)
             .setDescription(this.description)
             .setDMPermission(false)
-            .addSubcommand((subcommand) => 
-            subcommand
-                .setName('eatass')
-                .setDescription("When you wanna eat someone's butt 🍑")
-                .addStringOption((option) => 
-                    option
-                        .setName("userid")
-                        .setDescription("userid")
-                        .setRequired(false)
-                )
-                .addUserOption((option) =>
-                    option
-                        .setName('user')
-                        .setDescription("user")
-                        .setRequired(false)
-                )
-                )
-            .addSubcommand((subcommand) => 
-            subcommand
-                .setName("beer")
-                .setDescription("Share a beer with someone!🍻")
-                .addStringOption((option) => 
-                    option
-                        .setName("userid")
-                        .setDescription("userid")
-                        .setRequired(false)
-                )
-                .addUserOption((option) =>
-                    option
-                        .setName('user')
-                        .setDescription("user")
-                        .setRequired(false)
-                )
-            )
+
+
             .addSubcommand((subcommand) => 
             subcommand
                 .setName("bite")
@@ -67,23 +35,7 @@ export class ActionsCommand extends Command{
                         .setRequired(false)
                 )
             )
-            .addSubcommand((subcommand) => 
-            subcommand
-                .setName("bonk")
-                .setDescription("Bonk someone!")
-                .addStringOption((option) => 
-                    option
-                        .setName("userid")
-                        .setDescription("userid")
-                        .setRequired(false)
-                )
-                .addUserOption((option) =>
-                    option
-                        .setName('user')
-                        .setDescription("user")
-                        .setRequired(false)
-                )
-            )
+
             .addSubcommand((subcommand) => 
             subcommand
                 .setName("boohoo")
@@ -118,61 +70,12 @@ export class ActionsCommand extends Command{
                         .setRequired(false)
                 )
             )
-            .addSubcommand((subcommand) => 
-            subcommand
-                .setName("brofist")
-                .setDescription("Brofist a buddy!")
-                .addStringOption((option) => 
-                    option
-                        .setName("userid")
-                        .setDescription("userid")
-                        .setRequired(false)
-                )
-                .addUserOption((option) =>
-                    option
-                        .setName('user')
-                        .setDescription("user")
-                        .setRequired(false)
-                )
-            )
-            .addSubcommand((subcommand) => 
-            subcommand
-                .setName("choke")
-                .setDescription("Choke someone!")
-                .addStringOption((option) => 
-                    option
-                        .setName("userid")
-                        .setDescription("userid")
-                        .setRequired(false)
-                )
-                .addUserOption((option) =>
-                    option
-                        .setName('user')
-                        .setDescription("user")
-                        .setRequired(false)
-                )
-            )
+
+
             .addSubcommand((subcommand) => 
             subcommand
                 .setName("cringe")
                 .setDescription("When somebody is being cringe😶")
-                .addStringOption((option) => 
-                    option
-                        .setName("userid")
-                        .setDescription("userid")
-                        .setRequired(false)
-                )
-                .addUserOption((option) =>
-                    option
-                        .setName('user')
-                        .setDescription("user")
-                        .setRequired(false)
-                )
-            )
-            .addSubcommand((subcommand) => 
-            subcommand
-                .setName("cum")
-                .setDescription("cume on someone 😳🥛")
                 .addStringOption((option) => 
                     option
                         .setName("userid")
@@ -203,40 +106,7 @@ export class ActionsCommand extends Command{
                         .setRequired(false)
                 )
             )
-            .addSubcommand((subcommand) => 
-            subcommand
-                .setName("fist")
-                .setDescription("Fist someone (NSFW) 🤜🤛")
-                .addStringOption((option) => 
-                    option
-                        .setName("userid")
-                        .setDescription("userid")
-                        .setRequired(false)
-                )
-                .addUserOption((option) =>
-                    option
-                        .setName('user')
-                        .setDescription("user")
-                        .setRequired(false)
-                )
-            )
-            .addSubcommand((subcommand) =>
-            subcommand
-                .setName("fondle")
-                .setDescription("Fondle someone's mammaries 😳 *consensually ofc hehe* ")
-                .addStringOption((option) => 
-                    option
-                        .setName("userid")
-                        .setDescription("userid")
-                        .setRequired(false)
-                )
-                .addUserOption((option) =>
-                    option
-                        .setName('user')
-                        .setDescription("user")
-                        .setRequired(false)
-                )
-            )
+
             .addSubcommand((subcommand) => 
             subcommand
                 .setName("groom")
@@ -288,6 +158,8 @@ export class ActionsCommand extends Command{
                         .setRequired(false)
                 )
             )
+
+
             .addSubcommand((subcommand) => 
             subcommand
                 .setName("holdhands")
@@ -409,23 +281,6 @@ export class ActionsCommand extends Command{
             )
             .addSubcommand((subcommand) => 
             subcommand
-                .setName("peg")
-                .setDescription("Peg someone! 🥴")
-                .addStringOption((option) => 
-                    option
-                        .setName("userid")
-                        .setDescription("userid")
-                        .setRequired(false)
-                )
-                .addUserOption((option) =>
-                    option
-                        .setName('user')
-                        .setDescription("user")
-                        .setRequired(false)
-                )
-            )
-            .addSubcommand((subcommand) => 
-            subcommand
                 .setName("piss")
                 .setDescription("Piss on someone like a boss 😎")
                 .addStringOption((option) => 
@@ -494,28 +349,6 @@ export class ActionsCommand extends Command{
             )
             .addSubcommand((subcommand) =>
             subcommand
-                .setName("smash")
-                .setDescription("Smash someone, someone's something 😰")
-                .addStringOption((option) => 
-                    option
-                        .setName("userid")
-                        .setDescription("userid")
-                        .setRequired(false)
-                )
-                .addUserOption((option) =>
-                    option
-                        .setName('user')
-                        .setDescription("user")
-                        .setRequired(false)
-                )
-            )
-            .addSubcommand((subcommand) =>
-            subcommand
-                .setName("spank")
-                .setDescription("Spank someone! 👀")
-            )
-            .addSubcommand((subcommand) =>
-            subcommand
                 .setName("spit")
                 .setDescription("Spit on someone! 🤮")
                 .addStringOption((option) => 
@@ -548,42 +381,6 @@ export class ActionsCommand extends Command{
                         .setRequired(false)
                 )
             )
-            .addSubcommand((subcommand) =>
-            subcommand
-                .setName("tickle")
-                .setDescription("Tickle someone! 🤣")
-                .addStringOption((option) => 
-                    option
-                        .setName("userid")
-                        .setDescription("userid")
-                        .setRequired(false)
-                )
-                .addUserOption((option) =>
-                    option
-                        .setName('user')
-                        .setDescription("user")
-                        .setRequired(false)
-                )
-            )
-            .addSubcommand((subcommand) =>
-            subcommand
-                .setName("touch")
-                .setDescription("Touch someone sensually 👀")
-                .addStringOption((option) => 
-                    option
-                        .setName("userid")
-                        .setDescription("userid")
-                        .setRequired(false)
-                )
-                .addUserOption((option) =>
-                    option
-                        .setName('user')
-                        .setDescription("user")
-                        .setRequired(false)
-                )
-            )
-
-
         );
       }
 
@@ -592,53 +389,37 @@ export class ActionsCommand extends Command{
 
         const guild  = await GuildModel.findOne({ _id: interaction.guild?.id }).catch((err : Error)=> console.log(err));
         let chibi;
-        if(guild) chibi = guild!.chibi;
+        if(guild) chibi = guild!.chibi ?? false;
+
         const subcommand = interaction.options.getSubcommand();
 
-        if(["eatass", "choke", "cum", "fist", "fondle", "peg", "spank", "touch"].includes(subcommand) ){
+        if(["eatass", "choke", "cum", "fist", "fondle", "peg", "spank", "touch"].includes(subcommand) ) {
             // Check if the Guild is NSFW or not
-            if(guild?.nsfw===false){ return interaction.editReply({ embeds: [new MessageEmbed().setColor("#660000").setTitle("SFW Mode is ON 🔞").setDescription("<a:exclamation:741988026296696872> Please refrain from using that command as this Server is FAMILY-FRIENDLY 👨‍👩‍👧‍👦").setFooter({ text: "If you think this is a mistake, please contact Admins❗" })] }) }
-
+            if (guild?.nsfw === false) {
+                return interaction.editReply({ embeds: [new MessageEmbed().setColor("#660000").setTitle("SFW Mode is ON 🔞").setDescription("<a:exclamation:741988026296696872> Please refrain from using that command as this Server is FAMILY-FRIENDLY 👨‍👩‍👧‍👦").setFooter({ text: "If you think this is a mistake, please contact Admins❗" })] })
+            }
+        }
             // Get the user/ userid
             const user = interaction.options.getUser("user")
             const userid = interaction.options.getString("userid")
 
-            if(!user || !userid) return interaction.editReply({ content: "Please mention a user or user ID correctly! 😐" });
+            if(!user) {
+                if(!userid){
+                    return interaction.editReply({ content: "Please mention a user or user ID correctly! 😐" });
+                }
+            }
 
             const member : GuildMember | undefined = user ? interaction.guild?.members.cache.get(user.id) : interaction.guild?.members.cache.get(userid!);
-            
+
             // Run some checks
             if(!member) return interaction.editReply({ content: "Please mention the USER ID correctly! 😐" });
-            if (member.id === interaction.user.id) { return interaction.editReply({ content: "Time to play with yourself, eh? 💦" }) }
+            //if (member.id === interaction.user.id) { return interaction.editReply({ content: "Time to play with yourself, eh? 💦" }) }
 
-            // Execute and return the response for the sub-command
+            // Execute and return the response for the sub-commands
 
-            if(subcommand === "eatass"){
-                // "eatass" sub-command
-                if(chibi) return interaction.editReply({ embeds: [new MessageEmbed().setColor("RANDOM").setThumbnail("https://i.imgur.com/XCvXV4A.gif").setDescription(`${interaction.user} ate ${member.user}'s butt😳🍑`)] })
-
-                let random = ["https://i.imgur.com/vrEjpXJ.gif","https://i.imgur.com/OhmCmdc.gif","https://i.imgur.com/uWgxuc3.gif","https://i.imgur.com/dDvIzhk.gif","https://i.imgur.com/wnhD9qg.gif","https://i.imgur.com/ddQBzhL.gif"]
-                let gif = random[Math.floor(Math.random() * random.length)]
-
-                const embed = new MessageEmbed()
-                    .setColor("BLUE")
-                    .setAuthor({name: `${interaction.user.username} tried something😛`, iconURL: interaction.user.displayAvatarURL({dynamic:true})})
-                    .setFooter({text: `Did it taste good doe?`})
-                    .setDescription(`${interaction.user} ate ${member.user}'s butt😳🍑`)
-                    .setImage(gif);
-
-                return interaction.editReply({embeds : [embed]});
-            }
-            else if(subcommand === "beer"){
-                // Beer sub-command
-                let embed = new MessageEmbed()
-                    .setColor("BLUE")
-                    .setDescription(`**${interaction.user.username}** bought ${member.user} <a:Cheers:738820410681851915>`)
-
-                return interaction.editReply({embeds:[embed]});
-            }
             else if(subcommand === "bite"){
                 // Bite sub-command
+                if (member.id === interaction.user.id) { return interaction.editReply("*Is that some weird kink of yours?*") }
 
                 let random = ["https://i.imgur.com/8cskqqA.gif","https://i.imgur.com/IeMAwXh.gif", "https://i.imgur.com/HnX4rkl.gif", "https://i.imgur.com/CVFMlDH.gif", "https://i.imgur.com/ieECUZW.gif", "https://i.imgur.com/nvtcrRU.gif", "https://i.imgur.com/29t3klp.gif", "https://i.imgur.com/wdNHLZB.gif", "https://i.imgur.com/8NICVEd.gif","https://i.imgur.com/4dwqQ3Y.gif", "https://i.imgur.com/NOfew22.gif","https://i.imgur.com/VYGsthN.gif","https://i.imgur.com/PKqA939.gif", "https://i.imgur.com/GGrD2CK.gif", "https://i.imgur.com/DnOnxai.gif", "https://i.imgur.com/tYOMGqc.gif", "https://i.imgur.com/sG3EKCc.gif", "https://i.imgur.com/JUTQ4fD.gif", "https://i.imgur.com/p2w1z3C.gif", "https://i.imgur.com/X0YTou9.gif", "https://i.imgur.com/JoqLNv8.gif", "https://i.imgur.com/1bI7tkd.gif", "https://i.imgur.com/OmEudTU.gif", "https://i.imgur.com/R55KvbS.gif","https://i.imgur.com/iifr5Hv.gif","https://i.imgur.com/s4o9Sac.gif","https://i.imgur.com/r5lPa1o.gif","https://i.imgur.com/iGT5gvx.gif","https://i.imgur.com/WN9nGzO.gif","https://i.imgur.com/0xou9cb.gif","https://i.imgur.com/83OHx0V.gif","https://i.imgur.com/M7yNTRr.gif"]
                 let gif = random[Math.floor(Math.random() * random.length)]
@@ -672,6 +453,7 @@ export class ActionsCommand extends Command{
             }
             else if(subcommand === "boop"){
 
+                if (member.id === interaction.user.id) { return interaction.editReply({content : "Boop!"}) }
                 let random = ["https://i.imgur.com/kWNRhN7.gif","https://i.imgur.com/xMK1NKs.gif","https://i.imgur.com/msH7c4b.gif","https://i.imgur.com/Ash1diR.gif","https://i.imgur.com/PcsR99q.gif","https://i.imgur.com/7XtYd2O.gif","https://i.imgur.com/TFVPa38.gif","https://i.imgur.com/s2wdqAh.gif","https://i.imgur.com/hbXDVRx.gif","https://i.imgur.com/8mmWOZ4.gif","https://i.imgur.com/QMjfO9T.gif","https://i.imgur.com/dWKRsi9.gif","https://i.imgur.com/2m1QvZT.gif","https://i.imgur.com/NOsj6ad.gif","https://i.imgur.com/VtNS7Eo.gif","https://i.imgur.com/pqKCPsw.gif","https://i.imgur.com/yWcHC7k.gif","https://i.imgur.com/ehWTZKo.gif","https://i.imgur.com/D5GyZDs.gif","https://i.imgur.com/uFqcLDP.gif","https://i.imgur.com/tBmWEWq.gif", "https://i.imgur.com/qoN2Y26.gif", "https://i.imgur.com/cRBXmN2.gif", "https://i.imgur.com/AWlNxKo.gif", "https://i.imgur.com/GUKBjZM.gif", "https://i.imgur.com/JLWX2ja.gif"]
                 let gif = random[Math.floor(Math.random() * random.length)]
 
@@ -693,22 +475,7 @@ export class ActionsCommand extends Command{
 
                 return interaction.editReply({embeds:[embed]});
             }
-            else if(subcommand === "choke"){
-                if(chibi) return interaction.editReply({embeds: [new MessageEmbed().setColor("RANDOM")
-                        .setThumbnail("https://i.imgur.com/3jJZgyT.gif")
-                        .setAuthor({name: `${interaction.user.username} Just tried to choke ${member.user.username} 😵🥴`, iconURL: interaction.user.displayAvatarURL({dynamic:true})})]})
 
-                let random = ["https://i.imgur.com/p6b4eBe.gif","https://i.imgur.com/ISnhSVc.gif","https://i.imgur.com/drBE7Me.gif","https://i.imgur.com/1tVHc2Y.gif","https://i.imgur.com/XHbLIQZ.gif","https://i.imgur.com/ppK575E.gif","https://i.imgur.com/inzaJLh.gif","https://i.imgur.com/tJvTNER.gif","https://i.imgur.com/VK58Ic5.gif"]
-                let gif = random[Math.floor(Math.random() * random.length)]
-
-                let embed = new MessageEmbed()
-                    .setColor("BLUE")
-                    .setAuthor({name: `${interaction.user.username} Just tried to choke ${member.user.username} 😵🥴`, iconURL: interaction.user.displayAvatarURL({dynamic:true})})
-                    .setFooter({text: `If they were craving blood or just horny, nobody knows....`})
-                    .setImage(gif);
-
-                return interaction.editReply({embeds: [embed]});
-            }
             else if(subcommand === "cringe"){
                 if (member.id === interaction.user.id) { return interaction.editReply("Stop attention seeking retard...") }
 
@@ -730,26 +497,7 @@ export class ActionsCommand extends Command{
 
                 return interaction.editReply({embeds: [embed]});
             }
-            else if(subcommand === "cum"){
-                if (member.id === interaction.user.id) { return interaction.editReply("What you just tried to achieve was beyond a mere homosexual's reach") }
 
-                let random = ["https://i.imgur.com/MD0Ml5o.gif","https://i.imgur.com/OujBS62.gif","https://i.imgur.com/WtTPp9U.gif"
-                    ,"https://i.imgur.com/A5pgXDS.gif","https://i.imgur.com/YwE6s7Z.gif","https://i.imgur.com/t6rE8CA.gif"]
-                let gif = random[Math.floor(Math.random() * random.length)]
-
-                if(chibi===true) { return interaction.editReply({embeds: [new MessageEmbed().setColor("RANDOM")
-                        .setThumbnail("https://i.imgur.com/np0XZX7.gif")
-                        .setDescription(`*${interaction.user} just came all over ${member.user} 😫😳🍼*`)]}) }
-
-                let embed = new MessageEmbed()
-                    .setColor("BLUE")
-                    .setAuthor({name: `${interaction.user.username} jizzzzzzzzzed!`, iconURL: interaction.user.displayAvatarURL({dynamic:true})})
-                    .setFooter({text: `Spitters are quitters but who'll clean the mess doe?`})
-                    .setDescription(`*${interaction.user} just came all over ${member.user} 😫😳🍼*`)
-                    .setImage(gif);
-
-                return interaction.editReply({embeds: [embed]});
-            }
             else if(subcommand === "dap"){
                 
                 let random = ["https://i.imgur.com/B9eeEyN.gif","https://i.imgur.com/SSWU5Kz.gif","https://i.imgur.com/WuHlEsR.gif","https://i.imgur.com/mDKwmm5.gif",
@@ -762,7 +510,7 @@ export class ActionsCommand extends Command{
                     "https://i.imgur.com/N8JbD1Z.gif","https://i.imgur.com/Uct9CEu.gif","https://i.imgur.com/RpfB6az.gif","https://i.imgur.com/Wrw0Abh.gif","https://i.imgur.com/k2lGBSJ.gif"]
                 let gif = random[Math.floor(Math.random() * random.length)]
 
-                if (member.id === interaction.user.id) { return interaction.editReply({content : "*epic lonely person moment....*"}) }
+                if (member.id === interaction.user.id) { return interaction.editReply({content : "*Epic lonely person moment....*"}) }
                 
                 if(chibi===true) { return interaction.editReply({embeds: [new MessageEmbed().setColor("RANDOM")
                         .setThumbnail("https://i.imgur.com/cWs34Fa.gif")
@@ -775,45 +523,11 @@ export class ActionsCommand extends Command{
 
                 return interaction.editReply({embeds: [embed]});
             }
-            else if(subcommand === "fist"){
-                if (member.id === interaction.user.id) { return interaction.editReply({content : "Okay, no."}) }
 
-                let random = ["https://i.imgur.com/EbpitKy.gif","https://i.imgur.com/AGFTtzv.gif","https://i.imgur.com/c69GzVj.gif"]
-                let gif = random[Math.floor(Math.random() * random.length)]
 
-                if(chibi===true) { return interaction.editReply({embeds: [new MessageEmbed().setColor("RANDOM")
-                        .setThumbnail("https://i.imgur.com/BlxNQE8.gif")
-                        .setDescription(`**${interaction.user} fisted you ${member.user}** <:Balloon:738767809840152656><:Balloon:738767809840152656><:Balloon:738767809840152656>`)]}) }
-
-                let embed = new MessageEmbed()
-                    .setColor("BLUE")
-                    .setDescription(`**${interaction.user} fisted you ${member.user}** <:Balloon:738767809840152656><:Balloon:738767809840152656><:Balloon:738767809840152656>`)
-                    .setImage(gif);
-
-                return interaction.editReply({embeds: [embed]});
-            }
-            else if(subcommand === "fondle"){
-
-                if (member.id === interaction.user.id) { return interaction.editReply({content : "Stop touching yourself, everyone's looking 😳"}); }
-
-                const random = ["https://i.imgur.com/XBEJvtc.gif", "https://i.imgur.com/xWm2f7V.gif", "https://i.imgur.com/eTUqQKb.gif", "https://i.imgur.com/TwDdyH6.gif", "https://i.imgur.com/2HD7jP6.gif", "https://i.imgur.com/qKRYblo.gif", "https://i.imgur.com/abdqBT9.gif", "https://i.imgur.com/F0DaGBc.gif", "https://i.imgur.com/YDkRfzW.gif"];
-                const gif = random[Math.floor(Math.random() * random.length)];
-
-                if(chibi===true) { return interaction.editReply({ embeds: [new MessageEmbed().setColor("RANDOM")
-                        .setThumbnail("https://i.imgur.com/KdQSj8v.gif")
-                        .setDescription(`${interaction.user} is fondling ${member.user} 🤤🏀`)] }); }
-
-                const embed = new MessageEmbed()
-                    .setColor("BLUE")
-                    .setAuthor({ name: `${interaction.user.username} is in a mood...`, iconURL: interaction.user.displayAvatarURL({ dynamic: true }) })
-                    .setFooter({ text: "B-baka!!" })
-                    .setDescription(`${interaction.user} is fondling ${member.user}} 🤤🏀`)
-                    .setImage(gif);
-
-                return interaction.editReply({ embeds: [embed] });
-
-            }
             else if(subcommand === "groom"){
+                // Groom sub-command
+
                 const sender = interaction.member as GuildMember;
                 if(!sender.permissions.has("KICK_MEMBERS") && !sender.permissions.has("BAN_MEMBERS") && !sender.permissions.has("MANAGE_MESSAGES")) {
                     return interaction.editReply({content : "Only Discord Moderators can use this command"})
@@ -1018,25 +732,7 @@ export class ActionsCommand extends Command{
 
                 return interaction.editReply({embeds: [embed]});
             }
-            else if(subcommand === "peg"){
 
-                let random = ["https://i.imgur.com/yVc1QF6.gif","https://i.imgur.com/2jr11oo.gif","https://i.imgur.com/w9Nd2hs.gif","https://i.imgur.com/AB8IAUe.gif"]
-                let gif = random[Math.floor(Math.random() * random.length)]
-
-                if (member.id === interaction.user.id) { return interaction.editReply("*um..No.*") }
-
-                if(chibi===true) { return interaction.editReply({embeds: [new MessageEmbed().setColor("RANDOM")
-                        .setThumbnail("https://i.imgur.com/65I1f8A.gif")
-                        .setAuthor({name: `${interaction.user.username} tried pegging ${member.user.username} 😨`, iconURL: interaction.user.displayAvatarURL({dynamic:true})})]}) }
-
-                let embed = new MessageEmbed()
-                    .setColor("BLUE")
-                    .setFooter({text: "Oh God Oh F*ck..."})
-                    .setAuthor({name: `${interaction.user.username} tried pegging ${member.user.username} 😨`, iconURL: interaction.user.displayAvatarURL({dynamic:true})})
-                    .setImage(gif);
-
-                return interaction.editReply({embeds: [embed]});
-            }
             else if(subcommand === "piss"){
 
                 if (member.id === interaction.user.id) { return interaction.editReply("That's just f*cking gross. Stop.") }
@@ -1110,45 +806,8 @@ export class ActionsCommand extends Command{
 
                 return interaction.editReply({embeds: [embed]});
             }
-            else if(subcommand === "smash"){
 
-                if (member.id === interaction.user.id) { return interaction.editReply("That's just a yikes.") }
 
-                let random = ["https://i.imgur.com/eHYoocw.gif","https://i.imgur.com/oqbcwOU.gif","https://i.imgur.com/lETBSkT.gif","https://i.imgur.com/IKp9n4d.gif","https://i.imgur.com/JhcaUzS.gif","https://i.imgur.com/Nu1HBkR.gif","https://i.imgur.com/gnM1B0L.gif","https://i.imgur.com/pR5iXgW.gif","https://i.imgur.com/t54joM2.gif"]
-                let gif = random[Math.floor(Math.random() * random.length)]
-
-                if(chibi===true) { return interaction.editReply({embeds: [new MessageEmbed().setColor("RANDOM")
-                        .setThumbnail("https://i.imgur.com/XQJYHKr.gif")
-                        .setAuthor({name: `${interaction.user.username} just smashed ${member.user.username} 😰🥶😱`, iconURL: interaction.user.displayAvatarURL({dynamic:true})})]}) }
-
-                let embed = new MessageEmbed()
-                    .setColor("BLUE")
-                    .setAuthor({name: `${interaction.user.username} just smashed ${member.user.username} 😰🥶😱`, iconURL: interaction.user.displayAvatarURL({dynamic:true})})
-                    .setFooter({text: `😭 oh boy... 😭`})
-                    .setImage(gif);
-
-                return interaction.editReply({embeds: [embed]});
-            }
-            else if(subcommand === "spank"){
-
-                let random = ["https://i.imgur.com/6p0Tmtk.gif","https://i.imgur.com/SQR04l0.gif","https://i.imgur.com/6LBQnim.gif","https://i.imgur.com/brcIQhL.gif","https://i.imgur.com/r1nL4aN.gif","https://i.imgur.com/2DPkLOY.gif","https://i.imgur.com/3TjF9W4.gif","https://i.imgur.com/rDDnKxN.gif","https://i.imgur.com/Htr2rdk.gif"]
-
-                let gif = random[Math.floor(Math.random() * random.length)]
-
-                if (member.id === interaction.user.id) { const emb = new MessageEmbed().setImage("https://media.tenor.com/images/86169e5a54e4c562d62184f5f135b13a/tenor.gif")
-                    return interaction.editReply({embeds: [emb]}) }
-
-                if(chibi===true) { return interaction.editReply({embeds: [new MessageEmbed().setColor("RANDOM")
-                        .setThumbnail("https://i.imgur.com/6VWZnlA.gif")
-                        .setDescription(`${member.user} got SPANKED by ${interaction.user.username} <:Balloon:738767809840152656><:Balloon:738767809840152656>`)]}) }
-
-                let embed = new MessageEmbed()
-                    .setColor("BLUE")
-                    .setDescription(`${member.user} got SPANKED by ${interaction.user.username} <:Balloon:738767809840152656><:Balloon:738767809840152656>`)
-                    .setImage(gif);
-
-                return interaction.editReply({embeds: [embed]});
-            }
             else if(subcommand === "spit"){
 
                 let random = ["https://i.imgur.com/ZlT3XPW.gif","https://i.imgur.com/wjPXLHb.gif","https://i.imgur.com/QMuJSSf.gif",
@@ -1191,7 +850,198 @@ export class ActionsCommand extends Command{
 
                 return interaction.editReply({embeds: [embed]});
             }
-            else if(subcommand === "tickle"){
+
+
+        }
+
+}
+
+// Handling for sub-commands that were excluded !
+
+/*
+
+            if(subcommand === "eatass"){
+                // "eatass" sub-command
+                if (member.id === interaction.user.id) { return interaction.editReply({ content: "Not humanly possible, but I still appreciate the effort (^_^)"}) }
+                if(chibi) return interaction.editReply({ embeds: [new MessageEmbed().setColor("RANDOM").setThumbnail("https://i.imgur.com/XCvXV4A.gif").setDescription(`${interaction.user} ate ${member.user}'s butt😳🍑`)] })
+
+                let random = ["https://i.imgur.com/vrEjpXJ.gif","https://i.imgur.com/OhmCmdc.gif","https://i.imgur.com/uWgxuc3.gif","https://i.imgur.com/dDvIzhk.gif","https://i.imgur.com/wnhD9qg.gif","https://i.imgur.com/ddQBzhL.gif"]
+                let gif = random[Math.floor(Math.random() * random.length)]
+
+                const embed = new MessageEmbed()
+                    .setColor("BLUE")
+                    .setAuthor({name: `${interaction.user.username} tried something😛`, iconURL: interaction.user.displayAvatarURL({dynamic:true})})
+                    .setFooter({text: `Did it taste good doe?`})
+                    .setDescription(`${interaction.user} ate ${member.user}'s butt😳🍑`)
+                    .setImage(gif);
+
+                return interaction.editReply({embeds : [embed]});
+            }
+
+// Beer sub-command
+
+else if(subcommand === "beer"){
+
+                // Beer sub-command
+                let embed = new MessageEmbed()
+                    .setColor("BLUE")
+                    .setDescription(`**${interaction.user.username}** bought ${member.user} <a:Cheers:738820410681851915>`)
+
+                return interaction.editReply({embeds:[embed]});
+}
+
+// Choke sub-command
+
+else if(subcommand === "choke"){
+                // Choke sub-command
+                if (member.id === interaction.user.id) { return interaction.editReply("Kinky much?") }
+                if(chibi) return interaction.editReply({embeds: [new MessageEmbed().setColor("RANDOM")
+                        .setThumbnail("https://i.imgur.com/3jJZgyT.gif")
+                        .setAuthor({name: `${interaction.user.username} Just tried to choke ${member.user.username} 😵🥴`, iconURL: interaction.user.displayAvatarURL({dynamic:true})})]})
+
+                let random = ["https://i.imgur.com/p6b4eBe.gif","https://i.imgur.com/ISnhSVc.gif","https://i.imgur.com/drBE7Me.gif","https://i.imgur.com/1tVHc2Y.gif","https://i.imgur.com/XHbLIQZ.gif","https://i.imgur.com/ppK575E.gif","https://i.imgur.com/inzaJLh.gif","https://i.imgur.com/tJvTNER.gif","https://i.imgur.com/VK58Ic5.gif"]
+                let gif = random[Math.floor(Math.random() * random.length)]
+
+                let embed = new MessageEmbed()
+                    .setColor("BLUE")
+                    .setAuthor({name: `${interaction.user.username} Just tried to choke ${member.user.username} 😵🥴`, iconURL: interaction.user.displayAvatarURL({dynamic:true})})
+                    .setFooter({text: `If they were craving blood or just horny, nobody knows....`})
+                    .setImage(gif);
+
+                return interaction.editReply({embeds: [embed]});
+            }
+// Cum sub-command
+
+else if(subcommand === "cum"){
+                if (member.id === interaction.user.id) { return interaction.editReply("What you just tried to achieve was beyond a mere homosexual's reach") }
+
+                let random = ["https://i.imgur.com/MD0Ml5o.gif","https://i.imgur.com/OujBS62.gif","https://i.imgur.com/WtTPp9U.gif"
+                    ,"https://i.imgur.com/A5pgXDS.gif","https://i.imgur.com/YwE6s7Z.gif","https://i.imgur.com/t6rE8CA.gif"]
+                let gif = random[Math.floor(Math.random() * random.length)]
+
+                if(chibi===true) { return interaction.editReply({embeds: [new MessageEmbed().setColor("RANDOM")
+                        .setThumbnail("https://i.imgur.com/np0XZX7.gif")
+                        .setDescription(`*${interaction.user} just came all over ${member.user} 😫😳🍼*`)]}) }
+
+                let embed = new MessageEmbed()
+                    .setColor("BLUE")
+                    .setAuthor({name: `${interaction.user.username} jizzzzzzzzzed!`, iconURL: interaction.user.displayAvatarURL({dynamic:true})})
+                    .setFooter({text: `Spitters are quitters but who'll clean the mess doe?`})
+                    .setDescription(`*${interaction.user} just came all over ${member.user} 😫😳🍼*`)
+                    .setImage(gif);
+
+                return interaction.editReply({embeds: [embed]});
+            }
+
+// Fist sub-command
+
+else if(subcommand === "fist"){
+                if (member.id === interaction.user.id) { return interaction.editReply({content : "Okay, no."}) }
+
+                let random = ["https://i.imgur.com/EbpitKy.gif","https://i.imgur.com/AGFTtzv.gif","https://i.imgur.com/c69GzVj.gif"]
+                let gif = random[Math.floor(Math.random() * random.length)]
+
+                if(chibi===true) { return interaction.editReply({embeds: [new MessageEmbed().setColor("RANDOM")
+                        .setThumbnail("https://i.imgur.com/BlxNQE8.gif")
+                        .setDescription(`**${interaction.user} fisted you ${member.user}** <:Balloon:738767809840152656><:Balloon:738767809840152656><:Balloon:738767809840152656>`)]}) }
+
+                let embed = new MessageEmbed()
+                    .setColor("BLUE")
+                    .setDescription(`**${interaction.user} fisted you ${member.user}** <:Balloon:738767809840152656><:Balloon:738767809840152656><:Balloon:738767809840152656>`)
+                    .setImage(gif);
+
+                return interaction.editReply({embeds: [embed]});
+            }
+
+// Fondle
+else if(subcommand === "fondle"){
+
+                if (member.id === interaction.user.id) { return interaction.editReply({content : "Stop touching yourself, everyone's looking 😳"}); }
+
+                const random = ["https://i.imgur.com/XBEJvtc.gif", "https://i.imgur.com/xWm2f7V.gif", "https://i.imgur.com/eTUqQKb.gif", "https://i.imgur.com/TwDdyH6.gif", "https://i.imgur.com/2HD7jP6.gif", "https://i.imgur.com/qKRYblo.gif", "https://i.imgur.com/abdqBT9.gif", "https://i.imgur.com/F0DaGBc.gif", "https://i.imgur.com/YDkRfzW.gif"];
+                const gif = random[Math.floor(Math.random() * random.length)];
+
+                if(chibi===true) { return interaction.editReply({ embeds: [new MessageEmbed().setColor("RANDOM")
+                        .setThumbnail("https://i.imgur.com/KdQSj8v.gif")
+                        .setDescription(`${interaction.user} is fondling ${member.user} 🤤🏀`)] }); }
+
+                const embed = new MessageEmbed()
+                    .setColor("BLUE")
+                    .setAuthor({ name: `${interaction.user.username} is in a mood...`, iconURL: interaction.user.displayAvatarURL({ dynamic: true }) })
+                    .setFooter({ text: "B-baka!!" })
+                    .setDescription(`${interaction.user} is fondling ${member.user}} 🤤🏀`)
+                    .setImage(gif);
+
+                return interaction.editReply({ embeds: [embed] });
+
+            }
+// Peg
+
+else if(subcommand === "peg"){
+
+                let random = ["https://i.imgur.com/yVc1QF6.gif","https://i.imgur.com/2jr11oo.gif","https://i.imgur.com/w9Nd2hs.gif","https://i.imgur.com/AB8IAUe.gif"]
+                let gif = random[Math.floor(Math.random() * random.length)]
+
+                if (member.id === interaction.user.id) { return interaction.editReply("*um..No.*") }
+
+                if(chibi===true) { return interaction.editReply({embeds: [new MessageEmbed().setColor("RANDOM")
+                        .setThumbnail("https://i.imgur.com/65I1f8A.gif")
+                        .setAuthor({name: `${interaction.user.username} tried pegging ${member.user.username} 😨`, iconURL: interaction.user.displayAvatarURL({dynamic:true})})]}) }
+
+                let embed = new MessageEmbed()
+                    .setColor("BLUE")
+                    .setFooter({text: "Oh God Oh F*ck..."})
+                    .setAuthor({name: `${interaction.user.username} tried pegging ${member.user.username} 😨`, iconURL: interaction.user.displayAvatarURL({dynamic:true})})
+                    .setImage(gif);
+
+                return interaction.editReply({embeds: [embed]});
+            }
+
+// Smash
+
+else if(subcommand === "smash"){
+
+                if (member.id === interaction.user.id) { return interaction.editReply("That's just a yikes.") }
+
+                let random = ["https://i.imgur.com/eHYoocw.gif","https://i.imgur.com/oqbcwOU.gif","https://i.imgur.com/lETBSkT.gif","https://i.imgur.com/IKp9n4d.gif","https://i.imgur.com/JhcaUzS.gif","https://i.imgur.com/Nu1HBkR.gif","https://i.imgur.com/gnM1B0L.gif","https://i.imgur.com/pR5iXgW.gif","https://i.imgur.com/t54joM2.gif"]
+                let gif = random[Math.floor(Math.random() * random.length)]
+
+                if(chibi===true) { return interaction.editReply({embeds: [new MessageEmbed().setColor("RANDOM")
+                        .setThumbnail("https://i.imgur.com/XQJYHKr.gif")
+                        .setAuthor({name: `${interaction.user.username} just smashed ${member.user.username} 😰🥶😱`, iconURL: interaction.user.displayAvatarURL({dynamic:true})})]}) }
+
+                let embed = new MessageEmbed()
+                    .setColor("BLUE")
+                    .setAuthor({name: `${interaction.user.username} just smashed ${member.user.username} 😰🥶😱`, iconURL: interaction.user.displayAvatarURL({dynamic:true})})
+                    .setFooter({text: `😭 oh boy... 😭`})
+                    .setImage(gif);
+
+                return interaction.editReply({embeds: [embed]});
+            }
+// Spank
+else if(subcommand === "spank"){
+
+                let random = ["https://i.imgur.com/6p0Tmtk.gif","https://i.imgur.com/SQR04l0.gif","https://i.imgur.com/6LBQnim.gif","https://i.imgur.com/brcIQhL.gif","https://i.imgur.com/r1nL4aN.gif","https://i.imgur.com/2DPkLOY.gif","https://i.imgur.com/3TjF9W4.gif","https://i.imgur.com/rDDnKxN.gif","https://i.imgur.com/Htr2rdk.gif"]
+
+                let gif = random[Math.floor(Math.random() * random.length)]
+
+                if (member.id === interaction.user.id) { const emb = new MessageEmbed().setImage("https://media.tenor.com/images/86169e5a54e4c562d62184f5f135b13a/tenor.gif")
+                    return interaction.editReply({embeds: [emb]}) }
+
+                if(chibi===true) { return interaction.editReply({embeds: [new MessageEmbed().setColor("RANDOM")
+                        .setThumbnail("https://i.imgur.com/6VWZnlA.gif")
+                        .setDescription(`${member.user} got SPANKED by ${interaction.user.username} <:Balloon:738767809840152656><:Balloon:738767809840152656>`)]}) }
+
+                let embed = new MessageEmbed()
+                    .setColor("BLUE")
+                    .setDescription(`${member.user} got SPANKED by ${interaction.user.username} <:Balloon:738767809840152656><:Balloon:738767809840152656>`)
+                    .setImage(gif);
+
+                return interaction.editReply({embeds: [embed]});
+            }
+
+// Tickle
+else if(subcommand === "tickle"){
 
                 let random = ["https://i.imgur.com/tmDdFvg.gif","https://i.imgur.com/VGffMD5.gif","https://i.imgur.com/XIu2wV8.gif","https://i.imgur.com/c9nFZMk.gif","https://i.imgur.com/6OWBiOY.gif","https://i.imgur.com/nllp5XR.gif","https://i.imgur.com/blGvYKz.gif","https://i.imgur.com/VD8nvU5.gif","https://i.imgur.com/PYcs0sx.gif"]
                 let gif = random[Math.floor(Math.random() * random.length)]
@@ -1209,7 +1059,10 @@ export class ActionsCommand extends Command{
 
                 return interaction.editReply({embeds: [embed]});
             }
-            else if(subcommand === "touch"){
+
+// Touch
+
+else if(subcommand === "touch"){
 
                 if (member.id === interaction.user.id) { return interaction.editReply("Time to play with yourself, eh? 💦") }
 
@@ -1228,8 +1081,9 @@ export class ActionsCommand extends Command{
 
                 return interaction.editReply({embeds: [embed]});
             }
-        }
-    }
-}
+
+
+
+ */
 
 
