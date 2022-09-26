@@ -1,6 +1,7 @@
 import { Collection } from "discord.js"
 import * as Usable from "./Usable";
 import * as Rob from "./Rob";
+import * as Collectibles from "./Collectibles";
 
 export interface UsableItem {
 	supportsQuantity?: boolean,
@@ -16,3 +17,4 @@ export function getUse(command: string) {
 
 Usable.register(uses);
 Rob.register(uses);
+Collectibles.register(uses);

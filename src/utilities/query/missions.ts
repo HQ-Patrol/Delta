@@ -5,8 +5,8 @@ import UserWeeklyMissionsModel from "../../database/models/UserWeeklyMissionsMod
 export async function doWeeklyMission(id: string, code: string, value = 1) {
 	const find = await findOneOrCreate({ id }, { id }, UserWeeklyMissionsModel);
 	
-	const query: Record<string, Record<string, number>> = {};
-	query[code] = { value: (find[code]?.value || 0) + value };
+	const query: Record<string, Record<string, number | boolean>> = {};
+	query[code] = { value: (find[code]?.value || 0) + value, prize: false, prizePlus: false };
 
 	return UserWeeklyMissionsModel.updateOne({ id }, query);
 }
@@ -14,8 +14,8 @@ export async function doWeeklyMission(id: string, code: string, value = 1) {
 export async function doMonthlyMission(id: string, code: string, value = 1) {
 	const find = await findOneOrCreate({ id }, { id }, UserMonthlyMissionsModel);
 	
-	const query: Record<string, Record<string, number>> = {};
-	query[code] = { value: (find[code]?.value || 0) + value };
+	const query: Record<string, Record<string, number | boolean>> = {};
+	query[code] = { value: (find[code]?.value || 0) + value, prize: false, prizePlus: false };
 
 	return UserMonthlyMissionsModel.updateOne({ id }, query);
 }
