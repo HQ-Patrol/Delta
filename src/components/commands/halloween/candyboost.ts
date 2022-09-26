@@ -26,18 +26,18 @@ export class CandyBoostCommand extends Command {
   }
 
   public async chatInputRun(interaction: Command.ChatInputInteraction) {
-    let player = await Candy.findOne({ id: interaction.user.id });
+    const player = await Candy.findOne({ id: interaction.user.id });
     if (!player)
       return interaction.reply(
         "You haven't started your Candy Pilgrimage yet! Type: `/trickortreat` to get started <:Skittles1:747102800835641435><:Skittles2:747102801221517452>"
       );
-    let packnum = interaction.options.getInteger("packnum") || 1;
+    const packnum = interaction.options.getInteger("packnum") || 1;
     if (player.Package < packnum)
       return interaction.reply(
         `You don't have enough Candy packs <a:exclamation:741988026296696872> **Inventory: ${player.Package}**`
       );
     player.Package = player.Package - packnum;
-    let booster = Math.floor(Math.random() * 4) + 2;
+    const booster = Math.floor(Math.random() * 4) + 2;
     if (player.booster > 0) {
       await interaction.reply({
         embeds: [

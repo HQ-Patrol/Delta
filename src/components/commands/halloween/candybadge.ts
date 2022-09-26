@@ -21,7 +21,7 @@ export class CandyBadgeCommand extends Command {
   }
 
   public async chatInputRun(interaction: Command.ChatInputInteraction) {
-    let player = await Candy.findOne({ id: interaction.user.id });
+    const player = await Candy.findOne({ id: interaction.user.id });
     if (!player)
       return interaction.reply(
         `**You haven't started your Candy Land pilgrimage yet** <a:exclamation:741988026296696872> Type: \`/tt\` 💯`
@@ -32,14 +32,14 @@ export class CandyBadgeCommand extends Command {
       );
 
     //Halloween Badge Addition=========================
-    var badge = Badges.badges.filter(
+    const badge = Badges.badges.filter(
       (b) => b.name.toLowerCase() === "candy hunter 2021"
     )[0];
 
-    var _badges = await BADGES.findOne({ id: interaction.user.id });
+    const _badges = await BADGES.findOne({ id: interaction.user.id });
 
     if (!_badges) {
-      var b = new BADGES({
+      const b = new BADGES({
         id: interaction.user.id,
         badges: [badge],
       });
@@ -61,7 +61,7 @@ export class CandyBadgeCommand extends Command {
       await b.save();
       return;
     } else {
-      var exists = await BADGES.findOne({
+      const exists = await BADGES.findOne({
         id: interaction.user.id,
         badges: { $in: [badge] },
       });

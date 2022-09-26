@@ -26,14 +26,14 @@ export class CandyBagCommand extends Command {
   }
 
   public async chatInputRun(interaction: Command.ChatInputInteraction) {
-    let user = interaction.options.getUser("user") || interaction.user;
+    const user = interaction.options.getUser("user") || interaction.user;
 
-    let player = await Candy.findOne({ id: user.id });
+    const player = await Candy.findOne({ id: user.id });
     if (!player)
       return interaction.reply(
         `<@${user.id}> haven't started their Candy Pilgrimage yet! Type: \`/trickortreat\` to get started on your journey! <:Skittles1:747102800835641435><:Skittles2:747102801221517452>`
       );
-    let candies = Object.entries(player.candy)
+    const candies = Object.entries(player.candy)
       .filter(
         (x: any) => x[1] > 0 && !x[0].startsWith("$") && !x[0].endsWith("stone")
       )
@@ -42,9 +42,9 @@ export class CandyBagCommand extends Command {
           "• " + x[0][0].toUpperCase() + x[0].substring(1) + " - " + x[1]
       )
       .join("\n");
-    let totalcandies = player.CandyCount;
+    const totalcandies = player.CandyCount;
 
-    let embed = new MessageEmbed()
+    const embed = new MessageEmbed()
       .setColor("RANDOM")
       .setAuthor(
         `${user.tag}'s Candy Bag 🎒`,

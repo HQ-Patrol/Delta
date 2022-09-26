@@ -28,7 +28,7 @@ export class CandyShieldCommand extends Command {
     return interaction.reply(
       `Time limit to accumulate shields and to prevent yourself from getting robbed has ended!🛡`
     );
-    let player = await Candy.findOne({ id: interaction.user.id });
+    const player = await Candy.findOne({ id: interaction.user.id });
     if (!player)
       return interaction.reply(
         `**You haven't started your Candy Land pilgrimage yet** <a:exclamation:741988026296696872>`

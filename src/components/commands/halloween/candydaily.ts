@@ -19,7 +19,7 @@ export class CandyDailyCommand extends Command {
   }
 
   public async chatInputRun(interaction: Command.ChatInputInteraction) {
-    let player = await Candy.findOne({ id: interaction.user.id });
+    const player = await Candy.findOne({ id: interaction.user.id });
     if (!player) {
       await Candy.create({ id: interaction.user.id });
       return interaction.reply(
@@ -49,10 +49,10 @@ export class CandyDailyCommand extends Command {
       });
     }
 
-    let added = {};
+    const added = {};
     let candiestaken = 0;
     while (candiestaken < 25) {
-      let randomcandy = Object.keys(player.candy).filter(
+      const randomcandy = Object.keys(player.candy).filter(
         (x) => !x.endsWith("stone") && !x.startsWith("$")
       )[
         Math.floor(
@@ -73,7 +73,7 @@ export class CandyDailyCommand extends Command {
     player.CandyCount = player.CandyCount + 25;
     await player.save();
 
-    let stolenmessage = Object.entries(added)
+    const stolenmessage = Object.entries(added)
       .map((x) => `\`${x[0].toUpperCase()}\`` + " - " + `\`${x[1]}\``)
       .join("\n");
 

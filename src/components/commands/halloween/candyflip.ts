@@ -31,7 +31,7 @@ export class CandyFlipCommand extends Command {
   }
 
   public async chatInputRun(interaction: Command.ChatInputInteraction) {
-    let itemName = (interaction.options.getString("itemname") as string)
+    const itemName = (interaction.options.getString("itemname") as string)
       .toLowerCase()
       .replace(/candy button/g, "candybutton")
       .replace(/candy stick/g, "candystick")
@@ -48,9 +48,9 @@ export class CandyFlipCommand extends Command {
 
     function randomcandies(player: any, stakes: any, stone = false) {
       let candiestaken = 0;
-      let takenobj = {} as any;
+      const takenobj = {} as any;
       while (candiestaken < stakes) {
-        let randomcandy = Object.keys(player.candy).filter(
+        const randomcandy = Object.keys(player.candy).filter(
           (x) =>
             player.candy[x] - (takenobj[x] || 0) > 0 &&
             (stone ? x.endsWith("stone") : !x.endsWith("stone")) &&
@@ -92,21 +92,21 @@ export class CandyFlipCommand extends Command {
       return takenobj;
     }
 
-    let player = await Candy.findOne({ id: interaction.user.id });
+    const player = await Candy.findOne({ id: interaction.user.id });
     if (!player)
       return interaction.reply(
         `**You haven't started your Candy Land pilgrimage yet** <a:exclamation:741988026296696872>`
       );
-    let stakes = interaction.options.getInteger("number") || 1;
+    const stakes = interaction.options.getInteger("number") || 1;
 
-    let heads = Math.random() < 0.5;
+    const heads = Math.random() < 0.5;
     if (itemName.toLowerCase() === "random") {
       if (player.CandyCount < stakes)
         return interaction.reply(
           `You can't gamble more than you got yourself 😐<a:exclamation:741988026296696872>`
         );
-      let heads = Math.random() < 0.5;
-      let candies = Object.entries(randomcandies(player, stakes));
+      const heads = Math.random() < 0.5;
+      const candies = Object.entries(randomcandies(player, stakes));
       candies.forEach((candy) => {
         // @ts-ignore
         player.candy[candy[0]] = // @ts-ignore
@@ -114,7 +114,7 @@ export class CandyFlipCommand extends Command {
       });
       player.CandyCount = player.CandyCount + (heads ? stakes : -stakes);
       await player.save();
-      let stake = candies
+      const stake = candies
         .map((x) => `\`${x[0].toUpperCase()}\`` + " - " + `\`${x[1]}\``)
         .join("\n");
       interaction.reply(
@@ -147,8 +147,8 @@ export class CandyFlipCommand extends Command {
           .reduce((acc, cur) => acc + cur[1]) < stakes
       )
         return interaction.reply("Lel too poor");
-      let heads = Math.random() < 0.5;
-      let candies = Object.entries(randomcandies(player, stakes, true));
+      const heads = Math.random() < 0.5;
+      const candies = Object.entries(randomcandies(player, stakes, true));
       candies.forEach((candy) => {
         // @ts-ignore
         player.candy[candy[0]] = // @ts-ignore

@@ -1,5 +1,11 @@
 import { Schema, model } from "mongoose";
 
+export interface IGuildCommand {
+  name: string,
+  count: number,
+  disabled: boolean
+}
+
 export interface IGuild {
   _id: string,
   name: string,
@@ -8,7 +14,7 @@ export interface IGuild {
   prefix: string,
   serverCooldown: number,
   premium: boolean,
-  commands: Array<object>,
+  commands: Array<IGuildCommand>,
   invite: string,
   chibi: boolean,
   nsfw: boolean,

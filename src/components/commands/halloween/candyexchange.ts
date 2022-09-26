@@ -19,7 +19,7 @@ export class CandyExchangeCommand extends Command {
   }
 
   public async chatInputRun(interaction: Command.ChatInputInteraction) {
-    let player = await Candy.findOne({ id: interaction.user.id });
+    const player = await Candy.findOne({ id: interaction.user.id });
     if (!player) return interaction.reply(`What?`);
     if (player.Package < 0 && player.CandyCount < 0)
       return interaction.reply(

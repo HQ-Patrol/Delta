@@ -6,20 +6,20 @@ export interface IItemUse {
   handcuffs: string;
   snitch: boolean;
   snitchDemon: boolean;
-  rugTime: string;
-  handcuffsTime: string;
+  rugTime: number;
+  handcuffsTime: number;
   wSkip: number;
   mSkip: number;
 }
 
 const ItemUseSchema = new Schema<IItemUse>({
   id: String,
-  protects: Number,
-  handcuffs: String,
-  snitch: Boolean,
-  snitchDemon: Boolean,
-  rugTime: String,
-  handcuffsTime: String,
+  protects: { type: Number, default: 0 },
+  handcuffs: { type: String, default: null },
+  snitch: { type: Boolean, default: false },
+  snitchDemon: { type: Boolean, default: false },
+  rugTime: { type: Number, default: Date.now() },
+  handcuffsTime: { type: Number, default: Date.now() },
   wSkip: Number,
   mSkip: Number,
 });

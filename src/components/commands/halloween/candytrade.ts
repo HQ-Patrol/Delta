@@ -51,8 +51,8 @@ export class CandyTradeCommand extends Command {
   // "ctrade <user> <numberToGive> <candyToGive> (numberToTake) (candyToTake)",
 
   public async chatInputRun(interaction: Command.ChatInputInteraction) {
-    let numberToGive = interaction.options.getInteger("numbertogive");
-    let candyToGive = interaction.options
+    const numberToGive = interaction.options.getInteger("numbertogive");
+    const candyToGive = interaction.options
       .getString("candytogive")
       ?.toLowerCase()
       .replace(/candy button/g, "candybutton")
@@ -68,8 +68,8 @@ export class CandyTradeCommand extends Command {
       .replace(/sour patch/g, "sourpatch")
       .replace(/ stone/g, "stone");
 
-    let numberToTake = interaction.options.getInteger("numbertotake");
-    let candyToTake = interaction.options
+    const numberToTake = interaction.options.getInteger("numbertotake");
+    const candyToTake = interaction.options
       .getString("candytotake")
       ?.toLowerCase()
       .replace(/candy button/g, "candybutton")
@@ -85,8 +85,8 @@ export class CandyTradeCommand extends Command {
       .replace(/sour patch/g, "sourpatch")
       .replace(/ stone/g, "stone");
 
-    let user1 = interaction.user;
-    let user2 = interaction.options.getUser("user") as User;
+    const user1 = interaction.user;
+    const user2 = interaction.options.getUser("user") as User;
     if (!user2 || !numberToGive || !candyToGive)
       return interaction.reply(
         'You forgot a necessary argument!\n__**Usage:**__ `/candytrade <user> <numberToGive> <candyToGive> (numberToTake) (candyToTake)`\n Options inside -> "()" are Optional.'
@@ -95,18 +95,18 @@ export class CandyTradeCommand extends Command {
       return interaction.reply(
         "You can't trade with yourself dumbass! <a:LmaoBlast:741346535358595072><a:RedTick:736282199258824774>"
       );
-    let give = candyToGive.toLowerCase();
-    let givenum = numberToGive;
-    let take = (candyToTake || "Nothing").toLowerCase();
+    const give = candyToGive.toLowerCase();
+    const givenum = numberToGive;
+    const take = (candyToTake || "Nothing").toLowerCase();
 
-    let takenum = numberToTake || 0;
+    const takenum = numberToTake || 0;
 
-    let player1 = await Candy.findOne({ id: user1.id }).exec();
+    const player1 = await Candy.findOne({ id: user1.id }).exec();
     if (!player1)
       return interaction.reply(
         "You haven't started your Candy Pilgrimage yet! Type: `!trickortreat` to get started <:Skittles1:747102800835641435><:Skittles2:747102801221517452>"
       );
-    let player2 = await Candy.findOne({ id: user2.id }).exec();
+    const player2 = await Candy.findOne({ id: user2.id }).exec();
     if (!player2)
       return interaction.reply(
         `${user2.toString()} haven't started their journey to the Candy Land yet!`
@@ -165,7 +165,7 @@ export class CandyTradeCommand extends Command {
         return interaction.reply(
           `${user2.toString()} does not have enough ${take} to give! Use \`!candybag (user)\` to view their inventory.`
         );
-      let embed = new MessageEmbed()
+      const embed = new MessageEmbed()
         .setAuthor(
           "Trade Offer ⚖",
           interaction.user.displayAvatarURL({ dynamic: true })
@@ -177,14 +177,14 @@ export class CandyTradeCommand extends Command {
         .setFooter({
           text: "You have 60 seconds to react with ✅ or ❌ to accept or decline the offer.",
         });
-      let offerembed = (await interaction.reply({
+      const offerembed = (await interaction.reply({
         embeds: [embed],
       })) as any;
       await offerembed.react("✅");
       await offerembed.react("❌");
-      let filter = (r: any, u: any) =>
+      const filter = (r: any, u: any) =>
         u.id === user2.id && (r.emoji.name === "✅" || r.emoji.name === "❌");
-      let reaction = (
+      const reaction = (
         await offerembed.awaitReactions({
           filter,
           max: 1,

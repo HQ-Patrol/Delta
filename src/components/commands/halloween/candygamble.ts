@@ -27,9 +27,9 @@ export class CandyGambleCommand extends Command {
   }
 
   public async chatInputRun(interaction: Command.ChatInputInteraction) {
-    let number = interaction.options.getInteger("number");
+    const number = interaction.options.getInteger("number");
 
-    let player = await Candy.findOne({ id: interaction.user.id });
+    const player = await Candy.findOne({ id: interaction.user.id });
     if (!player)
       return interaction.reply(
         `**You haven't started your Candy Land pilgrimage yet** <a:exclamation:741988026296696872> Type: \`!tt\` 💯`
@@ -38,7 +38,7 @@ export class CandyGambleCommand extends Command {
       return interaction.reply(
         `You currently have \`${player.Package}\` packs! You need **4 Candy Packs** to use this command <a:exclamation:741988026296696872>`
       );
-    let random = Math.floor(Math.random() * 6) + 1;
+    const random = Math.floor(Math.random() * 6) + 1;
 
     const emb = new MessageEmbed()
       .setTitle("Gamble started!")
@@ -67,7 +67,7 @@ export class CandyGambleCommand extends Command {
     await sleep(1000);
 
     if (number === random) {
-      let thestone = [
+      const thestone = [
         "soulstone",
         "mindstone",
         "timestone",
