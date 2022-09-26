@@ -1,5 +1,6 @@
 import { badges } from "../data/json/badges.json";
 import findUserById from "../database/functions/economy/findUserById";
+import findOneOrCreate from "../database/functions/findOneOrCreate";
 import { BadgesModel } from "../database/models/BadgesModel";
 import { CooldownsModel } from "../database/models/CooldownsModel";
 import { RepModel } from "../database/models/RepModel";
@@ -43,5 +44,23 @@ export async function check(id: string) {
 		{
 			$addToSet: { badges: { $each: badgesArray } }
 		});
+	}
+}
+
+export async function giveBadge(id: string, badgeName: string): Promise<null | [boolean, IBadge]> {
+	const user = await findOneOrCreate({ id }, { id }, BadgesModel);
+	const badges = user.badges, targetBadge = resolve(badgeName);
+	
+	if(!targetBadge) return null;
+	if(!badges) {
+		await BadgesModel.updateOne({ id }, { items: [targetBadge] });
+		return [true, targetBadge];
+	}
+	if(badges.find((badge: IBadge) => badge.name === targetBadge.name)) {
+		// already have
+		return [false, targetBadge];
+	} else {
+		await BadgesModel.updateOne({ id }, { $addToSet: { badges: targetBadge } });
+		return [true, targetBadge];
 	}
 }
