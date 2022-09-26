@@ -5,11 +5,10 @@ import findUserById from "../../../database/functions/economy/findUserById";
 
 import sendError from "../../../utilities/sendError";
 import { findItem } from "../../../utilities/query/item";
+import { removeItemFromUser } from "../../../utilities/query/inventory";
 
 import { IItem } from "../../../types/Item";
 import { getUse } from "../../../utilities/use";
-import emoji from "../../../constants/emoji";
-
 @ApplyOptions<Command.Options>({
   name: "use",
   description: "Use your economy items!",
@@ -56,22 +55,29 @@ export class UseCommand extends Command {
       return sendError(interaction, "This item cannot be used!");
 
     const user = await findUserById(interaction.user.id);
-    // const find = user.items.find((i) => i.name === itemFind.name);
-    // if (!find || find.count < quantity) {
-    //   return sendError(
-    //     interaction,
-    //     `You do not have enough ${itemFind.icon} **${itemFind.name}**! You need **${quantity - (find?.count || 0)}** more.`
-    //   );
-    // }
+    const find = user.items.find((i) => i.name === itemFind.name);
+    if (!find || find.count < quantity) {
+      return sendError(
+        interaction,
+        `You do not have enough ${itemFind.icon} **${itemFind.name}**! You need **${quantity - (find?.count || 0)}** more.`
+      );
+    }
 	
-	const useFunction = getUse(itemFind.name2);
-	if(!useFunction) return sendError(interaction, "This item cannot be used yet!");
-	if(!useFunction?.supportsQuantity && quantity !== 1) {
-		interaction.followUp(`${emoji.exclamation} This item does not support using multiple at the same time yet, so I will be defaulting to use only **1** of this item!`);
-		quantity = 1;
-	}
-
-	// await removeItemFromUser(interaction.user.id, itemFind.name, quantity, user);
-	return useFunction.use(interaction, user, itemFind, quantity);
+    const useFunction = getUse(itemFind.name2);
+    if(!useFunction) return sendError(interaction, "This item cannot be used yet!");
+    if(!useFunction?.supportsQuantity && quantity !== 1) {
+      quantity = 1;
+    }
+    
+    if(useFunction.waitForSuccess) {
+      const response = await useFunction.use(interaction, user, itemFind, quantity);
+      if(response) {
+        await removeItemFromUser(interaction.user.id, itemFind.name, quantity, user);
+        return;
+      }
+    } else {
+      await removeItemFromUser(interaction.user.id, itemFind.name, quantity, user);
+      return useFunction.use(interaction, user, itemFind, quantity);
+    }
   }
 }

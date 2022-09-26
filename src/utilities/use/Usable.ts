@@ -132,9 +132,13 @@ const mbconfig: any = {
 };
 const mysterybox = {
   supportsQuantity: true,
+  waitForSuccess: true,
   async use(interaction: CommandInteraction, economy: IEconomy, item: IItem, quantity: number) { 
     // Limit quantity
-		if(quantity > 25) return sendError(interaction, "You may not open more than 25 boxes at once!");
+		if(quantity > 25) {
+      sendError(interaction, "You may not open more than 25 boxes at once!");
+      return false;
+    }
 
     const config = mbconfig[item.alias];
 
@@ -220,7 +224,8 @@ const mysterybox = {
           .setThumbnail(config.thumbnail)
           .setDescription(description)
       ]
-    })
+    });
+    return true;
   }
 }
 
@@ -229,19 +234,23 @@ const prayerrug = {
   async use(interaction: CommandInteraction, _economy: IEconomy, _item: IItem, quantity: number) {
     const itemUses = await findOneOrCreate({ id: interaction.user.id }, { id: interaction.user.id }, ItemUseModel) as IItemUse;
 
-    if(itemUses.rugTime && itemUses.rugTime > Date.now()) return sendError(interaction, "You are already praying on a rug right now! <a:RugPray:857369869762822144>");
+    if(itemUses.rugTime && itemUses.rugTime > Date.now()) {
+      sendError(interaction, "You are already praying on a rug right now! <a:RugPray:857369869762822144>");
+      return false;
+    }
 
     await Promise.all([
       ItemUseModel.updateOne({ id: interaction.user.id }, { $set: { rugTime: Date.now() + (3_600_000 * quantity) } }),
       doWeeklyMission(interaction.user.id, "use_PrayerRug", quantity)
     ]);
 
-    return interaction.reply({ embeds: [
+    interaction.reply({ embeds: [
       new MessageEmbed()
         .setDescription(`<:PrayerRug:855847171140091984> | ${interaction.user} **started praying on the rug for the next __${60 * quantity} minutes__** 🌙\n\`˃ Praying gains are increased\` 🧘‍♀️`)
         .setColor("RANDOM")
         .setThumbnail("https://i.imgur.com/js2d9E4.gif")] 
     });
+    return true;
   }
 }
 
@@ -257,6 +266,4 @@ export function register(collection: Collection<string, UsableItem>) {
   // TODO: mbxl
 
   collection.set("prayerrug", prayerrug);
-
-  
 }
