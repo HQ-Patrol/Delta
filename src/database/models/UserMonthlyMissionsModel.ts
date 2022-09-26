@@ -1,6 +1,327 @@
 import { Schema, model } from "mongoose";
 
-const UserMonthlyMissionSchema = new Schema({
+export interface IUserMonthlyMission {
+  id: string;
+  work_Plumber: {
+    value: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  work_TechSupport: {
+    value: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  work_GoldDigger: {
+    value: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  work_Teacher: {
+    value: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  daily: {
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  marriage: {
+    value: number;
+    users: string[];
+    wins: number;
+    loss: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  marriageStreak: {
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  fight: {
+    value: number;
+    users: string[];
+    wins: number;
+    loss: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  snap: {
+    value: number;
+    wins: number;
+    loss: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  dr: {
+    value: number;
+    wins: number;
+    loss: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  bj: {
+    value: number;
+    wins: number;
+    loss: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  use_MysteryBox1: {
+    value: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  use_MysteryBox2: {
+    value: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  use_MysteryBoxXXX: {
+    value: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  use_CumChalice: {
+    value: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  use_Soft: {
+    value: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  use_Medium: {
+    value: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  use_Hard: {
+    value: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  hatch_Sparky: {
+    value: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  hatch_Quaggi: {
+    value: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  hatch_Chimpmunk: {
+    value: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  hatch_Furrloin: {
+    value: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  brawl_total: {
+    value: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  brawl_users: {
+    value: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  brawl_Chelsea: {
+    value: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  brawl_Gary: {
+    value: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  brawl_Gray: {
+    value: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  evo3_Level15: {
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  pet_Level25: {
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  bonk: {
+    value: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  cookie: {
+    value: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  jackpot: {
+    value: number;
+    wins: number;
+    loss: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  jackpotStart: {
+    value: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  fart: {
+    value: number;
+    wins: number;
+    loss: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  topic: {
+    value: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  riddle1: {
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  riddle2: {
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  riddle3: {
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  riddle4: {
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  riddle5: {
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  coins: {
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  negative: {
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  cf: {
+    value: number;
+    wins: number;
+    loss: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  cfBattle: {
+    value: number;
+    users: string[];
+    wins: number;
+    loss: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  slots: {
+    value: number;
+    wins: number;
+    loss: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  rt7: {
+    value: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  trade: {
+    value: number;
+    users: string[];
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  rr: {
+    value: number;
+    wins: number;
+    loss: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  toxic: {
+    value: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  vote: {
+    value: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  tts: {
+    value: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  rep: {
+    value: number;
+    users: string[];
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  locks: {
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  snitchDemon: {
+    value: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  rob: {
+    value: number;
+    users: string[];
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  badge_BigBaller: {
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  badge_Hackerman: {
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  badge_NFT: {
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  badge_BrawlMaster: {
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  tax_Benefits: {
+    value: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  tax_Return: {
+    value: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+}
+
+const UserMonthlyMissionSchema = new Schema<IUserMonthlyMission>({
   id: String,
   work_Plumber: {
     value: Number,
@@ -321,4 +642,4 @@ const UserMonthlyMissionSchema = new Schema({
   },
 });
 
-export default model("usermm", UserMonthlyMissionSchema);
+export default model<IUserMonthlyMission>("usermm", UserMonthlyMissionSchema);

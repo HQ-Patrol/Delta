@@ -1,6 +1,290 @@
 import { Schema, model } from "mongoose";
 
-const UserWeeklyMissionSchema = new Schema({
+export interface IUserWeeklyMission {
+  id: string;
+  work_Plumber: {
+    value: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  work_Chef: {
+    value: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  work_GoldDigger: {
+    value: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  work_Teacher: {
+    value: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  daily: {
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  verify: {
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  marriage: {
+    value: number;
+    users: string[];
+    wins: number;
+    loss: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  fight: {
+    value: number;
+    users: string[];
+    wins: number;
+    loss: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  snap: {
+    value: number;
+    wins: number;
+    loss: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  use_Handcuffs: {
+    value: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  use_PrayerRug: {
+    value: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  use_MysteryBox1: {
+    value: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  use_Snowball: {
+    value: number;
+    users: string[];
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  use_Soft: {
+    value: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  use_Medium: {
+    value: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  use_Hard: {
+    value: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  hatch_Sparky: {
+    value: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  hatch_Quaggi: {
+    value: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  hatch_Chimpmunk: {
+    value: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  brawl_total: {
+    value: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  brawl_users: {
+    value: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  brawl_Jordan: {
+    value: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  brawl_Sid: {
+    value: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  brawl_MrWolf: {
+    value: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  evo2_Level10: {
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  pet_Level20: {
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  vote: {
+    value: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  bonk: {
+    value: number;
+    users: string[];
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  cookie: {
+    value: number;
+    users: string[];
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  cf: {
+    value: number;
+    wins: number;
+    loss: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  jackpot: {
+    value: number;
+    wins: number;
+    loss: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  jackpotStart: {
+    value: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  rps: {
+    value: number;
+    wins: number;
+    loss: number;
+    tie: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  fart: {
+    value: number;
+    wins: number;
+    loss: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  dr: {
+    value: number;
+    wins: number;
+    loss: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  bj: {
+    value: number;
+    wins: number;
+    loss: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  topic: {
+    value: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  riddle1: {
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  riddle2: {
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  riddle3: {
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  riddle4: {
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  riddle5: {
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  set: {
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  groom: {
+    value: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  mv: {
+    value: number;
+    users: string[];
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  derep: {
+    value: number;
+    users: string[];
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  coins: {
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  negative: {
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  based: {
+    value: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  badge_Admirable: {
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  badge_HeroofSovietUnion: {
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  badge_ClaimGuru: {
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  badge_NFT: {
+    prize: boolean;
+    prizePlus: boolean;
+  };
+  tax_Return: {
+    value: number;
+    prize: boolean;
+    prizePlus: boolean;
+  };
+}
+
+const UserWeeklyMissionSchema = new Schema<IUserWeeklyMission>({
   id: String,
   work_Plumber: {
     value: Number,
@@ -284,4 +568,4 @@ const UserWeeklyMissionSchema = new Schema({
   },
 });
 
-export default model("userwm", UserWeeklyMissionSchema);
+export default model<IUserWeeklyMission>("userwm", UserWeeklyMissionSchema);

@@ -13,6 +13,15 @@ export default class DeltaClient extends SapphireClient {
 
   public e: typeof emojis;
   public utils: typeof utils;
+  cooldowns: {
+    beg: Map<any, any>;
+    poke: Map<any, any>;
+    rob: Map<any, any>;
+    crime: Map<any, any>;
+    cookiegive: Map<any, any>;
+    earn: Map<any, any>;
+    levels: Map<any, any>;
+  };
 
   constructor(options: ClientOptions) {
     super(options);
@@ -20,6 +29,17 @@ export default class DeltaClient extends SapphireClient {
     this.cluster = new Client(this);
     this.e = emojis;
     this.utils = utils;
+
+    this.cooldowns = {
+      beg: new Map(),
+      poke: new Map(),
+      rob: new Map(),
+      crime: new Map(),
+      cookiegive: new Map(),
+
+      earn: new Map(),
+      levels: new Map(),
+    };
 
     this.connectToDatabase();
   }

@@ -2,22 +2,22 @@ import { Schema, model } from "mongoose";
 
 export interface IRole {
   id: string;
-  fight: Array<unknown>;
-  snap: Array<unknown>;
-  crucify: Array<unknown>;
-  rr: Array<unknown>;
-  fart: Array<unknown>;
-  tts: Array<unknown>;
+  fight: any[];
+  snap: any[];
+  crucify: any[];
+  rr: any[];
+  fart: any[];
+  tts: any[];
 }
 
 const RoleSchema = new Schema<IRole>({
   id: String,
-  fight: Array<unknown>,
-  snap: Array<unknown>,
-  crucify: Array<unknown>,
-  rr: Array<unknown>,
-  fart: Array<unknown>,
-  tts: Array<unknown>,
+  fight: Array,
+  snap: Array,
+  crucify: Array,
+  rr: Array,
+  fart: Array,
+  tts: Array,
 });
 
 export const RoleModel = model<IRole>("roles", RoleSchema);

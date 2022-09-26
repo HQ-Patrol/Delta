@@ -13,9 +13,9 @@
   "license": "MIT",
   "devDependencies": {
     "@commitlint/config-conventional": "^17.0.3",
-    "@types/ms": "^0.7.31",
     "@types/common-tags": "^1.8.1",
     "@types/humanize-duration": "^3.27.1",
+    "@types/ms": "^0.7.31",
     "@typescript-eslint/eslint-plugin": "^5.33.1",
     "@typescript-eslint/parser": "^5.33.1",
     "eslint": "^8.19.0",
@@ -33,6 +33,7 @@
     "chalk": "4",
     "common-tags": "^1.8.2",
     "discord-api-types": "^0.37.0",
+    "discord-blackjack": "^4.0.0",
     "discord-hybrid-sharding": "1.7.4",
     "discord.js": "13.10.2",
     "dotenv": "^16.0.1",
