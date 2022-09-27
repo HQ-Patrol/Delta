@@ -2,3 +2,5 @@ node_modules/
 .env
 .idea/
 dist/
+src/index.js
+src/utilities/logger.js
