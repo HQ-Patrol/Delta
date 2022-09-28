@@ -3,6 +3,7 @@ import * as Usable from "./Usable";
 import * as Rob from "./Rob";
 import * as Collectibles from "./Collectibles";
 import * as Badges from "./Badges";
+import * as Pets from "./Pets";
 
 export interface UsableItem {
 	supportsQuantity?: boolean,
@@ -20,3 +21,4 @@ Usable.register(uses);
 Rob.register(uses);
 Collectibles.register(uses);
 Badges.register(uses);
+Pets.register(uses);
