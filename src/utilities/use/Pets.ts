@@ -3,16 +3,20 @@ import { Collection } from "discord.js";
 import { UsableItem } from ".";
 
 import { IItem } from "../../types/Item";
+import { IPetResolved } from "../../types/Pet";
+
 import sendError from "../sendError";
 import { giveBadge } from "../badges";
+import { capitalize, footer, rnd } from "../global";
+
 import { Economy, IEconomy } from "../../database/models/EconomyModel";
 import { IPet, PetModel } from "../../database/models/PetModel";
 import { User } from "../../database/models/UserModel";
 import findOneOrCreate from "../../database/functions/findOneOrCreate";
-import { capitalize, footer, rnd } from "../global";
+
 import { changePetName, getColorByRarity, resolvePet } from "../query/pets";
 import { addItemToUser } from "../query/inventory";
-import { IPetResolved } from "../../types/Pet";
+import { doMonthlyMissions, doWeeklyMissions } from "../query/missions";
 
 function generateSkills(total: number, max: number) {
   // shitty function made by yours truly to generate a random array
@@ -284,7 +288,29 @@ const egg = {
       }
     }
 
+    // missions
+    const missions: Record<string, number> = {};
+    const promises = [];
+    switch(item.name2) {
+      case "softboiledegg": 
+        missions["use_Soft"] = 1;
+        break;   
+      case "mediumboiledegg": 
+        missions["use_Medium"] = 1;
+        break;   
+      case "hardboiledegg": 
+        missions["use_Hard"] = 1;
+        break;
+    }
+    if(animal === "Sparky") missions["hatch_Sparky"] = 1;
+    if(animal === "Quaggi") missions["hatch_Quaggi"] = 1;
+    if(animal === "Chimpmunk") missions["hatch_Chimpmunk"] = 1;
+    promises.push(doWeeklyMissions(interaction.user.id, missions));
+    // furrlion only exists on monthly missions:
+    if(animal === "Furrlion") missions["hatch_Furrlion"] = 1;
+    promises.push(doMonthlyMissions(interaction.user.id, missions));
 
+    Promise.all(promises);
     return true;
   },
 };
