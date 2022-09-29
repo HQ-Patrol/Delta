@@ -22,12 +22,6 @@ export class ActionsCommand extends Command{
             subcommand
                 .setName("bite")
                 .setDescription("Bite someone!")
-                .addStringOption((option) => 
-                    option
-                        .setName("userid")
-                        .setDescription("userid")
-                        .setRequired(false)
-                )
                 .addUserOption((option) =>
                     option
                         .setName('user')
@@ -40,12 +34,6 @@ export class ActionsCommand extends Command{
             subcommand
                 .setName("boohoo")
                 .setDescription("Used when you don't care about what other person said")
-                .addStringOption((option) => 
-                    option
-                        .setName("userid")
-                        .setDescription("userid")
-                        .setRequired(false)
-                )
                 .addUserOption((option) =>
                     option
                         .setName('user')
@@ -57,12 +45,6 @@ export class ActionsCommand extends Command{
             subcommand 
                 .setName("boop")
                 .setDescription("Boop someone!")
-                .addStringOption((option) => 
-                    option
-                        .setName("userid")
-                        .setDescription("userid")
-                        .setRequired(false)
-                )
                 .addUserOption((option) =>
                     option
                         .setName('user')
@@ -76,12 +58,6 @@ export class ActionsCommand extends Command{
             subcommand
                 .setName("cringe")
                 .setDescription("When somebody is being cringe😶")
-                .addStringOption((option) => 
-                    option
-                        .setName("userid")
-                        .setDescription("userid")
-                        .setRequired(false)
-                )
                 .addUserOption((option) =>
                     option
                         .setName('user')
@@ -93,12 +69,6 @@ export class ActionsCommand extends Command{
             subcommand
                 .setName("dap")
                 .setDescription("Dap with someone! 🙏")
-                .addStringOption((option) => 
-                    option
-                        .setName("userid")
-                        .setDescription("userid")
-                        .setRequired(false)
-                )
                 .addUserOption((option) =>
                     option
                         .setName('user')
@@ -111,12 +81,6 @@ export class ActionsCommand extends Command{
             subcommand
                 .setName("groom")
                 .setDescription("Groom kids :)")
-                .addStringOption((option) => 
-                    option
-                        .setName("userid")
-                        .setDescription("userid")
-                        .setRequired(false)
-                )
                 .addUserOption((option) =>
                     option
                         .setName('user')
@@ -128,12 +92,6 @@ export class ActionsCommand extends Command{
             subcommand
                 .setName("handshake")
                 .setDescription("Shake someone's hands! ")
-                .addStringOption((option) => 
-                    option
-                        .setName("userid")
-                        .setDescription("userid")
-                        .setRequired(false)
-                )
                 .addUserOption((option) =>
                     option
                         .setName('user')
@@ -145,12 +103,6 @@ export class ActionsCommand extends Command{
             subcommand
                 .setName("highfive")
                 .setDescription("Highfive someone! 🖐️")
-                .addStringOption((option) => 
-                    option
-                        .setName("userid")
-                        .setDescription("userid")
-                        .setRequired(false)
-                )
                 .addUserOption((option) =>
                     option
                         .setName('user')
@@ -164,12 +116,6 @@ export class ActionsCommand extends Command{
             subcommand
                 .setName("holdhands")
                 .setDescription("Hold hands with someone! 🤝")
-                .addStringOption((option) => 
-                    option
-                        .setName("userid")
-                        .setDescription("userid")
-                        .setRequired(false)
-                )
                 .addUserOption((option) =>
                     option
                         .setName('user')
@@ -181,12 +127,6 @@ export class ActionsCommand extends Command{
             subcommand
                 .setName("hug")
                 .setDescription("Hug someone! 🤗")
-                .addStringOption((option) => 
-                    option
-                        .setName("userid")
-                        .setDescription("userid")
-                        .setRequired(false)
-                )
                 .addUserOption((option) =>
                     option
                         .setName('user')
@@ -198,12 +138,6 @@ export class ActionsCommand extends Command{
             subcommand
                 .setName("kiss")
                 .setDescription("Kiss someone! 💋")
-                .addStringOption((option) => 
-                    option
-                        .setName("userid")
-                        .setDescription("userid")
-                        .setRequired(false)
-                )
                 .addUserOption((option) =>
                     option
                         .setName('user')
@@ -215,12 +149,6 @@ export class ActionsCommand extends Command{
             subcommand
                 .setName("lick")
                 .setDescription("Lick someone! 🤤")
-                .addStringOption((option) => 
-                    option
-                        .setName("userid")
-                        .setDescription("userid")
-                        .setRequired(false)
-                )
                 .addUserOption((option) =>
                     option
                         .setName('user')
@@ -232,12 +160,6 @@ export class ActionsCommand extends Command{
             subcommand
                 .setName("miss")
                 .setDescription("When you miss someone!😔")
-                .addStringOption((option) => 
-                    option
-                        .setName("userid")
-                        .setDescription("userid")
-                        .setRequired(false)
-                )
                 .addUserOption((option) =>
                     option
                         .setName('user')
@@ -249,12 +171,6 @@ export class ActionsCommand extends Command{
             subcommand
                 .setName("nom")
                 .setDescription("Eat someone!")
-                .addStringOption((option) => 
-                    option
-                        .setName("userid")
-                        .setDescription("userid")
-                        .setRequired(false)
-                )
                 .addUserOption((option) =>
                     option
                         .setName('user')
@@ -266,12 +182,6 @@ export class ActionsCommand extends Command{
             subcommand
                 .setName("pat")
                 .setDescription("Pat someone! 🐱")
-                .addStringOption((option) => 
-                    option
-                        .setName("userid")
-                        .setDescription("userid")
-                        .setRequired(false)
-                )
                 .addUserOption((option) =>
                     option
                         .setName('user')
@@ -283,12 +193,6 @@ export class ActionsCommand extends Command{
             subcommand
                 .setName("piss")
                 .setDescription("Piss on someone like a boss 😎")
-                .addStringOption((option) => 
-                    option
-                        .setName("userid")
-                        .setDescription("userid")
-                        .setRequired(false)
-                )
                 .addUserOption((option) =>
                     option
                         .setName('user')
@@ -300,12 +204,6 @@ export class ActionsCommand extends Command{
             subcommand
                 .setName("rihanna")
                 .setDescription("Beat someone up !")
-                .addStringOption((option) => 
-                    option
-                        .setName("userid")
-                        .setDescription("userid")
-                        .setRequired(false)
-                )
                 .addUserOption((option) =>
                     option
                         .setName('user')
@@ -317,12 +215,6 @@ export class ActionsCommand extends Command{
             subcommand
                 .setName("salute")
                 .setDescription("Salute someone!")
-                .addStringOption((option) => 
-                    option
-                        .setName("userid")
-                        .setDescription("userid")
-                        .setRequired(false)
-                )
                 .addUserOption((option) =>
                     option
                         .setName('user')
@@ -334,12 +226,6 @@ export class ActionsCommand extends Command{
             subcommand
                 .setName("slap")
                 .setDescription("Slap someone! 🤜")
-                .addStringOption((option) => 
-                    option
-                        .setName("userid")
-                        .setDescription("userid")
-                        .setRequired(false)
-                )
                 .addUserOption((option) =>
                     option
                         .setName('user')
@@ -351,12 +237,6 @@ export class ActionsCommand extends Command{
             subcommand
                 .setName("spit")
                 .setDescription("Spit on someone! 🤮")
-                .addStringOption((option) => 
-                    option
-                        .setName("userid")
-                        .setDescription("userid")
-                        .setRequired(false)
-                )
                 .addUserOption((option) =>
                     option
                         .setName('user')
@@ -368,12 +248,6 @@ export class ActionsCommand extends Command{
             subcommand 
                 .setName("stone")
                 .setDescription("Stone someone to death!")
-                .addStringOption((option) => 
-                    option
-                        .setName("userid")
-                        .setDescription("userid")
-                        .setRequired(false)
-                )
                 .addUserOption((option) =>
                     option
                         .setName('user')
@@ -400,19 +274,14 @@ export class ActionsCommand extends Command{
             }
         }
             // Get the user/ userid
-            const user = interaction.options.getUser("user")
-            const userid = interaction.options.getString("userid")
+            const member = interaction.options.getMember("user") as GuildMember
 
-            if(!user) {
-                if(!userid){
-                    return interaction.editReply({ content: "Please mention a user or user ID correctly! 😐" });
-                }
+            if(!member) {
+                return interaction.editReply({ content: "Please mention a user  correctly! 😐" });
             }
 
-            const member : GuildMember | undefined = user ? interaction.guild?.members.cache.get(user.id) : interaction.guild?.members.cache.get(userid!);
 
             // Run some checks
-            if(!member) return interaction.editReply({ content: "Please mention the USER ID correctly! 😐" });
             //if (member.id === interaction.user.id) { return interaction.editReply({ content: "Time to play with yourself, eh? 💦" }) }
 
             // Execute and return the response for the sub-commands
