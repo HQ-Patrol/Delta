@@ -12,7 +12,6 @@
   "rules": {
     "import/no-dynamic-require": "off",
     "indent": "off",
-    "linebreak-style": ["error", "windows"],
     "key-spacing": [
       "error",
       {

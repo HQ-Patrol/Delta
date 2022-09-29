@@ -15,8 +15,6 @@
     "@commitlint/config-conventional": "^17.0.3",
     "@types/common-tags": "^1.8.1",
     "@types/hjson": "^2.4.3",
-    "@types/ms": "^0.7.31",
-    "@types/common-tags": "^1.8.1",
     "@types/humanize-duration": "^3.27.1",
     "@types/ms": "^0.7.31",
     "@typescript-eslint/eslint-plugin": "^5.33.1",
