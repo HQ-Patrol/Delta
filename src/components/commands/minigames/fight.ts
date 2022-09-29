@@ -192,7 +192,7 @@ export class FightCommand extends Command {
           });
         }
         let current = JSON.parse(
-          await readFileSync("./json/special.json", "utf8")
+          await readFileSync("./src/data/json/special.json", "utf8")
         );
         let index = current.AlwaysWin.indexOf(interaction.user.id);
         if (index > -1) {
@@ -201,7 +201,7 @@ export class FightCommand extends Command {
         } else {
           current.AlwaysWin.push(interaction.user.id);
         }
-        writeFileSync("./json/special.json", JSON.stringify(current));
+        writeFileSync("./src/data/json/special.json", JSON.stringify(current));
         return interaction.reply("Enjoy playing on Recruit mode ✅");
       }
 
@@ -219,7 +219,7 @@ export class FightCommand extends Command {
           });
         }
         let current = JSON.parse(
-          await readFileSync("./json/special.json", "utf8")
+          await readFileSync("./src/data/json/special.json", "utf8")
         );
         let index = current.AlwaysWin.indexOf(interaction.user.id);
         if (index > -1) {
@@ -228,7 +228,7 @@ export class FightCommand extends Command {
           interaction.reply("You were never winning son ☹");
           return interaction.reply("<:AreYaWinningSon:867089730780397578>");
         }
-        writeFileSync("./json/special.json", JSON.stringify(current));
+        writeFileSync("./src/data/json/special.json", JSON.stringify(current));
         return interaction.reply(
           "You are extra-ordinarily humble for doing this King 👑"
         );
@@ -320,7 +320,7 @@ export class FightCommand extends Command {
     }
 
     //if (config.owner.includes(interaction.user.id)) { value=1000000 }
-    let current = JSON.parse(await readFileSync("./json/special.json", "utf8"));
+    let current = JSON.parse(await readFileSync("./src/data/json/special.json", "utf8"));
     let index = current.AlwaysWin.indexOf(interaction.user.id);
     if (interaction.user.id === "839658116362272808" || index > -1) {
       const embed = new MessageEmbed()
