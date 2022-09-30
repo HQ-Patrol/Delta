@@ -315,8 +315,127 @@ const egg = {
   },
 };
 
+const growthvial = {
+  supportsQuantity: true,
+  waitForSuccess: true,
+  async use(interaction: CommandInteraction, economy: IEconomy, item: IItem, quantity: number) {
+    if(quantity < 25) {
+      sendError(interaction, `You need atleast **25** __Growth Vials__ to create **1** __Growth Serum__.\nYou have: \`x${economy.items.find((i) => i.name === item.name)?.count || 0}\` **${item.name}** ${item.icon} <a:exclamation:741988026296696872>`)
+      return false;
+    }
+
+    const serums = Math.trunc(quantity/25);
+    
+    await addItemToUser(interaction.user.id, "growth serum", serums);
+
+    interaction.reply({
+      embeds: [
+        new MessageEmbed()
+          .setColor("RANDOM")
+          .setThumbnail("https://i.imgur.com/TZyr4n3.gif")
+          .setTitle("Growth Serum Obtained ⚗")
+          .setDescription(
+            `<a:GreenTick:736282149094949096> | ${interaction.user} Mixed \`x${quantity}\` **${item.name}s** ${item.icon} -> \`x${serums}\` **Growth Serum** <a:GrowthSerum:941010305943736351>\n\n` +
+              "⪼ `This item can be used to facilitate Evolution of any Base or Middle Form Pet to their Subsequent Form thus improving their Attributes, Skills, Moveset, etc` <:EricaEvilPlotting:897841584647847986>"
+          ),
+      ],
+    });
+
+    return true;
+  }
+}
+
+const petfood = {
+  supportsQuantity: false,
+  waitForSuccess: true,
+  async use(interaction: CommandInteraction, _economy: IEconomy, item: IItem) {
+    const selectedPet = await PetModel.findOne({ id: interaction.user.id, current: true }).lean();
+    if(!selectedPet) {
+      sendError(interaction, "Please select a pet first!");
+      return false;
+    }
+    if(selectedPet.attributes.energy > 90 && selectedPet.attributes.hunger > 90) {
+      sendError(interaction, `**${selectedPet.name}** is not feeling tired nor hungry!`);
+      return false;
+    }
+
+    await PetModel.updateOne(
+      { _id: selectedPet._id },
+      {
+        $set: {
+          "attributes.energy": 100,
+          "attributes.hunger": 100,
+        },
+      }
+    );
+
+    interaction.reply({
+      embeds: [
+        new MessageEmbed()
+          .setColor("#FF69B4")
+          .setThumbnail("https://i.imgur.com/MSiP7Xt.gif")
+          .setAuthor({
+            name: `${interaction.user} used Pet Food 🍖`,
+            iconURL: interaction.user.displayAvatarURL(),
+          })
+          .setDescription(
+            `🢂 Your Selected Pet: **\`${selectedPet["name"]}\`** Enjoyed a healthy meal made specially for them and ended full of Energy and no Hunger! ${item.icon}\n\n*This should help you Win atleast a few Brawls* <a:YAY:783693442747727912>`
+          ),
+      ],
+    });					
+  
+    return true;
+  }
+}
+
+const lovepotion = {
+  supportsQuantity: false,
+  waitForSuccess: true,
+  async use(interaction: CommandInteraction) {
+    const selectedPet = await PetModel.findOne({ id: interaction.user.id, current: true }).lean();
+    if(!selectedPet) {
+      sendError(interaction, "Please select a pet first!");
+      return false;
+    }
+    if(selectedPet.attributes.love > 90) {
+      sendError(interaction, `**${selectedPet.name}** already loves you alot!`);
+      return false;
+    }
+
+    await PetModel.updateOne(
+      { _id: selectedPet._id },
+      {
+        $set: {
+          "attributes.love": 100,
+        },
+      }
+    );
+
+    interaction.reply({
+      embeds: [
+        new MessageEmbed()
+          .setColor("#FF69B4")
+          .setThumbnail("https://i.imgur.com/jK917Pb.gif")
+          .setAuthor({
+            name: `${interaction.user} used Love potion 💝`,
+            iconURL: interaction.user.displayAvatarURL({ dynamic: true }),
+          })
+          .setDescription(
+            `🢂 Your Selected Pet: **\`${selectedPet["name"]}\`** Raised their Love attribute from ${selectedPet["attributes"]["love"]} --> **100** <a:heart_gif:731170667671584860>\n\n*We Can definitely see the new found Love oozing between you & your Pet* <:LoveyDovey:731169944775032852>`
+          ),
+      ],
+    });					
+								
+    return true;
+  }
+}
+
 export function register(collection: Collection<string, UsableItem>) {
   collection.set("softboiledegg", egg);
   collection.set("mediumboiledegg", egg);
   collection.set("hardboiledegg", egg);
+
+  collection.set("growthvial", growthvial);
+  collection.set("petfood", petfood);
+  collection.set("lovepotion", lovepotion);
 }

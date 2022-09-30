@@ -19,8 +19,6 @@ import { inRange } from "../../../utilities/global";
 
 import emoji from "../../../constants/emoji";
 
-
-
 const rewards: Record<number, Record<string, number>> = {
   10: {
     "Mystery Box 1": 1,
@@ -88,7 +86,11 @@ export class DailyCommand extends Command {
       CooldownsModel
     )) as ICooldowns;
 
-    const lastDaily = Cooldowns.daily.last;
+    if(!Cooldowns.daily) Cooldowns.daily = { days: -1, last: -1 };
+    if(!Cooldowns.daily?.last) Cooldowns.daily.last = -1;
+    if(!Cooldowns.daily?.days) Cooldowns.daily.days = -1;
+
+    const lastDaily = Cooldowns.daily.last ?? -1;
     if (Date.now() - lastDaily < DAILY_COOLDOWN) {
       // Cooldown
       return interaction.reply({
@@ -108,15 +110,15 @@ export class DailyCommand extends Command {
     }
 
     const UserData = (await findOneOrCreate(
-      { _id: interaction.user.id },
-      { _id: interaction.user.id },
+      { id: interaction.user.id },
+      { id: interaction.user.id },
       User
     )) as IUser;
 
     let COINS = 1000 + Cooldowns.daily.days * 375;
     let newStreak = (Cooldowns.daily.days ?? 0) + 1;
 
-    let messageContent = "";
+    let messageContent = null;
 
     if (UserData.premium) {
       messageContent =

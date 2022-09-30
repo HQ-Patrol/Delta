@@ -26,6 +26,7 @@ export class UseCommand extends Command {
             .setDescription(
               "Item name (case insensitive), supports aliases (e.g mb1 for Mystery Box 1)"
             )
+            .setAutocomplete(true)
             .setRequired(true)
         )
         .addIntegerOption((option) =>
