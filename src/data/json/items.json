@@ -830,6 +830,23 @@
       }
     },
     {
+			"name": "Candy Bundle",
+			"name2": "candybundle",
+			"alias":"cb",
+			"icon":"<:CandyBundle:892128278373093396>",
+			"price": null,
+			"sellPrice": 50000,
+			"description": "Gives a bunch of candies!",
+			"usage": "Using this item will give you 50 random candies along with 5 Guaranteed Wonka Bars 🍫 with a 33% chance of getting an Infinity stone ;)\nOnly available at: https://patrolbot.xyz/Store 💰",
+			"type": "SPECIAL",
+			"data": {
+				"canBeSold": true,
+				"canBeBought": false,
+				"canBeUsed": true,
+				"canBeTraded": true
+			}
+		},
+    {
       "name": "Gambling Club Card",
       "name2": "gamblingclubcard",
       "alias": "gcc",
