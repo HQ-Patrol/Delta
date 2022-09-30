@@ -96,15 +96,15 @@ export class DailyCommand extends Command {
       return interaction.reply({
         embeds: [
           new MessageEmbed()
-            .setAuthor({
-              name: "You have already claimed your daily!",
-              iconURL: interaction.user.displayAvatarURL(),
-            })
+            // .setAuthor({
+            //   name: "ALREADY claimed your Daily Reward ‼",
+            //   iconURL: interaction.user.displayAvatarURL(),
+            // })
             .setDescription(
-              `${emoji.exclamation}Your next daily reward is in:\n**${prettyMs(lastDaily + DAILY_COOLDOWN - Date.now(), { verbose: true })}**`
+              `<a:RedTick:736282199258824774> **|** Please wait for **${prettyMs(lastDaily + DAILY_COOLDOWN - Date.now(), { verbose: true })}** before claiming your Daily reward again <a:exclamation:741988026296696872>`
             )
-            .setTimestamp()
-            .setColor("RANDOM"),
+            .setFooter({ text: `➤ Type: /vote for more Special Rewards! 🎁` })
+            .setColor("#FFFF00"),
         ],
       });
     }
@@ -122,7 +122,7 @@ export class DailyCommand extends Command {
 
     if (UserData.premium) {
       messageContent =
-        "**DOUBLE COINS!** Thank you for supporting us and having Patrol Bot Premium.";
+        `**You received DOUBLE COINS for being a Patrol Bot Premium User** ${emoji.coins}`;
       // coins x2
       COINS *= 2;
     }
@@ -133,14 +133,13 @@ export class DailyCommand extends Command {
       Cooldowns.daily.days > 10
     ) {
       // Lost
-      messageContent = `You lost your **${Cooldowns.daily.days}** daily streak.. :cry:`;
+      messageContent = `__**LOST**__ your ***${Cooldowns.daily.days}*** Days Streak.. <:WAH:740257222344310805>`;
       newStreak = 1;
     }
-
-    let description = `**${COINS}** ${emoji.coins} has just been added to your wallet!\n`;
-    description += "*Get more special rewards by voting or using our **lootboxes**!*\n";
-    description += `\n${emoji.exclamation}Your next daily reward is in:\n`;
-    description += `**${prettyMs(DAILY_COOLDOWN, { verbose: true })}**`;
+    
+    let description = `<a:GreenTick:736282149094949096> **|** You received **${COINS} Coins** with a daily streak of ${newStreak} <:StackOfCoins:775104542530338822>\n`
+    //description += `👉 Claim again in: **${prettyMs(DAILY_COOLDOWN, { verbose: true })}**`;
+    //description += "`Type: /vote for more Special Rewards!` ";
 
     let reward: Record<string, number> = {};
     if (newStreak >= 10) {
@@ -186,12 +185,12 @@ export class DailyCommand extends Command {
 
     const embed = new MessageEmbed()
       .setAuthor({
-        name: "Daily Coins",
+        name: "Daily Reward 💹",
         iconURL: interaction.user.displayAvatarURL(),
       })
       .setDescription(description)
-      .setFooter({ text: `Streak: ${newStreak}` })
-      .setTimestamp()
+      .setFooter({ text: `➤ Type: /vote for more Special Rewards! 🎁` })
+      //.setTimestamp()
       .setColor("RANDOM");
 
     return interaction.reply({
