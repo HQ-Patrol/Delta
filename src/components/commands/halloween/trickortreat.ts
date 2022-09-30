@@ -171,7 +171,7 @@ export class TrickOrTreatCommand extends Command {
         3226: ["chocolate","RANDOM",`Candy hunt was a success! 🍬`, gifCandy+"**Chocolates** "+emote,"https://i.imgur.com/DC6WhVq.jpg"], 
         3001: ["caramel","RANDOM",`Candy hunt was a success! 🍬`, gifCandy+"**Caramel** "+emote,"https://i.imgur.com/1pP0aaf.jpg"],
         }
-        
+
       const keys = Object.keys(probabilities).map((x) => parseInt(x));
       let arr: any;
       for (let i = 0; i < keys.length; i++) {
@@ -704,6 +704,199 @@ export class TrickOrTreatCommand extends Command {
   }
 }
 
+/*
+const probabilities = {
+        5000: [
+          "spacestone",
+          "266EF6",
+          `Where's that blue glow coming from?! 😲`,
+          "**You went looking for candy but stumbled across the __Space Stone__ <:SpaceStone:759495194248216629> You suddenly have a great urge to travel through the universe but you also have to be home before sunset** 😥",
+          "https://i.imgur.com/Dn7ug6K.gif",
+          false,
+        ],
+        4998: [
+          "timestone",
+          "35B535",
+          `What's with that green glow doe?! 😯`,
+          "**That's one strange rock. Wait, it's a fricking __Time Stone__ <:TimeStone:759495193262293023> !! It's finally your time to shine** 😎",
+          "https://i.imgur.com/ML7Dq19.gif",
+          false,
+        ],
+        4995: [
+          "realitystone",
+          "#8B0000",
+          `That red glow isn't normal? 🤯`,
+          "**Your little trip to walmart turned out to be well-worth it! You found yourself a __Reality stone__ <:RealityStone:759495193778454538> `How does someone's reality involve buying grocery from walmart doe** 😭` ",
+          "https://i.imgur.com/cZiDGLN.gif",
+          false,
+        ],
+        4992: [
+          "soulstone",
+          "#FFFF00",
+          `Why my Fiji Water yellow?? 😠`,
+          "**While you were about to drink from your bottle, turns out it had a __Soul stone__ <:SoulStone:759495193493504040> inside it. That's quite a rare discovery ngl!** 🤩",
+          "https://i.imgur.com/ccSehI9.gif",
+          false,
+        ],
+        4989: [
+          "mindstone",
+          "#FFA500",
+          `What's that thing in your dog's mouth? 😕`,
+          "**Your dog somehow found the __Mind stone__ <:MindStone:759495192998313984> and brought it to you. Use it wisely!**",
+          "https://i.imgur.com/Qx0NMyH.gif",
+          false,
+        ],
+        4986: [
+          "powerstone",
+          "#800080",
+          `This candy got a purple glow?? 😐`,
+          "**You unwrapped a candy your crush gave you but turns out it's a Mfin __Power Stone__ <:PowerStone:759495194168655882> Lowkey a bruh moment.**",
+          "https://i.imgur.com/ql7ZXCA.gif",
+          false,
+        ],
+        4889: [
+          "wonkabar",
+          "#D2691E",
+          `Candy hunt was a success! But wait, is that a Wonka bar?! 🍫`,
+          "Oh shit Willy Wonka himself came to bless your halloween! You're the golden child 🥰💌",
+          "https://i.imgur.com/rGDwkPL.gif",
+          true,
+        ],
+        4739: [
+          "pocky",
+          "RANDOM",
+          `Candy hunt was a success! 🍬`,
+          gifCandy + "**Pocky** " + emote,
+          "https://i.imgur.com/IMRPP7K.png",
+        ],
+        4549: [
+          "bonbon",
+          "RANDOM",
+          `Candy hunt was a success! 🍬`,
+          gifCandy + "**BonBons** " + emote,
+          "https://i.imgur.com/TW1kPhB.jpg",
+        ],
+        4349: [
+          "candybutton",
+          "RANDOM",
+          `Candy hunt was a success! 🍬`,
+          gifCandy + "**Candy Buttons** " + emote,
+          "https://i.imgur.com/ZmamLeU.png",
+        ],
+        4149: [
+          "candycane",
+          "RANDOM",
+          `Candy hunt was a success! 🍬`,
+          gifCandy + "**Candy Canes** " + emote,
+          "https://i.imgur.com/ZmamLeU.png",
+        ],
+        3949: [
+          "marshmallow",
+          "RANDOM",
+          `Candy hunt was a success! 🍬`,
+          gifCandy + "**Marshmallow** " + emote,
+          "https://i.imgur.com/FpeK5Jl.jpg",
+        ],
+        3749: [
+          "bubblegum",
+          "RANDOM",
+          `Candy hunt was a success! 🍬`,
+          gifCandy + "**Bubblegum** " + emote,
+          "https://i.imgur.com/yECdXoa.jpg",
+        ],
+        3549: [
+          "gumball",
+          "RANDOM",
+          `Candy hunt was a success! 🍬`,
+          gifCandy + "**Gumballs** " + emote,
+          "https://i.imgur.com/dTRp0Eh.jpg",
+        ],
+        3349: [
+          "gummybear",
+          "RANDOM",
+          `Candy hunt was a success! 🍬`,
+          gifCandy + "**Gummy bears** " + emote,
+          "https://i.imgur.com/vmffeh7.jpg",
+        ],
+        3149: [
+          "jellybean",
+          "RANDOM",
+          `Candy hunt was a success! 🍬`,
+          gifCandy + "**Jelly Beans** " + emote,
+          "https://i.imgur.com/3exII6p.jpg",
+        ],
+        2949: [
+          "jawbreaker",
+          "RANDOM",
+          `Candy hunt was a success! 🍬`,
+          gifCandy + "**Jawbreaker** " + emote,
+          "https://i.imgur.com/YLwEXcw.png",
+        ],
+        2749: [
+          "jollyrancher",
+          "RANDOM",
+          `Candy hunt was a success! 🍬`,
+          gifCandy + "**Jolly Rancher** " + emote,
+          "https://i.imgur.com/WRkAyT5.jpg",
+        ],
+        2549: [
+          "lollipop",
+          "RANDOM",
+          `Candy hunt was a success! 🍬`,
+          gifCandy + "**Lollipop** " + emote,
+          "https://i.imgur.com/yiQz7iq.png",
+        ],
+        2349: [
+          "mintcandy",
+          "RANDOM",
+          `Candy hunt was a success! 🍬`,
+          gifCandy + "**Mint** " + emote,
+          "https://i.imgur.com/GYxOYID.png",
+        ],
+        2149: [
+          "toffee",
+          "RANDOM",
+          `Candy hunt was a success! 🍬`,
+          gifCandy + "**Toffee** " + emote,
+          "https://i.imgur.com/pKKGpN6.png",
+        ],
+        1949: [
+          "candystick",
+          "RANDOM",
+          `Candy hunt was a success! 🍬`,
+          gifCandy + "**Candy Sticks** " + emote,
+          "https://i.imgur.com/7wjEVU5.png",
+        ],
+        1873: [
+          "sourpatch",
+          "RANDOM",
+          `Candy hunt was a success! 🍬`,
+          gifCandy + "**Sour Patch** " + emote,
+          "https://i.imgur.com/JOm10vk.png",
+        ],
+        1725: [
+          "skittle",
+          "RANDOM",
+          `Candy hunt was a success! 🍬`,
+          gifCandy + "**Skittles** " + emote,
+          "https://i.imgur.com/9B2K5zR.png",
+        ],
+        1613: [
+          "chocolate",
+          "RANDOM",
+          `Candy hunt was a success! 🍬`,
+          gifCandy + "**Chocolates** " + emote,
+          "https://i.imgur.com/DC6WhVq.jpg",
+        ],
+        1501: [
+          "caramel",
+          "RANDOM",
+          `Candy hunt was a success! 🍬`,
+          gifCandy + "**Caramel** " + emote,
+          "https://i.imgur.com/1pP0aaf.jpg",
+        ],
+      };
+*/
 /*
 const probabilities = {
             10000: ["spacestone", "266EF6", `Where's that blue glow coming from?! 😲`, "**You went looking for candy but stumbled across the __Space Stone__ <:SpaceStone:759495194248216629> You suddenly have a great urge to travel through the universe but you also have to be home before sunset** 😥", "https://i.imgur.com/Dn7ug6K.gif", false], 
