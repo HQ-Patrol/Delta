@@ -7,7 +7,7 @@ export interface ICooldowns {
 	resets: Number,
 	weeklyReset: String,
 	boosterReset: String,
-	voteReset: String,
+	voteReset: Number,
 	taxReturnReset: String,
 	taxBenefitReset: String
 }
