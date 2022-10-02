@@ -1,7 +1,7 @@
 import { Schema, model } from "mongoose";
 
 export interface IUser {
-  id: string;
+  _id: string;
   blacklisted: boolean;
   premium: boolean;
   muted: boolean;
@@ -29,7 +29,7 @@ export interface IUser {
 }
 
 const UserSchema = new Schema<IUser>({
-  id: { type: String },
+  _id: { type: String },
   blacklisted: { type: Boolean, default: false },
   premium: { type: Boolean, default: false },
   muted: { type: Boolean, default: false },
