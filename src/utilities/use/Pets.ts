@@ -247,7 +247,7 @@ const egg = {
     if(!userInfo.hatched || !userInfo.hatched?.[pet.species]) {
       if(!userInfo.hatched) userInfo.hatched = {};
       userInfo.hatched[pet.species] = true;
-      await User.updateOne({ id: interaction.user.id }, { hatched: userInfo.hatched });
+      await User.updateOne({ _id: interaction.user.id }, { hatched: userInfo.hatched });
     }
 
     displayPet(interaction, pet, petDocument, shadow, statsDescription);
