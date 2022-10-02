@@ -87,7 +87,7 @@ export class CandyDailyCommand extends Command {
       );
     await interaction.reply({ embeds: [emb] });
     return (
-      interaction.client.channels.cache.get("880072529463627806") as TextChannel
+      interaction.client.channels.cache.get("892081659527172146") as TextChannel
     ).send(
       `${interaction.user.username} [${interaction.user.id}] Claimed their DAILY <a:Candy1:747106214273613824> in ${interaction.guild} [${interaction.guild?.id}]`
     );

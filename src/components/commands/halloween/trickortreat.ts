@@ -1,12 +1,10 @@
 import { ChatInputCommand, Command } from "@sapphire/framework";
 import { ApplyOptions } from "@sapphire/decorators";
-import humanizeDuration from "humanize-duration";
 import { HalloweenModel as Candy } from "../../../database/models/HalloweenModel";
 import { EventModel as Event } from "../../../database/models/EventModel";
 import { MessageEmbed, TextChannel } from "discord.js";
 import ALL from "../../../data/json/redeem.json";
-
-const simped = new Map();
+import DeltaClient from "../../../utilities/classes/DeltaClient";
 
 @ApplyOptions<Command.Options>({
   name: "trickortreat",
@@ -31,6 +29,32 @@ export class TrickOrTreatCommand extends Command {
         ),
       ],
     }); */
+
+    if (
+      (interaction.client as DeltaClient).cooldowns.tt.get(
+        interaction.user.id
+      ) > Date.now()
+    ) {
+      interaction
+        .reply({
+          embeds: [
+            new MessageEmbed()
+              .setColor("#FF0000")
+              .setDescription(
+                `Please wait for another **${(
+                  ((interaction.client as DeltaClient).cooldowns.tt.get(
+                    interaction.user.id
+                  ) -
+                    Date.now()) /
+                  1000
+                ).toFixed(
+                  1
+                )}s** before candy hunting again! <a:exclamation:741988026296696872>`
+              ),
+          ],
+        })
+        //.then((m: any) => setTimeout(() => m.delete(), 9000));
+    } else {
 
     await interaction.deferReply();
 
@@ -94,19 +118,6 @@ export class TrickOrTreatCommand extends Command {
     ];
     const FOOTER = randomFooter[Math.floor(Math.random() * randomFooter.length)];
 
-    const cooldown = simped.get(interaction.user.id);
-
-    if (cooldown) {
-      const remaining = humanizeDuration(cooldown - Date.now(), {
-        units: ["h", "m", "s"],
-        round: true,
-      });
-      return interaction
-        .reply(
-          `${interaction.user}, Wait \`${remaining}\` before using candy hunting again! <a:RedTick:736282199258824774>`
-        )
-        .catch(console.error);
-    } else {
       const randomCandy = [
         `${interaction.user} broke into neighbours house and robbed himself some `,
         `${interaction.user}'s costume was pretty neat which earned him some `,
@@ -183,7 +194,7 @@ export class TrickOrTreatCommand extends Command {
         arr = probabilities[random];
         if (!arr) continue;
         embed.setColor(arr[1]).setTitle(arr[2]);
-        if (arr[5] === false) embed.setFooter("• Time Left: 15s ⏱");
+        if (arr[5] === false) embed.setFooter({ text: `• Time Left: 15s ⏱`});
         else embed.setFooter({ text: `➤ ` + FOOTER });
         if (arr[5] === false)
           embed.setDescription(
@@ -698,8 +709,10 @@ export class TrickOrTreatCommand extends Command {
       }
       //PIPE BOMB END================================================================
 
-      simped.set(interaction.user.id, Date.now() + 3000);
-      setTimeout(() => simped.delete(interaction.user.id), 3000);
+      (interaction.client as DeltaClient).cooldowns.tt.set(
+        interaction.user.id,
+        Date.now() + 30000
+      );
     }
   }
 }

@@ -184,7 +184,7 @@ export class CandyGiveCommand extends Command {
         );
         return (
           interaction.client.channels.cache.get(
-            "880072529463627806"
+            "805161104346447872"
           ) as TextChannel
         ).send(
           `${interaction.user} gave **${argu}** to <@${memberz.id}> <a:Candy1:747106214273613824> in ${interaction.guild} [${interaction.guild?.id}]`
@@ -285,7 +285,7 @@ export class CandyGiveCommand extends Command {
       );
       return (
         interaction.client.channels.cache.get(
-          "880072529463627806"
+          "805161104346447872"
         ) as TextChannel
       ).send(
         `${interaction.user} gave **${argu}** to <@${memberz.id}> <a:Candy1:747106214273613824> in ${interaction.guild} [${interaction.guild?.id}]`
