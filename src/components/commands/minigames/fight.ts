@@ -198,7 +198,7 @@ export class FightCommand extends Command {
         let index = current.AlwaysWin.indexOf(interaction.user.id);
         if (index > -1) {
           interaction.editReply("You're already winning son ✅");
-          return interaction.editReply("<:AreYaWinningSon:867089730780397578>");
+          return interaction.followUp("<:AreYaWinningSon:867089730780397578>");
         } else {
           current.AlwaysWin.push(interaction.user.id);
         }
@@ -227,7 +227,7 @@ export class FightCommand extends Command {
           current.AlwaysWin.splice(index, 1);
         } else {
           interaction.editReply("You were never winning son ☹");
-          return interaction.editReply("<:AreYaWinningSon:867089730780397578>");
+          return interaction.followUp("<:AreYaWinningSon:867089730780397578>");
         }
         writeFileSync("./src/data/json/special.json", JSON.stringify(current));
         return interaction.editReply(
@@ -246,7 +246,7 @@ export class FightCommand extends Command {
         interaction.user.id
       ) > Date.now()
     ) {
-      interaction.reply({
+      await interaction.editReply({
         embeds: [
           new MessageEmbed()
             .setColor("#FF0000")
@@ -364,7 +364,7 @@ export class FightCommand extends Command {
         interaction.user.id
       ) > Date.now()
     ) {
-      interaction.reply({
+      await interaction.editReply({
         embeds: [
           new MessageEmbed()
             .setColor("#FF0000")
