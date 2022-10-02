@@ -21,7 +21,7 @@ const CooldownSchema = new Schema<ICooldowns>({
   }, 
   vote: { 
     days: { type: Number, default: 0 }, 
-    last: { type: Number, default: 0 }, 
+    last: { type: Number, default: 0 },
   }, 
   nextWeekly: { type: Number, default: -1 }, 
 }); 

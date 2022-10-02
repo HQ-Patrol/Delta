@@ -45,7 +45,7 @@ export class VoteCommand extends Command{
             if(!user){ return interaction.editReply({ content: "Please use </balance:1021015706847952956>" }) }
 
             let q =1;
-            let prizeName: string = "mystery box 1"; // Until solution to petUtil is figured out.
+            const prizeName = "mystery box 1"; // Until solution to petUtil is figured out.
             if(user.premium === true){ q=2}
             //const egg = petUtils.rndNumber(1, 5);
             //if(egg == 3) { prizeName = "soft boiled egg"; }
@@ -55,6 +55,10 @@ export class VoteCommand extends Command{
             if(!weekly){
                 weekly =  await CooldownsModel.create({
                     id: interaction.user.id,
+                    daily: {
+                        days: 0,
+                        last: Date.now()
+                    },
                     days: 0,
                     next: Date.now(),
                     resets: Date.now(),
@@ -64,7 +68,7 @@ export class VoteCommand extends Command{
 
                 await weekly.save();
             }
-            if(Number(weekly.voteReset) > Date.now()) {
+            if(Number(weekly.vote.last) > Date.now()) {
                 return interaction.editReply({
                     embeds: [
                         new Discord.MessageEmbed()
@@ -86,7 +90,7 @@ export class VoteCommand extends Command{
                 })
             }
 
-            weekly.voteReset=  Date.now() + 41_400_000 ;
+            weekly.last =  Date.now() + 41_400_000 ;
             await weekly.save();
 
             const item = items.find(item => item.name.toLowerCase() === prizeName)!;
