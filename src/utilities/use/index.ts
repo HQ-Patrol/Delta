@@ -4,6 +4,7 @@ import * as Rob from "./Rob";
 import * as Collectibles from "./Collectibles";
 import * as Badges from "./Badges";
 import * as Pets from "./Pets";
+import * as Special from "./Special";
 
 export interface UsableItem {
 	supportsQuantity?: boolean,
@@ -22,3 +23,4 @@ Rob.register(uses);
 Collectibles.register(uses);
 Badges.register(uses);
 Pets.register(uses);
+Special.register(uses);
