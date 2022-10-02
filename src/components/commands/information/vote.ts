@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import Topgg from '@top-gg/sdk';
 import { Economy } from '../../../database/models/EconomyModel';
 import { ApplyOptions } from "@sapphire/decorators";

@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import ms from "ms";
 import { ApplyOptions } from "@sapphire/decorators";
 import { ApplicationCommandRegistry, ChatInputCommand, Command } from "@sapphire/framework";
