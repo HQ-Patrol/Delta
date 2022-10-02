@@ -108,8 +108,8 @@ export class DailyCommand extends Command {
     }
 
     const UserData = (await findOneOrCreate(
-      { id: interaction.user.id },
-      { id: interaction.user.id },
+      { _id: interaction.user.id },
+      { _id: interaction.user.id },
       User
     )) as IUser;
     let COINS = 1000 + Cooldowns.daily.days * 375;

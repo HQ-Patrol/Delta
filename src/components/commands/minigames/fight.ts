@@ -90,10 +90,10 @@ export class FightCommand extends Command {
       );
     }
 
-    let user = await Users.findOne({ id: interaction.user.id });
+    let user = await Users.findOne({ _id: interaction.user.id });
     if (!user) {
       user = await Users.create({
-        id: interaction.user.id,
+        _id: interaction.user.id,
         premium: false,
         blacklisted: false,
       });

@@ -37,7 +37,7 @@ export class DescriptionCommand extends Command{
         let user = await User.findOne<IUser>({ _id: interaction.user.id })
         if(!user){
             // Create the user profile.
-            user = await User.create({ id: interaction.user.id, premium: false })
+            user = await User.create({ _id: interaction.user.id, premium: false })
         }
 
         if(!user.premium){

@@ -108,7 +108,7 @@ export class ProfileCommand extends Command {
       findUserById(user.id),
       MarriageModel.findOne({ id: user.id }).lean(),
       AvatarModel.findOne({ userId: user.id }).lean(),
-      User.findOne({ id: user.id }).lean(),
+      User.findOne({ _id: user.id }).lean(),
       RepModel.findOne({ userID: user.id }).lean(),
       getSelectedPet(user.id),
       BadgesModel.findOne({ id: user.id }).lean()
