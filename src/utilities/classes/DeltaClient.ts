@@ -19,6 +19,7 @@ export default class DeltaClient extends SapphireClient {
     rob: Map<any, any>;
     crime: Map<any, any>;
     tt: Map<any, any>;
+    crob: Map<any, any>;
     fight: Map<any, any>;
     cookiegive: Map<any, any>;
     earn: Map<any, any>;
@@ -38,6 +39,7 @@ export default class DeltaClient extends SapphireClient {
       rob: new Map(),
       crime: new Map(),
       tt: new Map(),
+      crob: new Map(),
       fight: new Map(),
       cookiegive: new Map(),
 

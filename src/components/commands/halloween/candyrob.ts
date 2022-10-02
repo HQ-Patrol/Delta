@@ -1,8 +1,8 @@
 import { ChatInputCommand, Command } from "@sapphire/framework";
 import { ApplyOptions } from "@sapphire/decorators";
 import { HalloweenModel as Candy } from "../../../database/models/HalloweenModel";
-import humanizeDuration from "humanize-duration";
 import { MessageEmbed } from "discord.js";
+import DeltaClient from "../../../utilities/classes/DeltaClient";
 
 const simped = new Map();
 
@@ -36,19 +36,32 @@ export class CandyFlipCommand extends Command {
   }
 
   public async chatInputRun(interaction: Command.ChatInputInteraction) {
-    const cooldown = simped.get(interaction.user.id);
+    //const cooldown = simped.get(interaction.user.id);
 
-    if (cooldown) {
-      const remaining = humanizeDuration(cooldown - Date.now(), {
-        units: ["h", "m", "s"],
-        round: true,
+    if (
+      (interaction.client as DeltaClient).cooldowns.crob.get(
+        interaction.user.id
+      ) > Date.now()
+    ) {
+      interaction.reply({
+        embeds: [
+          new MessageEmbed()
+            .setColor("#FF0000")
+            .setDescription(
+              `${interaction.user}, Wait \`${(
+                ((interaction.client as DeltaClient).cooldowns.crob.get(
+                  interaction.user.id
+                ) -
+                  Date.now()) /
+                1000
+              ).toFixed(
+                1
+              )}s\` before robbing someone again! <a:RedTick:736282199258824774>`
+            ),
+        ],
       });
-      return interaction
-        .reply(
-          `${interaction.user}, Wait \`${remaining}\` before robbing someone again! <a:RedTick:736282199258824774>`
-        )
-        .catch(console.error);
     } else {
+    
       const player = await Candy.findOne({ id: interaction.user.id });
       if (!player)
         return interaction.reply(
@@ -302,8 +315,10 @@ if (player.Luck < 50) interaction.reply(`Your bad luck is wearing off, but your 
           );
         interaction.reply({ embeds: [emb] });
       }
-      simped.set(interaction.user.id, Date.now() + 300000);
-      setTimeout(() => simped.delete(interaction.user.id), 300000);
+      (interaction.client as DeltaClient).cooldowns.crob.set(
+        interaction.user.id,
+        Date.now() + 250000
+      );
     }
   }
 }
