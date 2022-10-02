@@ -1,6 +1,22 @@
-import { Schema, model } from "mongoose";
+import { Schema, model, Types } from "mongoose";
 
+export interface IPetAttributes {
+  attack: number;
+  intelligence: number;
+  speed: number;
+  energy: number;
+  hunger: number;
+  love: number;
+}
+
+export interface IPetStates {
+  play: Date;
+  pat: Date;
+  hug: Date;
+  train: Date;
+}
 export interface IPet {
+  _id: Types.ObjectId,
   id: string;
   species: string;
   UID: number;
@@ -13,27 +29,14 @@ export interface IPet {
   current: boolean;
   favorite: boolean;
   brawlMaster: boolean;
-  attributes: {
-    attack: number;
-    intelligence: number;
-    speed: number;
-    energy: number;
-    hunger: number;
-    love: number;
-  };
+  attributes: IPetAttributes;
   interactive: {
     asleep: boolean;
     asleepHours: number;
   };
-  petType: string;
+  petType: "REGULAR" | "SHADOW";
   fightsWon: number;
-  states: {
-    play: Date;
-    pat: Date;
-    hug: Date;
-
-    train: Date;
-  };
+  states: IPetStates,
   activeSkillCooldowns: Array<unknown>;
 }
 

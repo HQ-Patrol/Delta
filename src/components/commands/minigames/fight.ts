@@ -2,7 +2,6 @@ import { MessageEmbed, GuildMember } from "discord.js";
 import { ChatInputCommand, Command } from "@sapphire/framework";
 import { ApplyOptions } from "@sapphire/decorators";
 import ms from "ms";
-import humanizeDuration from "humanize-duration";
 import { User as Users } from "../../../database/models/UserModel";
 import { RoleModel as Roles } from "../../../database/models/RoleModel";
 import { readFileSync, writeFileSync } from "fs";
@@ -10,7 +9,7 @@ import config from "../../../config";
 import userWeekly from "../../../database/models/UserWeeklyMissionsModel";
 import userMonthly from "../../../database/models/UserMonthlyMissionsModel";
 import { FightModel as Fun } from "../../../database/models/FightModel";
-const simped = new Map();
+import DeltaClient from "../../../utilities/classes/DeltaClient";
 
 @ApplyOptions<Command.Options>({
   name: "fight",
@@ -90,10 +89,10 @@ export class FightCommand extends Command {
       );
     }
 
-    let user = await Users.findOne({ id: interaction.user.id });
+    let user = await Users.findOne({ _id: interaction.user.id });
     if (!user) {
       user = await Users.create({
-        id: interaction.user.id,
+        _id: interaction.user.id,
         premium: false,
         blacklisted: false,
       });
@@ -192,7 +191,7 @@ export class FightCommand extends Command {
           });
         }
         let current = JSON.parse(
-          await readFileSync("./json/special.json", "utf8")
+          await readFileSync("./src/data/json/special.json", "utf8")
         );
         let index = current.AlwaysWin.indexOf(interaction.user.id);
         if (index > -1) {
@@ -201,7 +200,7 @@ export class FightCommand extends Command {
         } else {
           current.AlwaysWin.push(interaction.user.id);
         }
-        writeFileSync("./json/special.json", JSON.stringify(current));
+        writeFileSync("./src/data/json/special.json", JSON.stringify(current));
         return interaction.reply("Enjoy playing on Recruit mode ✅");
       }
 
@@ -219,7 +218,7 @@ export class FightCommand extends Command {
           });
         }
         let current = JSON.parse(
-          await readFileSync("./json/special.json", "utf8")
+          await readFileSync("./src/data/json/special.json", "utf8")
         );
         let index = current.AlwaysWin.indexOf(interaction.user.id);
         if (index > -1) {
@@ -228,29 +227,36 @@ export class FightCommand extends Command {
           interaction.reply("You were never winning son ☹");
           return interaction.reply("<:AreYaWinningSon:867089730780397578>");
         }
-        writeFileSync("./json/special.json", JSON.stringify(current));
+        writeFileSync("./src/data/json/special.json", JSON.stringify(current));
         return interaction.reply(
           "You are extra-ordinarily humble for doing this King 👑"
         );
       }
     }
 
-    const cooldown = simped.get(interaction.user.id);
-
     let person = interaction.options.getMember("user") as GuildMember;
+    if(!person) { return interaction.reply("Couldn't find that member!")}
 
-    if (!person) {
-      if (!cooldown) {
-        return interaction.reply("Couldn't find that member!");
-      } else {
-        let remaining = humanizeDuration(cooldown - Date.now(), {
-          units: ["h", "m", "s"],
-          round: true,
-        });
-        return interaction.reply(
-          `${interaction.user}, Wait \`${remaining}\` before fighting someone else, Gladiator headass <a:LmaoBlast:741346535358595072><a:RedTick:736282199258824774>`
-        );
-      }
+    if ((interaction.client as DeltaClient).cooldowns.fight.get(interaction.user.id) > Date.now()) 
+    {
+      interaction
+        .reply({
+          embeds: [
+            new MessageEmbed()
+              .setColor("#FF0000")
+              .setDescription(
+                `${interaction.user}, Wait \`${(
+                  ((interaction.client as DeltaClient).cooldowns.fight.get(
+                    interaction.user.id
+                  ) -
+                    Date.now()) /
+                  1000
+                ).toFixed(
+                  1
+                )}s\` before fighting someone else, Gladiator headass <a:LmaoBlast:741346535358595072><a:RedTick:736282199258824774>`
+              ),
+          ],
+        })
     }
 
     let tofightplayer = await Fun.findOne({ id: person.id });
@@ -320,7 +326,7 @@ export class FightCommand extends Command {
     }
 
     //if (config.owner.includes(interaction.user.id)) { value=1000000 }
-    let current = JSON.parse(await readFileSync("./json/special.json", "utf8"));
+    let current = JSON.parse(await readFileSync("./src/data/json/special.json", "utf8"));
     let index = current.AlwaysWin.indexOf(interaction.user.id);
     if (interaction.user.id === "839658116362272808" || index > -1) {
       const embed = new MessageEmbed()
@@ -343,16 +349,27 @@ export class FightCommand extends Command {
       return interaction.reply({ embeds: [embed] });
     }
 
-    if (cooldown) {
-      const remaining = humanizeDuration(cooldown - Date.now(), {
-        units: ["h", "m", "s"],
-        round: true,
-      });
-      return interaction
-        .reply(
-          `${interaction.user}, Wait \`${remaining}\` before fighting someone else, Gladiator headass <a:LmaoBlast:741346535358595072><a:RedTick:736282199258824774>`
-        )
-        .catch(console.error);
+    if ((interaction.client as DeltaClient).cooldowns.fight.get(interaction.user.id) > Date.now()) 
+    {
+      interaction
+        .reply({
+          embeds: [
+            new MessageEmbed()
+              .setColor("#FF0000")
+              .setDescription(
+                `${interaction.user}, Wait \`${(
+                  ((interaction.client as DeltaClient).cooldowns.fight.get(
+                    interaction.user.id
+                  ) -
+                    Date.now()) /
+                  1000
+                ).toFixed(
+                  1
+                )}s\` before fighting someone else, Gladiator headass <a:LmaoBlast:741346535358595072><a:RedTick:736282199258824774>`
+              ),
+          ],
+        })
+        //.then((m: any) => setTimeout(() => m.delete(), 9000));
     } else {
       let random = [
         "https://i.imgur.com/hPOWop2.gif",
@@ -527,8 +544,10 @@ export class FightCommand extends Command {
         }
         //Weekly/Monthly END=================================================================
       }
-      simped.set(interaction.user.id, Date.now() + 600000);
-      setTimeout(() => simped.delete(interaction.user.id), 600000);
+      (interaction.client as DeltaClient).cooldowns.fight.set(
+        interaction.user.id,
+        Date.now() + 250000
+      );
     }
   }
 }

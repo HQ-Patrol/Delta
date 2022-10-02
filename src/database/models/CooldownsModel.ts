@@ -6,10 +6,11 @@ export interface ICooldowns {
     days: number,
     last: number,
   }
-  vote: {
-    days: number,
-    last: number,
-  },
+  voting: {
+    streak: number;
+    lastVoted: Date;
+    total: number;
+  }
   nextWeekly: number,
 }
 
@@ -19,9 +20,10 @@ const CooldownSchema = new Schema<ICooldowns>({
     days: { type: Number, default: 0 },
     last: { type: Number, default: 0 },
   },
-  vote: {
-    days: { type: Number, default: 0 },
-    last: { type: Number, default: 0 },
+  voting: {
+    streak: Number,
+    lastVoted: Date,
+    total: Number,
   },
   nextWeekly: { type: Number, default: -1 },
 });

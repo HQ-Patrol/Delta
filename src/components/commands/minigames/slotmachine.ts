@@ -67,7 +67,7 @@ export class SlotMachineCommand extends Command {
           new MessageEmbed()
             .setColor("#FF0000")
             .setDescription(
-              "You must bet 50 or more coins in a Dice Roll game <a:exclamation:741988026296696872>"
+              "You must bet 50 or more coins in a Slot Machine Game <a:exclamation:741988026296696872>"
             ),
         ],
       });

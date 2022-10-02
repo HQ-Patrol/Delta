@@ -26,7 +26,7 @@ const lock = {
   waitForSuccess: true,
   async use(interaction: CommandInteraction, _economy: IEconomy, item: IItem, quantity: number) {
     const [userInfo, itemUseInfo] = await Promise.all([
-      findOneOrCreate({ id: interaction.user.id }, { id: interaction.user.id }, User),
+      findOneOrCreate({ _id: interaction.user.id }, { _id: interaction.user.id }, User),
       findOneOrCreate({ id: interaction.user.id }, { id: interaction.user.id }, ItemUseModel)
     ]);
 
@@ -283,7 +283,7 @@ const snitchdemon = {
   async use(interaction: CommandInteraction) {
     const [itemUses, userInfo] = await Promise.all([
       findOneOrCreate({ id: interaction.user.id }, { id: interaction.user.id }, ItemUseModel),
-      findOneOrCreate({ id: interaction.user.id }, { id: interaction.user.id }, User)
+      findOneOrCreate({ _id: interaction.user.id }, { _id: interaction.user.id }, User)
     ]);
 
     if(itemUses.snitchdemon) {

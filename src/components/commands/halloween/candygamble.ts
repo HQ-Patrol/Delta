@@ -18,7 +18,7 @@ export class CandyGambleCommand extends Command {
         .addIntegerOption((option) =>
           option
             .setName("number")
-            .setDescription("What's the number?")
+            .setDescription("Pick a number from 1-6")
             .setRequired(true)
             .setMinValue(1)
             .setMaxValue(6)

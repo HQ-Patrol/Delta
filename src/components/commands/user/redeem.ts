@@ -28,7 +28,7 @@ export class RedeemCommand extends Command{
             if(!config.owner.includes(interaction.user.id)) { return interaction.reply({ content: "Nope.No shot." }) }
 
             let resMB1 = ''; let resMB2 = ''; let resMB3 = ''; let resMBOXX = ''; let resMBXL = ''; let resP1M = ''; let resPL = ''; let resSBE = ''; let resMBE = ''; let resHBE = ''; let resT0 = ''; let resT1 = ''; let resT2 = ''; let resT3 = ''; let resT4 = ''; let resT5 = '';
-            const ALL = JSON.parse(readFileSync("../../../data/json/redeem.json").toString())
+            const ALL = JSON.parse(readFileSync("./src/data/json/redeem.json").toString())
             const message = await interaction.reply({ content: "Fetching...", fetchReply: true }) as Message;
 
             for(const d of ALL.GOD) {
@@ -122,7 +122,7 @@ export class RedeemCommand extends Command{
         const message = await interaction.reply({ content: "Checking....", fetchReply: true }) as Message;
         const addedMembers = [];
         for(const arg of args.split("\n")){
-            const codes = JSON.parse(readFileSync("../../../data/json/redeem.json").toString());
+            const codes = JSON.parse(readFileSync("./src/data/json/redeem.json").toString());
             const index = codes.GOD.indexOf(arg)
 
             if(index > -1){
@@ -145,6 +145,7 @@ export class RedeemCommand extends Command{
             else if(arg.startsWith("SBE")) { itemName = "Soft Boiled Egg"; quantity = 3; }
             else if(arg.startsWith("MBE")) { itemName = "Medium Boiled Egg"; quantity = 1; }
             else if(arg.startsWith("HBE")) { itemName = "Hard Boiled Egg"; quantity = 1; }
+            else if(arg.startsWith("CBUND")) { itemName = "Candy Bundle"; quantity = 1; }
             else itemName = "QQQQ"; quantity = 1;
 
             const item = items.find(item => item.name.toLowerCase() === itemName.toLowerCase()) ;
@@ -165,7 +166,7 @@ export class RedeemCommand extends Command{
                         const role = message.guild!.roles.cache.get((roleID))!
                         message.member!.roles.add(role).catch((() => message.channel.send({ embeds: [{ color: "RED", description: `Couldn't Add role, Please DM @Sinless#0001` }] })));
 
-                        writeFileSync("../../../data/json/redeem.json", JSON.stringify(codes));
+                        writeFileSync("./src/data/json/redeem.json", JSON.stringify(codes));
                         addedMembers.push(`✅ ${arg} <@&${roleID}>`);
                     }
                     else {continue;}
@@ -185,7 +186,7 @@ export class RedeemCommand extends Command{
                         const role = message.guild!.roles.cache.get(roleID)!
                         message.member!.roles.add(role).catch(() => message.channel.send({ embeds: [{ color: "RED", description: `Couldn't Add role, Please DM @Sinless#0001` }] }));
 
-                        writeFileSync("./json/redeem.json", JSON.stringify(codes));
+                        writeFileSync("./src/data/json/redeem.json", JSON.stringify(codes));
                         addedMembers.push(`✅ ${arg} <@&${roleID}>`);
                     }
                 }
@@ -235,7 +236,7 @@ export class RedeemCommand extends Command{
                             });
                     }
                 }
-                writeFileSync("../../../data/json/redeem.json", JSON.stringify(codes));
+                writeFileSync("./src/data/json/redeem.json", JSON.stringify(codes));
                 addedMembers.push(`✅ ${arg} ${item.icon}`);
             }
         }

@@ -22,12 +22,6 @@ export class ActionsCommand extends Command{
             subcommand
                 .setName("bite")
                 .setDescription("Bite someone!")
-                .addStringOption((option) => 
-                    option
-                        .setName("userid")
-                        .setDescription("userid")
-                        .setRequired(false)
-                )
                 .addUserOption((option) =>
                     option
                         .setName('user')
@@ -40,12 +34,6 @@ export class ActionsCommand extends Command{
             subcommand
                 .setName("boohoo")
                 .setDescription("Used when you don't care about what other person said")
-                .addStringOption((option) => 
-                    option
-                        .setName("userid")
-                        .setDescription("userid")
-                        .setRequired(false)
-                )
                 .addUserOption((option) =>
                     option
                         .setName('user')
@@ -57,12 +45,6 @@ export class ActionsCommand extends Command{
             subcommand 
                 .setName("boop")
                 .setDescription("Boop someone!")
-                .addStringOption((option) => 
-                    option
-                        .setName("userid")
-                        .setDescription("userid")
-                        .setRequired(false)
-                )
                 .addUserOption((option) =>
                     option
                         .setName('user')
@@ -76,12 +58,6 @@ export class ActionsCommand extends Command{
             subcommand
                 .setName("cringe")
                 .setDescription("When somebody is being cringe😶")
-                .addStringOption((option) => 
-                    option
-                        .setName("userid")
-                        .setDescription("userid")
-                        .setRequired(false)
-                )
                 .addUserOption((option) =>
                     option
                         .setName('user')
@@ -93,12 +69,6 @@ export class ActionsCommand extends Command{
             subcommand
                 .setName("dap")
                 .setDescription("Dap with someone! 🙏")
-                .addStringOption((option) => 
-                    option
-                        .setName("userid")
-                        .setDescription("userid")
-                        .setRequired(false)
-                )
                 .addUserOption((option) =>
                     option
                         .setName('user')
@@ -111,12 +81,6 @@ export class ActionsCommand extends Command{
             subcommand
                 .setName("groom")
                 .setDescription("Groom kids :)")
-                .addStringOption((option) => 
-                    option
-                        .setName("userid")
-                        .setDescription("userid")
-                        .setRequired(false)
-                )
                 .addUserOption((option) =>
                     option
                         .setName('user')
@@ -128,12 +92,6 @@ export class ActionsCommand extends Command{
             subcommand
                 .setName("handshake")
                 .setDescription("Shake someone's hands! ")
-                .addStringOption((option) => 
-                    option
-                        .setName("userid")
-                        .setDescription("userid")
-                        .setRequired(false)
-                )
                 .addUserOption((option) =>
                     option
                         .setName('user')
@@ -145,12 +103,6 @@ export class ActionsCommand extends Command{
             subcommand
                 .setName("highfive")
                 .setDescription("Highfive someone! 🖐️")
-                .addStringOption((option) => 
-                    option
-                        .setName("userid")
-                        .setDescription("userid")
-                        .setRequired(false)
-                )
                 .addUserOption((option) =>
                     option
                         .setName('user')
@@ -164,12 +116,6 @@ export class ActionsCommand extends Command{
             subcommand
                 .setName("holdhands")
                 .setDescription("Hold hands with someone! 🤝")
-                .addStringOption((option) => 
-                    option
-                        .setName("userid")
-                        .setDescription("userid")
-                        .setRequired(false)
-                )
                 .addUserOption((option) =>
                     option
                         .setName('user')
@@ -181,12 +127,6 @@ export class ActionsCommand extends Command{
             subcommand
                 .setName("hug")
                 .setDescription("Hug someone! 🤗")
-                .addStringOption((option) => 
-                    option
-                        .setName("userid")
-                        .setDescription("userid")
-                        .setRequired(false)
-                )
                 .addUserOption((option) =>
                     option
                         .setName('user')
@@ -198,12 +138,6 @@ export class ActionsCommand extends Command{
             subcommand
                 .setName("kiss")
                 .setDescription("Kiss someone! 💋")
-                .addStringOption((option) => 
-                    option
-                        .setName("userid")
-                        .setDescription("userid")
-                        .setRequired(false)
-                )
                 .addUserOption((option) =>
                     option
                         .setName('user')
@@ -215,12 +149,6 @@ export class ActionsCommand extends Command{
             subcommand
                 .setName("lick")
                 .setDescription("Lick someone! 🤤")
-                .addStringOption((option) => 
-                    option
-                        .setName("userid")
-                        .setDescription("userid")
-                        .setRequired(false)
-                )
                 .addUserOption((option) =>
                     option
                         .setName('user')
@@ -232,12 +160,6 @@ export class ActionsCommand extends Command{
             subcommand
                 .setName("miss")
                 .setDescription("When you miss someone!😔")
-                .addStringOption((option) => 
-                    option
-                        .setName("userid")
-                        .setDescription("userid")
-                        .setRequired(false)
-                )
                 .addUserOption((option) =>
                     option
                         .setName('user')
@@ -249,12 +171,6 @@ export class ActionsCommand extends Command{
             subcommand
                 .setName("nom")
                 .setDescription("Eat someone!")
-                .addStringOption((option) => 
-                    option
-                        .setName("userid")
-                        .setDescription("userid")
-                        .setRequired(false)
-                )
                 .addUserOption((option) =>
                     option
                         .setName('user')
@@ -266,12 +182,6 @@ export class ActionsCommand extends Command{
             subcommand
                 .setName("pat")
                 .setDescription("Pat someone! 🐱")
-                .addStringOption((option) => 
-                    option
-                        .setName("userid")
-                        .setDescription("userid")
-                        .setRequired(false)
-                )
                 .addUserOption((option) =>
                     option
                         .setName('user')
@@ -283,12 +193,6 @@ export class ActionsCommand extends Command{
             subcommand
                 .setName("piss")
                 .setDescription("Piss on someone like a boss 😎")
-                .addStringOption((option) => 
-                    option
-                        .setName("userid")
-                        .setDescription("userid")
-                        .setRequired(false)
-                )
                 .addUserOption((option) =>
                     option
                         .setName('user')
@@ -300,12 +204,6 @@ export class ActionsCommand extends Command{
             subcommand
                 .setName("rihanna")
                 .setDescription("Beat someone up !")
-                .addStringOption((option) => 
-                    option
-                        .setName("userid")
-                        .setDescription("userid")
-                        .setRequired(false)
-                )
                 .addUserOption((option) =>
                     option
                         .setName('user')
@@ -317,12 +215,6 @@ export class ActionsCommand extends Command{
             subcommand
                 .setName("salute")
                 .setDescription("Salute someone!")
-                .addStringOption((option) => 
-                    option
-                        .setName("userid")
-                        .setDescription("userid")
-                        .setRequired(false)
-                )
                 .addUserOption((option) =>
                     option
                         .setName('user')
@@ -334,12 +226,6 @@ export class ActionsCommand extends Command{
             subcommand
                 .setName("slap")
                 .setDescription("Slap someone! 🤜")
-                .addStringOption((option) => 
-                    option
-                        .setName("userid")
-                        .setDescription("userid")
-                        .setRequired(false)
-                )
                 .addUserOption((option) =>
                     option
                         .setName('user')
@@ -351,12 +237,6 @@ export class ActionsCommand extends Command{
             subcommand
                 .setName("spit")
                 .setDescription("Spit on someone! 🤮")
-                .addStringOption((option) => 
-                    option
-                        .setName("userid")
-                        .setDescription("userid")
-                        .setRequired(false)
-                )
                 .addUserOption((option) =>
                     option
                         .setName('user')
@@ -368,12 +248,6 @@ export class ActionsCommand extends Command{
             subcommand 
                 .setName("stone")
                 .setDescription("Stone someone to death!")
-                .addStringOption((option) => 
-                    option
-                        .setName("userid")
-                        .setDescription("userid")
-                        .setRequired(false)
-                )
                 .addUserOption((option) =>
                     option
                         .setName('user')
@@ -400,19 +274,14 @@ export class ActionsCommand extends Command{
             }
         }
             // Get the user/ userid
-            const user = interaction.options.getUser("user")
-            const userid = interaction.options.getString("userid")
+            const member = interaction.options.getMember("user") as GuildMember
 
-            if(!user) {
-                if(!userid){
-                    return interaction.editReply({ content: "Please mention a user or user ID correctly! 😐" });
-                }
+            if(!member) {
+                return interaction.editReply({ content: "Please mention a user  correctly! 😐" });
             }
 
-            const member : GuildMember | undefined = user ? interaction.guild?.members.cache.get(user.id) : interaction.guild?.members.cache.get(userid!);
 
             // Run some checks
-            if(!member) return interaction.editReply({ content: "Please mention the USER ID correctly! 😐" });
             //if (member.id === interaction.user.id) { return interaction.editReply({ content: "Time to play with yourself, eh? 💦" }) }
 
             // Execute and return the response for the sub-commands
@@ -421,7 +290,7 @@ export class ActionsCommand extends Command{
                 // Bite sub-command
                 if (member.id === interaction.user.id) { return interaction.editReply("*Is that some weird kink of yours?*") }
 
-                let random = ["https://i.imgur.com/8cskqqA.gif","https://i.imgur.com/IeMAwXh.gif", "https://i.imgur.com/HnX4rkl.gif", "https://i.imgur.com/CVFMlDH.gif", "https://i.imgur.com/ieECUZW.gif", "https://i.imgur.com/nvtcrRU.gif", "https://i.imgur.com/29t3klp.gif", "https://i.imgur.com/wdNHLZB.gif", "https://i.imgur.com/8NICVEd.gif","https://i.imgur.com/4dwqQ3Y.gif", "https://i.imgur.com/NOfew22.gif","https://i.imgur.com/VYGsthN.gif","https://i.imgur.com/PKqA939.gif", "https://i.imgur.com/GGrD2CK.gif", "https://i.imgur.com/DnOnxai.gif", "https://i.imgur.com/tYOMGqc.gif", "https://i.imgur.com/sG3EKCc.gif", "https://i.imgur.com/JUTQ4fD.gif", "https://i.imgur.com/p2w1z3C.gif", "https://i.imgur.com/X0YTou9.gif", "https://i.imgur.com/JoqLNv8.gif", "https://i.imgur.com/1bI7tkd.gif", "https://i.imgur.com/OmEudTU.gif", "https://i.imgur.com/R55KvbS.gif","https://i.imgur.com/iifr5Hv.gif","https://i.imgur.com/s4o9Sac.gif","https://i.imgur.com/r5lPa1o.gif","https://i.imgur.com/iGT5gvx.gif","https://i.imgur.com/WN9nGzO.gif","https://i.imgur.com/0xou9cb.gif","https://i.imgur.com/83OHx0V.gif","https://i.imgur.com/M7yNTRr.gif"]
+                let random = ["https://i.imgur.com/8cskqqA.gif", "https://i.imgur.com/IeMAwXh.gif", "https://i.imgur.com/HnX4rkl.gif", "https://i.imgur.com/CVFMlDH.gif", "https://i.imgur.com/ieECUZW.gif", "https://i.imgur.com/nvtcrRU.gif", "https://i.imgur.com/29t3klp.gif", "https://i.imgur.com/wdNHLZB.gif", "https://i.imgur.com/8NICVEd.gif","https://i.imgur.com/4dwqQ3Y.gif", "https://i.imgur.com/NOfew22.gif","https://i.imgur.com/VYGsthN.gif","https://i.imgur.com/PKqA939.gif", "https://i.imgur.com/GGrD2CK.gif", "https://i.imgur.com/DnOnxai.gif", "https://i.imgur.com/tYOMGqc.gif", "https://i.imgur.com/sG3EKCc.gif", "https://i.imgur.com/JUTQ4fD.gif", "https://i.imgur.com/p2w1z3C.gif", "https://i.imgur.com/X0YTou9.gif", "https://i.imgur.com/JoqLNv8.gif", "https://i.imgur.com/1bI7tkd.gif", "https://i.imgur.com/OmEudTU.gif", "https://i.imgur.com/R55KvbS.gif","https://i.imgur.com/iifr5Hv.gif","https://i.imgur.com/s4o9Sac.gif","https://i.imgur.com/r5lPa1o.gif","https://i.imgur.com/iGT5gvx.gif","https://i.imgur.com/WN9nGzO.gif","https://i.imgur.com/0xou9cb.gif","https://i.imgur.com/83OHx0V.gif","https://i.imgur.com/M7yNTRr.gif"]
                 let gif = random[Math.floor(Math.random() * random.length)]
 
                 if(chibi) { return interaction.editReply({embeds : [new MessageEmbed().setColor("RANDOM").setThumbnail("https://i.imgur.com/TJuzZMP.gif").setAuthor({name: `${interaction.user.username} bit ${member.user.username} 🤭`, iconURL: interaction.user.displayAvatarURL({dynamic:true})})]})}
@@ -606,9 +475,9 @@ export class ActionsCommand extends Command{
                 return interaction.editReply({embeds: [embed]});
             }
             else if(subcommand === "hug"){
-                let random = ["https://i.imgur.com/FzvNzgT.gif","https://i.imgur.com/NPExZF2.gif","https://i.imgur.com/Ozy5SkQ.gif","https://i.imgur.com/zM8rP72.gif","https://i.imgur.com/2InQXIe.gif","https://i.imgur.com/yJWwVRR.gif","https://i.imgur.com/pGxoZvV.gif","https://i.imgur.com/jaFfM54.gif","https://i.imgur.com/kEKfhjB.gif","https://i.imgur.com/xO6h0Fq.gif","https://i.imgur.com/SMbQIYJ.gif","https://i.imgur.com/kQa7FaZ.gif","https://i.imgur.com/oBPpCOS.gif","https://i.imgur.com/rFwIET9.gif","https://i.imgur.com/jptuYJx.gif","https://i.imgur.com/MnDGVeY.gif","https://i.imgur.com/hkGsdka.gif","https://i.imgur.com/71KLYnZ.gif","https://i.imgur.com/yL6q3XK.gif","https://i.imgur.com/HRyYhvO.gif","https://i.imgur.com/rNWWmNy.gif","https://i.imgur.com/IBY3ACc.gif", "https://i.imgur.com/G7z7fSK.gif","https://i.imgur.com/7w8JBw1.gif","https://i.imgur.com/h2smpTN.gif","https://i.imgur.com/3l5Mo7N.gif","https://i.imgur.com/1vdCVzI.gif","https://i.imgur.com/mlWjHK0.gif","https://i.imgur.com/GrL46tD.gif","https://i.imgur.com/8XoLfZi.gif","https://i.imgur.com/jJLQ6dp.gif","https://i.imgur.com/dBodV3c.gif","https://i.imgur.com/ziMUgEF.gif", "https://i.imgur.com/mrY3bQt.gif","https://i.imgur.com/CPZWR0L.gif","https://i.imgur.com/FNQ6O49.gif","https://i.imgur.com/7H6CyYn.gif",
-                    "https://i.imgur.com/4MJ9DrW.gif","https://i.imgur.com/72IoE7R.gif","https://i.imgur.com/s6sr4lW.gif","https://i.imgur.com/uVU3xQc.gif","https://i.imgur.com/wbFHHyn.gif","https://i.imgur.com/YpRUAOH.gif","https://i.imgur.com/fUpsLxV.gif", "https://i.imgur.com/OLnI5mG.gif","https://i.imgur.com/lKXrp3a.gif","https://i.imgur.com/zNCctw6.gif","https://i.imgur.com/JNactKX.gif","https://i.imgur.com/eEPrGUL.gif","https://i.imgur.com/TRL8bPF.gif","https://i.imgur.com/CccWii8.gif","https://i.imgur.com/2jh8KpC.gif","https://i.imgur.com/PEFyyvf.gif","https://i.imgur.com/dKR715q.gif","https://i.imgur.com/8jVVG5C.gif",
-                    "https://i.imgur.com/kv5feWF.gif","https://i.imgur.com/hPnQ8UL.gif","https://i.imgur.com/6atNrut.gif","https://i.imgur.com/uwl4WIt.gif","https://i.imgur.com/saCTXF0.gif","https://i.imgur.com/asDCpk3.gif","https://i.imgur.com/dzx4PeB.gif","https://i.imgur.com/HoXDK5X.gif","https://i.imgur.com/HfWJwLn.gif","https://i.imgur.com/iUiDUGC.gif","https://i.imgur.com/9uHap1W.gif","https://i.imgur.com/ngGm9v9.gif","https://i.imgur.com/DScGTM6.gif","https://i.imgur.com/KrYnQzR.gif","https://i.imgur.com/G2DLX6i.gif",
+                let random = ["https://i.imgur.com/FzvNzgT.gif","https://i.imgur.com/NPExZF2.gif","https://i.imgur.com/Ozy5SkQ.gif","https://i.imgur.com/zM8rP72.gif","https://i.imgur.com/2InQXIe.gif","https://i.imgur.com/yJWwVRR.gif", "https://i.imgur.com/pGxoZvV.gif", "https://i.imgur.com/jaFfM54.gif", "https://i.imgur.com/kEKfhjB.gif","https://i.imgur.com/xO6h0Fq.gif","https://i.imgur.com/SMbQIYJ.gif", "https://i.imgur.com/kQa7FaZ.gif", "https://i.imgur.com/oBPpCOS.gif","https://i.imgur.com/rFwIET9.gif","https://i.imgur.com/jptuYJx.gif","https://i.imgur.com/MnDGVeY.gif","https://i.imgur.com/hkGsdka.gif", "https://i.imgur.com/71KLYnZ.gif", "https://i.imgur.com/yL6q3XK.gif","https://i.imgur.com/HRyYhvO.gif","https://i.imgur.com/rNWWmNy.gif","https://i.imgur.com/IBY3ACc.gif", "https://i.imgur.com/G7z7fSK.gif","https://i.imgur.com/7w8JBw1.gif","https://i.imgur.com/h2smpTN.gif","https://i.imgur.com/3l5Mo7N.gif","https://i.imgur.com/1vdCVzI.gif","https://i.imgur.com/mlWjHK0.gif","https://i.imgur.com/GrL46tD.gif","https://i.imgur.com/8XoLfZi.gif","https://i.imgur.com/jJLQ6dp.gif","https://i.imgur.com/dBodV3c.gif","https://i.imgur.com/ziMUgEF.gif", "https://i.imgur.com/mrY3bQt.gif","https://i.imgur.com/CPZWR0L.gif","https://i.imgur.com/FNQ6O49.gif","https://i.imgur.com/7H6CyYn.gif",
+                    "https://i.imgur.com/4MJ9DrW.gif","https://i.imgur.com/72IoE7R.gif","https://i.imgur.com/s6sr4lW.gif","https://i.imgur.com/uVU3xQc.gif","https://i.imgur.com/wbFHHyn.gif","https://i.imgur.com/YpRUAOH.gif", "https://i.imgur.com/fUpsLxV.gif", "https://i.imgur.com/OLnI5mG.gif", "https://i.imgur.com/lKXrp3a.gif","https://i.imgur.com/zNCctw6.gif","https://i.imgur.com/JNactKX.gif","https://i.imgur.com/eEPrGUL.gif","https://i.imgur.com/TRL8bPF.gif","https://i.imgur.com/CccWii8.gif","https://i.imgur.com/2jh8KpC.gif","https://i.imgur.com/PEFyyvf.gif","https://i.imgur.com/dKR715q.gif","https://i.imgur.com/8jVVG5C.gif",
+                    "https://i.imgur.com/kv5feWF.gif","https://i.imgur.com/hPnQ8UL.gif","https://i.imgur.com/6atNrut.gif","https://i.imgur.com/uwl4WIt.gif","https://i.imgur.com/saCTXF0.gif","https://i.imgur.com/asDCpk3.gif", "https://i.imgur.com/dzx4PeB.gif","https://i.imgur.com/HoXDK5X.gif","https://i.imgur.com/HfWJwLn.gif","https://i.imgur.com/iUiDUGC.gif","https://i.imgur.com/9uHap1W.gif","https://i.imgur.com/ngGm9v9.gif","https://i.imgur.com/DScGTM6.gif","https://i.imgur.com/KrYnQzR.gif","https://i.imgur.com/G2DLX6i.gif",
                     "https://i.imgur.com/AR5lGeu.gif", "https://i.imgur.com/S8zfMuG.gif", "https://i.imgur.com/jb1J35S.gif", "https://i.imgur.com/h7NwBj0.gif", "https://i.imgur.com/9KkFllf.gif", "https://i.imgur.com/PlT5XyQ.gif", "https://i.imgur.com/DLFCkJh.gif", "https://i.imgur.com/sjfaODW.gif", "https://i.imgur.com/NyUCrKm.gif", "https://i.imgur.com/wWEXlWc.gif", "https://i.imgur.com/uTpxiVC.gif", "https://i.imgur.com/XxQHPjT.gif", "https://i.imgur.com/KJb5lgN.gif", "https://i.imgur.com/TIiBUbx.gif", "https://i.imgur.com/oODLblv.gif", "https://i.imgur.com/UAWLTPs.gif", "https://i.imgur.com/qbd49XY.gif", "https://i.imgur.com/GijPJZi.gif", "https://i.imgur.com/c5csOSA.gif", "https://i.imgur.com/EJlRwpI.gif", "https://i.imgur.com/TsEQzGg.gif", "https://i.imgur.com/r9GgnYJ.gif", "https://c.tenor.com/4n3T2I239q8AAAAC/anime-cute.gif"]
                 let gif = random[Math.floor(Math.random() * random.length)]
 

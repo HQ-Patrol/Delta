@@ -1,11 +1,9 @@
 /*
-
 import { ApplyOptions } from "@sapphire/decorators";
 import { ApplicationCommandRegistry, ChatInputCommand, Command } from "@sapphire/framework";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import Hjson from 'hjson';
 import AdvancedComponentMenu from '../../../utilities/classes/ComponentMenu';
-import {GuildModel} from "../../../database/models/GuildModel";
 import FS from 'node:fs';
 import { MessageActionRow, MessageComponentInteraction, MessageSelectMenu } from "discord.js";
 const fs = FS.promises;
@@ -139,4 +137,4 @@ export class HelpCommand extends Command{
         await menu.send();
     }
 }
- */
+*/

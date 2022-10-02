@@ -1,7 +1,7 @@
 import { Schema, model } from "mongoose";
 
 export interface IUser {
-  id: string;
+  _id: string;
   blacklisted: boolean;
   premium: boolean;
   muted: boolean;
@@ -25,21 +25,17 @@ export interface IUser {
     LION: boolean;
     GARGOYLE: boolean;
   }
-  voting: {
-    streak: number;
-    lastVoted: Date;
-    total: number;
-  }
+  
 }
 
 const UserSchema = new Schema<IUser>({
-  id: { type: String },
+  _id: { type: String },
   blacklisted: { type: Boolean, default: false },
   premium: { type: Boolean, default: false },
   muted: { type: Boolean, default: false },
   bonk: {
     bonkedBy: { 
-      type: Array<string>,
+      type: Array,
       default: []
     },
     lastBonk: {
@@ -65,11 +61,7 @@ const UserSchema = new Schema<IUser>({
     LION: Boolean,
     GARGOYLE: Boolean,
   },
-  voting: {
-    streak: Number,
-    lastVoted: Date,
-    total: Number,
-  },
+  
 });
 
 export const User = model<IUser>("User", UserSchema);

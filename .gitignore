@@ -4,3 +4,4 @@ node_modules/
 dist/
 src/index.js
 src/utilities/logger.js
+temp/
