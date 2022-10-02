@@ -14,7 +14,7 @@ import { attemptExpand } from "../../../utilities/helpers";
   description:
     "Blackjack requires the player to get a sum total of 21 in their hands to get the Victory",
 })
-export class CandyBadgeCommand extends Command {
+export class BlackJackCommand extends Command {
   public registerApplicationCommands(registry: ChatInputCommand.Registry) {
     registry.registerChatInputCommand((builder) =>
       builder
@@ -31,8 +31,10 @@ export class CandyBadgeCommand extends Command {
   }
 
   public async chatInputRun(interaction: Command.ChatInputInteraction) {
+    await interaction.deferReply();
+
     if (!interaction.options.getString("bet"))
-      return interaction.reply({
+      return interaction.editReply({
         embeds: [
           new MessageEmbed()
             .setColor("#FF0000")
@@ -61,7 +63,7 @@ export class CandyBadgeCommand extends Command {
 
     // Check if user is broke..
     if (myself.coins <= 0)
-      return interaction.reply({
+      return interaction.editReply({
         embeds: [
           new MessageEmbed()
             .setColor("RED")
@@ -84,7 +86,7 @@ export class CandyBadgeCommand extends Command {
     ) {
       amount = myself.coins;
     } else if (isNaN(parseInt(amount))) {
-      return interaction.reply({
+      return interaction.editReply({
         embeds: [
           new MessageEmbed()
             .setColor("RED")
@@ -100,7 +102,7 @@ export class CandyBadgeCommand extends Command {
     // @ts-ignore
     if (isNaN(amount)) {
       // just in case
-      return interaction.reply({
+      return interaction.editReply({
         embeds: [
           new MessageEmbed()
             .setColor("RED")
@@ -114,7 +116,7 @@ export class CandyBadgeCommand extends Command {
     // 50 coin
     // @ts-ignore
     if (amount < 50)
-      return interaction.reply({
+      return interaction.editReply({
         embeds: [
           new MessageEmbed()
             .setColor("#FF0000")
@@ -126,7 +128,7 @@ export class CandyBadgeCommand extends Command {
 
     // For that one guy
     if (myself.coins < (amount as any))
-      return interaction.reply({
+      return interaction.editReply({
         embeds: [
           new MessageEmbed()
             .setColor("#FF0000")
@@ -186,7 +188,7 @@ export class CandyBadgeCommand extends Command {
       default:
         return;
     }
-    interaction.reply({ content: response });
+    interaction.editReply({ content: response });
 
     // save a query
     if (denomination !== 0) {

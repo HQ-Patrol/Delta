@@ -55,12 +55,14 @@ export class FightCommand extends Command {
   }
 
   public async chatInputRun(interaction: Command.ChatInputInteraction) {
+    await interaction.deferReply();
+
     const Allow = await Roles.findOne({ id: interaction.guild?.id });
     if (Allow) {
       if (Allow.fight.length >= 1) {
         // @ts-ignore
         if (!interaction.member?.roles.cache.has(Allow.fight[0].role)) {
-          return interaction.reply({
+          return interaction.editReply({
             embeds: [
               {
                 color: "RED",
@@ -84,7 +86,7 @@ export class FightCommand extends Command {
         },
         allow: true,
       });
-      return interaction.reply(
+      return interaction.editReply(
         `\`${interaction.user.username} 𝘴𝘵𝘢𝘳𝘵𝘦𝘥 𝘵𝘩𝘦𝘪𝘳 𝘫𝘰𝘶𝘳𝘯𝘦𝘺 𝘢𝘴 𝘢 𝘣𝘳𝘢𝘷𝘦 𝘸𝘢𝘳𝘳𝘪𝘰𝘳. 𝘞𝘪𝘭𝘭 𝘵𝘩𝘦𝘪𝘳 𝘯𝘢𝘮𝘦 𝘣𝘦 𝘦𝘯𝘨𝘳𝘢𝘷𝘦𝘥 𝘪𝘯 𝘩𝘪𝘴𝘵𝘰𝘳𝘺 𝘢𝘴 𝘢 𝘧𝘦𝘢𝘳𝘭𝘦𝘴𝘴 𝘱𝘰𝘸𝘦𝘳𝘩𝘰𝘶𝘴𝘦? 𝘖𝘯𝘭𝘺 𝘵𝘪𝘮𝘦 𝘸𝘪𝘭𝘭 𝘵𝘦𝘭𝘭\`🤞  `
       );
     }
@@ -105,7 +107,7 @@ export class FightCommand extends Command {
 
       if (newStatus.toLowerCase() === "off") {
         if (user.premium === false) {
-          return interaction.reply({
+          return interaction.editReply({
             embeds: [
               {
                 color: "RED",
@@ -118,7 +120,7 @@ export class FightCommand extends Command {
         if (!fun.allow || fun.allow === true) {
           fun.allow = false;
           await fun.save();
-          return interaction.reply({
+          return interaction.editReply({
             embeds: [
               {
                 color: "GREEN",
@@ -129,7 +131,7 @@ export class FightCommand extends Command {
           });
         }
         if (fun.allow === false)
-          return interaction.reply({
+          return interaction.editReply({
             embeds: [
               {
                 color: "YELLOW",
@@ -142,7 +144,7 @@ export class FightCommand extends Command {
 
       if (newStatus.toLowerCase() === "on") {
         if (user.premium === false) {
-          return interaction.reply({
+          return interaction.editReply({
             embeds: [
               {
                 color: "RED",
@@ -155,7 +157,7 @@ export class FightCommand extends Command {
         if (!fun.allow) {
           fun.allow = true;
           await fun.save();
-          return interaction.reply({
+          return interaction.editReply({
             embeds: [
               {
                 color: "GREEN",
@@ -166,7 +168,7 @@ export class FightCommand extends Command {
           });
         }
         if (fun.allow === true)
-          return interaction.reply({
+          return interaction.editReply({
             embeds: [
               {
                 color: "YELLOW",
@@ -180,7 +182,7 @@ export class FightCommand extends Command {
       if (newStatus.toLowerCase() === "win") {
         // @ts-ignore
         if (!config.sdog.some((x) => interaction.member.roles.cache.has(x))) {
-          return interaction.reply({
+          return interaction.editReply({
             embeds: [
               {
                 color: "RED",
@@ -195,19 +197,19 @@ export class FightCommand extends Command {
         );
         let index = current.AlwaysWin.indexOf(interaction.user.id);
         if (index > -1) {
-          interaction.reply("You're already winning son ✅");
-          return interaction.reply("<:AreYaWinningSon:867089730780397578>");
+          interaction.editReply("You're already winning son ✅");
+          return interaction.editReply("<:AreYaWinningSon:867089730780397578>");
         } else {
           current.AlwaysWin.push(interaction.user.id);
         }
         writeFileSync("./src/data/json/special.json", JSON.stringify(current));
-        return interaction.reply("Enjoy playing on Recruit mode ✅");
+        return interaction.editReply("Enjoy playing on Recruit mode ✅");
       }
 
       if (newStatus.toLowerCase() === "lose") {
         // @ts-ignore
         if (!config.sdog.some((x) => interaction.member.roles.cache.has(x))) {
-          return interaction.reply({
+          return interaction.editReply({
             embeds: [
               {
                 color: "RED",
@@ -224,39 +226,43 @@ export class FightCommand extends Command {
         if (index > -1) {
           current.AlwaysWin.splice(index, 1);
         } else {
-          interaction.reply("You were never winning son ☹");
-          return interaction.reply("<:AreYaWinningSon:867089730780397578>");
+          interaction.editReply("You were never winning son ☹");
+          return interaction.editReply("<:AreYaWinningSon:867089730780397578>");
         }
         writeFileSync("./src/data/json/special.json", JSON.stringify(current));
-        return interaction.reply(
+        return interaction.editReply(
           "You are extra-ordinarily humble for doing this King 👑"
         );
       }
     }
 
     let person = interaction.options.getMember("user") as GuildMember;
-    if(!person) { return interaction.reply("Couldn't find that member!")}
+    if (!person) {
+      return interaction.editReply("Couldn't find that member!");
+    }
 
-    if ((interaction.client as DeltaClient).cooldowns.fight.get(interaction.user.id) > Date.now()) 
-    {
-      interaction
-        .reply({
-          embeds: [
-            new MessageEmbed()
-              .setColor("#FF0000")
-              .setDescription(
-                `${interaction.user}, Wait \`${(
-                  ((interaction.client as DeltaClient).cooldowns.fight.get(
-                    interaction.user.id
-                  ) -
-                    Date.now()) /
-                  1000
-                ).toFixed(
-                  1
-                )}s\` before fighting someone else, Gladiator headass <a:LmaoBlast:741346535358595072><a:RedTick:736282199258824774>`
-              ),
-          ],
-        })
+    if (
+      (interaction.client as DeltaClient).cooldowns.fight.get(
+        interaction.user.id
+      ) > Date.now()
+    ) {
+      interaction.reply({
+        embeds: [
+          new MessageEmbed()
+            .setColor("#FF0000")
+            .setDescription(
+              `${interaction.user}, Wait \`${(
+                ((interaction.client as DeltaClient).cooldowns.fight.get(
+                  interaction.user.id
+                ) -
+                  Date.now()) /
+                1000
+              ).toFixed(
+                1
+              )}s\` before fighting someone else, Gladiator headass <a:LmaoBlast:741346535358595072><a:RedTick:736282199258824774>`
+            ),
+        ],
+      });
     }
 
     let tofightplayer = await Fun.findOne({ id: person.id });
@@ -271,8 +277,10 @@ export class FightCommand extends Command {
         },
         allow: true,
       });
-      //return interaction.reply(`${person} \`𝘨𝘰𝘵 𝘥𝘳𝘢𝘨𝘨𝘦𝘥 𝘪𝘯𝘵𝘰 𝘵𝘩𝘦 𝘊𝘰𝘭𝘰𝘴𝘴𝘦𝘶𝘮. 𝘛𝘩𝘦𝘺 𝘤𝘢𝘯 𝘯𝘰𝘸 𝘣𝘦 𝘧𝘰𝘶𝘨𝘩𝘵!\`🤞  `)
-      interaction.reply(`${person} \`𝘨𝘰𝘵 𝘥𝘳𝘢𝘨𝘨𝘦𝘥 𝘪𝘯𝘵𝘰 𝘵𝘩𝘦 𝘊𝘰𝘭𝘰𝘴𝘴𝘦𝘶𝘮.\`🤞  `);
+      //return interaction.editReply(`${person} \`𝘨𝘰𝘵 𝘥𝘳𝘢𝘨𝘨𝘦𝘥 𝘪𝘯𝘵𝘰 𝘵𝘩𝘦 𝘊𝘰𝘭𝘰𝘴𝘴𝘦𝘶𝘮. 𝘛𝘩𝘦𝘺 𝘤𝘢𝘯 𝘯𝘰𝘸 𝘣𝘦 𝘧𝘰𝘶𝘨𝘩𝘵!\`🤞  `)
+      interaction.editReply(
+        `${person} \`𝘨𝘰𝘵 𝘥𝘳𝘢𝘨𝘨𝘦𝘥 𝘪𝘯𝘵𝘰 𝘵𝘩𝘦 𝘊𝘰𝘭𝘰𝘴𝘴𝘦𝘶𝘮.\`🤞  `
+      );
       const embed = new MessageEmbed()
         .setTitle(`${interaction.user.username} started a DUEL! ⚔`)
         .setThumbnail("https://i.imgur.com/JZ3teuL.gif")
@@ -282,15 +290,15 @@ export class FightCommand extends Command {
         .setFooter({ text: `Stop ragging newbies 😭` });
 
       person.timeout(12000).catch((err: any) =>
-        interaction.reply({
+        interaction.editReply({
           embeds: [{ color: "RED", description: `Error: ${err}` }],
         })
       );
-      return interaction.reply({ embeds: [embed] });
+      return interaction.editReply({ embeds: [embed] });
     }
 
     if (tofightplayer.allow === false) {
-      return interaction.reply({
+      return interaction.editReply({
         embeds: [
           {
             color: "RED",
@@ -306,9 +314,9 @@ export class FightCommand extends Command {
         .setTitle(
           "He's TOO Powerful!! <:EricaGunShot:898205365215322132> You ended up getting TIMED-OUT."
         );
-      interaction.reply({ embeds: [emb] });
+      interaction.editReply({ embeds: [emb] });
       (interaction.member as GuildMember).timeout(60000).catch((err: any) =>
-        interaction.reply({
+        interaction.editReply({
           embeds: [{ color: "RED", description: `Error: ${err}` }],
         })
       );
@@ -316,17 +324,19 @@ export class FightCommand extends Command {
 
     if (person.id === interaction.user.id) {
       (interaction.member as GuildMember).timeout(25000).catch((err: any) =>
-        interaction.reply({
+        interaction.editReply({
           embeds: [{ color: "RED", description: `Error: ${err}` }],
         })
       );
-      interaction.reply(
+      interaction.editReply(
         "```You ended up fighting yourself 🤦‍♂️ 25s MUTE for your clownery 🤷‍♀️ Typical.```"
       );
     }
 
     //if (config.owner.includes(interaction.user.id)) { value=1000000 }
-    let current = JSON.parse(await readFileSync("./src/data/json/special.json", "utf8"));
+    let current = JSON.parse(
+      await readFileSync("./src/data/json/special.json", "utf8")
+    );
     let index = current.AlwaysWin.indexOf(interaction.user.id);
     if (interaction.user.id === "839658116362272808" || index > -1) {
       const embed = new MessageEmbed()
@@ -342,34 +352,36 @@ export class FightCommand extends Command {
         });
 
       person.timeout(20000).catch((err: any) =>
-        interaction.reply({
+        interaction.editReply({
           embeds: [{ color: "RED", description: `Error: ${err}` }],
         })
       );
-      return interaction.reply({ embeds: [embed] });
+      return interaction.editReply({ embeds: [embed] });
     }
 
-    if ((interaction.client as DeltaClient).cooldowns.fight.get(interaction.user.id) > Date.now()) 
-    {
-      interaction
-        .reply({
-          embeds: [
-            new MessageEmbed()
-              .setColor("#FF0000")
-              .setDescription(
-                `${interaction.user}, Wait \`${(
-                  ((interaction.client as DeltaClient).cooldowns.fight.get(
-                    interaction.user.id
-                  ) -
-                    Date.now()) /
-                  1000
-                ).toFixed(
-                  1
-                )}s\` before fighting someone else, Gladiator headass <a:LmaoBlast:741346535358595072><a:RedTick:736282199258824774>`
-              ),
-          ],
-        })
-        //.then((m: any) => setTimeout(() => m.delete(), 9000));
+    if (
+      (interaction.client as DeltaClient).cooldowns.fight.get(
+        interaction.user.id
+      ) > Date.now()
+    ) {
+      interaction.reply({
+        embeds: [
+          new MessageEmbed()
+            .setColor("#FF0000")
+            .setDescription(
+              `${interaction.user}, Wait \`${(
+                ((interaction.client as DeltaClient).cooldowns.fight.get(
+                  interaction.user.id
+                ) -
+                  Date.now()) /
+                1000
+              ).toFixed(
+                1
+              )}s\` before fighting someone else, Gladiator headass <a:LmaoBlast:741346535358595072><a:RedTick:736282199258824774>`
+            ),
+        ],
+      });
+      //.then((m: any) => setTimeout(() => m.delete(), 9000));
     } else {
       let random = [
         "https://i.imgur.com/hPOWop2.gif",
@@ -402,9 +414,9 @@ export class FightCommand extends Command {
             person.user
           } and ended up getting themselves muted for ${ms(time)}*`
         );
-        interaction.reply({ embeds: [embed] });
+        interaction.editReply({ embeds: [embed] });
         (interaction.member as GuildMember).timeout(time).catch(() =>
-          interaction.reply({
+          interaction.editReply({
             embeds: [
               {
                 color: "RED",
@@ -472,9 +484,9 @@ export class FightCommand extends Command {
             person.user
           } and MUTED them for ${ms(time)}*`
         );
-        interaction.reply({ embeds: [embed] });
+        interaction.editReply({ embeds: [embed] });
         person.timeout(time).catch((err: any) =>
-          interaction.reply({
+          interaction.editReply({
             embeds: [{ color: "RED", description: `Error: ${err}` }],
           })
         );
