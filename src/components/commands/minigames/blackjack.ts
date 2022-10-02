@@ -188,7 +188,8 @@ export class BlackJackCommand extends Command {
       default:
         return;
     }
-    interaction.editReply({ content: response });
+
+    await interaction.editReply({ content: response });
 
     // save a query
     if (denomination !== 0) {
