@@ -86,9 +86,7 @@ export class DailyCommand extends Command {
       CooldownsModel
     )) as ICooldowns;
 
-    if(!Cooldowns.daily) Cooldowns.daily = { days: -1, last: -1 };
-    if(!Cooldowns.daily?.last) Cooldowns.daily.last = -1;
-    if(!Cooldowns.daily?.days) Cooldowns.daily.days = -1;
+    if(!Cooldowns.daily) Cooldowns.daily = { days: 0, last: 0 };
 
     const lastDaily = Cooldowns.daily.last ?? -1;
     if (Date.now() - lastDaily < DAILY_COOLDOWN) {
@@ -114,9 +112,8 @@ export class DailyCommand extends Command {
       { id: interaction.user.id },
       User
     )) as IUser;
-
     let COINS = 1000 + Cooldowns.daily.days * 375;
-    let newStreak = (Cooldowns.daily.days ?? 0) + 1;
+    let newStreak = Cooldowns.daily.days + 1;
 
     let messageContent = null;
 
@@ -129,11 +126,10 @@ export class DailyCommand extends Command {
 
     if (
       Date.now() > lastDaily + STREAK_EXPIRE &&
-      lastDaily !== -1 &&
-      Cooldowns.daily.days > 10
+      lastDaily !== -1
     ) {
       // Lost
-      messageContent = `__**LOST**__ your ***${Cooldowns.daily.days}*** Days Streak.. <:WAH:740257222344310805>`;
+      if(Cooldowns.daily.days > 10) messageContent = `__**LOST**__ your ***${Cooldowns.daily.days}*** Days Streak.. <:WAH:740257222344310805>`;
       newStreak = 1;
     }
     
