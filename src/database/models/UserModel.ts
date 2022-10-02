@@ -25,11 +25,7 @@ export interface IUser {
     LION: boolean;
     GARGOYLE: boolean;
   }
-  voting: {
-    streak: number;
-    lastVoted: Date;
-    total: number;
-  }
+  
 }
 
 const UserSchema = new Schema<IUser>({
@@ -39,7 +35,7 @@ const UserSchema = new Schema<IUser>({
   muted: { type: Boolean, default: false },
   bonk: {
     bonkedBy: { 
-      type: Array<string>,
+      type: Array,
       default: []
     },
     lastBonk: {
@@ -65,11 +61,7 @@ const UserSchema = new Schema<IUser>({
     LION: Boolean,
     GARGOYLE: Boolean,
   },
-  voting: {
-    streak: Number,
-    lastVoted: Date,
-    total: Number,
-  },
+  
 });
 
 export const User = model<IUser>("User", UserSchema);
