@@ -53,7 +53,6 @@ export class TrickOrTreatCommand extends Command {
               ),
           ],
         })
-        //.then((m: any) => setTimeout(() => m.delete(), 9000));
     } else {
 
     await interaction.deferReply();

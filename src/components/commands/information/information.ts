@@ -225,7 +225,7 @@ export class InformationCommand extends Command{
                     `➽ **Special Item - Snitch Demon**: If activated and someone tries robbing you, empties robber's wallet and Bank upto \`50%\` <a:robbery:775808009825157178>\n`+
                     `➽ **Wallet Locks Limit**: Increase from \`50\` at a time to \`150\` <a:Lock:744641130792222730>\n`+
                     `➽ **${guild?.prefix}cookie bag**: Know how many cookies you've distributed in a server and who's your fav person to give cookies to! <a:PandaEat:796098914758426675>\n`+
-                    `➽ **${guild?.prefix}AFK**: Let's you add Links in your AFK Message <a:Notes:752905873357013094>\n`+
+                    //`➽ **${guild?.prefix}AFK**: Let's you add Links in your AFK Message <a:Notes:752905873357013094>\n`+
                     `➽ **${guild?.prefix}createnotes | Avatar Description | ${guild?.prefix}setdescription** -\nDouble your word limit and Links get by-passed! <a:NoteTaking:752914759992475779>\n`+
                     `➽ **${guild?.prefix}marry prenup**: Sign a prenuptial with your partner while getting married to avoid losing any money if a divorce strikes <a:HamsterJigga:731172699639906397>\n`+
                     `➽ **${guild?.prefix}reps/modvotes/simpvotes info**: Let's you see more information about your Votes History <a:BarryTheNerd:916028055099678780>\n`+

@@ -9,6 +9,7 @@ import { ApplyOptions } from "@sapphire/decorators";
 import { Economy as Eco } from "../../../database/models/EconomyModel";
 import { rndNumber } from "../../../utilities/query/pets";
 import DeltaClient from "../../../utilities/classes/DeltaClient";
+import findUserById from "../../../database/functions/economy/findUserById";
 
 let crimes = {
   // I added an array here, so in the future, custom messages / headings is supported and easy.
@@ -126,6 +127,7 @@ export class CrimeCommand extends Command {
   }
 
   public async chatInputRun(interaction: Command.ChatInputInteraction) {
+    await findUserById(interaction.user.id);
     if (
       (interaction.client as DeltaClient).cooldowns.crime.get(
         interaction.user.id
@@ -149,7 +151,6 @@ export class CrimeCommand extends Command {
               ),
           ],
         })
-        .then((m: any) => setTimeout(() => m.delete(), 9000));
     } else {
       let selectedCrimes = {};
       // Pick 3 crimes randomly from array.

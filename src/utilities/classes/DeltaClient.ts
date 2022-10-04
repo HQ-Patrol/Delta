@@ -14,7 +14,7 @@ export default class DeltaClient extends SapphireClient {
   public e: typeof emojis;
   public utils: typeof utils;
   cooldowns: {
-    beg: Map<any, any>;
+    pray: Map<any, any>;
     poke: Map<any, any>;
     rob: Map<any, any>;
     crime: Map<any, any>;
@@ -34,7 +34,7 @@ export default class DeltaClient extends SapphireClient {
     this.utils = utils;
 
     this.cooldowns = {
-      beg: new Map(),
+      pray: new Map(),
       poke: new Map(),
       rob: new Map(),
       crime: new Map(),

@@ -381,7 +381,6 @@ export class FightCommand extends Command {
             ),
         ],
       });
-      //.then((m: any) => setTimeout(() => m.delete(), 9000));
     } else {
       let random = [
         "https://i.imgur.com/hPOWop2.gif",

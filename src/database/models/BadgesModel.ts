@@ -11,4 +11,4 @@ const BadgesSchema = new Schema<IBadges>({
   badges: [],
 });
 
-export const BadgesModel = model<IBadges>("AFK", BadgesSchema);
+export const BadgesModel = model<IBadges>("badges", BadgesSchema);
