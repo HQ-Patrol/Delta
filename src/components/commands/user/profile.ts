@@ -132,16 +132,16 @@ export class ProfileCommand extends Command {
     
     const embed = new MessageEmbed()
       .setColor("RANDOM")
-      .setFooter({ text: `${interaction.user.id}` })
+      .setFooter({ text: `${user.id}` })
       .setTimestamp()
       .setAuthor({
-        name: `${interaction.user.tag}'s Profile!`,
+        name: `${user.tag}'s Profile!`,
         iconURL: (
           userInfo?.verified ? "https://i.imgur.com/Pp28QSL.gif" : (userInfo?.certified ? "https://i.imgur.com/jUsmDon.gif" : "https://i.imgur.com/DLSoUkv.png")
         )
       })
       .setThumbnail(
-        interaction.user.displayAvatarURL({
+        user.displayAvatarURL({
           format: "png",
           dynamic: true,
           size: 1024,
