@@ -107,7 +107,7 @@ export class ProfileCommand extends Command {
     const [economy, marriage, avatar, userInfo, rep, selected, badges] = await Promise.all([
       findUserById(user.id),
       MarriageModel.findOne({ id: user.id }).lean(),
-      AvatarModel.findOne({ userId: user.id }).lean(),
+      AvatarModel.findOne({ userID: user.id }).lean(),
       User.findOne({ _id: user.id }).lean(),
       RepModel.findOne({ userID: user.id }).lean(),
       getSelectedPet(user.id),
