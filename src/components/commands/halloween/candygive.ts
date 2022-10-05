@@ -53,7 +53,6 @@ export class CandyGiveCommand extends Command {
             },
           ],
         })
-        .then((m: any) => m.delete({ timeout: 5000 }));
     }
 
     if (
@@ -65,7 +64,6 @@ export class CandyGiveCommand extends Command {
         if (!cooldown) {
           return interaction
             .reply("You didn't mention the user correctly!")
-            .then((m: any) => m.delete({ timeout: 4000 }));
         } else {
           const remaining = humanizeDuration(cooldown - Date.now(), {
             units: ["h", "m", "s"],
@@ -117,7 +115,6 @@ export class CandyGiveCommand extends Command {
         if (argu.includes("stone") || argu.includes("wonka")) {
           return interaction
             .reply("**❌ FORBIDDEN ❌**")
-            .then((m: any) => m.delete({ timeout: 2000 }));
         }
 
         const candyArr = [
@@ -195,7 +192,6 @@ export class CandyGiveCommand extends Command {
       if (!memberz) {
         return interaction
           .reply("You didn't mention the user correctly!")
-          .then((m: any) => m.delete({ timeout: 4000 }));
       }
 
       if (memberz.user.id === interaction.user.id) {
