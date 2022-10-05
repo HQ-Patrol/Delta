@@ -1,4 +1,4 @@
-import { MessageEmbed, TextChannel } from "discord.js";
+import { MessageEmbed } from "discord.js";
 import { ChatInputCommand, Command } from "@sapphire/framework";
 import { ApplyOptions } from "@sapphire/decorators";
 import { HalloweenModel as Candy } from "../../../database/models/HalloweenModel";
@@ -86,10 +86,10 @@ export class CandyDailyCommand extends Command {
         "Candies you received in your daily Candy Gift box:\n" + stolenmessage
       );
     await interaction.reply({ embeds: [emb] });
-    return (
-      interaction.client.channels.cache.get("892081659527172146") as TextChannel
-    ).send(
-      `${interaction.user.username} [${interaction.user.id}] Claimed their DAILY <a:Candy1:747106214273613824> in ${interaction.guild} [${interaction.guild?.id}]`
-    );
+    
+      // let logMessage = `${interaction.user.username} [${interaction.user.id}] Claimed their DAILY <a:Candy1:747106214273613824> in ${interaction.guild} [${interaction.guild?.id}]`
+      // return client.cluster
+      //   .broadcastEval(`this.channels.cache.get("892081659527172146")?.send("${logMessage.toString()}").catch(e => console.log(e))`)
+      
   }
 }

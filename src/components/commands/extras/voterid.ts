@@ -339,7 +339,7 @@ export class VoterIDCommand extends Command {
               .setColor("RANDOM")
               .setThumbnail("https://i.imgur.com/Yl1SsdC.gif")
               .setFooter({
-                text: `For more detailed Information about a user's Reps, type: /voterid @User`,
+                text: `For more detailed Information about a user's Reps, become a Premium User`,
               })
               .setDescription(
                 ` <a:Globe:786307253598814238> 𝐓𝐨𝐭𝐚𝐥 𝐂𝐫𝐞𝐝𝐢𝐭𝐬: 『 **${tagged.rep}** 』**||** 𝙒𝙚𝙚𝙠𝙡𝙮: \`${tagged.repW}+\``
@@ -436,13 +436,13 @@ export class VoterIDCommand extends Command {
             }
             let embed2 = new MessageEmbed()
               .setAuthor({
-                name: `Your Simp Votes 🤢`,
+                name: `${user.username}'s Simp Votes 🤢`,
                 iconURL: user.displayAvatarURL({ dynamic: true }),
               })
               .setColor("DARK_BUT_NOT_BLACK")
               .setThumbnail("https://i.imgur.com/ixjIiHF.gif")
               .setFooter({
-                text: `To get a more detailed Information about your Reps, type: /svs info`,
+                text: `To get a more detailed Information about your Reps, become a Premium User`,
               })
               .setDescription(
                 `➜ __**${interaction.guild?.name}**__: \`${svMe}\` **||** 𝘞𝘦𝘦𝘬𝘭𝘺: \`${svwMe}+\`\n\n <a:Globe:786307253598814238> 𝐆𝐥𝐨𝐛𝐚𝐥 𝐕𝐨𝐭𝐞𝐬: 『 **${mee.simpV}** 』**||** 𝙒𝙚𝙚𝙠𝙡𝙮: \`${mee.sotw}+\``
