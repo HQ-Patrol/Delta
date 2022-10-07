@@ -88,7 +88,7 @@ export class DailyCommand extends Command {
     )) as ICooldowns;
 
     if(!Cooldowns.daily) Cooldowns.daily = { days: 0, last: 0, migrated: false };
-    console.log(Cooldowns); 
+
     const lastDaily = Cooldowns.daily.last ?? -1;
     if (Date.now() - lastDaily < DAILY_COOLDOWN) {
       // Cooldown
