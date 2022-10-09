@@ -31,7 +31,7 @@ export class CrucifyCommand extends Command{
         )
     }
     public async chatInputRun(interaction: ChatInputCommand.Interaction) {
-       const msg =  await interaction.deferReply({ fetchReply: true }) as Message;
+       const msg =  await interaction.reply({ content: "Thinking.....", fetchReply: true }) as Message;
        const member = interaction.member! as GuildMember
 
        const Allow = await RoleModel.findOne<IRole>({ id: msg.guild!.id })
