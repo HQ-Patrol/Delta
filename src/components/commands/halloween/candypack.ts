@@ -51,7 +51,7 @@ export class CandyPackCommand extends Command {
       }
       if (i === 0)
         return interaction.reply(
-          "You don't seem to have all types of candy to successfully pack them <a:RedTick:736282199258824774>\n Type: `!cpack` to see which ones you missing!"
+          "You don't seem to have all types of candy to successfully pack them <a:RedTick:736282199258824774>\n Type: `/cpack` to see which ones you missing!"
         );
       return pack(i);
     } else if (subCommand === "number") {

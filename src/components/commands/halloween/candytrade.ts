@@ -113,12 +113,12 @@ export class CandyTradeCommand extends Command {
       );
     if (!Object.keys(player1.candy).includes(give))
       return interaction.reply(
-        "You provided an invalid candy ID! Check `!candylist` for all the candies and IDs."
+        "You provided an invalid candy ID! Check `/candylist` for all the candies and IDs."
       );
     // @ts-ignore
     if (player1.candy[give] < givenum)
       return interaction.reply(
-        `__*You don't have enough ${give} to give!*__\nUse: \`!trickortreat\` to get a random candy and \`!candybag\` to view your inventory.`
+        `__*You don't have enough ${give} to give!*__\nUse: \`/trickortreat\` to get a random candy and \`/candybag\` to view your inventory.`
       );
     if (take === "nothing") {
       await Candy.findOneAndUpdate(
@@ -158,12 +158,12 @@ export class CandyTradeCommand extends Command {
     } else {
       if (!Object.keys(player1.candy).includes(take))
         return interaction.reply(
-          "You provided an invalid candy name! Check `!CandyList` for all the Candy Names"
+          "You provided an invalid candy name! Check `/CandyList` for all the Candy Names"
         );
       // @ts-ignore
       if (player2.candy[take] < takenum)
         return interaction.reply(
-          `${user2.toString()} does not have enough ${take} to give! Use \`!candybag (user)\` to view their inventory.`
+          `${user2.toString()} does not have enough ${take} to give! Use \`/candybag (user)\` to view their inventory.`
         );
       const embed = new MessageEmbed()
         .setAuthor(
