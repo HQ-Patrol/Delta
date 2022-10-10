@@ -15,6 +15,7 @@ import {
 import UserMonthlyMissionsModel from "../../../database/models/UserMonthlyMissionsModel";
 import ms from "ms";
 import UserWeeklyMissionsModel from "../../../database/models/UserWeeklyMissionsModel";
+import path from "path";
 
 @ApplyOptions<Command.Options>({
     name: "fart",
@@ -93,18 +94,17 @@ export class FartCommand extends Command{
                     adapterCreator: (msg.guild!.voiceAdapterCreator as DiscordGatewayAdapterCreator),
                 });
 
-                voiceConnection = await entersState(voiceConnection, VoiceConnectionStatus.Connecting, 5_000);
+                voiceConnection = await entersState(voiceConnection, VoiceConnectionStatus.Connecting, 5_000); // TODO: Remove Redundant code.
 
                 await msg.react("✅");
 
-                if(voiceConnection.state.status === VoiceConnectionStatus.Ready ){
-
-                    voiceConnection.subscribe(audioPlayer);
-                    audioPlayer.play(createAudioResource('fart.mp3'));
-                }
-
+                voiceConnection.once(VoiceConnectionStatus.Ready, async() => {
+                    await voiceConnection.subscribe(audioPlayer);
+                    audioPlayer.play(createAudioResource(`${path.join(process.cwd(), "fart.mp3")}`));
+                } )
                 audioPlayer.once(AudioPlayerStatus.Idle, () => { voiceConnection.destroy(); audioPlayer.stop(); });
-                return;
+                return ;
+
             }
         }
         if(mentionedMember.id === interaction.user.id) return msg.edit("Weirdo Spotted <a:LmaoBlast:741346535358595072>");
@@ -181,12 +181,11 @@ export class FartCommand extends Command{
 
             await msg.react("✅");
 
-            if(voiceConnection.state.status === VoiceConnectionStatus.Ready){
 
-                voiceConnection.subscribe(audioPlayer);
-                audioPlayer.play(createAudioResource('fart.mp3'));
-            }
-
+            voiceConnection.once(VoiceConnectionStatus.Ready, async() => {
+                await voiceConnection.subscribe(audioPlayer);
+                audioPlayer.play(createAudioResource(`${path.join(process.cwd(), "fart.mp3")}`));
+            } )
             audioPlayer.once(AudioPlayerStatus.Idle, () => { voiceConnection.destroy(); audioPlayer.stop(); });
 
             await sleep(6000)
