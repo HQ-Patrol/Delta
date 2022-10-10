@@ -18,6 +18,7 @@ import { addItemsToUser } from "../../../utilities/query/inventory";
 import { inRange } from "../../../utilities/global";
 
 import emoji from "../../../constants/emoji";
+import { DailyModel } from "../../../database/models/DailyModel";
 
 const rewards: Record<number, Record<string, number>> = {
   10: {
@@ -86,7 +87,7 @@ export class DailyCommand extends Command {
       CooldownsModel
     )) as ICooldowns;
 
-    if(!Cooldowns.daily) Cooldowns.daily = { days: 0, last: 0 };
+    if(!Cooldowns.daily) Cooldowns.daily = { days: 0, last: 0, migrated: false };
 
     const lastDaily = Cooldowns.daily.last ?? -1;
     if (Date.now() - lastDaily < DAILY_COOLDOWN) {
@@ -114,6 +115,7 @@ export class DailyCommand extends Command {
     )) as IUser;
     let COINS = 1000 + Cooldowns.daily.days * 375;
     let newStreak = Cooldowns.daily.days + 1;
+    let justMigrated = false;
 
     let messageContent = null;
 
@@ -124,9 +126,22 @@ export class DailyCommand extends Command {
       COINS *= 2;
     }
 
+    if(!Cooldowns.daily?.migrated) {
+      // Attempt to migrate
+      const oldDaily = await DailyModel.findOne({ id: interaction.user.id }).lean();
+      // Give up on streaks less than 5
+      if(oldDaily && oldDaily?.days > 5) {
+        const migrateMessage = `I have successfully retained your **${oldDaily.days} daily streak**. Welcome back to Delta!`;
+        messageContent = messageContent ? messageContent += "\n" + migrateMessage : messageContent = migrateMessage;
+        newStreak = oldDaily.days + 1;
+        justMigrated = true;
+      }
+    }
+
     if (
       Date.now() > lastDaily + STREAK_EXPIRE &&
-      lastDaily !== -1
+      lastDaily !== -1 &&
+      !justMigrated
     ) {
       // Lost
       if(Cooldowns.daily.days > 10) messageContent = `__**LOST**__ your ***${Cooldowns.daily.days}*** Days Streak.. <:WAH:740257222344310805>`;
@@ -174,6 +189,7 @@ export class DailyCommand extends Command {
           daily: {
             days: newStreak,
             last: Date.now(),
+            migrated: true
           },
         },
       }

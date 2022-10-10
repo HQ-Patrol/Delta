@@ -5,6 +5,7 @@ export interface ICooldowns {
   daily: {
     days: number,
     last: number,
+    migrated: boolean,
   }
   voting: {
     streak: number;
@@ -19,6 +20,7 @@ const CooldownSchema = new Schema<ICooldowns>({
   daily: {
     days: { type: Number, default: 0 },
     last: { type: Number, default: 0 },
+    migrated: { type: Boolean, default: false }
   },
   voting: {
     streak: Number,
