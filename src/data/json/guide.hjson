@@ -6,7 +6,7 @@
 	mainMenu: {
 		selectMenuLabel: "Main Menu" // Must have!
 		description: "Welcome to Patrol Bot!" // Must have!
-		emoji: "{emoji.patrolBot}" // You really should have this too!
+		emoji: "%patrolBot%" // You really should have this too!
 		menus: { // under here, menuID : object pairs, which include component and embed.
 			// initial menu
 			mainMenu: {
@@ -21,11 +21,11 @@
 						'''
 						Hey, thanks for using Patrol bot! PB is a Multi-purpose Bot which contains Mini-Games, Economy, Moderation, Leveling & lots of Fun stuff!
 
-						{emoji.right} __𝙆𝙚𝙮 𝙁𝙚𝙖𝙩𝙪𝙧𝙚𝙨__ {emoji.discordLogo}
-						• **Global Economy**: The Most realistic and Robust Economy System on this app with daily Taxations so that Rich don't keep getting Richer! Earn Coins with our Fun commands and use them to buy interesting Items which can be used on any Server using Patrol Bot {emoji.coins}
+						%right% __𝙆𝙚𝙮 𝙁𝙚𝙖𝙩𝙪𝙧𝙚𝙨__ %discordLogo%
+						• **Global Economy**: The Most realistic and Robust Economy System on this app with daily Taxations so that Rich don't keep getting Richer! Earn Coins with our Fun commands and use them to buy interesting Items which can be used on any Server using Patrol Bot %coins%
 						• **Seasonal Events**: Be part of our amazing user-base and partake in Seasonal events which will help you win loads of Prizes 🎁
 
-						{emoji.rainbownitro} **Discord Nitro**: THE only bot on this App which constantly Rewards their dedicated users with Monthly/Yearly Discord Nitros which is easily obtainable in `Shop` 🛒 and `Mystery Boxes` {emoji.mysteryBoxXXX}
+						%rainbownitro% **Discord Nitro**: THE only bot on this App which constantly Rewards their dedicated users with Monthly/Yearly Discord Nitros which is easily obtainable in `Shop` 🛒 and `Mystery Boxes` %mysteryBoxXXX%
 
 						🔽`Click on the Dropdown Menu below to know more`🔽
 						'''
@@ -52,7 +52,7 @@
 					title: "Setting up your server"
 					description:
 						'''
-						{emoji.right} `You can add Patrol bot to your Server by `[`CLICKING HERE`](https://discord.com/oauth2/authorize?client_id=763506280421392466&permissions=8&scope=bot)
+						%right% `You can add Patrol bot to your Server by `[`CLICKING HERE`](https://discord.com/oauth2/authorize?client_id=763506280421392466&permissions=8&scope=bot)
 						*After you've added the bot, make sure to Move the Patrol Bot's Role to the top of your Server's Roles List to avoid having any difficulties whilst using Moderation Commands.*
 
 						▶ __**Important Settings**__
@@ -75,7 +75,7 @@
 	coins: {
 		selectMenuLabel: "Coins"
 		description: "Become an overnight billionare. Hopefully.",
-		emoji: "{emoji.cash}",
+		emoji: "%cash%",
 		menus: {
 			// initial coins menu
 			coins: {
@@ -88,7 +88,7 @@
 					title: "Need help with the riches?"
 					description:
 						'''
-						{emoji.right} __**Coins: Patrol Bot Currency**__ {emoji.coins}
+						%right% __**Coins: Patrol Bot Currency**__ %coins%
 						*Patrol Bot has undoubtedly one of the most COMPLEX & REWARDING Economy on Discord. With Daily Taxes, different Tax Brackets, Variety of uses of Coins, Different Coin Leaderboards, it's a challenge to be at the top.*
 
 						▶ __**How to EARN Coins:**__
@@ -171,7 +171,7 @@
 					title: "Profile"
 					description:
 						'''
-						{emoji.right} User Profile and Information 👥
+						%right% User Profile and Information 👥
 
 						• __**Levels**__: `Learn more by clicking on LEVELS Button Below`
 						• __**Tax Bracket**__: `Learn more about that from Tax option in Menu`
@@ -194,11 +194,11 @@
 					title: "Levels!"
 					description:
 						'''
-						{emoji.right} __**Levels**__
+						%right% __**Levels**__
 						*For every Patrol bot command, you get XPs which inturn increases your Levels. Level up becomes increasingly difficult as you go up the ladder.*
 						➼ **`Levels are Pivotal for Increasing your Bankspace and to be able to store more Coins safe!`**
 						➼ Levels also help you unlock higher paying `{prefix}jobs` & help you move up a Tax Bracket
-						➼ User with the Highest Level on Patrol Bot gets rewarded with a Special Badge {emoji.globalXPLBTopper}
+						➼ User with the Highest Level on Patrol Bot gets rewarded with a Special Badge %globalXPLBTopper%
 
 						▶ ***There's multiple ways to Increase your Levels:***
 						• `Gambling/Minigames`
@@ -242,7 +242,7 @@
 	nitro: {
 		selectMenuLabel: "Nitro"
 		description: "Just here for the nitro? Well.. lets still take you along the ride."
-		emoji: "{emoji.nitroBoost}"
+		emoji: "%nitroBoost%"
 		menus: {
 			// initial menu
 			nitro: {
@@ -255,19 +255,19 @@
 					title: "Nitro"
 					description:
 						'''
-						{emoji.right} 𝙁𝙤𝙧 𝙩𝙝𝙚 𝙛𝙞𝙧𝙨𝙩 𝙩𝙞𝙢𝙚 𝙤𝙣 𝘿𝙞𝙨𝙘𝙤𝙧𝙙, 𝙩𝙝𝙚𝙧𝙚'𝙨 𝙖 𝘽𝙤𝙩 𝙬𝙝𝙞𝙘𝙝 𝙧𝙚𝙬𝙖𝙧𝙙𝙨 𝙮𝙤𝙪 𝙬𝙞𝙩𝙝 __𝙍𝙀𝘼𝙇 𝘿𝙞𝙨𝙘𝙤𝙧𝙙 𝙉𝙞𝙩𝙧𝙤𝙨 𝙛𝙤𝙧 𝙁𝙍𝙀𝙀__ {emoji.nitroFlying}
+						%right% 𝙁𝙤𝙧 𝙩𝙝𝙚 𝙛𝙞𝙧𝙨𝙩 𝙩𝙞𝙢𝙚 𝙤𝙣 𝘿𝙞𝙨𝙘𝙤𝙧𝙙, 𝙩𝙝𝙚𝙧𝙚'𝙨 𝙖 𝘽𝙤𝙩 𝙬𝙝𝙞𝙘𝙝 𝙧𝙚𝙬𝙖𝙧𝙙𝙨 𝙮𝙤𝙪 𝙬𝙞𝙩𝙝 __𝙍𝙀𝘼𝙇 𝘿𝙞𝙨𝙘𝙤𝙧𝙙 𝙉𝙞𝙩𝙧𝙤𝙨 𝙛𝙤𝙧 𝙁𝙍𝙀𝙀__ %nitroFlying%
 
-						🤜 ***What is a Discord Nitro?*** {emoji.thinkcat}
+						🤜 ***What is a Discord Nitro?*** %thinkcat%
 						Premium Discord subscription which Costs: **$9.99** or **$4.99** to enhance your all-in-one Discord voice, video and text chat by allowing a user:
 						• `Custom Animated Emojis and a Profile Badge`
 						• `Animated Profile Picture & Banner`
 						• `Allows 4K HD Streaming & more...`
 
-						🤜 [__***How to get the Free Discord Nitro through Patrol Bot?***__](https://patrolbot.xyz) {emoji.erica}
-						➼ ***Discord Nitro is an item available to be OBTAINED from Bot [`{prefix}shop`](https://patrolbot.xyz/item)*** {emoji.ericaEvilPlotting}
-						➼ ***Cost: 500,000 {emoji.coins} | Daily Re-Stocks ✅***
+						🤜 [__***How to get the Free Discord Nitro through Patrol Bot?***__](https://patrolbot.xyz) %erica%
+						➼ ***Discord Nitro is an item available to be OBTAINED from Bot [`{prefix}shop`](https://patrolbot.xyz/item)*** %ericaEvilPlotting%
+						➼ ***Cost: 500,000 %coins% | Daily Re-Stocks ✅***
 						➼ ***Coins are Free in-game currency which can easily be obtained with our Economy System*** `[Learn more from: {prefix}how-to about Coins]`
-						➼ *`Redeeming 2 at one time constitutes as a Boosted Discord Nitro `* {emoji.nitroBoost}
+						➼ *`Redeeming 2 at one time constitutes as a Boosted Discord Nitro `* %nitroBoost%
 						'''
 					color: "PURPLE"
 				}
@@ -307,10 +307,10 @@
 						`{prefix}use mystery box`
 						`{prefix}use bag | 3`
 						➜ You can Trade Items with other Users by: `{prefix}give @User <Item Name> | <Quantity>`
-						➜ Items can be bought from `{prefix}Shop` with Coins {emoji.coins} OR from [**`{prefix}Store`**](https://patrolbot.xyz/store) with Credit Card/Cryptocurrency
+						➜ Items can be bought from `{prefix}Shop` with Coins %coins% OR from [**`{prefix}Store`**](https://patrolbot.xyz/store) with Credit Card/Cryptocurrency
 						*[ᴠɪꜱɪᴛ ᴏᴜʀ ᴡᴇʙꜱɪᴛᴇ ꜰᴏʀ ᴍᴏʀᴇ: ʜᴛᴛᴘꜱ://ᴘᴀᴛʀᴏʟʙᴏᴛ.xʏᴢ/ꜱᴛᴏʀᴇ 🔍]*
 
-						{emoji.arrowRight} **Type: `{prefix}info item <Item Name>` to know more about any in-game Items!** {emoji.ericaHmmm}
+						%arrowRight% **Type: `{prefix}info item <Item Name>` to know more about any in-game Items!** %ericaHmmm%
 						'''
 					color: "GREEN"
 				}
@@ -324,18 +324,18 @@
 					title: "What are Mystery Boxes?"
 					description:
 						'''
-						Mystery Boxes are Gift Boxes which contain different type of items depending on the Rarity of the Boxes. Along with a Special Item, all Mystery Boxes also give Coins & XPs. Higher Tier mystery boxes tend to give Special Items which aren't obtainable in other ways like {emoji.1StarDragonBall} Dragon Balls, etc.
+						Mystery Boxes are Gift Boxes which contain different type of items depending on the Rarity of the Boxes. Along with a Special Item, all Mystery Boxes also give Coins & XPs. Higher Tier mystery boxes tend to give Special Items which aren't obtainable in other ways like %1StarDragonBall% Dragon Balls, etc.
 
 						▶ __**Type of Mystery Boxes**__
 						➦ There's 5 type of Mystery Boxes with increasing Rarity:
-						• {emoji.mysteryBox1}[**Mystery Box 1**](https://patrolbot.xyz/store)
-						• {emoji.mysteryBox2}[**Mystery Box 2**](https://patrolbot.xyz/store)
-						• {emoji.mysteryBox3}[**Mystery Box 3**](https://patrolbot.xyz/store)
-						• {emoji.mysteryBoxXXX}[**Mystery Box XXX**](https://patrolbot.xyz/store) `[Exclusive to {prefix}Store]`
-						• {emoji.mysteryBoxXXL}[**Mystery Box XL**](https://patrolbot.xyz/store) `[Exclusive to {prefix}Store]`
+						• %mysteryBox1%[**Mystery Box 1**](https://patrolbot.xyz/store)
+						• %mysteryBox2%[**Mystery Box 2**](https://patrolbot.xyz/store)
+						• %mysteryBox3%[**Mystery Box 3**](https://patrolbot.xyz/store)
+						• %mysteryBoxXXX%[**Mystery Box XXX**](https://patrolbot.xyz/store) `[Exclusive to {prefix}Store]`
+						• %mysteryBoxXXL%[**Mystery Box XL**](https://patrolbot.xyz/store) `[Exclusive to {prefix}Store]`
 
 						▶ __**How to Get Mystery Boxes**__ 🎁
-						• [**`{prefix}Store`**](https://patrolbot.xyz/Store) {emoji.wavingSomeCash}
+						• [**`{prefix}Store`**](https://patrolbot.xyz/Store) %wavingSomeCash%
 						• **`Doing {prefix}Tasks`**
 						• **`Pet Skills`**
 						• [**`{prefix}Daily`**](https://patrolbot.xyz/premium) (Only on Streaks)
@@ -359,7 +359,7 @@
 	pets: {
 		selectMenuLabel: "Pets"
 		description: "Your personal little friend that goes with you, and also needs your love."
-		emoji: "{emoji.quaggi}"
+		emoji: "%quaggi%"
 		menus: {
 			pets: {
 				default: true
@@ -371,7 +371,7 @@
 					title: "Pets"
 					description:
 						'''
-						{emoji.right} __**About Pets System**__ {emoji.hatchedEmAll}
+						%right% __**About Pets System**__ %hatchedEmAll%
 						Pets are your personal Monsters who don't only look cute but can do a LOT of different things for you including making you money, helping you evade taxes, generating mystery boxes, robbing, etc. In return they need your care and love. You can also do other stuff like Play, Train, etc which helps it grow & get stronger.
 
 						▶ __**How to Obtain Pets?**__
@@ -394,13 +394,13 @@
 						'''
 						▶ __**Type of Eggs**__
 						➦ There's 3 type of Eggs in Patrol Bot:
-						• {emoji.softBoiledEgg}[**Soft Boiled Egg**](https://patrolbot.xyz/store): `25%` Chance of Hatching, Lowest Hatch Rarity, Failed Hatch provides User XPs
-						• {emoji.mediumBoiledEgg}[**Medium Boiled Egg**](https://patrolbot.xyz/store): `40%` Chance of Hatching, Improved Hatch Rairty, Failed Hatch provides Growth Vials {emoji.growthVial}
-						• {emoji.hardBoiledEgg}[**Hard Boiled Egg**](https://patrolbot.xyz/store): `75%` Chance of Hatching, Best Hatch Rarity, Failed Hatch provides Growth Vials {emoji.growthVial}
+						• %softBoiledEgg%[**Soft Boiled Egg**](https://patrolbot.xyz/store): `25%` Chance of Hatching, Lowest Hatch Rarity, Failed Hatch provides User XPs
+						• %mediumBoiledEgg%[**Medium Boiled Egg**](https://patrolbot.xyz/store): `40%` Chance of Hatching, Improved Hatch Rairty, Failed Hatch provides Growth Vials %growthVial%
+						• %hardBoiledEgg%[**Hard Boiled Egg**](https://patrolbot.xyz/store): `75%` Chance of Hatching, Best Hatch Rarity, Failed Hatch provides Growth Vials %growthVial%
 
 						▶ __**How to Get Eggs**__ 🥚
-						• [**`{prefix}Store`**](https://patrolbot.xyz/Store) {emoji.wavingSomeCash}
-						• **`Mystery Boxes`** (All) {emoji.mysteryBoxXXX}
+						• [**`{prefix}Store`**](https://patrolbot.xyz/Store) %wavingSomeCash%
+						• **`Mystery Boxes`** (All) %mysteryBoxXXX%
 						• [**`{prefix}Daily`**](https://patrolbot.xyz/premium) (Only on Streaks)
 						• [**`{prefix}Vote`**](https://top.gg/bot/763506280421392466) (33% chance every Vote & Premium users get `x2`)
 						• [**`{prefix}Boosters`**](https://discord.gg/HQ) (Boost [__HQ Server__](https://discord.gg/HQ) and Claim Daily Egg)
@@ -417,19 +417,19 @@
 					title: "Pet Attributes"
 					description:
 						'''
-						{emoji.right} *Everytime you Hatch a Pet, it'll have Certain Attributes which determine how your Pet will perform in a Brawl. Each Attributes determines different trait your pet will perform better at. Each Pet has 6 Attributes:*
+						%right% *Everytime you Hatch a Pet, it'll have Certain Attributes which determine how your Pet will perform in a Brawl. Each Attributes determines different trait your pet will perform better at. Each Pet has 6 Attributes:*
 
 						➜ **`3 Primary Attributes`** `(PERMANENT)[https://patrolbot.xyz "Directly affect Brawls"]`
-						• __**Intelligence**__: Improves your chances of Critical Hits & Accuracy {emoji.letsFight}
-						• __**Speed**__: Avoids getting hit by your opponent {emoji.crocoRun}
-						• __**Attack**__: Increases the damage your hits provide {emoji.muscleFlex}
+						• __**Intelligence**__: Improves your chances of Critical Hits & Accuracy %letsFight%
+						• __**Speed**__: Avoids getting hit by your opponent %crocoRun%
+						• __**Attack**__: Increases the damage your hits provide %muscleFlex%
 						➼ For every level up, your Pet gets 5 Stat Points to add into whichever Attribute you like.
 
 						➜ **`3 Secondary Attributes`** `(TEMPORARY)[https://patrolbot.xyz "Doesn't affect Brawls but are Pivotal in everything else"]`
-						• __**Hunger & Energy**__: Needed for almost every Activity your pet does. Also, Hunger reduces with time so make sure you keep feeding your pet {emoji.alarmGoBrrrrr} If not fed, your Pet goes into Deep Sleep and is unable to do anything till they're revived by using 5000 {emoji.coins}
-						• __**Love**__: It is something everyone needs and that includes your beloved pet. Without it, they stop following your orders and might even leave you permanently! {emoji.nibbaShook4}
-						➼ Pet Food {emoji.petFood} - Raises your Pet's Hunger and Energy to 100
-						➼ Love Potion {emoji.lovePotion} - Raises your Pet's Love attribute to 100
+						• __**Hunger & Energy**__: Needed for almost every Activity your pet does. Also, Hunger reduces with time so make sure you keep feeding your pet %alarmGoBrrrrr% If not fed, your Pet goes into Deep Sleep and is unable to do anything till they're revived by using 5000 %coins%
+						• __**Love**__: It is something everyone needs and that includes your beloved pet. Without it, they stop following your orders and might even leave you permanently! %nibbaShook4%
+						➼ Pet Food %petFood% - Raises your Pet's Hunger and Energy to 100
+						➼ Love Potion %lovePotion% - Raises your Pet's Love attribute to 100
 						'''
 					color: "GREEN"
 				}
@@ -443,17 +443,17 @@
 					title: "Skills & Evolution"
 					description:
 						'''
-						{emoji.right} __**Skills**__
-						➼ Each pet also has their own unique **Skills**, which can help you from being completely Rob-proof {emoji.bONK}, to helping you avoid taxes {emoji.ericaEvilPlotting}, to giving you double XPs {emoji.sparklez} So make sure you've chosen the right pet to accompany you!
+						%right% __**Skills**__
+						➼ Each pet also has their own unique **Skills**, which can help you from being completely Rob-proof %bONK%, to helping you avoid taxes %ericaEvilPlotting%, to giving you double XPs %sparklez% So make sure you've chosen the right pet to accompany you!
 						`To know more about which Pets have which skills, type:` [`{prefix}info pet`](https://patrolbot.xyz/pets)
 
-						{emoji.right} __**Evolutions**__
-						➼ You can also **Evolve** your Pet into a more stronger monster {emoji.furrloin}--->{emoji.roawrath} Each evolution gives you 1 Level and 20 Stat Points along with improved Skills and a broader Moveset {emoji.punch}
-						➼ To Evolve your Pet, you'll need a **Growth Serum** {emoji.growthSerum} which can ONLY be obtained by adding `x25` **Growth Vials** {emoji.growthVial} together. Growth Vials can be obtained from Failed Egg Hatch, Mystery Boxes and by Disowning your pets {emoji.vialFormation}
+						%right% __**Evolutions**__
+						➼ You can also **Evolve** your Pet into a more stronger monster %furrloin%--->%roawrath% Each evolution gives you 1 Level and 20 Stat Points along with improved Skills and a broader Moveset %punch%
+						➼ To Evolve your Pet, you'll need a **Growth Serum** %growthSerum% which can ONLY be obtained by adding `x25` **Growth Vials** %growthVial% together. Growth Vials can be obtained from Failed Egg Hatch, Mystery Boxes and by Disowning your pets %vialFormation%
 
-						▶ __**How to get Growth Vials**__ {emoji.growthVial}
+						▶ __**How to get Growth Vials**__ %growthVial%
 						• Failed Egg Hatch
-						• [`Mystery Boxes`](https://patrolbot.xyz/store) {emoji.mysteryBoxXXX}
+						• [`Mystery Boxes`](https://patrolbot.xyz/store) %mysteryBoxXXX%
 						• Disowning Pets
 						'''
 					color: "GREEN"
@@ -468,7 +468,7 @@
 					title: "Brawl (PvC & PvP)"
 					description:
 						'''
-						{emoji.right} __**Brawl**__
+						%right% __**Brawl**__
 						➜ Brawling is how you can fight with other Pets either Owned by Users or Bosses. Defeat them to gain tons of XPs and prove your dominance. Every wins add to your total tally.
 						➜ Each pet has their unique **Moveset**, which keeps improving each evolution so you always have multiple tactics to win, whatever be the situation.
 						➜ Defence :shield: is a in-fight attribute which works exactly as you'd expect, reduces the damage taken from opponents hits.
@@ -494,17 +494,17 @@
 					title: "Misc & Badges"
 					description:
 						'''
-						{emoji.right} __**Miscellaneous**__
+						%right% __**Miscellaneous**__
 						➜ **Leaderboard** shows who's excelling in which field including Most Wins, Highest Level, among others. Soon person topping Leaderboard would get a Special Gladiator Badge :crossed_swords:
 						➜ **Favorited Pets** allows you to have your loved Pet(s) show up on First page of Full Pets list 💟
 
 						➜ Over the Centuries, Pets had a deformity in their Genes which ultimately led to a 1 in a million chance of being a **Shadow** Variant. After extensive research, Shadow types were found to be stronger, agile and better than a Regular pet in every field. Keep an eye out and maybe you might hatch one!
 
 						➜ There's 4 Badges associated with Pets:
-						• `Shadow Spotter` {emoji.shadowSpotter} You receive this after hatching your first Shadow Variant Pet
-						• `Hatched Em' All` {emoji.hatchedEmAll} You receive this after hatching all available breeds of Pets
-						• `Non-Functioning testicles (NFT)` {emoji.nFT} You receive this after suggesting the Fresh new NFT Idea to Gray V
-						• `Brawl Master` {emoji.brawlMaster} You receive this after beating Gary in a Brawl
+						• `Shadow Spotter` %shadowSpotter% You receive this after hatching your first Shadow Variant Pet
+						• `Hatched Em' All` %hatchedEmAll% You receive this after hatching all available breeds of Pets
+						• `Non-Functioning testicles (NFT)` %nFT% You receive this after suggesting the Fresh new NFT Idea to Gray V
+						• `Brawl Master` %brawlMaster% You receive this after beating Gary in a Brawl
 						'''
 					color: "GREEN"
 				}
@@ -530,15 +530,15 @@
 					description:
 						'''
 						Patrol Bot also has Paid Monthly Membership which gives the user Amazing Privileges & Perks for Supporting us in Development and Sustainment of Bot.
-						But Unlike how other Bots have done it, we decided to do something different. Premium can also be obtained for FREE from: `{prefix}shop` with in-game currency! {emoji.ericaEvilPlotting}
+						But Unlike how other Bots have done it, we decided to do something different. Premium can also be obtained for FREE from: `{prefix}shop` with in-game currency! %ericaEvilPlotting%
 
 						➼ Patrol Bot Premium can be Availed by using one of the 3 Premium Items:
-						• {emoji.premium7D} Premium 7D: Provides you with all Premium Benefits for a Week `[Available in: {prefix}shop]`
-						• {emoji.premium1M} Premium 1M: Provides you with all Premium Benefits for a Month `[Available on `[**`Store for $3.99`**](https://patrolbot.xyz/store)`]`
-						• {emoji.premiumLifetime} Premium Lifetime: Provides you with all Premium Benefits Permanently on your Account `[Available on `[**`Store for $49.99`**](https://patrolbot.xyz/store)`]`
+						• %premium7D% Premium 7D: Provides you with all Premium Benefits for a Week `[Available in: {prefix}shop]`
+						• %premium1M% Premium 1M: Provides you with all Premium Benefits for a Month `[Available on `[**`Store for $3.99`**](https://patrolbot.xyz/store)`]`
+						• %premiumLifetime% Premium Lifetime: Provides you with all Premium Benefits Permanently on your Account `[Available on `[**`Store for $49.99`**](https://patrolbot.xyz/store)`]`
 						*[ᴡᴇ ɢᴏᴛ ʏᴏᴜ ᴄᴏᴠᴇʀᴇᴅ ᴇᴠᴇɴ ɪꜰ ʏᴏᴜ ɢᴇᴛ ᴅɪꜱᴀʙʟᴇᴅ ʙʏ ᴅɪꜱᴄᴏʀᴅ! || ᴛᴇʀᴍꜱ ᴀɴᴅ ᴄᴏɴᴅɪᴛɪᴏɴꜱ ᴀᴘᴘʟʏ]*
 
-						{emoji.arrowRight} **Visit our Website: https://patrolbot.xyz/store OR** [__**CLICK HERE**__](https://patrolbot.xyz/store) **to Purchase** {emoji.wavingSomeCash}
+						%arrowRight% **Visit our Website: https://patrolbot.xyz/store OR** [__**CLICK HERE**__](https://patrolbot.xyz/store) **to Purchase** %wavingSomeCash%
 						*`[Crypto Payments also Accepted!]`*
 						'''
 					color: "GREEN"
@@ -553,22 +553,22 @@
 					title: "Patrol Bot Premium Perks:"
 					description:
 						'''
-						➽ **{prefix}weekly**: Get Special Weekly Prize of: Mystery Box and Medium Boiled Egg exclusive to only Premium! {emoji.cheers}
-						➽ **Pets Limit**: Increase your Total Pets Capacity from Maximum of `10` to **`20` {emoji.quaggiGIF}**
-            			➽ **Voting Commands**: All Voting cooldowns (Simpvote, Social-credit, Mod-vote, etc) gets their cooldown reduced by `50%` {emoji.goVote}
-						➽ **Exclusive Tasks**: Be able to complete all Premium-only Weekly and Monthly tasks for FREE Rare Mystery Boxes {emoji.findingNukes}
-						➽ **{prefix}work**: Get upto 5 extra high paying jobs {emoji.ericaEvilPlotting}
-						➽ **{prefix}fight ON/OFF**: Turn off fight-mode at your own will and never lose/get muted {emoji.letsFight}
-						➽ **{prefix}vote**: Get `x2` the reward a normal users get per vote! {emoji.topgg}
-						➽ **Item Usage**: Increase from `3` at a time to **`25`** {emoji.gotThat}
-						➽ **Special Item - Snitch Demon**: If activated and someone tries robbing you, empties robber's wallet and Bank upto `50%` {emoji.robbery}
-						➽ **Wallet Locks Limit**: Increase from `50` at a time to `150` {emoji.lock}
-						➽ **{prefix}cookie bag**: Know how many cookies you've distributed in a server and who's your fav person to give cookies to! {emoji.pandaEat}
-						➽ **{prefix}AFK**: Let's you add Links in your AFK Message {emoji.notes}
-						➽ **{prefix}createnotes | {prefix}setcaption | {prefix}setdescription** ~ Double your word limit and Links get by-passed! {emoji.noteTaking}
-						➽ **{prefix}marry prenup**: Sign a prenuptial with your partner while getting married to avoid losing any money if a divorce strikes {emoji.hamsterJigga}
-						➽ **{prefix}reps/modvotes/simpvotes info**: Let's you see more information about your Votes History {emoji.barryTheNerd}
-						➽ **Premium-Only Giveaways**: Be allowed to Participate in the Exclusive Premium users-Only Giveaways in [__Patrol Bot HQ/Support__](https://discord.gg/HQ) {emoji.tada}
+						➽ **{prefix}weekly**: Get Special Weekly Prize of: Mystery Box and Medium Boiled Egg exclusive to only Premium! %cheers%
+						➽ **Pets Limit**: Increase your Total Pets Capacity from Maximum of `10` to **`20` %quaggiGIF%**
+            			➽ **Voting Commands**: All Voting cooldowns (Simpvote, Social-credit, Mod-vote, etc) gets their cooldown reduced by `50%` %goVote%
+						➽ **Exclusive Tasks**: Be able to complete all Premium-only Weekly and Monthly tasks for FREE Rare Mystery Boxes %findingNukes%
+						➽ **{prefix}work**: Get upto 5 extra high paying jobs %ericaEvilPlotting%
+						➽ **{prefix}fight ON/OFF**: Turn off fight-mode at your own will and never lose/get muted %letsFight%
+						➽ **{prefix}vote**: Get `x2` the reward a normal users get per vote! %topgg%
+						➽ **Item Usage**: Increase from `3` at a time to **`25`** %gotThat%
+						➽ **Special Item - Snitch Demon**: If activated and someone tries robbing you, empties robber's wallet and Bank upto `50%` %robbery%
+						➽ **Wallet Locks Limit**: Increase from `50` at a time to `150` %lock%
+						➽ **{prefix}cookie bag**: Know how many cookies you've distributed in a server and who's your fav person to give cookies to! %pandaEat%
+						➽ **{prefix}AFK**: Let's you add Links in your AFK Message %notes%
+						➽ **{prefix}createnotes | {prefix}setcaption | {prefix}setdescription** ~ Double your word limit and Links get by-passed! %noteTaking%
+						➽ **{prefix}marry prenup**: Sign a prenuptial with your partner while getting married to avoid losing any money if a divorce strikes %hamsterJigga%
+						➽ **{prefix}reps/modvotes/simpvotes info**: Let's you see more information about your Votes History %barryTheNerd%
+						➽ **Premium-Only Giveaways**: Be allowed to Participate in the Exclusive Premium users-Only Giveaways in [__Patrol Bot HQ/Support__](https://discord.gg/HQ) %tada%
 						🌟 Lots of Premium features in works for future updates!🤓
 
 						Visit https://patrolbot.xyz/store or [**Click here**](https://patrolbot.xyz) to purchase Premium!
@@ -637,17 +637,17 @@
 						Tasks are a set of Challenges every user can receive each week or month and get rewarded with variety of Mystery Boxes according to the severity of them.
 
 						➤ Tasks are of 2 types -
-						• __**Weekly Tasks**__: Collection of **7 Challenges** out of which 5 are available for EVERYONE and 2-ONLY for our {emoji.premium1M} **Premium** Users.
+						• __**Weekly Tasks**__: Collection of **7 Challenges** out of which 5 are available for EVERYONE and 2-ONLY for our %premium1M% **Premium** Users.
 						`These get reset-ed every Sunday 00:00 PST` ⏰
 
-						• __**Monthly Tasks**__: Collection of **10 Challenges** out of which 7 are available for EVERYONE and 3-ONLY for our {emoji.premium1M} **Premium** Users.
+						• __**Monthly Tasks**__: Collection of **10 Challenges** out of which 7 are available for EVERYONE and 3-ONLY for our %premium1M% **Premium** Users.
 						`These get reset-ed on every 1st of Month 00:00 PST` ⏰
 
-						➦ *Each user's tasks are randomly generated by using the command: `{prefix}task generate`. Once tasks are generated, you can check the list by `{prefix}task list`* {emoji.ericaNotes}
+						➦ *Each user's tasks are randomly generated by using the command: `{prefix}task generate`. Once tasks are generated, you can check the list by `{prefix}task list`* %ericaNotes%
 
-						➦ All tasks have a Code, which is used to either learn more information about it (`{prefix}task info <CODE>`), Check its progress (`{prefix}task progress <CODE>`) or Claim it's reward (`{prefix}task claim <CODE>`) {emoji.ericaHmmm}
+						➦ All tasks have a Code, which is used to either learn more information about it (`{prefix}task info <CODE>`), Check its progress (`{prefix}task progress <CODE>`) or Claim it's reward (`{prefix}task claim <CODE>`) %ericaHmmm%
 
-						➦ You can Also skip a Task by Using Items: **Weekly Skip** {emoji.weeklySkips} or **Monthly Skip** {emoji.monthlySkips} & then using command: `{prefix}task skip <CODE>` {emoji.ericaEvilPlotting}
+						➦ You can Also skip a Task by Using Items: **Weekly Skip** %weeklySkips% or **Monthly Skip** %monthlySkips% & then using command: `{prefix}task skip <CODE>` %ericaEvilPlotting%
 						'''
 					color: "GREEN"
 				}
@@ -672,17 +672,17 @@
 	// 				title: "PB: Voting System"
 	// 				description:
 	// 					'''
-	// 					{emoji.right} __**Premium**__
+	// 					%right% __**Premium**__
 	// 					Patrol Bot also has Paid Monthly Membership which gives the user Amazing Privileges & Perks for Supporting us in Development and Sustainment of Bot.
-	// 					But Unlike how other Bots have done it, we decided to do something different. Premium can also be obtained for FREE from: `{prefix}shop` with in-game currency! {emoji.ericaEvilPlotting}
+	// 					But Unlike how other Bots have done it, we decided to do something different. Premium can also be obtained for FREE from: `{prefix}shop` with in-game currency! %ericaEvilPlotting%
 
 	// 					➼ Patrol Bot Premium can be Availed by using one of the 3 Premium Items:
-	// 					• {emoji.premium7D} Premium 7D: Provides you with all Premium Benefits for a Week `[Available in: {prefix}shop]`
-	// 					• {emoji.premium1M} Premium 1M: Provides you with all Premium Benefits for a Month `[Available on `[**`Store for $3.99`**](https://patrolbot.xyz/store)`]`
-	// 					• {emoji.premiumLifetime} Premium Lifetime: Provides you with all Premium Benefits Permanently on your Account `[Available on `[**`Store for $49.99`**](https://patrolbot.xyz/store)`]`
+	// 					• %premium7D% Premium 7D: Provides you with all Premium Benefits for a Week `[Available in: {prefix}shop]`
+	// 					• %premium1M% Premium 1M: Provides you with all Premium Benefits for a Month `[Available on `[**`Store for $3.99`**](https://patrolbot.xyz/store)`]`
+	// 					• %premiumLifetime% Premium Lifetime: Provides you with all Premium Benefits Permanently on your Account `[Available on `[**`Store for $49.99`**](https://patrolbot.xyz/store)`]`
 	// 					*[ᴡᴇ ɢᴏᴛ ʏᴏᴜ ᴄᴏᴠᴇʀᴇᴅ ᴇᴠᴇɴ ɪꜰ ʏᴏᴜ ɢᴇᴛ ᴅɪꜱᴀʙʟᴇᴅ ʙʏ ᴅɪꜱᴄᴏʀᴅ! || ᴛᴇʀᴍꜱ ᴀɴᴅ ᴄᴏɴᴅɪᴛɪᴏɴꜱ ᴀᴘᴘʟʏ]*
 
-	// 					{emoji.arrowRight} **Visit our Website: https://patrolbot.xyz/store OR** [__**CLICK HERE**__](https://patrolbot.xyz/store) **to Purchase** {emoji.wavingSomeCash}
+	// 					%arrowRight% **Visit our Website: https://patrolbot.xyz/store OR** [__**CLICK HERE**__](https://patrolbot.xyz/store) **to Purchase** %wavingSomeCash%
 	// 					*`[Crypto Payments also Accepted!]`*
 	// 					'''
 	// 				color: "GREEN"
