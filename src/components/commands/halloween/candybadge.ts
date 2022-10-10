@@ -24,7 +24,7 @@ export class CandyBadgeCommand extends Command {
     const player = await Candy.findOne({ id: interaction.user.id });
     if (!player)
       return interaction.reply(
-        `**You haven't started your Candy Land pilgrimage yet** <a:exclamation:741988026296696872> Type: \`/tt\` 💯`
+        `**You haven't started your Candy Land pilgrimage yet** <a:exclamation:741988026296696872> Type: \`/trickortreat\` 💯`
       );
     if (player.Package < 25)
       return interaction.reply(
