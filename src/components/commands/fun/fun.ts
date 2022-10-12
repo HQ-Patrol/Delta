@@ -151,7 +151,7 @@ export class FunCommand extends Command{
                 return msg.edit({ content: "You took too long!" }).catch(() => null);
             }
             if(!text.first()!.content) return;
-            figlet.text(text.first()!.content, function(err, data){
+            figlet.text(text.first()!.content, function(err: any, data: any){
                 if(err){
                     console.log(err);
                     return ;
