@@ -21,6 +21,7 @@ export interface IItem {
     icon: string;
     price: number;
     stock?: number;
+    sellPrice?: number;
     collateralPrice: number;
     description: string;
     usage: string;

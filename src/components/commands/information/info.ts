@@ -1,40 +1,103 @@
 import { ApplyOptions } from "@sapphire/decorators";
 import { ApplicationCommandRegistry, ChatInputCommand, Command } from "@sapphire/framework";
+import { MessageEmbed } from "discord.js";
 
+import findByUserId from "../../../database/functions/economy/findUserById";
+import findOneOrCreate from "../../../database/functions/findOneOrCreate";
+import { BadgesModel } from "../../../database/models/BadgesModel";
+
+import { IBadge } from "../../../types/Badge";
+import { IItem } from "../../../types/Item";
+
+import { resolve } from "../../../utilities/badges";
+import { emojiToLink, findItem } from "../../../utilities/query/item";
+import sendError from "../../../utilities/sendError";
+
+import emoji from "../../../constants/emoji";
 @ApplyOptions<Command.Options>({
     name: "info",
-    description: "Basic Info!"
+    description: "Get information about items, badges and pets."
 })
 
-export class InfoCommand extends Command{
+export class InfoCommand extends Command {
     public registerApplicationCommands(registry: ApplicationCommandRegistry) {
         registry.registerChatInputCommand((builder) =>
-        builder
-            .setName(this.name)
-            .setDescription(this.description)
-            .addStringOption((option) =>
-            option
-                .setName("item")
-                .setDescription("Item/Badge/Pets Name")
-                .addChoices(
-                    { name: "Item", value: "item" },
-                    { name: "Badge", value: "badge" },
-                    { name: "Pet Name", value: "pet" }
+            builder
+                .setName(this.name)
+                .setDescription(this.description)
+                .addStringOption((option) =>
+                    option
+                        .setName("type")
+                        .setDescription("Do you want to view an item, badge or pet?")
+                        .addChoices(
+                            { name: "Item", value: "item" },
+                            { name: "Badge", value: "badge" },
+                            /*{ name: "Pet", value: "pet" }*/
+                        )
+                        .setRequired(true)
                 )
-                .setRequired(true)
-            )
-        )
+                .addStringOption((option) =>
+                    option
+                        .setName("name")
+                        .setDescription("Please tell us the name of the item, badge or pet!")
+                        .setAutocomplete(true)
+                        .setRequired(true)
+                )
+        );
     }
-    public chatInputRun(interaction: ChatInputCommand.Interaction){
+    public async chatInputRun(interaction: ChatInputCommand.Interaction){
+        const type = interaction.options.getString("type", true);
+        const name = interaction.options.getString("name", true);
+        
+        let embed;
 
-       // const query = interaction.options.getString("item")!
+        if(type === "item") {
+            const item = findItem(name.toLowerCase()) as IItem;
+            if(!item) return sendError(interaction, "That isn't a valid item!");
 
-        //const randomFooter = ["!ᴠᴏᴛᴇ ꜰᴏʀ 🎁", "!ᴠᴏᴛᴇ ꜰᴏʀ 🎁", "!ᴠᴏᴛᴇ ꜰᴏʀ 🎁", "!ᴠᴏᴛᴇ ꜰᴏʀ 🎁", "!ᴠᴏᴛᴇ ꜰᴏʀ 🎁", "ꜱᴜʙᴍɪᴛ ʏᴏᴜʀ ᴏᴡɴ !ᴛᴏᴘɪᴄꜱ", "ᴠɪꜱɪᴛ ᴘᴀᴛʀᴏʟʙᴏᴛ.xʏᴢ ✨", "ᴘᴀᴛʀᴏʟʙᴏᴛ.xʏᴢ/ꜱᴛᴏʀᴇ ᴛᴏ ᴘᴜʀᴄʜᴀꜱᴇ ᴍʏꜱᴛᴇʀʏ ʙᴏxᴇꜱ!", "ᴘᴀᴛʀᴏʟʙᴏᴛ.xʏᴢ/ꜱᴛᴏʀᴇ ᴛᴏ ᴘᴜʀᴄʜᴀꜱᴇ ᴍʏꜱᴛᴇʀʏ ʙᴏxᴇꜱ!", "ᴘᴀᴛʀᴏʟʙᴏᴛ.xʏᴢ/ᴘʀᴇᴍɪᴜᴍ ꜰᴏʀ 🌟", "ᴘᴀᴛʀᴏʟʙᴏᴛ.xʏᴢ/ᴘʀᴇᴍɪᴜᴍ ꜰᴏʀ 🌟", "ᴘᴀᴛʀᴏʟʙᴏᴛ.xʏᴢ/ᴘʀᴇᴍɪᴜᴍ ꜰᴏʀ 🌟", "!ꜱꜰᴡ ᴏɴ ʀᴇᴍᴏᴠᴇs ᴛʜᴇ 🔞", "!ᴛᴄᴍᴅ ᴅɪsᴀʙʟᴇꜱ ᴀɴʏ ᴄᴏᴍᴍᴀɴᴅ", "!ᴄʜɪʙɪ ᴛᴏ ʀᴇᴅᴜᴄᴇ ɢɪꜰ ꜱɪᴢᴇ", "ᴛʜᴇʀᴇ'ꜱ ᴇᴀꜱᴛᴇʀ ᴇɢɢꜱ ᴛᴏᴏ?!🤐", "!how-to <ᴄᴍᴅ> ɪꜱ ʜᴇʟᴘꜰᴜʟ", "!50-50 ᴛᴏ ꜱᴇᴇ ɢᴏʀᴇ ☠", "!ᴜᴘᴅᴀᴛᴇꜱ ꜰᴏʀ ɴᴇᴡ ɪɴꜰᴏ", "!ɪɴᴠɪᴛᴇ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ꜱᴇʀᴠᴇʀꜱ :)", "!ɪɴᴠɪᴛᴇ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ꜱᴇʀᴠᴇʀꜱ :)", "'!ʀᴇᴘꜱ ɪɴꜰᴏ' ꜰᴏʀ ᴇxᴛʀᴀ 📚🤓", "ʏᴏᴜ ʟᴏꜱᴇ ᴡᴇᴀʟᴛʜ ᴛᴏ ᴛᴀxᴇꜱ ᴇᴠᴇʀʏᴅᴀʏ!", "ʀᴇᴘᴏʀᴛ ᴀɴʏ ʙᴜɢ ʙʏ !ʙᴜɢʀᴇᴘᴏʀᴛ ꜰᴏʀ 🍪", "ᴘʀᴇᴍɪᴜᴍ ɪꜱ ᴊᴜꜱᴛ $3.99/ᴍᴏɴᴛʜ🌟(ᴘᴀᴛʀᴏʟʙᴏᴛ.xʏᴢ/ꜱᴛᴏʀᴇ)", "ᴄᴏᴅᴇ: 'ʟᴇᴛꜱɢᴏ' ꜰᴏʀ 10% ᴏꜰꜰ (ᴘᴀᴛʀᴏʟʙᴏᴛ.xʏᴢ/ꜱᴛᴏʀᴇ) 💲", "ᴏᴘᴇɴ ᴍʏꜱᴛᴇʀʏ ʙᴏxᴇꜱ ᴛᴏ ʟᴇᴠᴇʟ ᴜᴘ ꜰᴀꜱᴛ!", "!ʙᴏᴏꜱᴛᴇʀs ᴛᴏ ᴇᴀʀɴ ᴀ ᴅᴀɪʟʏ ᴍʏꜱᴛᴇʀʏ ʙᴏx & ᴄᴏɪɴꜱ 😋", "ᴛʏᴘᴇ: !ᴄᴍᴅꜱ ᴛᴏ ɢᴇᴛ ʟɪꜱᴛ ᴏꜰ ᴀʟʟ ᴄᴏᴍᴍᴀɴᴅꜱ 🤩", "'!ᴛᴄᴍᴅ ʀᴏʙ' ᴛᴏ ᴅɪꜱᴀʙʟᴇ ᴀʟʟ ʀᴏʙʙɪɴɢ ɪɴ ʏᴏᴜʀ ꜱᴇʀᴠᴇʀ 🚔", "!ꜱᴇᴛᴄʀᴜᴄɪꜰʏ ᴛᴏ ᴄʜᴀɴɢᴇ ᴄʀᴜᴄɪꜰʏ ʟɪᴍɪᴛ", "Always do !ᴛᴀꜱᴋ ɪɴꜰᴏ <ᴄᴏᴅᴇ> more starting a mission!", "ᴇᴀʀɴ ᴛᴏɴꜱ ᴏꜰ ᴍʏꜱᴛᴇʀʏ ʙᴏxᴇꜱ ꜰᴏʀ ꜰʀᴇᴇ ʙʏ ᴅᴏɪɴɢ !tasks 📜", "ᴇᴀʀɴ ᴛᴏɴꜱ ᴏꜰ ᴍʏꜱᴛᴇʀʏ ʙᴏxᴇꜱ ꜰᴏʀ ꜰʀᴇᴇ ʙʏ ᴅᴏɪɴɢ !tasks 📜", "ᴇᴀʀɴ ᴛᴏɴꜱ ᴏꜰ ᴍʏꜱᴛᴇʀʏ ʙᴏxᴇꜱ ꜰᴏʀ ꜰʀᴇᴇ ʙʏ ᴅᴏɪɴɢ !tasks 📜", "ꜰᴜɴ ꜰᴀᴄᴛ: ʏᴏᴜ ᴄᴀɴ ᴡɪɴ ꜰʀᴇᴇ ᴅɪꜱᴄᴏʀᴅ ɴɪᴛʀᴏ ꜰʀᴏᴍ !ꜱʜᴏᴘ 🎁", "ꜰᴜɴ ꜰᴀᴄᴛ: ʏᴏᴜ ᴄᴀɴ ᴡɪɴ ꜰʀᴇᴇ ᴅɪꜱᴄᴏʀᴅ ɴɪᴛʀᴏ ꜰʀᴏᴍ !ꜱʜᴏᴘ 🎁","ꜰᴜɴ ꜰᴀᴄᴛ: ʏᴏᴜ ᴄᴀɴ ᴡɪɴ ꜰʀᴇᴇ ᴅɪꜱᴄᴏʀᴅ ɴɪᴛʀᴏ ꜰʀᴏᴍ !ꜱʜᴏᴘ 🎁", "ꜰᴜɴ ꜰᴀᴄᴛ: ʏᴏᴜ ᴄᴀɴ ᴡɪɴ ꜰʀᴇᴇ ᴅɪꜱᴄᴏʀᴅ ɴɪᴛʀᴏ ꜰʀᴏᴍ !ꜱʜᴏᴘ 🎁", "!ᴛᴀx ᴜᴘɢʀᴀᴅᴇ ᴄᴀɴ ɪɴᴄʀᴇᴀꜱᴇ ʙᴀɴᴋ ꜱᴘᴀᴄᴇ ʙʏ ᴍɪʟʟɪᴏɴꜱ", "!ᴛᴀx ᴜᴘɢʀᴀᴅᴇ ᴄᴀɴ ɪɴᴄʀᴇᴀꜱᴇ ʙᴀɴᴋ ꜱᴘᴀᴄᴇ ʙʏ ᴍɪʟʟɪᴏɴꜱ", "ᴊᴏɪɴ ꜱᴜᴘᴘᴏʀᴛ ꜱᴇʀᴠᴇʀ ꜰᴏʀ ꜰʀᴇᴇ ᴄᴏɪɴꜱ: ᴅɪꜱᴄᴏʀᴅ.ɢɢ/ʜQ 💰", "ᴊᴏɪɴ ꜱᴜᴘᴘᴏʀᴛ ꜱᴇʀᴠᴇʀ ꜰᴏʀ ꜰʀᴇᴇ ᴄᴏɪɴꜱ: ᴅɪꜱᴄᴏʀᴅ.ɢɢ/ʜQ 💰", "ᴊᴏɪɴ ꜱᴜᴘᴘᴏʀᴛ ꜱᴇʀᴠᴇʀ ꜰᴏʀ ꜰʀᴇᴇ ᴄᴏɪɴꜱ: ᴅɪꜱᴄᴏʀᴅ.ɢɢ/ʜQ 💰", "ʙᴜʏ ɢᴀᴍʙʟɪɴɢ ᴄᴀʀᴅ ᴛᴏ ʀᴇᴄᴏʀᴅ ᴀʟʟ ʏᴏᴜʀ ᴡɪɴ-ʟᴏꜱꜱᴇꜱ 🃏", "ʙᴜʏ ɢᴀᴍʙʟɪɴɢ ᴄᴀʀᴅ ᴛᴏ ʀᴇᴄᴏʀᴅ ᴀʟʟ ʏᴏᴜʀ ᴡɪɴ-ʟᴏꜱꜱᴇꜱ 🃏", "ᴠɪꜱɪᴛ !ꜱᴛᴏʀᴇ ᴛᴏ ᴘᴜʀᴄʜᴀꜱᴇ ᴍʏꜱᴛᴇʀʏ ʙᴏxᴇꜱ 🎁", "ᴠɪꜱɪᴛ !ꜱᴛᴏʀᴇ ᴛᴏ ᴘᴜʀᴄʜᴀꜱᴇ ᴍʏꜱᴛᴇʀʏ ʙᴏxᴇꜱ 🎁", "ᴠɪꜱɪᴛ !ꜱᴛᴏʀᴇ ᴛᴏ ᴘᴜʀᴄʜᴀꜱᴇ ᴍʏꜱᴛᴇʀʏ ʙᴏxᴇꜱ 🎁", "ᴄᴏᴅᴇ 'ꜰɪʀꜱᴛ' ꜰᴏʀ 15% ᴏꜰꜰ 1ꜱᴛ !ꜱᴛᴏʀᴇ ᴘᴜʀᴄʜᴀꜱᴇ! 🛍️", "ᴄᴏᴅᴇ 'ꜰɪʀꜱᴛ' ꜰᴏʀ 15% ᴏꜰꜰ 1ꜱᴛ !ꜱᴛᴏʀᴇ ᴘᴜʀᴄʜᴀꜱᴇ! 🛍️", "ᴄᴏᴅᴇ 'ꜰɪʀꜱᴛ' ꜰᴏʀ 15% ᴏꜰꜰ 1ꜱᴛ !ꜱᴛᴏʀᴇ ᴘᴜʀᴄʜᴀꜱᴇ! 🛍️", "ᴄᴏᴅᴇ 'ꜰɪʀꜱᴛ' ꜰᴏʀ 15% ᴏꜰꜰ 1ꜱᴛ !ꜱᴛᴏʀᴇ ᴘᴜʀᴄʜᴀꜱᴇ! 🛍️", "ᴄᴏᴅᴇ 'ꜰɪʀꜱᴛ' ꜰᴏʀ 15% ᴏꜰꜰ 1ꜱᴛ !ꜱᴛᴏʀᴇ ᴘᴜʀᴄʜᴀꜱᴇ! 🛍️", "!ɪɴᴠɪᴛᴇ ᴛᴏ ᴀᴅᴅ ꜰᴜɴ ɴꜱꜰᴡ ᴄᴏᴍᴍᴀɴᴅꜱ 🔞", "!ɪɴᴠɪᴛᴇ ᴛᴏ ᴀᴅᴅ ꜰᴜɴ ɴꜱꜰᴡ ᴄᴏᴍᴍᴀɴᴅꜱ 🔞", "ꜰɪɴᴅ ᴇɢɢꜱ ᴛᴏ ʜᴀᴛᴄʜ ᴄᴏᴏʟ ᴘᴇᴛꜱ 🥚", "!ᴠᴏᴛᴇ ᴄᴀɴ ɴᴏᴡ ɢɪᴠᴇ ʏᴏᴜ ᴇɢɢꜱ 🥚", "ᴘᴇᴛ ʜᴇʟᴘ ʏᴏᴜ ᴡɪᴛʜ ᴛʜᴇɪʀ ᴜɴɪQᴜᴇ ꜱᴋɪʟʟꜱ ᴏʀ ᴛᴏ ʙᴀᴛᴛʟᴇ ᴏᴛʜᴇʀ ᴜꜱᴇʀꜱ!", "ᴛʏᴘᴇ: !ᴘᴇᴛ ᴛᴏ ᴘʟᴀʏ, ᴛʀᴀɪɴ ᴀɴᴅ ᴇᴠᴏʟᴠᴇ ʏᴏᴜʀ ᴘᴇᴛ 🦴", "ʏᴏᴜ ɴᴇᴇᴅ ᴀ ɢʀᴏᴡᴛʜ ꜱᴇʀᴜᴍ ᴛᴏ ᴇᴠᴏʟᴠᴇ ʏᴏᴜʀ ᴘᴇᴛ!", "ᴏɴʟʏ ᴡᴀʏ ᴛᴏ ᴏʙᴛᴀɪɴ ᴀ ɢʀᴏᴡᴛʜ ꜱᴇʀᴜᴍ ɪꜱ ʙʏ ᴜꜱɪɴɢ x25 ɢʀᴏᴡᴛʜ ᴠɪᴀʟꜱ!", "7 ᴅʀᴀɢᴏɴ ʙᴀʟʟꜱ ᴀʀᴇ ʀᴀʀᴇꜱᴛ ᴋɴᴏᴡɴ ɪᴛᴇᴍꜱ ᴡʜɪᴄʜ ᴄᴏᴜʟᴅ ɢʀᴀɴᴛ ᴜꜱᴇʀ'ꜱ ᴀɴʏ ᴡɪꜱʜ!", "ᴘᴜᴛ ʏᴏᴜʀ ᴘᴇᴛ ᴜᴘ ꜰᴏʀ ꜱᴀʟᴇ ᴏʀ ʙᴜʏ ᴏɴᴇ ᴜꜱɪɴɢ !ᴘᴇᴛ-ꜱᴀʟᴇ ᴄᴏᴍᴍᴀɴᴅ!", "ᴛʏᴘᴇ: !command <ᴄᴏᴍᴍᴀɴᴅ ɴᴀᴍᴇ> ᴛᴏ ᴋɴᴏᴡ ᴍᴏʀᴇ ᴀʙᴏᴜᴛ ᴀɴʏ ᴄᴏᴍᴍᴀɴᴅ 🔎", "ᴛʏᴘᴇ: !command <ᴄᴏᴍᴍᴀɴᴅ ɴᴀᴍᴇ> ᴛᴏ ᴋɴᴏᴡ ᴍᴏʀᴇ ᴀʙᴏᴜᴛ ᴀɴʏ ᴄᴏᴍᴍᴀɴᴅ 🔎", "ᴛʏᴘᴇ: !ᴘᴇᴛ ᴛᴏ ᴘʟᴀʏ, ᴛʀᴀɪɴ ᴀɴᴅ ᴇᴠᴏʟᴠᴇ ʏᴏᴜʀ ᴘᴇᴛ 🦴", "ᴛʏᴘᴇ: !ᴘᴇᴛ ᴛᴏ ᴘʟᴀʏ, ᴛʀᴀɪɴ ᴀɴᴅ ᴇᴠᴏʟᴠᴇ ʏᴏᴜʀ ᴘᴇᴛ 🦴", "ᴛʏᴘᴇ: !ʜᴏᴡ-ᴛᴏ ᴇɢɢꜱ ᴛᴏ ᴋɴᴏᴡ ʜᴏᴡ ᴛᴏ ᴏʙᴛᴀɪɴ ᴇɢɢꜱ/ᴘᴇᴛꜱ", "ᴛʏᴘᴇ: !ʜᴏᴡ-ᴛᴏ ᴇɢɢꜱ ᴛᴏ ᴋɴᴏᴡ ʜᴏᴡ ᴛᴏ ᴏʙᴛᴀɪɴ ᴇɢɢꜱ/ᴘᴇᴛꜱ", "Type: !info item/badge/pet <Name> to know more 🔎", "Type: !info item/badge/pet <Name> to know more 🔎", "ᴡʜᴇɴ ʏᴏᴜ ᴅɪᴠᴏʀᴄᴇ ꜱᴏᴍᴇᴏɴᴇ, ɪᴛ ɢɪᴠᴇꜱ 50% ᴏꜰ ʏᴏᴜʀ ᴡᴇᴀʟᴛʜ ᴛᴏ ᴛʜᴇ ᴇꜱᴛʀᴀɴɢᴇᴅ ꜱᴘᴏᴜꜱᴇ!", "ᴍᴀᴋᴇ ꜱᴜʀᴇ ᴛᴏ ᴅᴏ ᴀ ᴘʀᴇɴᴜᴘ ᴡʜᴇɴ ᴍᴀʀʀʏɪɴɢ ꜱᴏᴍᴇᴏɴᴇ ᴛᴏ ᴀᴠᴏɪᴅ ʟᴏꜱɪɴɢ ᴅɪᴠᴏʀᴄᴇ ᴍᴏɴᴇʏ 🤞", "ᴛʏᴘᴇ: !ʜᴏᴡ-ᴛᴏ ᴛᴏ ʟᴇᴀʀɴ ᴀʟʟ ᴀʙᴏᴜᴛ ᴘᴀᴛʀᴏʟ ʙᴏᴛ ᴀɴᴅ ɪᴛ'ꜱ ꜰᴇᴀᴛᴜʀᴇꜱ ‼", "ᴛʏᴘᴇ: !ʜᴏᴡ-ᴛᴏ ᴛᴏ ʟᴇᴀʀɴ ᴀʟʟ ᴀʙᴏᴜᴛ ᴘᴀᴛʀᴏʟ ʙᴏᴛ ᴀɴᴅ ɪᴛ'ꜱ ꜰᴇᴀᴛᴜʀᴇꜱ ‼", "ᴛʏᴘᴇ: !ʜᴏᴡ-ᴛᴏ ᴛᴏ ʟᴇᴀʀɴ ᴀʟʟ ᴀʙᴏᴜᴛ ᴘᴀᴛʀᴏʟ ʙᴏᴛ ᴀɴᴅ ɪᴛ'ꜱ ꜰᴇᴀᴛᴜʀᴇꜱ ‼", "ᴛʏᴘᴇ: !ʜᴏᴡ-ᴛᴏ ᴛᴏ ʟᴇᴀʀɴ ᴀʟʟ ᴀʙᴏᴜᴛ ᴘᴀᴛʀᴏʟ ʙᴏᴛ ᴀɴᴅ ɪᴛ'ꜱ ꜰᴇᴀᴛᴜʀᴇꜱ ‼", "ᴛʏᴘᴇ: !ʜᴏᴡ-ᴛᴏ ᴛᴏ ʟᴇᴀʀɴ ᴀʟʟ ᴀʙᴏᴜᴛ ᴘᴀᴛʀᴏʟ ʙᴏᴛ ᴀɴᴅ ɪᴛ'ꜱ ꜰᴇᴀᴛᴜʀᴇꜱ ‼"]
-        //const FOOTER = randomFooter[Math.floor(Math.random() * randomFooter.length)]
+            const user = await findByUserId(interaction.user.id);
 
-        const choices = interaction.options.getString("item") ?? interaction.options.getString("badge") ?? interaction.options.getString("pet")
-        console.log(choices)
+            let description = `You currently own **${user.items.find((i) => i.name === item.name)?.count || 0}** of this item.\n`;
+            description += `\n➢ Cost: **${item.price ?? "UNKNOWN"}** ${emoji.coins} | Sell: **${item.sellPrice ?? "UNKNOWN"}** ${emoji.coins}\n`;
+            description += `➢ Collateral Price: **${item.collateralPrice}**\n`;
+            if(item.usage) description += `➢ Usage: **${item.usage}**\n`;
 
+            description += `\n\` - \` Can be sold? ${item.data.canBeSold ? "**YES**" : "**NO**"}\n`;
+            description += `\` - \` Can be traded? ${item.data.canBeTraded ? "**YES**" : "**NO**"}\n`;
+            description += `\` - \` Can be used? ${item.data.canBeUsed ? "**YES**" : "**NO**"}\n`;
+            description += `\` - \` Can be bought? ${item.data.canBeBought ? "**YES**" : "**NO**"}\n`;
+            
+            embed = new MessageEmbed()
+                .setTitle(item.name)
+                .setURL("https://patrolbot.xyz/items")
+                .setColor("#ADD8E6")
+                .setThumbnail(emojiToLink(item.icon) || "")
+                .setFooter({ text: `Type: ${item.type}` })
+                .setDescription(`> *${item.description}*\n\n${description}`);
+        } else if(type === "badge") {
+            const badge = resolve(name);
+            if(!badge) return sendError(interaction, "That isn't a valid badge!");
 
+            const userBadges = await findOneOrCreate({ id: interaction.user.id }, { id: interaction.user.id }, BadgesModel);
+
+            const description = 
+                userBadges.badges.find((b: IBadge) => b.name === badge.name) ?
+                    "**You have obtained this badge!**" :
+                    "**You do not have this badge.**"
+
+            embed = new MessageEmbed()
+              .setTitle(badge.name)
+              .setURL("https://patrolbot.xyz/badges")
+              .setColor("#ADD8E6")
+              .setThumbnail(emojiToLink(badge.badge) || "")
+              .setDescription(`> *${badge.description}*\n\n${description}`);
+        } else if(type === "pet") {
+            // todo: pets first
+        }
+
+        if(!embed) return;
+        return interaction.reply({
+            embeds: [embed]
+        })
     }
 }

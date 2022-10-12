@@ -4,6 +4,12 @@ export function findItem(itemName: string) {
 	return items.find((i) => i.name.toLowerCase() === itemName || i.name2.toLowerCase() === itemName || i.alias.toLowerCase() === itemName);
 }
 
+export function emojiToLink(emoji: string, fileType = "png") {
+	const id = emoji.split(":")[2].slice(0, -1);
+	if(!id) return null;
+	return `https://cdn.discordapp.com/emojis/${id}.${fileType}`;
+}
+
 // credits: badosz from dank memer
 function similarityBetween(s1: string, s2: string) {
 	let longer = s1;
