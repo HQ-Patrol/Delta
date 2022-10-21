@@ -78,7 +78,7 @@ export class CandyGambleCommand extends Command {
       await Candy.findOneAndUpdate(
         { id: interaction.user.id },
         {
-          Package: player.Package - 5,
+          Package: player.Package - 4,
           candy: Object.assign(player.candy, {
             // @ts-ignore
             [thestone]: player.candy[thestone] + 1,
