@@ -57,12 +57,12 @@ export class UseCommand extends Command {
 
     const user = await findUserById(interaction.user.id);
     const find = user.items.find((i) => i.name === itemFind.name);
-    if (!find || find.count < quantity) {
-      return sendError(
-        interaction,
-        `You do not have enough ${itemFind.icon} **${itemFind.name}**! You need **${quantity - (find?.count || 0)}** more.`
-      );
-    }
+    // if (!find || find.count < quantity) {
+    //   return sendError(
+    //     interaction,
+    //     `You do not have enough ${itemFind.icon} **${itemFind.name}**! You need **${quantity - (find?.count || 0)}** more.`
+    //   );
+    // }
 	
     const useFunction = getUse(itemFind.name2);
     if(!useFunction) return sendError(interaction, "This item cannot be used yet!");
@@ -73,11 +73,15 @@ export class UseCommand extends Command {
     if(useFunction.waitForSuccess) {
       const response = await useFunction.use(interaction, user, itemFind, quantity);
       if(response) {
-        await removeItemFromUser(interaction.user.id, itemFind.name, quantity, user);
+        console.log("suc");
+        
+        //await removeItemFromUser(interaction.user.id, itemFind.name, quantity, user);
         return;
       }
     } else {
-      await removeItemFromUser(interaction.user.id, itemFind.name, quantity, user);
+      console.log("norm");
+      
+      //await removeItemFromUser(interaction.user.id, itemFind.name, quantity, user);
       return useFunction.use(interaction, user, itemFind, quantity);
     }
   }
